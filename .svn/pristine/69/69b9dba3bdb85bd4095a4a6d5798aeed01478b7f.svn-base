@@ -1,0 +1,41 @@
+<!--subPages/goodpersonThree/goodpersonThree.wxml-->
+<view class="goodperson">
+  <view class="person-list">
+    <view class="person-list-title" bindtap="showTimeSelect">
+      <image class="iconfont" src="http://119.3.196.255:8094/file/icon/Component 13.png"></image>
+      <input type="text" value="{{ selectTime }}" disabled name="mailHandleType" style="width:175rpx"/>
+      <text class="iconfont icon-you" style="line-height: 46rpx;"></text>
+    </view>
+    
+    <view class="comptition-person" wx:for="{{list}}" wx:key="index">
+      <view>
+        <text>{{item.userOrderNum}}</text>
+        <view class="person-right">
+          <image src="{{item.userPic}}"></image>
+          <view class="person-text">
+            <text>{{item.userName}}</text>
+            <view class="star">{{item.uoiIntro}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!--时间选择模态框-->
+    <view class="selectTime {{ isShow ? 'show' : ''}}">
+      <view>
+        选择时间
+        <text bindtap="hiddenTimeSelect">确认</text>
+      </view>
+      <picker-view indicator-style="height: 80rpx;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange">
+        <!-- 年 -->
+        <picker-view-column>
+          <view wx:for="{{years}}" style="line-height: 80rpx" wx:key="index" class="year">{{item}}年</view>
+        </picker-view-column>
+        <!-- 月 -->
+        <picker-view-column>
+          <view wx:for="{{months}}" style="line-height: 80rpx" wx:key="index" class="month">{{item}}月</view>
+        </picker-view-column>
+      </picker-view>
+    </view>
+  </view>
+</view>

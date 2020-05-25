@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "Tools": "../../components/index/tools/tools",
+    "Line": "../../components/public/Line/Line",
+    "Options": "../../components/index/Options/Options",
+    "BaseList": "../../components/public/BaseList/BaseList",
+    "Active": "../../components/index/Active/Active",
+    "Heart": "../../components/index/Heart/Heart"
+  },
+  "navigationBarTitleText": "首页"
+
+}

@@ -1,0 +1,10 @@
+<!--subPages/ableperson/ableperson.wxml-->
+<view class="ableperson">
+  <view class="ableperson-banner" wx:for="{{list}}" wx:key="index">
+    <view class="ableperson-img"><image src="{{item.imgsrc}}" mode="widthFix"></image></view>
+    <view class="ableperson-text">
+      <text  wx:for="{{item.ableLists}}" wx:key="index" wx:for-item="ableLists" bindtap="goTheme"data-url="{{ableLists.texturl}}">               {{ableLists.text}}</text>
+      
+    </view>
+  </view>
+</view>

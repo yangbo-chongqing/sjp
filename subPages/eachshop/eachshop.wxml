@@ -1,0 +1,85 @@
+<!--subPages/eachshop/eachshop.wxml-->
+<view class="shopinfo">
+  <image src="{{shopinfo.doorPic}}" role="img"></image>
+  <view class="iteminfo">
+    <view>{{shopinfo.marketName}}</view>
+    <view>{{shopinfo.marketTypeDesc}}</view>
+    <view>{{shopinfo.businessHours}}</view>
+    <view>
+      <text class="iconfont icon-dingweiweizhi"></text>
+      <text>{{shopinfo.address}}</text>
+    </view>
+  </view>
+</view>
+
+<view class="storeitembox" wx:for="{{goodslist}}" wx:key="index">
+  <view class="storeitem">
+    <view class="storetop">
+      <image src="{{item.goodsPic}}" role="img"></image>
+      <view class="rightinfo">
+        <view class="righttitle">{{item.goodsName}}</view>
+        <view class="rightbot">
+          <image class="gold" src="http://119.3.196.255:8094/file/icon/Rectangle 205.png" role="img"></image>
+          <text>{{item.integral}}积分</text>
+          <view>库存{{item.stockNum}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="score_change">
+      <view>
+        <text class="iconfont {{item.score>=1||item.score==0?'icon-Starlarge':'icon-star1'}} starcolor"></text>
+        <text class="iconfont {{item.score>=2?'icon-Starlarge':'icon-star1'}} starcolor"></text>
+        <text class="iconfont {{item.score>=3?'icon-Starlarge':'icon-star1'}} starcolor"></text>
+        <text class="iconfont {{item.score>=4?'icon-Starlarge':'icon-star1'}} starcolor"></text>
+        <text class="iconfont {{item.score>=5?'icon-Starlarge':'icon-star1'}} starcolor"></text>
+
+        <text class="starcolor">{{item.score==0?1:item.score}}</text> 分
+      </view>
+      <view class="changebtn" catchtap="exchange" data-id="{{item.goodsId}}">兑换积分</view>
+    </view>
+  </view>
+</view>
+
+<view class="LeadModal {{ isShow ? 'active':''}}" catchtouchmove="preventTouchMove">
+  <view class="info">
+    <view class="iconfont icon-guanbi xbtn" catchtap="close"></view>
+
+    <view class="storeitem">
+      <view class="storetop">
+        <image src="{{goodsone.goodsPic}}" role="img"></image>
+        <view class="rightinfo">
+          <view class="righttitle">{{goodsone.goodsName}}</view>
+          <view class="rightbot">
+            <image class="gold" src="http://119.3.196.255:8094/file/icon/Rectangle 205.png" role="img"></image>
+            <text>{{goodsone.integral}}积分</text>
+            <view>库存{{goodsone.stockNum}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="exchangestar">
+        <view class="evaluate">
+          <text class="iconfont {{goodsone.score>1||goodsone.score==0?'icon-Starlarge':'icon-star1'}} starcolor"></text>
+        <text class="iconfont {{goodsone.score>2?'icon-Starlarge':'icon-star1'}} starcolor"></text>
+        <text class="iconfont {{goodsone.score>3?'icon-Starlarge':'icon-star1'}} starcolor"></text>
+        <text class="iconfont {{goodsone.score>4?'icon-Starlarge':'icon-star1'}} starcolor"></text>
+        <text class="iconfont {{goodsone.score>5?'icon-Starlarge':'icon-star1'}} starcolor"></text>
+
+        <text class="starcolor">{{goodsone.score==0?1:goodsone.score | Int}}</text> 分
+        </view>
+        <view class="goodscount">
+          <view>兑换数量</view>
+          <view class="calculation">
+            <text class="iconfont icon-jian minus" catchtap="minus"></text>
+            <text class="goodsnum">{{goodscount}}</text>
+            <text class="iconfont icon-jia add" catchtap="add"></text>
+          </view>
+        </view>
+        <view class="bottombtn" bindtap="convert" data-id="{{goodsone.goodsId}}">
+        
+        积分兑换
+        
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

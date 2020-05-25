@@ -1,0 +1,19 @@
+<!--com/communityactivity/communityactivity.wxml-->
+<wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
+
+<view class="comItem" wx:for="{{comList}}" wx:key="index">
+  <image src="{{item.coverPic}}" role="img"></image>
+  <view class="itemList">
+    <text class="comTitle">{{item.title}}</text>
+    <text>活动类型：{{item.dictType}}</text>
+    <text>活动地点：{{item.address}}</text>
+    <text>活动时间：{{filter.timesub4(item.startTime)}}</text>
+    <text bindtap="handlePhone" data-ph="{{item.remark}}">活动电话：{{item.remark}}</text>
+    <view class="points">
+        消耗积分：
+    <image class="gold" src="http://119.3.196.255:8094/file/icon/Rectangle 205.png" role="img"></image>
+        <text>{{item.integral==null?'0':item.integral}}积分</text>
+    </view>
+  
+  </view>
+</view>

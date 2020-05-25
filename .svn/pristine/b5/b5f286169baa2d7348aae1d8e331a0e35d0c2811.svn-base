@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "Dialog": "../../components/dialog/dialog"
+  },
+  "navigationBarTitleText": "能人核销",
+  "navigationBarTextStyle": "black"
+}

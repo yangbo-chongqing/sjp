@@ -1,0 +1,57 @@
+/* components/index/Active/Active.wxss */
+.indexActive {
+    width: 100%;
+    box-sizing: border-box;
+}
+.indexActive > .Item {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 32rpx 30rpx 40rpx 30rpx;
+    height: 304rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.indexActive > .Item > image {
+    width: 240rpx;
+    height: 234rpx;
+}
+
+.indexActive > .Item > .info {
+    width: 436rpx;
+    height: 234rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.indexActive > .Item > .info >.title {
+    font-family: PingFang SC;
+    font-weight: bold;
+    font-size: 32rpx;
+    line-height: 44rpx;
+    color: #454545;
+}
+.indexActive > .Item > .info > view {
+    font-family: PingFang SC;
+    font-size: 24rpx;
+    line-height: 38rpx;
+    color: #999999;
+}
+
+.indexActive > .Item > .info > .points > image{
+    width: 28rpx;
+    height: 28rpx;
+    vertical-align: middle;
+    margin-right: 4rpx;
+}
+
+.indexActive > .Item > .info > .points > text {
+    font-family: PingFang SC;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24rpx;
+    line-height: 34rpx;
+    color: #D33333;
+}

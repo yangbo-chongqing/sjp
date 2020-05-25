@@ -1,0 +1,17 @@
+<!--components/Lead/PersonList/PersonList.wxml-->
+<view class="PersonList">
+    <view class="item" wx:for="{{ personList }}"
+          wx:key="index"
+          bindtap="handleToggleModal"
+          data-index="{{ index }}"
+    >
+        <view>
+            <image src="{{ item.leadPic }}"/>
+            <view>
+                <text class="personName">{{ item.leadName }}</text>
+                <text class="position">{{ item.leadJob }}</text>
+            </view>
+        </view>
+        <i class="iconfont icon-you"></i>
+    </view>
+</view>

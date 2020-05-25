@@ -1,0 +1,11 @@
+<!--components/joinsuccess/joinsuccess.wxml-->
+<view class="model" wx:if="{{showModel}}">
+  <view class="modelContent">
+    <text class="iconfont icon-message_SendSuccessfully font"></text>
+    <view class="successname">报名成功！等待审核</view>
+    <view class="closebtn" bindtap="closemodel">关闭</view>
+
+  </view>
+
+
+</view>

@@ -1,0 +1,17 @@
+<!--subPages/psyTeacherdetalis/psyTeacherdetalis.wxml-->
+<view class="deme-details">
+  <view>
+    <image src="{{img}}" lazy-load="true"></image>
+    <view class="deme-details-left">
+      <text class="name">姓名：{{name}}</text>
+      <text>职务头衔：{{zw}}</text>
+      <!-- <text class="age">出生年月：{{age}}</text>
+      <text class="time">职务时间：{{time}}</text>
+      <text class="party">所在单位：{{zb}}</text> -->
+    </view>
+  </view>
+  <view class="details-introduction">
+    <text class="details-title">简介:</text>
+    <view class="introduction-brief">{{text}}</view>
+  </view>
+</view>

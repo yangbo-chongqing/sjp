@@ -1,0 +1,63 @@
+/* subPages/moreVolunteerActivity/viewdetail/viewdetail.wxss */
+.activityTitle{
+  border-top:2rpx solid #f5f5f5;
+  font-size:48rpx;
+  color:#000;
+  font-weight: 600;
+  line-height:60rpx;
+  padding:0 30rpx;
+
+  /* display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 2;
+overflow: hidden; */
+}
+.activitTop{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding:0 30rpx 30rpx;
+  margin:20rpx 0 0 0;
+  border-bottom:2rpx solid #f5f5f5;
+
+}
+.activitTop>image{
+  width:88rpx;
+  height:88rpx;
+  border-radius: 50%;
+  display: block;
+  margin-right: 20rpx;
+}
+.createInfo{
+  flex: 1;
+  display: flex;
+  flex-direction:column;
+  justify-content: space-between; 
+}
+.createName{
+  font-size:28rpx;
+  color:#000;
+}
+.createTime{
+  font-size:24rpx;
+color:#999;
+}
+.joinNum{
+  font-size:24rpx;
+}
+.joinNum>text{
+  color:#D33333;
+}
+.content{
+  padding:30rpx;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.activitTop .createtxt{
+  font-size: 24rpx;
+  color: #999;
+}
+.info {
+  width: 100% ;
+}

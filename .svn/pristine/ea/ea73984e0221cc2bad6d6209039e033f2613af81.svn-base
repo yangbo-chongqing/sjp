@@ -1,0 +1,149 @@
+// 时间格式 2012年10月21日
+var timesub1 = function(val) {
+  if (val) {
+    var time = val.split(" ")[0].split("-")
+    return time[0] + "年" + time[1] + "月" + time[2] + "日"
+  } else {
+
+  }
+
+}
+// 时间格式 2012/10/21
+
+var timesub2 = function (val) {
+  if (val) {
+    var time = val.split(" ")[0].split("-")
+    return time[0] + "/" + time[1] + "/" + time[2]
+  } else {
+
+  }
+
+}
+// 时间格式 2012.10.21
+
+var timesub3 = function (val) {
+  if (val) {
+    var time = val.split(" ")[0].split("-")
+    return time[0] + "." + time[1] + "." + time[2]
+  } else {
+
+  }
+
+}
+// 时间格式 2012/10/21 11:12
+
+var timesub4 = function (val) {
+  if (val) {
+    var time = val.split(" ")
+    return time[0].split("-")[0] + "/" + time[0].split("-")[1] + "/" + time[0].split("-")[2] + " " + time[1].split(":")[0] + ":" + time[1].split(":")[1]
+  } else {
+
+  }
+
+}
+
+// 时间格式 2012年10月21日 11:12
+
+var timesub5 = function (val) {
+  if (val) {
+    var time = val.split(" ")
+    return time[0].split("-")[0] + "年" + time[0].split("-")[1] + "月" + time[0].split("-")[2] + " " + time[1].split(":")[0] + ":" + time[1].split(":")[1]
+  } else {
+
+  }
+
+}
+
+// 时间格式 2012-10-21
+
+var timesub6 = function (val) {
+  if (val) {
+    var time = val.split(" ")[0].split("-")
+    return time[0] + "-" + time[1] + "-" + time[2]
+  } else {
+
+  }
+
+}
+
+// 时间格式 2012-10-21 00：00
+
+var timesub7 = function (val) {
+  if (val) {
+    var time = val.split(" ")
+    return time[0].split("-")[0] + "-" + time[0].split("-")[1] + "-" + time[0].split("-")[2] + " " + time[1].split(":")[0] + ":" + time[1].split(":")[1]
+  } else {
+
+  }
+
+}
+
+// 图片截取
+var picsub=function(val,num=0){
+  if (val) {
+    var src = val.split(',')[num];
+    if (!src) {
+      return 
+    } else if (src.indexOf(',') != -1) {
+      var srcul = val.split(",")[num]
+      return srcul
+    } else {
+      return src
+    }
+  }
+}
+//活动积分加减号拼接
+var add=function(val){
+  if(val){
+    if(val<0){
+      return val
+    }else{
+      return "+"+val
+    }
+  }
+}
+//正则去标签图片
+var htmlstr=function(val){
+  if(val){
+    var reg = getRegExp("<[^>]+>", "g");
+    var result = val.replace(reg, '');
+    return result;
+
+  }
+}
+
+// 取整
+var filters = {
+  toFix: function (value) {
+    return parseFloat(value)
+  }
+}
+
+// 比较时间
+var time = function(endtime){
+  var bijiao = getDate(endtime) - getDate(); //判断结束时间减去当前时间 ，如果当前时间小于0则为True
+  console.log(bijiao)
+  return bijiao < 0 ? true : false;
+}
+
+var time1 = function(endtime){
+  var bijiao = getDate(endtime) - getDate(); //判断结束时间减去当前时间 ，如果当前时间大于0则为True
+  // console.log(bijiao)
+  return bijiao > 0 ? true : false;
+}
+
+module.exports = {
+  timesub1: timesub1,
+  timesub2: timesub2,
+  timesub3: timesub3,
+  timesub4: timesub4,
+  timesub5: timesub5,
+  timesub6: timesub6,
+  timesub7: timesub7,
+  picsub: picsub,
+  add: add,
+  htmlstr: htmlstr,
+  toFix: filters.toFix,
+  time:time,
+  time1:time1,
+}

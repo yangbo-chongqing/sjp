@@ -1,0 +1,28 @@
+<!--subPages/servelog/servelog.wxml-->
+<view class="logBox" wx:for="{{list}}" wx:key="index">
+  <view class="logLeft">
+    <view>
+      <text>服务名称：</text>
+      <text>{{item.projectName}}</text>
+    </view>
+    <view>
+      <text>用户姓名：</text>
+      <text>{{item.createUserName}}</text>
+    </view>
+    <view>
+      <text>提交时间：</text>
+      <text>{{item.createDate}}</text>
+    </view>
+    <view>
+      <text>完成时间：</text>
+      <text>{{item.endTime?item.endTime:""}}</text>
+    </view>
+  </view>
+  <image wx:if="{{item.status==0}}" src="http://119.3.196.255:8094/file/icon/weishouli.png" role="img" class="logRight" />
+  <image wx:if="{{item.status==1}}" src="http://119.3.196.255:8094/file/icon/chulizhong.png" role="img" class="logRight" />
+  <image wx:if="{{item.status==2}}" src="http://119.3.196.255:8094/file/icon/yiwancheng.png" role="img" class="logRight" />
+  <image wx:if="{{item.status==3}}" src="http://119.3.196.255:8094/file/icon/yiquxiao.png" role="img" class="logRight" />
+
+
+
+</view>

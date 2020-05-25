@@ -1,0 +1,51 @@
+/* subPages/voicedetail/voicedetail.wxss */
+.detailbox{
+  padding:30rpx;
+}
+.detailtitle{
+  font-size:48rpx;
+  font-weight: 600;
+  color:#444;
+  margin-bottom:20rpx;
+}
+.detailitem{
+  color:#8A8A8A;
+  font-size: 28rpx;
+  line-height: 200%;
+}
+.borderbot{
+  border-bottom:2rpx solid #f5f5f5;
+  padding-bottom:20rpx;
+}
+.detailitem>text{
+  color:#333;
+}
+.itemfirst{
+  display: flex;
+  justify-content: flex-start;
+}
+.itemfirst>text:first-child{
+  flex: 1;
+}
+
+.richcontent{
+  width:100%;
+  margin-top:40rpx;
+}
+.detailitem .status{
+  color:#d33333;
+  font-size:28rpx;
+
+}
+.color1{
+  color: #d33333 !important;
+
+}
+.color2{
+  color: #ffa200 !important;
+
+}
+.color3{
+  color: #E6E6E6 !important;
+
+}

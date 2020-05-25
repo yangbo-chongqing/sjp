@@ -1,0 +1,39 @@
+<!--pages/chngepsd/chngepsd.wxml-->
+<top_nav mytop="{{mytop}}"></top_nav>
+<view class="topbox">
+
+
+  <image src="http://www.mlxc365.com/images/wuzai/information/20191120113151744.jpg" role="img"></image>
+</view>
+
+<form bindsubmit="formSubmit">
+  <view class="all">
+    <view class="logintitle">
+      <text>输入新密码</text>
+      <text>欢迎使用石井坡党群服务云</text>
+    </view>
+    <view class="formcontent">
+
+      <view class="formitem">
+        <text wx:if="{{one == 1}}">号码</text>
+        <input type="text" bindfocus="change" bindblur="inChange" name="userName"
+        data-show="1" placeholder="手机号" />
+      </view>
+      <view class="formitem bot">
+        <text  wx:if="{{two == 1}}">输入新密码</text>
+        <input type="password" bindfocus="change" bindblur="inChange" name="password" maxlength="30 "
+        data-show="2"  placeholder="输入密码" />
+      </view>
+      <view class="formitem bot">
+        <text  wx:if="{{three == 1}}">确认新密码</text>
+        <input type="password" bindfocus="change" bindblur="inChange" name="newpassword" maxlength="30"
+        data-show="3"  placeholder="确认密码" />
+      </view>
+      
+
+      <button class="form" formType="submit">确认</button>
+    </view>
+
+  </view>
+</form>
+

@@ -1,0 +1,54 @@
+/* subPages/emotionTome/emotionTome.wxss */
+.forme{
+  border-top: 2rpx solid #f5f5f5;
+}
+.forme>view{
+  border-bottom: 2rpx solid #f5f5f5;
+}
+.forme-list{
+  padding: 32rpx 30rpx 42rpx 30rpx;
+}
+.forme-title{
+  margin-bottom: 42rpx;
+}
+.forme-title>view:first-child>image{
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+}
+.forme-title>view:first-child{
+  display: flex;
+  align-items: center;
+}
+.title-right{
+  margin-left: 24rpx;
+}
+.title-right>text{
+  font-size: 28rpx;
+  color: #444;
+  margin-bottom: 16rpx;
+}
+.title-time{
+  font-size: 20rpx;
+  color: #8a8a8a;
+}
+.content-replay{
+  margin-bottom: 32rpx;
+}
+.content-replay>text,
+.content-original>text{
+  font-size: 28rpx;
+  color: #444;
+}
+.content-replay>text:last-child{
+  color: #049DFB;
+}
+.forme-content>view:last-child{
+  background: #F5F5F5;
+}
+.content-original{
+  padding: 24rpx 32rpx 30rpx 32rpx;
+}
+.content-original>text:first-child{
+  color: #D33333;
+}

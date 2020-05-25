@@ -1,0 +1,80 @@
+<!--subPages/addneed/addneed.wxml-->
+<form class="needbox" bindsubmit="formSubmit">
+  <view class="line">
+    <!-- <view class="needone bordertop">
+      <view>
+        <text>*</text>
+        <text>事件标题：</text>
+      </view>
+      <input type="text" class="inp" name="needName" placeholder="请输入标题" />
+      <view class="iconfont icon-you"></view>
+
+    </view> -->
+    <view class="needone bordertop">
+      <view>
+        <text>*</text>
+        <text>项目类型：</text>
+      </view>
+      <picker bindchange="xlChange" value="{{idx}}" range="{{list}}" range-key="dictItemName">
+        <view class="picker" wx:if="{{idx}}">
+          {{list[idx].dictItemName}}
+        </view>
+        <view class="nothing" wx:else>
+          请选择
+        </view>
+      </picker>
+      <view class="iconfont icon-you"></view>
+
+    </view>
+    <view class="needone bordertop">
+      <view>
+        <text>*</text>
+        <text>项目名称：</text>
+      </view>
+      <picker bindchange="namechange" bindtap="click" disabled='{{bool}}' value="{{idx2}}" range="{{projectname}}" range-key="projectName">
+        <view class="picker" wx:if="{{idx2}}">
+          {{projectname[idx2].projectName}}
+        </view>
+        <view class="nothing" wx:else>
+          请选择
+        </view>
+      </picker>
+      <view class="iconfont icon-you"></view>
+
+    </view>
+    <!-- <view class="needone">
+      <view>
+        <text>*</text>
+        <text>详细地址：</text>
+      </view>
+      <input type="text" class="inp" placeholder="请输入标题" />
+      <view class="iconfont icon-you"></view>
+    </view> -->
+    <view class="textinfo">
+      <view class="texttitle">
+        <text>*</text>
+        <text>事件说明</text>
+      </view>
+      <textarea class="textcontent" name="needInfo" placeholder="请输入详细说明">
+      </textarea>
+    </view>
+    <view class="textinfo top0">
+      <view class="texttitle">
+        <text></text>
+        <text>图片上传</text>
+      </view>
+      <view class="imgall">
+        <view wx:for="{{src}}" wx:key="index" class="imgone">
+          <image src="{{item}}"></image>
+          <text class="del iconfont icon-guanbi" bindtap="del" data-index="{{index}}"></text>
+        </view>
+        <view wx:if="{{add}}" bindtap="uppic" class="add">
+          <view class="iconfont icon-jiahao"></view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+    <button formType="submit" class="subbtn">发布</button>
+
+</form>

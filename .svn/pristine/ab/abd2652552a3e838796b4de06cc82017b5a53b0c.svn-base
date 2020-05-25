@@ -1,0 +1,5 @@
+<view id="container">
+  <text>工作室简介</text>
+  <text>工作室风采</text>
+  <text>媒体报道</text>
+</view>

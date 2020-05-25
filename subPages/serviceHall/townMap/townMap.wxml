@@ -1,0 +1,43 @@
+<!--subPages/serviceHall/townMap/townMap.wxml-->
+<view class="townMap">
+  <map class="mapbox" 
+    markers="{{markers}}" 
+    longitude="{{longitude}}"
+    latitude="{{latitude}}"
+    bindmarkertap="onMarkerTap"
+    scale="10"
+  >
+    <view class="boximg">
+      <view class="industry" bindtap="switchIcon" data-type="1">
+          <image wx:if="{{ screen == 1 }}" src="http://119.3.196.255:8094/file/icon/Group 192.png"/>
+          <image wx:else src="http://119.3.196.255:8094/file/icon/Group 191.png"/>
+      </view>
+      <view class="people" bindtap="switchIcon" data-type="2">
+          <image wx:if="{{ screen == 2 }}" src="http://119.3.196.255:8094/file/icon/Group 193.png"/>
+          <image wx:else src="http://119.3.196.255:8094/file/icon/Group 194.png"/>
+      </view>
+    </view>
+  </map>
+  <!-- 弹框 -->
+  <view class="partyModal {{ isshow ?'active':''}}">
+    <view class="modelbox">
+        <view class="top">
+            <view>
+                <text class="personName">当前机构</text>
+            </view>
+            <i class="iconfont icon-guanbi" bindtap="toggleModal" data-index="{{ 0 }}"></i>
+        </view>
+        <view class="bottom">
+           <view class="botone">
+              <view class="one">{{popupMess.mapName}}</view>
+              <view class="two">距离当前位置{{distance}}km</view>
+           </view>
+           <view class="bottwo">
+             <view bindtap="toNavigation">
+              <image src="http://119.3.196.255:8094/file/50002/2020/01/be7f8949-ae17-469a-aa45-82c74d5470ee.png"/>
+             </view>
+           </view>
+        </view>
+    </view>
+</view>
+</view>

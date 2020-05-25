@@ -1,0 +1,55 @@
+/* subPages/judLaw/judLaw.wxss */
+#judLaw{
+  border-top: 1px solid #f5f5f5;
+}
+#judLaw .list-main{
+  margin: 32rpx 32rpx 34rpx 30rpx;
+}
+#judLaw .train-list image{
+  width: 220rpx;
+  height: 160rpx;
+  border-radius: 4rpx;
+}
+#judLaw .train-list-detail{
+  display: inline-block;
+}
+#judLaw .train-list-detail>view:first-child{
+  font-size: 36rpx;
+  width: 440rpx;
+  height: 97rpx;
+  color: #444;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-left: 22rpx;
+  margin-bottom: 37rpx;
+}
+#judLaw .train-list-detail>view:nth-child(2){
+  height: 42rpx;
+}
+#judLaw .train-list-detail .train-time{
+  display: inline-block;
+  font-size: 20rpx;
+  color: #999;
+  margin-left: 24rpx;
+  align-items: center;
+  line-height: 42rpx;
+}
+#judLaw .train-order{
+  float: right;
+  margin-left: 30rpx;
+  color: #999;
+  font-size: 20rpx;
+  line-height: 42rpx;
+}
+#judLaw .train-order>text{
+  color: #d33333;
+  font-size: 20rpx;
+}
+#judLaw .line{
+  width: 95%;
+  height: 1px;
+  background: #f5f5f5;
+  margin: auto;
+}

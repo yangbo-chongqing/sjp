@@ -1,0 +1,20 @@
+<!--subPages/gasstation/twodetail/twodetail.wxml-->
+<wxs src="../../../assets/filter/public.wxs" module="filter"></wxs>
+
+<view class="activityTitle">
+  {{detail.things_title}}
+</view>
+<view class="activitTop">
+  <!-- <image src="{{detail.userPic}}" role="img"></image> -->
+  <view class="createInfo">
+    <!-- <text class="createName">{{detail.name}}</text> -->
+    <text class="createTime">{{filter.timesub6(detail.things_create_time)}}</text>
+  </view>
+  <view class="joinNum">
+    <text>{{detail.things_view_num}}</text>次浏览
+  </view>
+</view>
+<view class="content">
+  <rich-text nodes="{{text}}" bindtap="chooseImg" />
+
+</view>

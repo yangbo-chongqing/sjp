@@ -1,0 +1,52 @@
+<!--subPages/gridservice/gridservice.wxml-->
+<wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
+<view class="gridservice">
+<!-- 头部按钮 -->
+  <view>
+    <view class="grid-banner" bindtap="wgzu">
+      <view class="banner-organization banner">
+        <view>
+          <image src="http://119.3.196.255:8094/file/icon/Group 195.png" lazy-load="true"></image>
+        </view>
+        <text>网格组织</text>
+      </view>
+    </view>
+    <view class="grid-banner" bindtap="wgzd">
+      <view class="banner-organization banner">
+        <view>
+          <image src="http://119.3.196.255:8094/file/icon/Group 197.png" lazy-load="true"></image>
+        </view>
+        <text>网格阵地</text>
+      </view>
+    </view>
+    <view class="grid-banner" bindtap="wglog">
+      <view class="banner-organization banner">
+        <view>
+          <image src="http://119.3.196.255:8094/file/icon/Group 198.png" lazy-load="true"></image>
+        </view>
+        <text>网格日志</text>
+      </view>
+    </view>
+  </view>
+  <view class="lines"></view>
+
+
+  <!-- 第二部分 -->
+  <view class="grid-list">
+    <view class="grid-title">
+      <view>
+        <image class="iconfont" src="http://119.3.196.255:8094/file/icon/Component 13.png"></image>
+        <text>党员学习生活</text>
+      </view>
+      <view class="grid-line"></view>
+      <text>发展文明社区，打造科创未来</text>
+    </view>
+    <view class="grid-main">
+      <view class="grid-main-list" wx:for="{{list}}" wx:key="index" bindtap="goListDetails" data-id="{{index}}" data-item="{{ item }}">
+        <text>{{item.createUserName}}</text>
+        <text>{{item.gridLogTypeDesc}}</text>
+        <text>{{filter.timesub2(item.createDate)}}</text>
+      </view>
+    </view>
+  </view>
+</view>

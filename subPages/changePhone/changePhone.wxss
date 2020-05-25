@@ -1,0 +1,115 @@
+/* subPages/changePhone/changePhone.wxss */
+.topbox {
+  width: 100%;
+  height: 270rpx;
+  /* background: url("http://119.3.196.255:8094/file/icon//Group 183.png") no-repeat; */
+  background-size: 100%;
+  position: relative;
+}
+
+.imgbox {
+  width: 176rpx;
+  height: 176rpx;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+  background: #fff;
+  /* box-shadow: 0px 8rpx 8rpx rgba(215, 63, 63, 0.25); */
+  border-radius: 10rpx;
+}
+
+.imgbox>image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.all {
+  width: 516rpx;
+  margin: 0 auto;
+}
+
+.logintitle {
+  /* text-align: center; */
+  padding: 50rpx 0;
+}
+
+.logintitle>text:first-child {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-right: 30rpx;
+}
+
+.logintitle>text:last-child {
+  font-size: 24rpx;
+}
+
+.formitem {
+  border: 2rpx solid #d33333;
+  height: 88rpx;
+  position: relative;
+  margin-bottom: 70rpx;
+}
+
+.bot {
+  display: flex;
+  align-items: center;
+  
+}
+.bot>input{
+ flex: 1;
+}
+.bot>view{
+  background: #d33333;
+  color:#fff;
+  font-size:28rpx;
+  width:170rpx;
+  height:100%;
+  line-height: 88rpx;
+  text-align: center;
+}
+
+.formitem>text {
+  position: absolute;
+  top: -22rpx;
+  left: 15rpx;
+  background: #fff;
+  display: block;
+  font-size: 28rpx;
+  padding: 0 10rpx;
+  text-align: center;
+}
+
+.formitem > input {
+  height: 100%;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+}
+
+.fontcolor {
+  font-size: 24rpx;
+  color: #454545;
+  margin-bottom: 100rpx;
+}
+
+.form {
+  /* width: 516px; */
+  height: 88rpx;
+  background: #d33333;
+  color: #fff;
+  font-size: 32rpx;
+  margin: 0 auto;
+  line-height: 59rpx;
+  margin-top:80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+button:not([size='mini']){
+  width:100%;
+}
+button{
+  font-size: 32rpx;
+  padding: 0;
+  border-radius: none;
+}

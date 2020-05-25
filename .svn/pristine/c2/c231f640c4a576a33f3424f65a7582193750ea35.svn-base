@@ -1,0 +1,27 @@
+<!--pages/integral/integral.wxml-->
+<view class="all">
+  <view class="line"></view>
+  <view class="itemTitle">
+    <image src="https://webservers.sjpdqfwzx.com/file/icon/Component 13.png" />
+    <text>志愿活动</text>
+    <view bindtap="goMore" data-url="/subPages/moreVolunteerActivity/moreVolunteerActivity">更多
+      <text class="iconfont icon-you"></text>
+    </view>
+  </view>
+  <volunteer acList="{{ acList }}" bind:godetail="godetail" />
+  <view class="itemTitle">
+    <image src="https://webservers.sjpdqfwzx.com/file/icon/Component 13.png" />
+    <text>社区活动预告</text>
+    <view bindtap="goMore" data-url="/subPages/moreCommityActivity/moreCommityActivity">更多
+      <text class="iconfont icon-you"></text>
+    </view>
+  </view>
+  <community comList="{{comList}}" bind:gocom="gocomdetail" />
+  <view class="line"></view>
+  <view class="itemTitle">
+    <image src="https://webservers.sjpdqfwzx.com/file/icon/Component 13.png" />
+    <text>学习初心不改</text>
+  </view>
+  <studynews studyList="{{studyList}}" bind:gostudy="gostudydetail"/>
+
+</view>

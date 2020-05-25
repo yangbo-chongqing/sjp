@@ -1,0 +1,11 @@
+<!--领导班子页面-->
+<view id="Lead">
+    <view class="address">
+        <image class="iconfont" src="http://119.3.196.255:8094/file/icon/Component 13.png"></image>
+        <text>石井坡街道</text>
+    </view>
+   <!--人物列表-->
+    <PersonList personList="{{ personList }}" bind:toggleModal="toggleModal"/>
+    <!--弹出的模态框-->
+    <Modal person="{{ person }}" bind:toggleModal="toggleModal" isShow="{{ isShow }}"/>
+</view>

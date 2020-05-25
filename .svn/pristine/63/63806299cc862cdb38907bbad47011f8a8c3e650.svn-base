@@ -1,0 +1,19 @@
+<!--components/serviceHall/PartyList/PartyList.wxml-->
+<view class="PartyList">
+    <view class="type {{ flag === index ?'active' : '' }}"
+          wx:for="{{ partyList }}"
+          wx:key="index"
+    >
+        <view class="title"
+             bindtap="handleToggleParty"
+             data-index="{{ index }}"
+             >
+            <view>
+                <i class="iconfont icon-you" />
+                {{ item.orgName }}
+            </view>
+            <text>{{ item.listMember.length }}</text>
+        </view>
+        <FrameworkList FrameworkList="{{ item.listMember }}" bind:toggleModal="toggleModal"/>
+    </view>
+</view>

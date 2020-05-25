@@ -1,0 +1,85 @@
+/* subPages/forum/partyDetails/partyDetails.wxss *//* subPages/forum/partyDay/partyDay.wxss */
+.page{
+  background: #f5f5f5;
+}
+.partyDetails{
+  box-sizing: border-box; 
+  padding: 0 30rpx;
+}
+.newsDetails{
+  padding: 4rpx 30rpx;
+  background: #ffffff;
+}
+.eleganbox{
+  width: 100%;
+}
+.eleganbox .elegantext{
+  width: 100%;
+  line-height: 1.5;
+}
+.elegantext text{
+  font-size: 48rpx;
+  color: #444444;
+  font-weight: 600;
+}
+.elenganPortrait{
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.elenganPortrait .portext{
+  width: 100%;
+  margin-top: 20rpx;
+  margin-bottom: 48rpx;
+}
+
+.portext .firstText{
+  width: 100%;
+   display: flex;
+  justify-content: space-between;
+}
+.portext .firstText text:nth-child(1){
+  font-size: 28rpx;
+  color: #8A8A8A;
+}
+.portext .firstText .mintext{
+  font-size: 24rpx;
+  color: #8A8A8A;
+}
+.portext .firstText .mintext text{
+  font-size: 24rpx;
+  color: #D33333;
+}
+.portext .lastText{
+  width: 100%
+}
+.portext .lastText text{
+  font-size: 24rpx;
+  color: #999999;
+}
+.detailContent{
+  width: 100%;
+  padding: 60rpx 0 0 0;
+  border-top: 2rpx solid #DADADA; 
+}
+.detailContent .textde{
+  font-size: 32rpx;
+  color: #444444;
+  text-indent:2em;
+}
+.detailContent .dataimges{
+  width: 100%;
+  height: 210rpx;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  margin: 16rpx 0;
+}
+.detailContent .dataimges image{
+  width: 100%;
+}
+.detailContent .textdes{
+  font-size: 32rpx;
+  color: #444444;
+  text-indent:4em;
+}

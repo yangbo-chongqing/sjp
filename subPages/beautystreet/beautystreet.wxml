@@ -1,0 +1,47 @@
+<!--subPages/beautystreet/beautystreet.wxml-->
+<wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
+
+<scroll-view scroll-x="{{true}}" scroll-left="{{x}}" class="scroll" scroll-with-animation="{{true}}">
+  <view class="scrollbox">
+    <view class="scrollitem {{id==item.deptId?'active':''}}" bindtap='switchTap' data-id="{{item.deptId}}" data-index="{{index}}" wx:for="{{navlist}}" wx:key="index">{{item.areaName}}</view>
+  </view>
+</scroll-view>
+<view class="contentbox" bindtap="gopic" wx:for="{{list}}" data-title="{{item.dict_item_name}}" data-type="{{item.dict_item_code}}"  wx:key="index" data-url="/subPages/streetpic/streetpic">
+  <view class="contentitem">
+    <view class="itemtitle">
+      <text>{{item.dict_item_name}}</text>
+      <text>更多</text>
+      <text class="iconfont icon-left-copy"></text>
+    </view>
+    <view class="contentpic">
+      <image wx:if="{{filter.picsub(item.photo_url,0)}}" src="{{filter.picsub(item.photo_url,0)}}" role="img"></image>
+      <image  wx:if="{{filter.picsub(item.photo_url,1)}}" src="{{filter.picsub(item.photo_url,1)}}" role="img"></image>
+    </view>
+  </view>
+</view>
+<!-- <view class="contentbox">
+  <view class="contentitem">
+    <view class="itemtitle">
+      <text>最美街巷场地</text>
+      <text>更多</text>
+      <text class="iconfont icon-left-copy"></text>
+    </view>
+    <view class="contentpic">
+      <image src="https://www.mlxc365.com/images/zhongyixiang/zhihuidangjian.png" role="img"></image>
+      <image src="https://www.mlxc365.com/images/zhongyixiang/zhihuidangjian.png" role="img"></image>
+    </view>
+  </view>
+</view>
+<view class="contentbox">
+  <view class="contentitem">
+    <view class="itemtitle">
+      <text>最美街巷场地</text>
+      <text>更多</text>
+      <text class="iconfont icon-left-copy"></text>
+    </view>
+    <view class="contentpic">
+      <image src="https://www.mlxc365.com/images/zhongyixiang/zhihuidangjian.png" role="img"></image>
+      <image src="https://www.mlxc365.com/images/zhongyixiang/zhihuidangjian.png" role="img"></image>
+    </view>
+  </view>
+</view> -->

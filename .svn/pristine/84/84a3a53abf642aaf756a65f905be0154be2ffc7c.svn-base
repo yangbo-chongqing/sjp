@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "volunteer": "/components/volunteeractivity/volunteeractivity",
+    "newslist": "/components/studynews/studynews"
+  },
+  "navigationBarTitleText": "志愿活动",
+  "navigationBarTextStyle": "black"
+}

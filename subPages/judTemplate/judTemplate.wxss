@@ -1,0 +1,36 @@
+/* subPages/judTemplate/judTemplate.wxss */
+#judTem>view{
+  background: #FFFFFF;
+  box-shadow: 0px 4rpx 8rpx rgba(109, 67, 67, 0.25);
+  border-radius: 8rpx;
+  width: 690rpx;
+  margin: 20rpx auto 20rpx auto;
+}
+#judTem .template-list{
+  text-align: center;
+  padding: 40rpx 34rpx 20rpx 34rpx;
+}
+#judTem .template-list>image{
+  width: 620rpx;
+  height: 382rpx;
+}
+.template-text{
+  text-align: left;
+  margin: 20rpx 0;
+}
+.template-text>text{
+  font-size: 32rpx;
+  color: #444;
+  float: left;
+}
+.template-text>view{
+  font-size: 24rpx;
+  color: #007AFF;
+  float: right;
+}
+.clear{
+  clear: both;
+}
+.template-text .iconfont{
+  margin-right: 16rpx;
+}

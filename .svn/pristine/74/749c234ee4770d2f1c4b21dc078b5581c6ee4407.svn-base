@@ -1,0 +1,39 @@
+<!--subPages/gridorganization/gridorganization.wxml-->
+<view class="grid-organization">
+  <view class="organization-title">
+    <!-- <text class="iconfont icon-xingxing"></text> -->
+    <image class="iconfont" src="http://119.3.196.255:8094/file/icon/Component 13.png"></image>
+    <text>党内学习生活</text>
+  </view>
+  <view class="organization-list">
+    <view class='list_box' wx:for='{{list}}' wx:key='this' wx:for-item='parentItem' wx:for-index='parentIndex'>
+      <view class='list'>
+        <view class='list_name_box' catchtap='listTap' data-parentindex='{{parentIndex}}' data-id="{{parentItem.id}}">
+          <text class='iconfont icon-left-copy icon_down {{parentItem.show&&"icon_down_rotate"}}'></text>
+          <text class='list_item_name'>{{parentItem.listName}}</text>
+        </view>
+
+        
+        <view class='list_item_box' wx:if='{{parentItem.show}}'>
+          <view class='list_item' wx:for='{{parentItem.item}}' wx:key='index' wx:for-item='i' catchtap='listItemTap' data-index='{{index}}'  data-parentindex='{{parentIndex}}' data-id="{{i.gridId}}"> 
+            <view class='list_item_name_box'>
+              <!-- <text class='iconfont icon-left-copy icon_down {{i.show&&"icon_down_rotate"}}'></text> -->
+              <text class='list_item_name' bindtap="goDetails" data-id="{{index}}" data-item="{{ i }}">{{i.gridName}}</text>
+            </view>
+            
+            <!-- <view class='other_box' wx:if='{{i.show}}'>
+              <view class='other' wx:for='{{parentItem.item1}}' wx:key='index' wx:for-item='i1' catchtap='listItemTap' data-index='{{index}}'  data-parentindex='{{parentIndex}}'> 
+                <view class='list_item_name_box'>
+                  <text class='list_item_name' bindtap="goDetails" data-id="{{index}}" data-item="{{ i1 }}">{{i1.name}}</text>
+                </view>
+              </view>
+            </view> -->
+          </view>
+        </view>
+
+        
+      </view>
+    </view>
+  </view>
+
+</view>

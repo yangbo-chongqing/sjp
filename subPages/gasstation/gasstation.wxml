@@ -1,0 +1,47 @@
+<!--subPages/gasstation/gasstation.wxml-->
+<wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
+
+<view class="change">
+  <view class='{{current==0?"active":""}} doing' data-current="0" catchtap='changeSwiper'>志愿帮</view>
+  <view class='{{current==1?"active":""}} doing' data-current="1" catchtap='changeSwiper'>“四无巷”专题展示</view>
+  <view class='{{current==2?"active":""}} doing' data-current="2" catchtap='changeSwiper'>三治广场</view>
+
+</view>
+<block wx:if="{{current==0}}">
+  <view class="currentonebox">
+    <view class="currentoneitem" wx:for="{{list}}" wx:key="index" bindtap="voluhelp" data-id="{{item.place_id}}">
+      <image src="{{filter.picsub(item.place_home_pic,0)}}" role="img"></image>
+      <view class="placetitle">{{item.place_title}}</view>
+    </view>
+  </view>
+</block>
+<block wx:if="{{current==1}}">
+  <view class="currenttwobox">
+    <view class="currenttwoitem" wx:for="{{fourlist}}" wx:key="index" bindtap="lasttwo" data-title="四项专题展示" data-id="{{item.things_id}}">
+      <image src="{{filter.picsub(item.things_home_pic,0)}}" role="img"></image>
+      <view class="tworight">
+        <view>{{item.things_title}}</view>
+        <view>
+          <text>{{filter.timesub2(item.things_create_time)}}</text>
+          <!-- <text>{{item.things_view_num}}次</text>浏览 -->
+         
+        </view>
+      </view>
+    </view>
+  </view>
+</block>
+<block wx:if="{{current==2}}">
+  <view class="currenttwobox">
+    <view class="currenttwoitem" wx:for="{{fourlist}}" wx:key="index" data-title="三治广场" bindtap="lasttwo" data-id="{{item.things_id}}">
+      <image src="{{filter.picsub(item.things_home_pic,0)}}" role="img"></image>
+      <view class="tworight">
+        <view>{{item.things_title}}</view>
+        <view>
+          <text>{{filter.timesub2(item.things_create_time)}}</text>
+          <!-- <text>{{item.things_view_num}}次</text>浏览 -->
+         
+        </view>
+      </view>
+    </view>
+  </view>
+</block>

@@ -1,0 +1,49 @@
+<!--subPages/forum/studio/studio.wxml-->
+<wxs src="../../../assets/filter/public.wxs" module="filter"></wxs>
+<view class="studio">
+  <view class="navigation">
+    <view class="nav-text {{nav==1?'actve':''}}" bindtap="changeNav" data-nav="1"><text>工作室简介</text><view></view></view>
+    <view class="nav-text {{nav==2?'actve':''}}" bindtap="changeNav" data-nav="2"><text>工作室风采</text><view></view></view>
+    <view class="nav-text {{nav==3?'actve':''}}" bindtap="changeNav" data-nav="3"><text>媒体报道</text><view></view></view>
+  </view>
+  <!-- 工作室简介 -->
+  <view class="introduction" wx:if="{{nav == 1}}"wx:for="{{ briefList }}" wx:key="index">
+    <rich-text nodes="{{item.content}}" ></rich-text>
+  </view>
+  <!-- 工作室风采 -->
+  <view class="demeanor" wx:if="{{nav == 2}}">
+    <view class="li" wx:for="{{demeanorList}}" wx:key="index" data-id="{{item.newsId}}" bindtap="toDetails">
+      <text class="tit">{{ item.title }}</text>
+      <view class="imgbox">
+        <image src="{{ item.coverPic }}" mode="widthFix"></image>
+      </view>
+      <view class="downbox">
+        <text class="time">创建时间：{{ filter.timesub2(item.createDate) }}</text>
+        <text class="second">共<text>{{ item.picNum }}</text>张图片</text>
+      </view>
+    </view>
+  </view>
+  <!-- 媒体报道 -->
+  <line></line>
+  <view class="report" wx:if="{{nav == 3}}">
+    <view class="lis" wx:for="{{ allList }}" wx:key="index" data-id="{{item.newsId}}"  bindtap="toNewdet">
+       <view class="imagebox">
+        <image src="{{ item.coverPic }}" mode="widthFix"></image>
+       </view>
+       <view class="textbox">
+        <view class="text-view">
+          <text>{{ item.title }}</text>
+        </view>
+        <view class="text-vew">
+          <text>{{ item.introduction }}</text>
+          <!-- <rich-text nodes="{{ item.introduction }}"></rich-text> -->
+        </view>
+        <view class="textsbox">
+          <text>{{ filter.timesub2(item.createDate) }}</text>  
+          <text> {{ item.remark }}</text>
+        </view>
+       </view>
+    </view>
+  </view>
+</view>
+

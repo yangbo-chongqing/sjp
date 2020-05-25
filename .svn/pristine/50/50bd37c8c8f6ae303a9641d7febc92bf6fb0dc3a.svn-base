@@ -1,0 +1,19 @@
+<!--components/public/BaseList/BaseList.wxml-->
+<wxs src="../../../assets/filter/public.wxs" module="filter"></wxs>
+
+<view class="BaseList">
+  <view class="BaseListItem" wx:for="{{ BaseNewsList }}" wx:key="index" data-id="{{item.newsId}}" bindtap="handleGoNews">
+    <image src="{{ item.coverPic }}"></image>
+    <view>
+      <view class="info">{{ item.title }}</view>
+      <view class="other">
+        <text class="time">{{ filter.timesub2(item.createDate) }}</text>
+        <text>
+                    <text class="number">{{ item.readCount }}次</text>
+        <text>浏览</text>
+        </text>
+      </view>
+    </view>
+  </view>
+
+</view>

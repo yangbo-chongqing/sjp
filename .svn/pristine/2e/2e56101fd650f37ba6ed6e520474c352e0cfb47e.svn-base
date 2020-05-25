@@ -1,0 +1,22 @@
+<!--components/index/Heart/Heart.wxml-->
+<wxs src="../../../assets/filter/public.wxs" module="filter"></wxs>
+
+<view class="indexHeart">
+    <view class="item" bindtap="handleGoNews" data-id="{{item.loveId}}" wx:for="{{ BaseNewsList }}" wx:key="index">
+        <view class="title">
+            <text class="type">{{item.loveTypeDesc || "暂无"}}</text>
+            {{item.title}}
+        </view>
+
+        <view class="small">
+            <text>{{item.loveTypeDesc}}对象：{{item.beLoveTarget}}</text>
+            <text>{{filter.timesub(item.updateDate)}}</text>
+        </view>
+        <!--图片-->
+        <div class="img">
+            <image wx:if="{{filter.picsub(item.contentPic,0)}}" src="{{filter.picsub(item.contentPic,0)}}"/>
+            <image wx:if="{{filter.picsub(item.contentPic,1)}}" src="{{filter.picsub(item.contentPic,1)}}"/>
+            <image wx:if="{{filter.picsub(item.contentPic,2)}}" src="{{filter.picsub(item.contentPic,2)}}"/>
+        </div>
+    </view>
+</view>

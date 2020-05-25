@@ -1,0 +1,66 @@
+<!--subPages/supermarket/supermarket.wxml-->
+<view class="location">
+  <view>
+    <view class="locationleft {{id==1?'border':''}}" bindtap="getAndshow" data-id="{{1}}">
+      <text>选择区域</text>
+      <text class="iconfont icon-xia xia"></text> </view>
+  </view>
+  <view>
+    <view class="locationright  {{id==2?'border':''}}" bindtap="getAndshow" data-id="{{2}}">
+      <text>选择类型</text>
+      <text class="iconfont icon-xia xia"></text> </view>
+  </view>
+  <view>
+    <view class="locationright  {{id==3?'border':''}}" bindtap="getAndshow" data-id="{{3}}">
+      <text>搜索</text>
+      <text class="iconfont icon-search search"></text> </view>
+  </view>
+</view>
+
+<view class="shopbox">
+  <view class="shopitem" wx:for="{{list}}" wx:key="index" bindtap="goshop" data-url="/subPages/eachshop/eachshop?id={{item.marketId}}">
+    <image src="{{item.doorPic}}"></image>
+    <view>{{item.marketName}}</view>
+    <view>{{item.introduction}}</view>
+    <view>
+      <text class="iconfont {{item.score>=1||item.score==0?'icon-Starlarge':'icon-star1'}} starcolor"></text>
+        <text class="iconfont {{item.score>=2?'icon-Starlarge':'icon-star1'}} starcolor"></text>
+        <text class="iconfont {{item.score>=3?'icon-Starlarge':'icon-star1'}} starcolor"></text>
+        <text class="iconfont {{item.score>=4?'icon-Starlarge':'icon-star1'}} starcolor"></text>
+        <text class="iconfont {{item.score>=5?'icon-Starlarge':'icon-star1'}} starcolor"></text>
+        <text class="starcolor">{{item.score==0?1:item.score | Int}}</text> 分
+    </view>
+  </view>
+</view>
+
+
+<view class="locationModel" wx:if="{{showLocation}}">
+  <view class="{{showLocation?'animate':'box'}}" wx:if="{{id==1}}">
+    <view class="itembox">
+      <view class="smallitem bgcolor {{deptid==item.deptId?'active':''}}" bindtap="chooseeara" data-deptid="{{item.deptId}}" wx:for="{{locationlist}}" wx:key="index">{{item.areaName}}</view>
+    </view>
+    <view class="third">
+      <view bindtap="cancle">取消</view>
+      <view bindtap="affirm">确认</view>
+    </view>
+  </view>
+  <view class="{{showLocation?'animate':'box'}}" wx:elif="{{id==2}}">
+    <view class="itembox">
+      <view class="smallitem bgcolor {{typeid==item.dictItemCode?'active':''}}" bindtap="choosetype" data-typeid="{{item.dictItemCode}}" wx:for="{{locationlist}}" wx:key="index">{{item.dictItemName}}</view>
+    </view>
+    <view class="third">
+      <view bindtap="cancle">取消</view>
+      <view bindtap="affirm" >确认</view>
+    </view>
+  </view>
+  <view class="searchbox {{showLocation?'animate':'box'}}" wx:else>
+    <view class="searchitem">
+      <input type="text" bindinput="getshopname" value="{{shopname}}" placeholder="输入店铺名称" />
+      <view wx:if="{{shopname}}" bindtap="clearinput" class="iconfont icon-guanbi delete"></view>
+    </view>
+    <view class="third">
+      <view bindtap="cancle">取消</view>
+      <view bindtap="affirm">确认</view>
+    </view>
+  </view>
+</view>

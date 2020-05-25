@@ -1,0 +1,65 @@
+<!--subPages/emotionpost/emotionpost.wxml-->
+<form class="needbox" bindsubmit="formSubmit">
+  <view class="line">
+    <view class="needone bordertop">
+      <view>
+        <text>*</text>
+        <text>事件标题：</text>
+      </view>
+      <input type="text" class="inp" name="title" placeholder="请输入标题" />
+      <view class="iconfont icon-you"></view>
+
+    </view>
+    <view class="needone bordertop">
+      <view>
+        <text>*</text>
+        <text>是否公开：</text>
+      </view>
+      <!-- <picker bindchange="xlChange" value="{{idx}}" range="{{list}}" range-key="areaName">
+        <view class="picker" wx:if="{{idx}}">
+          {{list[idx].areaName}}
+        </view>
+        <view class="nothing" wx:else>
+          请选择
+        </view>
+      </picker> -->
+      <picker bindchange="xlChange" mode="selector" range="{{list}}" range-key="areaName" class="picker">
+          <input placeholder="请选择" value="{{open.areaName}}" class="piciput"></input>
+      </picker>
+      <view class="iconfont icon-you"></view>
+
+    </view>
+    <view class="needone">
+      <view>
+        <text>说明：</text>
+        <text>公开即所有用户都可以查看并评论，不公开只有街道社区可以查看</text>
+      </view>
+    </view>
+    <view class="textinfo">
+      <view class="texttitle">
+        <text>*</text>
+        <text>事件详情</text>
+      </view>
+      <textarea class="textcontent" name="details" placeholder="请输入详细说明">
+      </textarea>
+    </view>
+    <view class="textinfo top0">
+      <view class="texttitle">
+        <text></text>
+        <text>图片上传</text>
+      </view>
+      <view class="imgall">
+        <view wx:for="{{src}}" wx:key="index" class="imgone">
+          <image src="{{item}}"></image>
+          <text class="del iconfont icon-guanbi" bindtap="del" data-index="{{index}}"></text>
+        </view>
+        <view wx:if="{{add}}" bindtap="uppic" class="add">
+          <view class="iconfont icon-jiahao"></view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+    <button formType="submit" class="subbtn">发布</button>
+
+</form>

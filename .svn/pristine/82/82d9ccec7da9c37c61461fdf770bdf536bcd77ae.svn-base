@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "Tools": "/components/serviceHall/Tools/Tools",
+    "News": "/components/serviceHall/News/News",
+    "Line": "/components/public/Line/Line"
+  },
+  "navigationBarTitleText": "服务大厅"
+}

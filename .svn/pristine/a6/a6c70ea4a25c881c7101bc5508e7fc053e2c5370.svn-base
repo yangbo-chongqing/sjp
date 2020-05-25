@@ -1,0 +1,15 @@
+<!--subPages/rules/rules.wxml-->
+<view class="rules">
+  <view>
+    <view wx:for='{{list}}' wx:key='this' wx:for-item='parentItem' wx:for-index='parentIndex'>
+      <view class="rules-title">{{parentItem.title}}</view>
+      <!-- <view wx:for='{{parentItem.item}}' wx:key='this' catchtap='listItemTap' data-index='{{index}}'  data-parentindex='{{parentIndex}}'>
+        <text>{{item.content}}</text>
+      </view> -->
+      <view>
+        <!-- <text>{{parentItem.content}}</text> -->
+        <rich-text nodes="{{parentItem.content}}"></rich-text>
+      </view>
+    </view>
+  </view>
+</view>

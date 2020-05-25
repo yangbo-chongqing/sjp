@@ -1,0 +1,121 @@
+/* components/Lead/Modal/Modal.wxss */
+@import "/assets/css/iconfont.wxss";
+.LeadModal {
+    position: fixed;
+    top:100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.2);
+    transition: all .2s linear;
+}
+.LeadModal.active {
+    top:0;
+}
+.LeadModal > .info {
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    border-radius: 20rpx 20rpx 0 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.LeadModal > .info > .personMsg ,
+.LeadModal > .info > .position {
+    width: 100%;
+    /* height: 80%; */
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 28rpx;
+    overflow: hidden;
+}
+.LeadModal > .info > .personMsg{
+    /* height: 20%; */
+    margin-top: 30rpx;
+}
+
+.LeadModal > .info > .personMsg > image {
+    width: 122rpx;
+    height: 122rpx;
+    border-radius: 50%;
+    margin-right: 26rpx;
+}
+
+.LeadModal > .info > .personMsg > view {
+    display: flex;
+    flex-direction: column;
+    width: 78%;
+    /* height: 122rpx; */
+}
+
+.LeadModal > .info > .personMsg > view > text {
+    display: flex;
+    align-items: center;
+    height: 50%;
+    line-height: 1;
+}
+
+.LeadModal > .info > .personMsg > view > .personName {
+    font-family: Noto Sans CJK;
+    font-weight: 500;
+    font-size: 32rpx;
+    color: #3A3A3C;
+}
+
+.LeadModal > .info > .personMsg > view > .personPosition {
+    font-family: Noto Sans CJK;
+    font-size: 28rpx;
+    color: #8E8E93;
+    line-height: 1.4;
+}
+
+.LeadModal > .info > .position {
+    flex-direction: column;
+    margin-bottom: 30rpx;
+}
+.LeadModal > .info > .position > view{
+    font-family: Noto Sans CJK;
+    font-size: 28rpx;
+    line-height: 28rpx;
+    color: #8E8E93;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 32rpx;
+    word-break: break-all;
+    /* overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; */
+}
+.LeadModal > .info > .position > .phone{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.LeadModal > .info > .position > view > text {
+    color: #48484a;
+}
+.tel{
+  display: flex;
+  justify-content: flex-start;
+}
+.tel>view:first-child{
+  width: 145rpx;
+  color: #8E8E93;
+}
+.tel>view:last-child{
+    width: 80%;
+}
+.tel view{
+  color: #48484a;
+  line-height: 1.4;
+}
+.LeadModal > .info > .position > view > .iconfont{
+    font-size: 52rpx;
+    color: #d33333;
+    position: fixed;
+    right: 30rpx;
+}

@@ -1,0 +1,57 @@
+<!--subPages/serviceHall/Order/Order.wxml-->
+<view id="Order">
+    <Line />
+    <view class="lineItem">
+        <view>
+            <text class="lab">*</text>
+            <text class="title">事件标题</text>
+        </view>
+        <view class="picker">
+         <input type="text" placeholder="请输入" name="mailTitle" bindinput="subForm"/>
+        </view>
+        <text class="iconfont icon-you"></text>
+    </view>
+    <view class="lineItem">
+        <view>
+            <text class="lab">*</text>
+            <text class="title">事件类型</text>
+        </view>
+        <picker bindchange="bindPickerChange" mode="selector" range="{{mailTypeList}}" range-key="dictItemName" class="picker">
+            <input placeholder="请选择" disabled value="{{mailType.dictItemName}}" class="piciput"></input>
+        </picker>
+        <text class="iconfont icon-you"/>
+    </view>
+    <Line />
+    <view class="lineItem msg">
+        <view>
+            <text class="lab">*</text>
+            <text class="title">事件说明</text>
+        </view>
+        <!-- <input type="text " value="{{ eventTitle }}" bindinput="subForm" /> -->
+    </view>
+
+    <!--详细说明-->
+    <textarea placeholder="请输入详细说明" bindinput="eventExplain"></textarea>
+    <Line />
+
+    <!--图片上传-->
+    <view class="textinfo top0">
+      <view class="texttitle">
+        <text></text>
+        <text>图片上传</text>
+      </view>
+      <view class="imgall">
+        <view wx:for="{{src}}" wx:key="index" class="imgone">
+          <image src="{{item}}"></image>
+          <text class="del iconfont icon-guanbi" bindtap="del" data-index="{{index}}"></text>
+        </view>
+        <view wx:if="{{add}}" bindtap="subPic" class="add">
+          <view class="iconfont icon-jiahao"></view>
+        </view>
+      </view>
+    </view>
+
+    <!--摁钮-->
+
+    <button bindtap="formSubmit">提交申请</button>
+</view>

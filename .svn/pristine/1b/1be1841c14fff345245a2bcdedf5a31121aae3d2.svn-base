@@ -1,0 +1,17 @@
+<!--components/Alarm/PhoneList/PhoneList.wxml-->
+<view class="PhoneList">
+    <view class="item" wx:for="{{ telephoneList }}" wx:key="index">
+        <image src="{{ item.police_pic }}" />
+        <view>
+            <view class="userName">{{ item.police_name }}</view>
+            <view class="userTel">
+                <text>{{ item.police_phone }}</text>
+                <text class="iconfont icon-dianhua" bindtap="handlePhone" data-ph="{{item.police_phone}}" />
+            </view>
+            <view class="Tel">
+                <text>{{ item.police_landline }}</text>
+                <text class="iconfont icon-dianhua" bindtap="handLandline" data-li="{{item.police_landline}}" />
+            </view>
+        </view>
+    </view>
+</view>

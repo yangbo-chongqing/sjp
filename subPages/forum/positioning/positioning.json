@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "iconfonts": "/components/iconfonts/iconfonts"
+  },
+  "navigationBarTitleText": "阵地风采"  
+}

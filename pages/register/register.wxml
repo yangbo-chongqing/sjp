@@ -1,0 +1,73 @@
+<!--pages/register/register.wxml-->
+<top_nav mytop="{{mytop}}"></top_nav>
+<view class="topbox">
+  <view class="imgbox">
+  <!-- <image src="http://119.3.196.255:8094/file/icon/logosj.png" role="img"></image> -->
+  <view class="imgall">
+    <view bindtap="subPic" class="add">
+      <image src="{{src}}"></image>
+      <view class="iconfont icon-jiahao" wx:if="{{add}}"></view>
+    </view>
+  </view>
+  </view>
+</view>
+<form bindsubmit="formSubmit">
+  <view class="all">
+    <view class="logintitle">
+      <text>{{mytop.title}}</text>
+      <text>欢迎使用石井坡E党建</text>
+    </view>
+    <view class="formcontent">
+
+      <view class="formitem">
+        <text wx:if="{{one == 1}}">姓名</text>
+        <input type="text" bindfocus="change" bindblur="inChange" name="userphone" data-show="1" placeholder="请输入真实姓名" />
+      </view>
+      <!-- <view class="formitem gridding">
+        <text wx:if="{{two == 1}}">所属区域</text>
+        <picker bindchange="xlChange" value="{{idx}}" range="{{list}}" range-key="areaName">
+          <view class="picker" wx:if="{{idx}}">
+            {{list[idx].areaName}}
+          </view>
+          <view class="nothing" wx:else>
+            请选择区域
+          </view>
+
+        </picker>
+        <view class="iconfont icon-xia font"></view>
+      </view> -->
+      <view class="formitem gridding">
+        <text wx:if="{{two == 1}}">所属网格</text>
+        <picker mode="multiSelector" range="{{multiArray}}" bindcolumnchange="columnchange" value="{{multiIndex}}" bindchange='pickchange'>
+          <view class='picker' wx:if="{{multiArray[0][multiIndex[0]] && step == 0}}">
+            <text>请选择网格</text>
+          </view>
+          <view class="picker" wx:if="{{multiArray[0][multiIndex[0]] && step == 1}}">
+            <text class="fontcolor">{{multiArray[0][multiIndex[0]]}}—{{multiArray[1][multiIndex[1]]}}</text>
+          </view>
+        </picker>
+        <view class="iconfont icon-xia font"></view>
+      </view>
+      <view class="formitem">
+        <text wx:if="{{three == 1}}">输入密码</text>
+        <input type="password" bindfocus="change" bindblur="inChange" name="password" data-show="3" placeholder="输入密码" />
+      </view>
+      <view class="formitem">
+        <text wx:if="{{four == 1}}">确认密码</text>
+        <input type="password" bindfocus="change" bindblur="inChange" name="newpassword" data-show="4" placeholder="确认密码" />
+      </view>
+      <button class="form" formType="submit">注册</button>
+    </view>
+
+  </view>
+</form>
+<view class="member">
+  <view class="">
+        <text bindtap="toggle" class="iconfont circle {{ismenber?'icon-jizhumima_yixuan':'icon-jizhumima_weixuan'}}"></text>
+        
+    </view>
+  <view>
+    同意《
+    <text bindtap="godeal">用户服务协议</text>》
+  </view>
+</view>

@@ -1,0 +1,45 @@
+<!--subPages/scoreRank/scoreRank.wxml-->
+<view class="rankTop3">
+  <view class="userPic">
+    <image src="{{userrankinfo.picId || '/assets/img/headpic.png'}}" role="img"></image>
+    <view class="userinfo">
+      <text>{{userrankinfo.name || "游客"}}</text>
+      <text>第{{userrankinfo.rownum}}名</text>
+    </view>
+    <text class="score">{{userrankinfo.integral}}分</text>
+  </view>
+  <view class="silver bg">
+    <image class="pai" src="/assets/img/银牌.png"></image>
+    <image class="rankpic" src="{{list[1].picId}}" role="img"></image>
+    <view class="rankname size">{{list[1].name}}</view>
+    <view class="rankscore size">{{list[1].integral}}</view>
+  </view>
+  <view class="gold bg">
+    <image class="pai" src="/assets/img/金牌.png"></image>
+    <image class="rankpic" src="{{list[0].picId}}" role="img"></image>
+    <view class="rankname size">{{list[0].name}}</view>
+    <view class="rankscore size">{{list[0].integral}}</view>
+
+  </view>
+  <view class="copper bg">
+    <image class="pai" src="/assets/img/铜牌.png"></image>
+    <image class="rankpic" src="{{list[2].picId}}" role="img"></image>
+
+    <view class="rankname size">{{list[2].name}}</view>
+    <view class="rankscore size">{{list[2].integral}}</view>
+  </view>
+</view>
+<view class="ranklist">
+  <view class="listone" wx:for="{{lists}}" wx:key="index">
+    <text class="ranknum" wx:if="{{item.userId != userid}}">{{index+4}}</text>
+    <image wx:else src="http://119.3.196.255:8094/file/icon/Component 13.png" class="imgbox" />
+    <image class="rankpic margin" src="{{item.picId}}" role="img"></image>
+    <view>
+      <text>{{item.name}}</text>
+      <!-- <text>职位</text> -->
+    </view>
+    <text class="lastscore">{{item.integral}}</text>
+
+  </view>
+
+</view>

@@ -1,0 +1,29 @@
+<!--组织架构-->
+<view id="Framework">
+    <!--机关党组织标题写死-->
+    <view class="title">
+        <view class="tit">
+            <iconfonts></iconfonts>
+            机关党支部
+            <!-- <i></i> -->
+        </view>
+    </view>
+
+    <!--机关党组织列表传参-->
+    <FrameworkList FrameworkList="{{ frameworkList }}" bind:toggleModal="toggleModal"/>
+
+    <!--党支部标题 写死-->
+    <view class="title small">
+        <view class="tit">
+           <iconfonts></iconfonts>
+            党支部
+            <!-- <i></i> -->
+        </view>
+    </view>
+
+    <!--党支部列表传参-->
+    <PartyList partyList="{{ partyList }}" flag="{{ flag }}" bind:toggleParty = "toggleParty"  bind:toggleModal="toggleModal"/>
+
+    <!--弹出框-->
+    <partyModal isshow="{{ isshow }}" bind:toggleModal="toggleModal" person="{{person}}"/>
+</view>

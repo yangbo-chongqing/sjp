@@ -1,0 +1,13 @@
+<!--办事机构-->
+<view id="Organization">
+    <view wx:for="{{ toolsList }}"
+          wx:key="index"  
+          bindtap="goDetail"
+          data-item="{{ item }}"
+          data-id="{{index}}"
+    >
+    <image src="{{ item.coverPic }}"/>
+        
+        <text>{{ item.officeName }}</text>
+    </view>
+</view>

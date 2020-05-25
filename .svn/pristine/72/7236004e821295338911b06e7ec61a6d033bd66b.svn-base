@@ -1,0 +1,30 @@
+<!--subPages/projectdetail/projectdetail.wxml-->
+<wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
+
+<view class="detailbox">
+  <view class="detailtitle">{{porone.needTitle}}</view>
+  <view class="detailitem itemfirst">
+    <!-- 提交地区：
+    <text>{{porone.needAddress}}</text> -->
+    <!-- <text class="status" wx:if="{{porone.needStatus=='0'}}">未完成</text>
+    <text class="status" wx:if="{{porone.needStatus=='1'}}" style="color:#30a94a">已完成</text> -->
+    <!-- <text class="status" wx:if="{{porone.needStatus=='2'}}">已拒绝</text> -->
+  </view>
+  <view class="detailitem itemfirst">
+    提交人员：
+    <text>{{porone.createName}}</text>
+    <text class="status" wx:if="{{porone.needStatus=='0'}}">未完成</text>
+    <text class="status" wx:if="{{porone.needStatus=='1'}}" style="color:#30a94a">已完成</text>
+  </view>
+  <view class="detailitem">
+    处理人员：
+    <text wx:if="{{porone.affordName}}">{{porone.affordName}}</text>
+  </view>
+  <view class="detailitem borderbot">
+    提交时间：
+    <text>{{filter.timesub1(porone.createDate)}}</text>
+  </view>
+  <view class="richcontent">
+    <text>{{porone.needIntro}}</text>
+  </view>
+</view>

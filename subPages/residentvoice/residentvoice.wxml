@@ -1,0 +1,18 @@
+<!--subPages/residentvoice/residentvoice.wxml-->
+<wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
+
+<view bindtap="godetail" wx:for="{{voicelist}}" wx:key="index" data-id="{{item.id}}" data-url="/subPages/voicedetail/voicedetail" class="voiceitem"> 
+  <view class="voicetitle">{{item.title}}</view>
+  <view class="intro">{{filter.htmlstr(item.details)}}</view>
+  <view class="voicetime">
+    <text>{{filter.timesub2(item.createDate)}}</text>
+    <text wx:if="{{item.status==0}}" class="voicestatus color1 ">待认领</text>
+    <text wx:if="{{item.status==1}}" class="voicestatus color2 ">已认领</text>
+    <text wx:if="{{item.status==2}}" class="voicestatus color3 ">已完成</text>
+
+  </view>
+</view>
+
+<navigator url="/subPages/residentvoice/needheart/needheart"  class="addvoice">
+  <text class="iconfont icon-jiahao"></text>
+</navigator>

@@ -1,0 +1,84 @@
+<!--subPages/historyDetails/historyDetails.wxml-->
+<view>
+  <view class="details">
+    <view class="details-top">
+      <text class="details-title">区委常委、政法委书记杨邦维率队调研井口镇、石井坡街道基层社会治理工作</text>
+      <view class="details-user">
+        <view>
+          <image src="https://www.mlxc365.com/images/zhongyixiang/zhihuidangjian.png"></image>
+          <view class="details-user-name">
+            <view>上传人姓名</view>
+            <view class="details-user-time">2019/12/21 11:10</view>
+          </view>
+        </view>
+        <view><text>212</text>次浏览</view>
+      </view>
+    </view>
+    <view class="line"></view>
+
+    <!-- 详情 -->
+    <view class="details-main">
+      <view>{{text}}</view>
+      <view class="list-browse">
+        <view>
+          <text class="iconfont icon-chakan"></text>
+          <text>{{num1}}</text>
+        </view>
+        <view>
+          <text class="iconfont icon-xinxi"></text>
+          <text>{{num2}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 评论 -->
+  <view class="comment">
+    <view class="competition-title">
+      <text class="iconfont icon-xingxing"></text>
+      <text>全部评论</text>
+    </view>
+    <view class="comment-detail">
+      <!-- 评论 -->
+      <!--textarea-->
+      <view class="message">
+        <form bindsubmit="formSubmit" class='form'>
+          <input type="text" name="liuyantext" placeholder='我也来说一句' value='{{keyValue}}' class="input-style" />
+          <button formType="submit" class="btn">发送</button>
+          <input type="text" name="nickname" value='{{videoid}}' style="display:none;" />
+          <input type="text" name="headimg" value='{{avatarUrl}}' style="display:none;" />
+        </form>
+      </view>
+
+      <view class='allMessage'>
+        <view class='tab-content'>
+          <view class='comment-list'>
+          <!-- 提交评论显示 -->
+            <view class='comment-item' class="{{showOrHidden?'show':'hide'}}" style='width: 100%;height: auto;overflow: hidden;padding: 16px 0;border-bottom: 1px solid #f3f3f5;'>
+              <view class='comment-person'>
+                <image class='comment-person-avatar' src='{{photo2}}'></image>
+                <view class='comment-person-info ellipsis'>
+                  <view class='comment-person-name ellipsis'>{{nickname2}}</view>
+                  <view class='comment-time ellipsis'>{{date2}}</view>
+                </view>
+              </view>
+              <view class='comment-text'>{{comment2}}</view>
+            </view>
+            <!-- 读取数据显示全部评论 -->
+            <view class='comment-item' wx:for="{{comment}}" wx:key="item.id">
+              <view class='comment-person'>
+                <image class='comment-person-avatar' src='{{item.photo}}'></image>
+                <view class='comment-person-info ellipsis'>
+                  <view class='comment-person-name ellipsis'>{{item.nickname}}</view>
+                  <view class='comment-time ellipsis'>{{item.created_at}}</view>
+                </view>
+              </view>
+              <view class='comment-text'>{{item.content}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

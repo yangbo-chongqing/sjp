@@ -1,0 +1,81 @@
+/* subPages/serviceHall/Community/Community.wxss */
+#Community {
+    width: 100%;
+    padding-bottom: 100rpx
+}
+
+#Community > .news {
+    margin-bottom: 32rpx;
+}
+
+#Community > .news ,
+#Community > .news > p,
+#Community > .news > h1,
+#Community > .news > h2,
+#Community > .news > h3,
+#Community > .news > h4,
+#Community > .news > h5,
+#Community > .news > h6{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 32rpx 30rpx 0;
+    border-top: 2rpx solid #f5f5f5;
+    font-family: Noto Sans CJK;
+    font-size: 28rpx !important;
+    line-height: 48rpx !important;
+    color: #000000 !important;
+}
+#Community > .news img {
+    max-width: 100% !important;
+    margin-bottom: 26rpx !important;
+}
+
+
+#Community > .title,
+.news>.title {
+    box-sizing: border-box;
+    font-family: Noto Sans CJK;
+    font-weight: 600;
+    font-size: 28rpx;
+    line-height: 28rpx;
+    color: #D33333;
+    width: auto;
+    position: relative;
+    margin-bottom: 16rpx;
+    padding: 0 30rpx;
+    display: flex;
+    align-items: center;
+}
+.news>.title{
+  padding: 0;
+}
+
+#Community > .title > i {
+    position: absolute;
+    left: 4em;
+    background-color: #e99999;
+    bottom: 0;
+    height: 4rpx;
+    width: 2em;
+}
+
+#Community > .tel {
+    font-family: Noto Sans CJK;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28rpx;
+    line-height: 28rpx;
+    color: #000000;
+    box-sizing: border-box;
+    padding-left: 30rpx;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    height: 65rpx;
+}
+
+#Community > .tel > .iconfont{
+    font-size: 52rpx;
+    color: #d33333;
+    margin-right: 30rpx;
+}

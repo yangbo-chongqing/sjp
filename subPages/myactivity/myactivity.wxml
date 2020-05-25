@@ -1,0 +1,68 @@
+<!--subPages/myactivity/myactivity.wxml-->
+<wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
+
+<view class="change">
+  <view class='{{current==0?"active":""}} doing' data-current="0" catchtap='changeSwiper'>未开始</view>
+  <view class='{{current==1?"active":""}} doing' data-current="1" catchtap='changeSwiper'>进行中</view>
+  <view class='{{current==2?"active":""}} doing' data-current="2" catchtap='changeSwiper'>已结束</view>
+</view>
+<view wx:if="{{current==0?true:false}}" class="topheight">
+  <view class="acItem" bindtap="godetails" wx:for="{{list}}" data-id="{{ item.newsId }}" wx:key="index">
+    <view class="acTitle">{{item.title}}</view>
+    <view class="acContent">
+      <image src="{{filter.picsub(item.coverPic,0)}}" role="img"></image>
+      <view class="acright">
+        <view>{{item.introduction}}</view>
+        <view>
+          <view>已报名
+            <!-- <text>{{item.residueday}}</text>天 -->
+            </view>
+          <view>还需人数
+            <text>{{item.peopleNum-(item.hasSignUpNum=='null'?0:item.hasSignUpNum)}}</text>人</view>
+        </view>
+      </view>
+    </view>
+    <view class="acTime">
+      <view>活动时间：{{filter.timesub1(item.startTime)}}~{{filter.timesub1(item.endTime)}}</view>
+      <view>签到</view>
+    </view>
+  </view>
+
+</view>
+<view wx:if="{{current==1?true:false}}" class="topheight">
+  <view class="acItem" bindtap="godetails" wx:for="{{list}}" data-id="{{ item.newsId }}" wx:key="index">
+    <view class="acTitle">{{item.title}}</view>
+    <view class="acContent">
+      <image src="{{filter.picsub(item.coverPic,0)}}" role="img"></image>
+      <view class="acright">
+        <view>{{item.introduction}}</view>
+        <view>
+          <view>已报名
+            <!-- <text>2</text>天 -->
+            </view>
+          <view>还需人数
+            <text>{{item.peopleNum-(item.hasSignUpNum=='null'?0:item.hasSignUpNum)}}</text>人</view>
+        </view>
+      </view>
+    </view>
+    <view class="acTime">
+      <view>活动时间：{{filter.timesub1(item.startTime)}}~{{filter.timesub1(item.endTime)}}</view>
+      <view class="statuscolor">已签到</view>
+    </view>
+  </view>
+</view>
+<view wx:if="{{current==2?true:false}}" class="topheight">
+  <view class="acItem" bindtap="godetails" wx:for="{{list}}" data-id="{{ item.newsId }}" wx:key="index">
+    <view class="acTitle">{{item.title}}</view>
+    <view class="acContent">
+      <image src="{{filter.picsub(item.coverPic,0)}}" role="img"></image>
+      <view class="acright2">
+        <view>{{item.introduction}}</view>
+      </view>
+    </view>
+    <view class="acTime">
+      <view>活动时间：{{filter.timesub1(item.startTime)}}~{{filter.timesub1(item.endTime)}}</view>
+      <view class="statuscolor2">已结束</view>
+    </view>
+  </view>
+</view>

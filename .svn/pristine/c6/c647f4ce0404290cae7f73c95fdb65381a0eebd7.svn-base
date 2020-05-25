@@ -1,0 +1,23 @@
+<!--subPages/forum/community/community.wxml-->
+<view class="community">
+  <view class="combox" 
+  wx:for="{{ personList }}" 
+  wx:key="index" 
+  data-teamId="{{item.teamId}}" 
+  bindtap="comDetails" 
+  > 
+    <view class="comtext">
+      <text class="aa">{{item.teamTitle}}</text>
+      <text class="bb">{{item.deptName}}</text>
+    </view>
+    <view class="comimg">
+      <image src="{{item.picList[0]}}" mode="widthFix"></image>
+    </view>
+    <view class="comboxs">
+      <view class="comlogo">
+        <image src="https://webservers.sjpdqfwzx.com/file/icon/Vector-1.png" mode="widthFix"></image>
+      </view>
+      <view class="twotext"><text>{{item.teamSlogan}}</text></view>
+    </view>
+  </view>
+</view>

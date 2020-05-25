@@ -1,0 +1,61 @@
+<!--subPages/emotiondetails/emotiondetails.wxml-->
+<wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
+<view>
+  <view class="details">
+    <view class="details-top">
+      <text class="details-title">{{titles}}</text>
+      <view class="details-user">
+        <view>
+          <!-- <image src="{{img}}"></image> -->
+          <view class="details-user-name">
+            <view>{{name}}</view>
+            <view class="details-user-time">{{filter.timesub6(time)}}</view>
+          </view>
+        </view>
+        <view><text>{{stage}}</text>次浏览</view>
+      </view>
+    </view>
+    <view class="line"></view>
+
+    <!-- 详情 -->
+    <view class="details-main">
+      <view>{{text}}</view>
+      <view class="list-browse">
+        <view>
+          <text class="iconfont icon-chakan" wx:if="{{open==0}}" style="color:#D33333;"></text>
+          <text class="iconfont icon-chakan" wx:else></text>
+          <text>{{num1}}</text>
+        </view>
+        <view>
+          <text class="iconfont icon-xinxi"></text>
+          <text>{{num2}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 查看评论 -->
+  <view class="showCommentss">
+    <view class="competition-title">
+      <image class="iconfont" src="http://119.3.196.255:8094/file/icon/Component 13.png"></image>
+      <text>全部评论</text>
+    </view>
+      <view class="itemBox" wx:for="{{listData}}" wx:key="index">
+          <view class="item">
+              <image src="{{item.userPic}}" />
+              <view class="userBox">
+                  <text>{{item.userName}}</text>
+                  <text>{{filter.timesub1(item.createDate)}}</text>
+              </view>
+          </view>
+          <view class="textArea">
+              {{item.discussContent}}
+          </view>
+      </view>
+  </view>
+  <!-- 发送评论 -->
+  <view class="commentss">
+      <input class="inner" placeholder='我也来说一句' bind:input="inners" value="{{inputNum}}" />
+      <view class="commit" bind:tap="enter">发送</view>
+  </view>
+
+</view>

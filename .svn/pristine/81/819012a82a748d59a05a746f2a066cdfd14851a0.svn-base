@@ -1,0 +1,56 @@
+/* subPages/polticsHui/polticsHui.wxss */
+.pol-details{
+  border-top: 1px solid #f5f5f5;
+}
+.pol-details>view:first-child{
+  border-bottom: 2rpx solid #f5f5f5;
+}
+.pol-details-title{
+  font-size: 48rpx;
+  font-weight: 600;
+  color: #000;
+  margin: 16rpx 30rpx 42rpx 30rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.pol-details-msg{
+  padding: 0 30rpx 51rpx 30rpx;
+}
+.pol-details-msg view{
+  font-size: 28rpx;
+  color: #8a8a8a;
+}
+.personnel>view{
+  margin-bottom: 15rpx;
+}
+.pol-details-msg .place>view{
+  display: inline-block;
+}
+.pol-details-msg .place>view:last-child{
+  float: right;
+}
+.pol-details-msg>view:not(:last-child){
+  margin-bottom: 32rpx;
+}
+.pol-details-msg text{
+  font-size: 28rpx;
+  color: #8a8a8a;
+}
+.place>view:last-child{
+  font-size: 24rpx;
+  color: #d33333;
+  padding: 6rpx 20rpx;
+}
+.place>view:last-child>text{
+  font-size: 24rpx;
+}
+/* .personnel>text:last-child{
+  color: #d33333;
+} */
+.content{
+  padding: 30rpx;
+  font-size: 32rpx;
+  color: #444;
+}

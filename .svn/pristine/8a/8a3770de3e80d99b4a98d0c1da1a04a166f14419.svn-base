@@ -1,0 +1,25 @@
+<!--components/Lead/Modal/Modal.wxml-->
+<view class="LeadModal {{ isShow ? 'active':''}}" bindtap="handleToggleModal">
+    <view class="info">
+        <!--头像 姓名 职位-->
+        <view class="personMsg">
+            <image src="{{ person.leadPic }}" />
+            <view>
+                <text class="personName">
+                    {{ person.leadName }}
+                </text>
+                <text class="personPosition">
+                    {{ person.leadJob }}
+                </text>
+            </view>
+        </view>
+        <!--电话 + 职责-->
+        <view class="position">
+            <view class="phone">
+                <view class="tel"><view style="width:190rpx">办公电话：</view><view>{{ person.leadTel }}</view></view>
+                <text class="iconfont icon-dianhua" bindtap="handlePhone" data-ph="{{person.leadTel}}" />
+            </view>
+            <view class="tel"><view>工作职责：</view><view>{{ person.leadDuty }}</view> </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,50 @@
+<!--办事机构详情-->
+<view id="OrgDetails">
+      <!--轮播图-->
+    <!-- <view class="banner">
+      <swiper autoplay="{{true}}">
+      <block wx:for="{{officePic}}" wx:key="index">
+       <swiper-item>
+            <view>
+                <image src="{{item}}" alt="" />
+            </view>
+        </swiper-item>
+      </block>
+      </swiper>
+    </view> -->
+    <view class="title">
+        <iconfonts></iconfonts>
+        机构介绍
+        <!-- <i></i> -->
+    </view>
+    <view class="info">{{ officeInfo }}</view>
+    <view class="title tel">
+        <iconfonts></iconfonts>
+        办公室电话
+        <!-- <i></i> -->
+    </view>
+    <view class="infos" wx:for="{{officeTel}}" wx:key="index">
+        <text>{{ item }}</text>
+        <text class="iconfont icon-dianhua" bindtap="handlePhone" data-ph="{{item}}" />
+    </view>
+    <view class="title">
+        <iconfonts></iconfonts>
+        机构人员
+        <!-- <i></i> -->
+    </view>
+    <view class="PersonList">
+        <view class="item" wx:for="{{ personList }}"
+              wx:key="index"
+              data-index="{{ index }}"
+        >
+            <view>
+                <image src="{{ item.headPic }}"/>
+                <view>
+                    <text class="personName">{{ item.personName }}</text>
+                    <text class="position">{{ item.personPosition }}</text>
+                </view>
+            </view>
+            <!-- <i class="iconfont icon-you"></i> -->
+        </view>
+    </view>
+</view>

@@ -1,0 +1,26 @@
+<!--社区简介页面-->
+<view id="Community">
+    <!--横向滚动栏-->
+    <OrgNavBar navbarList="{{ navbarList }}" bind:toggleMsg="toggleMsg" flag="{{ flag }}"/>
+    <!--新闻-->
+    <view class="news">
+      <view class="title">
+         <iconfonts></iconfonts>
+          社区简介
+          <!-- <i></i> -->
+      </view>
+      <rich-text nodes="{{ details.content}}"></rich-text>
+    </view>
+
+    <!--办公室电话-->
+    <view class="title">
+       <iconfonts></iconfonts>
+        办公室电话
+        <!-- <i></i> -->
+    </view>
+
+    <view class="tel">
+        {{details.tel || '暂无'}}
+        <text class="iconfont icon-dianhua" bindtap="handlePhone" data-ph="{{details.tel}}" />
+    </view>
+</view>

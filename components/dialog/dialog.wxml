@@ -1,0 +1,13 @@
+<!--components/dialog/dialog.wxml-->
+<view class="handwrite" wx:if="{{isShow}}" style="z-index: 1000;">
+  <view class="handcontent">
+    <view class="handtitle">订单详情</view>
+    <view>
+      <view>订单说明：{{person.needInfo}}</view>
+      <image src="{{person.needPic}}"></image>
+    </view>
+    <view class="btnbox">
+      <view class="writecomfire" bindtap="getShow">确认</view>
+    </view>
+  </view>
+</view>

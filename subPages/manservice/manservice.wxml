@@ -1,0 +1,87 @@
+<!--subPages/manservice/manservice.wxml-->
+<wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
+<view class="line"></view>
+<block wx:if="{{manlist.length!=0}}">
+  <view class="servicebox" wx:for="{{manlist}}" wx:key="index">
+    <view class="serviceitem">
+      <view class="servicetitle">
+        <!-- 订单号：1234567894564564 -->
+        <text></text>
+        <text class="statuscolor1" wx:if="{{item.status==0}}">指派中</text>
+        <text class="statuscolor3" wx:if="{{item.status==1}}">等待服务</text>
+        <text class="statuscolor2" wx:if="{{item.status==3}}">已取消</text>
+
+        <text class="statuscolor4" wx:if="{{item.status==2 && item.score===null}}">待评价</text>
+        <text class="statuscolor2" wx:if="{{item.status==2 && item.score!==null}}">已完成</text>
+
+
+
+      </view>
+    </view>
+    <view class="servecontent">
+      <image class="userpic" src="{{item.ableHeadUrl?item.ableHeadUrl:'/assets/img/headpic.png'}}" role="img"></image>
+      <view class="servecenter">
+        <view class="hold" wx:if="{{item.status==0}}">正在指派，请稍后...</view>
+        <view class="hold" wx:if="{{item.status==3}}">预约已取消</view>
+
+        <view class="username" wx:if="{{item.status==0 || item.status==1 || item.status==2}}">
+          <view>
+            <view>{{item.ableName}}</view>
+            <view class="serveright">
+              <image class="gold" src="http://119.3.196.255:8094/file/icon/Rectangle 205.png" role="img"></image>
+              <text>{{item.integral==null?'0':item.integral}}积分</text>
+            </view>
+          </view>
+          <view>
+            <text>{{item.ableMobile}}</text>
+            <text class="iconfont icon-dianhua" bindtap="handlePhone" data-ph="{{item.ableMobile}}" />
+          </view>
+        </view>
+        <!-- <view class="place" wx:if="{{item.status==0 || item.status==1 || item.status==2}}">
+          <text class="iconfont icon-dingweiweizhi"></text>
+          <text>{{item.ableAddress}}</text>
+        </view> -->
+      </view>
+    </view>
+
+    <view class="servebottom">
+      <view class="bottomleft">
+        <view>服务项目：
+          <text>{{item.projectName}}</text>
+        </view>
+        <view>提交时间：
+          <text>{{filter.timesub4(item.createDate)}}</text>
+        </view>
+      </view>
+      <view class="bottomright color1" wx:if="{{item.status==0}}" data-id="{{item.needId}}" bindtap="cancle">
+        取消预约
+      </view>
+      <view class="bottomright color2" wx:if="{{item.status==1}}" data-phone="{{item.ableMobile}}" bindtap="makePhone">
+        联系能人
+      </view>
+      <view class="bottomright color3" bindtap="showStar" data-id="{{item.needId}}" wx:if="{{item.status==2 && item.score===null}}">
+        评价
+      </view>
+      <view class="bottomright color1" wx:if="{{item.status==2 && item.score!==null}}">
+        已完成
+      </view>
+      <view class="bottomright color1" wx:if="{{item.status==3}}">
+        已取消
+      </view>
+    </view>
+  </view>
+</block>
+<block wx:else>
+  <view class="empty">暂无数据</view>
+</block>
+<view class="lookcode" wx:if="{{showStart}}">
+  <view class="lookcontent">
+    <view class="looktitle">评价</view>
+    <view class="lookstart">
+      <text class="iconfont {{num>index?'icon-star':'icon-star1'}}  active" bindtap="every" data-num="{{index}}" wx:for="{{5}}" wx:key="index"></text>
+      <text>{{num}}</text>
+      分
+    </view>
+    <view class="lookcomfire" bindtap="submit">确定</view>
+  </view>
+</view>

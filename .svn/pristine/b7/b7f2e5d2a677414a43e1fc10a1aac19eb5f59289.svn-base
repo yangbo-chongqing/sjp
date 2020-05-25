@@ -1,0 +1,14 @@
+/* components/iconfonts/iconfonts.wxss */
+.iconfonts{
+  width: 100%;
+}
+.iconfonts .imgbox{
+  width: 36rpx;
+  height: 36rpx;
+  vertical-align: middle;
+  margin-right: 6rpx;
+}
+.iconfonts .imgbox image{
+  width: 100%;
+  height: 100%;
+}

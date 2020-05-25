@@ -1,0 +1,24 @@
+<!--subPages/forum/partyDetails/partyDetails.wxml-->
+<wxs  src="../../../assets/filter/public.wxs" module="filter"></wxs> 
+<view class="partyDetails">
+  <view class="eleganbox">
+    <view class="elegantext">
+      <text>{{titles}}</text>
+    </view>
+    <view class="elenganPortrait">
+      <view class="portext">
+          <view class="firstText">
+            <!-- <text>{{createUserName}}</text> -->
+             <text>{{filter.timesub6(createDate)}}</text>
+            <text class="mintext">浏览量<text>{{readCount}}</text>次</text>
+          </view>
+         
+      </view>
+    </view>
+  </view>
+  <!-- 新闻详情 -->
+  <view class="detailContent">
+    <rich-text nodes="{{content}}" bindtap="chooseImg" />
+  </view>
+</view>
+

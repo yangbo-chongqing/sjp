@@ -1,0 +1,21 @@
+<!--subPages/poldetails/poldetails.wxml-->
+<view class="pol-details">
+  <view>
+    <text class="pol-details-title">{{title}}</text>
+    <view class="pol-details-msg">
+      <view class="place">
+        <!-- <view>
+          <view>提交地点：{{place}}</view>
+        </view> -->
+        <view>{{stage}}<text>次浏览</text></view>
+      </view>
+      <!-- <view class="personnel">
+        <view>会议时间：{{time}}</view>
+        <view>行动时间：{{xtime}}</view>
+      </view> -->
+    </view>
+  </view>
+  <view class="content">
+    <rich-text nodes="{{text}}" bindtap="chooseImg" />
+  </view>
+</view>

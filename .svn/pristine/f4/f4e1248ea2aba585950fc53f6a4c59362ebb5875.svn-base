@@ -1,0 +1,7 @@
+<!--subPages/voluteerhelp/voluteerhelp.wxml-->
+<view class="allbox">
+  <view class="title">{{detail.placeTitle}}</view>
+  <view class="content">
+    <rich-text nodes="{{text}}" bindtap="chooseImg" />
+  </view>
+</view>

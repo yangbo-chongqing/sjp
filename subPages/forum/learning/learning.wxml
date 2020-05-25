@@ -1,0 +1,51 @@
+<!--subPages/forum/learning/learning.wxml-->
+<wxs src="../../../assets/filter/public.wxs" module="filter"></wxs>
+<view class="learning">
+   <!-- 导航 -->
+    <view class="navigation navbottom">
+      <view class="nav-text {{nav==1?'actve':''}}" bindtap="changeNav" data-nav="1"><text>三会一课</text><view></view></view>
+      <view class="nav-text {{nav==2?'actve':''}}" bindtap="changeNav" data-nav="2"><text>主题党日</text><view></view></view>
+    </view> 
+     <!-- 三会一课 -->
+  <view class="report" wx:if="{{nav == 1}}">
+    <view class="lis" wx:for="{{ allList }}" wx:key="index" data-id="{{item.newsId}}"  bindtap="toTheme" 
+    data-title="{{item.title}}">
+       <view class="imagebox">
+        <image src="{{ item.coverPic }}" mode="widthFix"></image>
+       </view>
+       <view class="textbox" bindtap="goLesson">
+        <view class="text-view">
+          <text>{{ item.title }}</text>
+        </view>
+        <view class="text-vew">
+          <view>{{item.introduction}}</view>
+        </view>
+        <view class="textsbox">
+          <!-- <text># {{ item.address}}</text> -->
+          <text>{{ filter.timesub2(item.createDate) }}</text>
+        </view>
+       </view>
+    </view>
+  </view>
+    <!-- 主题党日 -->
+  <view class="report" wx:if="{{nav == 2}}">
+    <view class="lis" wx:for="{{ allLists }}" wx:key="index" data-id="{{item.newsId}}"  bindtap="toThemes" 
+    data-title="{{item.titleone}}">
+       <view class="imagebox">
+        <image src="{{ item.coverPic }}" mode="widthFix"></image>
+       </view>
+       <view class="textbox">
+        <view class="text-view">
+          <text>{{ item.title }}</text>
+        </view>
+        <view class="text-vew">
+          <view>{{ item.introduction }}</view>
+        </view>
+        <view class="textsbox">
+          <!-- <text># {{ item.address }}</text> -->
+          <text>{{ filter.timesub2(item.createDate) }}</text>
+        </view>
+       </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "Line": "/components/public/Line/Line"
+  },
+  "navigationBarTitleText": "预约办事"
+}

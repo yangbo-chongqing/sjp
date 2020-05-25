@@ -1,0 +1,5 @@
+<!--subPages/serviceHall/Alarm/Alarm.wxml-->
+<view id="Alarm">
+    <PhoneList  telephoneList="{{ telephoneList }}"/>
+    <view wx:if="{{isBottom}}" class="centers">已显示该社区联系警员信息</view>
+</view>

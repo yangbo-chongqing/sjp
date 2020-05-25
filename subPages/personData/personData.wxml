@@ -1,0 +1,61 @@
+<!--subPages/personData/personData.wxml-->
+<view class="line"></view>
+<form bindsubmit="formSubmit">
+  <view class="all">
+    <view class="item">
+      <view class="userpicture">个人头像</view>
+      <view class="img">
+        <image class="add" bindtap="add" src="{{ src || str}}" role="img"></image>
+      </view>
+      <view class="iconfont icon-you right"></view>
+    </view>
+  </view>
+  <view class="all">
+    <view class="itemOther">
+      <view class="username">真实姓名</view>
+      <input type="text" placeholder="请输入姓名" bindfocus="inputname" name="name" value="{{userinfo.name}}"></input>
+      <view class="iconfont icon-you right"></view>
+    </view>
+  </view>
+  <view class="all" bindtap="goMobile">
+    <view class="itemOther">
+      <view class="username">手机号码</view>
+      <input type="text" placeholder="请输入号码" disabled bindfocus="inputmobile" name="mobile" value="{{userinfo.mobile}}"></input>
+      <view class="iconfont icon-you right"></view>
+    </view>
+  </view>
+  <view class="all">
+
+    <view class="itemOther">
+      <view class="username">归属网格</view>
+      <picker mode="multiSelector" range="{{multiArray}}" bindcolumnchange="columnchange" value="{{multiIndex}}" bindchange='pickchange'>
+        <view class='picker' wx:if="{{multiArray[0][multiIndex[0]] && step == 0}}">
+          <text>{{userinfo.deptName}}—{{userinfo.gridName===null?"暂无":userinfo.gridName}}</text>
+        </view>
+        <view class="picker" wx:if="{{multiArray[0][multiIndex[0]] && step == 1}}">
+          <text class="fontcolor">{{multiArray[0][multiIndex[0]]}}—{{multiArray[1][multiIndex[1]]}}</text>
+        </view>
+      </picker>
+      <view class="iconfont icon-you right"></view>
+
+
+
+    </view>
+  </view>
+  <view class="all">
+    <view class="itemOther" bindtap="showCode">
+      <view class="userpicture">个人二维码</view>
+      <view class="iconfont icon-qr_code code"></view>
+      <view class="iconfont icon-you right"></view>
+    </view>
+  </view>
+  <button form-type="submit" class="save {{changeback?'backred':'backfff'}}">
+    保存资料
+  </button>
+</form>
+<view class="codes" wx:if="{{showCode}}">
+  <view class="codecontent">
+    <image src="{{userinfo.qrCode}}" role="img"></image>
+    <text class="iconfont icon-guanbi det" bindtap="closecode"></text>
+  </view>
+</view>

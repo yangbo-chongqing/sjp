@@ -1,0 +1,6 @@
+<!--subPages/streetpic/streetpic.wxml-->
+<view class="picbox">
+  <view class="pic">
+    <image src="{{item}}" wx:for="{{imglist}}" bindtap="previewImage" data-img="{{item}}" wx:key="index" role="img"></image>
+  </view>
+</view>

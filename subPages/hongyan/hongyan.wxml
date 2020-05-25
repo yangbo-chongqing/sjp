@@ -1,0 +1,154 @@
+<!--pages/hongyan/hongyan.wxml-->
+<wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
+<view>
+<!-- header -->
+  <view class="container">
+    <view class="container-header" wx:for="{{bannerList}}" wx:key="index" bindtap="goDetails" data-url="{{item.bannerUrl}}">
+      <view class="header-news" data-id="{{index}}">
+        <view>
+          <image src="{{item.img}}" lazy-load="true"></image>
+        </view>
+        <text>{{item.title}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- end -->
+  <view class="lines"></view>
+
+  <!-- 第二部分 -->
+  <view class="member" wx:if="{{partyMember!=null}}">
+    <view class="member-top">
+      <!-- <text class="iconfont icon-xingxing"></text> -->
+      <image class="iconfont" src="https://webservers.sjpdqfwzx.com/file/icon/Component 13.png"></image>
+      <text>我是党员</text>
+    </view>
+    <view class="line"></view>
+    <view class="member-bottom">
+      <view class="member-bottom-left">
+        <view>
+          <text>基础分数:</text>
+          <view class="member-stage">
+            <!-- <text class="iconfont icon-yingbi"></text> -->
+            <image class="iconfont" src="https://webservers.sjpdqfwzx.com/file/icon/Rectangle 205.png"></image>
+            <text>70分</text>
+          </view>
+        </view>
+        <view>
+          <text>当前积分:</text>
+          <view class="member-stage">
+            <!-- <text class="iconfont icon-yingbi"></text> -->
+            <image class="iconfont" src="https://webservers.sjpdqfwzx.com/file/icon/Rectangle 205.png"></image>
+            <text>{{num}}分</text>
+          </view>
+        </view>
+      </view>
+      <view class="len-line"></view>
+      <view class="member-bottom-right">
+        <text>红绿灯：</text>
+        <view class="yuan" wx:if="{{num<70}}">
+          <view class="red"></view>
+          <view class="green"></view>
+        </view>
+        <view class="yuan" wx:if="{{num>=70}}">
+          <view class="red1"></view>
+          <view class="green1"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- end -->
+  <view class="lines scale-lines"></view>
+
+  <!-- 第三部分 -->
+  <view class="scale" wx:if="{{partyMember!=null}}">
+    <view>
+      <view>
+        <view class="scale-top">
+          <view>
+            <!-- <text class="iconfont icon-xingxing"></text> -->
+            <image class="iconfont" src="https://webservers.sjpdqfwzx.com/file/icon/Component 13.png"></image>
+            <text>党内学习生活</text>
+          </view>
+          <view class="scale-line"></view>
+          <text>党员评分标准</text>
+        </view>
+        <view class="line"></view>
+      </view>
+      <view>
+        <view class="scale-main" wx:for="{{list}}" wx:key="index">
+          <view>
+            <view class="scale-main-text">{{item.ruleName}}</view>
+            <view class="scale-main-stage">
+              <!-- <text class="iconfont icon-yingbi"></text> -->
+              <image class="iconfont" src="https://webservers.sjpdqfwzx.com/file/icon/Rectangle 205.png"></image>
+              <text>{{item.integral}}</text> /次
+            </view>
+          </view>
+          <view class="line"></view>
+        </view>
+      </view>
+    </view>
+
+    <view>
+      <view>
+        <view class="scale-top">
+          <view>
+            <!-- <text class="iconfont icon-xingxing"></text> -->
+            <image class="iconfont" src="https://webservers.sjpdqfwzx.com/file/icon/Component 13.png"></image>
+            <text>先锋作用发挥</text>
+          </view>
+          <view class="scale-line"></view>
+          <text>党员评分标准</text>
+        </view>
+        <view class="line"></view>
+      </view>
+      <view wx:for="{{listXian}}" wx:key="index">
+        <view class="scale-main">
+          <view>
+            <view class="scale-main-text">{{item.ruleName}}</view>
+            <view class="scale-main-stage">
+              <!-- <text class="iconfont icon-yingbi"></text> -->
+              <image class="iconfont" src="https://webservers.sjpdqfwzx.com/file/icon/Rectangle 205.png"></image>
+              <text>{{item.integral}}</text> /次
+            </view>
+          </view>
+          <view class="line"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 不是党员展示数据 -->
+  <view wx:if="{{partyMember==null}}">
+    <view class="member">
+      <view class="member-top">
+        <!-- <text class="iconfont icon-xingxing"></text> -->
+        <image class="iconfont" src="https://webservers.sjpdqfwzx.com/file/icon/Component 13.png"></image>
+        <text>党员风采</text>
+      </view>
+    </view>
+    <view class="demeanor">
+      <view wx:for="{{list2}}" wx:key="index">
+        <view bindtap="goNews" data-id="{{item.newsId}}" data-title="{{ title }}">
+          <view class="demeanor-list">
+            <image src="{{item.coverPic}}" lazy-load="true"></image>
+            <view class="demeanor-list-left">
+              <view class="demeanor-name">
+                <text>{{item.title}}</text>
+                <view>
+                  <!-- <text class="iconfont icon-you"></text> -->
+                </view>
+              </view>
+              <view>{{item.introduction}}</view>
+              <view class="demeanor-time">
+                <text class="time">{{filter.timesub2(item.createDate)}}</text>
+                <view><text>{{item.readCount}}</text>浏览</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="lines"></view>
+      </view>
+    </view>
+  </view>
+</view>

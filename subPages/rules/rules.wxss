@@ -1,0 +1,12 @@
+/* subPages/rules/rules.wxss */
+.rules view,
+.rules view>text{
+  font-size: 32rpx;
+  color: #444;
+}
+.rules view{
+  margin-bottom: 30rpx;
+}
+.rules>view:first-child{
+  padding: 24rpx 30rpx 0 30rpx;
+}

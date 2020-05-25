@@ -1,0 +1,10 @@
+/* subPages/serviceHall/Alarm/Alarm.wxss */
+#Alarm {
+    width: 100%;
+    box-sizing: border-box;
+}
+.centers{
+ text-align: center;
+ margin-top: 40rpx;
+ color: #BFBFBF;
+}

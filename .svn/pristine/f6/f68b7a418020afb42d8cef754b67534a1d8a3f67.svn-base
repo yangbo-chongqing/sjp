@@ -1,0 +1,7 @@
+<!--components/Policy/Search/Search.wxml-->
+<view class="search">
+    <view>
+        <text class="iconfont icon-search"></text>
+        <input type="text" placeholder="关键信息" bindinput="bindInput" maxlength="11" value="{{keyName}}" />
+    </view>
+</view>

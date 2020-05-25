@@ -1,0 +1,29 @@
+<!--subPages/emotionTome/emotionTome.wxml-->
+<wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
+<view class="forme">
+  <view wx:for="{{list}}" wx:key="index">
+    <view class="forme-list">
+      <view class="forme-title">
+        <view>
+          <image src="{{item.userPic}}"></image>
+          <view class="title-right">
+            <text>{{item.userName}}</text>
+            <view class="title-time">{{filter.timesub2(item.createDate)}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="forme-content">
+        <view class="content-replay">
+          <text>回复：</text>
+          <text>{{item.discussContent}}</text>
+        </view>
+        <view>
+          <view class="content-original">
+            <text>原贴：</text>
+            <text>{{item.messageTitle}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

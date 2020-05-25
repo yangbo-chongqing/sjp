@@ -1,0 +1,19 @@
+<!--pages/yaowen/yaowen.wxml-->
+<wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
+
+<view>
+  <view class="news">
+    <view class="news-main" wx:for="{{list}}" wx:key="index" bindtap="goDetails" data-id="{{index}}" data-item="{{ item }}">
+      <text class="news-main-text" type="node">{{item.title}}</text>
+      <view class="img">
+        <image wx:if="{{filter.picsub(item.contentPic,0)}}" src="{{filter.picsub(item.contentPic,0)}}"/>
+        <image wx:if="{{filter.picsub(item.contentPic,1)}}" src="{{filter.picsub(item.contentPic,1)}}"/>
+        <image wx:if="{{filter.picsub(item.contentPic,2)}}" src="{{filter.picsub(item.contentPic,2)}}"/>
+      </view>
+      <view class="news-main-time">
+        <text>{{filter.timesub2(item.createDate)}}</text>
+        <view>{{item.readCount}}<text>浏览</text></view>
+      </view>
+    </view>
+  </view>
+</view>

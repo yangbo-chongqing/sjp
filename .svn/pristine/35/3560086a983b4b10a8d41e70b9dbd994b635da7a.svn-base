@@ -1,0 +1,12 @@
+<!--横向选择-->
+<view class="OrgNavBar">
+    <view class = "{{ flag === index ? 'active' : '' }}"
+          wx:for = "{{ navbarList }}"
+          bindtap = "handleToggleMsg"
+          data-index = "{{ index }}"
+          wx:key="index"
+    >
+        {{ item.areaName }}
+        <i />
+    </view>
+</view>

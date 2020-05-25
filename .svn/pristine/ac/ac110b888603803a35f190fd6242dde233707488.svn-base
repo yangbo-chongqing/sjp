@@ -1,0 +1,7 @@
+<!--components/iconfonts/iconfonts.wxml-->
+<view class="iconfonts">
+  <view class="imgbox">
+   <image class="iconfont" src="https://webservers.sjpdqfwzx.com/file/icon/Component 13.png"></image>
+  </view>
+</view>
+ 

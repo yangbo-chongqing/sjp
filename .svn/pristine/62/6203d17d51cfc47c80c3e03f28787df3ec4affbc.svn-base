@@ -1,0 +1,175 @@
+ /* subPages/forum/studio/studio.wxss */
+ page{
+   background: #f2f2f2;
+ }
+ .studio{
+   padding-top: 88rpx;
+ }
+ .navigation{
+   width: 750rpx;
+   height: 88rpx;
+   display: flex;
+   justify-content:space-between;
+   border-bottom: 2rpx solid #f5f5f5;
+   position: fixed;
+   top: 0;
+   left: 0;
+   background: #FFFFFF;
+ }
+ .nav-text{
+   width: 33.3%;
+   text-align: center;
+   line-height: 88rpx;
+   position: relative;
+ }
+  .nav-text text{
+    font-size: 28rpx;
+    color: #444444;
+  }
+  .nav-text view{
+    width: 60rpx;
+    height: 8rpx;
+    background: #D33333;
+    border-radius: 8rpx;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 8rpx;
+    margin: auto;
+    display: none;
+  }
+  .actve text{
+    color: #D33333;
+    font-weight: 600;
+    font-size: 28rpx；
+  }
+  .nav-text.actve view{
+    display: block;
+  }
+  .introduction{
+    padding: 32rpx 30rpx;
+    background: #FFFFFF;
+    box-sizing: border-box;
+  }
+  .introduction text{
+    font-size: 32rpx;
+    color: #444444;
+  }
+  .demeanor .li{
+   width: 100%;
+   padding: 0 30rpx;
+   background: #FFFFFF;
+   margin-bottom: 16rpx;
+   box-sizing: border-box;
+  }
+  .demeanor .li:last-child{
+    margin-bottom: 0rpx;
+  }
+  .demeanor .li .tit{
+    color: #444444;
+    font-size: 32rpx;
+    padding: 32rpx 0;
+    display: inline-block;
+  }
+  .demeanor .li .imgbox{
+    width: 100%;
+    height: 356rpx;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  .demeanor .li .imgbox image{
+    width:100%;    
+  }
+  .demeanor .li .downbox{
+    width: 100%;
+    padding: 34rpx 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  .demeanor .li .downbox .time{
+    color: #8A8A8A;
+    font-size: 24rpx;
+  }
+  .demeanor .li .downbox .second{
+    color: #8A8A8A;
+    font-size: 20rpx;
+  }
+  .demeanor .li .downbox .second text{
+    color: #D33333;
+  }
+  .report{
+    background: #FFFFFF;
+    /* margin-top: 40rpx;   */
+  }
+  .report .lis{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 32rpx 30rpx 40rpx 30rpx;
+    border-bottom: 2rpx solid #f5f5f5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .report .lis .imagebox{
+    width: 220rpx;
+    height: 172rpx;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  .report .lis .textbox{
+    width: 446rpx;
+    height: 170rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+  }
+  .report .lis .textbox .text-view{
+    margin-bottom: 23.8rpx;
+  }
+  .report .lis .textbox .text-view text{
+    font-size: 36rpx;
+    color: #444;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+  .report .lis .textbox .text-vew rich-text{
+    font-size: 24rpx;
+    color: #444444;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    white-space: normal !important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    letter-spacing:5rpx;
+  }
+  /* .report .lis .textbox .text-vew rich-text img{
+    display: none;
+  } */
+  .report .lis .textsbox{
+    width: 100%;
+    display: flex;
+    justify-content:space-between;
+    padding: 33rpx 0 0 0;
+  }
+  .report .lis .textsbox text:nth-child(1){
+    color: #8a8a8a;
+    font-size: 24rpx;
+    display: inline-block;
+    margin-bottom: 23.8rpx;
+  }
+  .report .lis .textsbox text:nth-child(2){
+    color: #8A8A8A;
+    font-size: 24rpx;
+    height: 38rpx;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+  }

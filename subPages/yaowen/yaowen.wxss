@@ -1,0 +1,66 @@
+/* pages/yaowen/yaowen.wxss */
+.news{
+  background: #fff;
+  border-top: 1px solid #f5f5f5;
+}
+.news .news-main{
+  border-bottom: 1px solid #f5f5f5;
+}
+.news .news-main-text{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-size: 36rpx;
+  color: #454545;
+  margin: 32rpx 46rpx 23rpx 30rpx;
+}
+.news .news-main-text>text{
+  color: #049DFB;
+}
+/* .news .news-main view:nth-child(2){
+  text-align: center;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+} */
+.news .news-main view:nth-child(2) image{
+  width: 220rpx;
+  height: 160rpx;
+}
+.news .news-main>image{
+  display: block;
+  width: 90%;
+  height: 356rpx;
+  margin: auto;
+}
+.news .news-main view:nth-child(2) image:not(:last-child){
+  padding-right: 16rpx;
+}
+.news-main-time{
+  margin-top: 24rpx;
+  padding: 0 0 28rpx 30rpx;
+}
+.news-main-time>text{
+  font-size: 24rpx;
+  color: #999;
+}
+.news-main-time>view{
+  float: right;
+  font-size: 20rpx;
+  color: #d33333;
+  margin-right: 30rpx;
+  margin-top: 8rpx;
+}
+.news-main-time>view>text{
+  color: #999;
+}
+
+.img>image:first-child{
+  margin-left: 24rpx;
+}
+.img>image{
+  width:234rpx;
+  height:176rpx;
+  margin-right: 6rpx;
+} 

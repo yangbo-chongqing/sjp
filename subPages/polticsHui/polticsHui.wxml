@@ -1,0 +1,23 @@
+<!--subPages/polticsHui/polticsHui.wxml-->
+<wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
+<view class="pol-details">
+  <view>
+    <text class="pol-details-title">{{title}}</text>
+    <view class="pol-details-msg">
+      <view class="place">
+        <view>
+          <view>会议地点：{{place}}</view>
+        </view>
+        <view>{{stage}}<text>次浏览</text></view>
+      </view>
+      <view class="personnel">
+        <view>会议时间：{{filter.timesub7(time)}}</view>
+        <view>行动时间：{{filter.timesub7(xtime)}}</view>
+        <view>参会人员：{{person}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="content">
+    <rich-text nodes="{{content}}" class="text" bindtap="chooseImg" />
+  </view>
+</view>

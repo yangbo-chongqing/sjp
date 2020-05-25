@@ -1,0 +1,10 @@
+<!--服务大厅上部工具栏-->
+<view class="box">
+<view class="serviceHallTools">
+    
+    <view wx:for="{{ ToolsList }}" wx:key="index" bindtap="handleGoSubpage" data-link="{{ item.link }}" data-id="{{index}}">
+        <image src="{{ item.img }}" />
+        {{ item.title }}
+    </view>
+</view>
+</view>

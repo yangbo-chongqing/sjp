@@ -1,0 +1,55 @@
+<!--subPages/moreVolunteerActivity/volunteerdetail/volunteerdetail.wxml-->
+<wxs src="../../../assets/filter/public.wxs" module="filter"></wxs>
+<view class="activityTitle">
+  {{detail.title}}
+</view>
+<view class="activitTop">
+  <image src="{{detail.createUserHeadUrl}}" role="img"></image>
+  <view class="createInfo">
+    <text class="createName">{{detail.createUserName}}</text>
+    <text class="createTime">{{filter.timesub7(detail.createDate)}}</text>
+  </view>
+  <view class="joinNum">
+    <text>{{detail.hasSignUpNum}}人</text>报名
+    <!-- <text class="createName">发布人：{{detail.createUserName}}</text> -->
+  </view>
+</view>
+<view class="itemList">
+  <view class="listOne">
+    <text>活动时间：</text>
+    <text>{{filter.timesub5(detail.startTime)}}~{{filter.timesub5(detail.endTime)}}</text>
+  </view>
+  <view class="listOne">
+    <text>活动地点：</text>
+    <text>{{detail.address}}</text>
+  </view>
+  <view class="listOne">
+    <text>所需人数：</text>
+    <text>{{detail.peopleNum}}人</text>
+  </view>
+  <view class="listOne">
+    <text>报名人数：</text>
+    <text>{{detail.hasSignUpNum}}人</text>
+  </view>
+  <view class="listOne">
+    <text>服务时间：</text>
+    <text>{{detail.workHour}}小时</text>
+  </view>
+  <view wx:if="{{detail.signInStatus==0 && detail.signUpStatus==4 && detail.isEnd!=1 && detail.isActive}}" class="joinbtn" bindtap="joinac" data-id="{{detail.newsId}}">活动报名</view>
+  <view wx:if="{{detail.signUpStatus==0 && detail.isActive}}" class="joinbtn" data-id="{{detail.newsId}}">审核中</view>
+  <view wx:if="{{detail.signUpStatus==2 && detail.isActive}}" class="joinbtn" data-id="{{detail.newsId}}">拒绝</view>
+  <view wx:if="{{detail.signInStatus==0 && detail.signUpStatus==1 && detail.isEnd!=1 && detail.isActive}}" class="joinbtn" bindtap="sign" data-id="{{detail.newsId}}">活动签到</view>
+  <view wx:if="{{detail.signInStatus==1 && detail.signUpStatus==1 && detail.isEnd!=1 && detail.isActive}}" class="joinbtn" data-id="{{detail.newsId}}">签到审核中</view>
+  <view wx:if="{{detail.signInStatus==3 && detail.signUpStatus==1 && detail.isEnd!=1 && detail.isActive}}" class="joinbtn" data-id="{{detail.newsId}}">签到拒绝</view>
+  <view wx:if="{{detail.signInStatus==2 && detail.signUpStatus==1 && detail.isEnd!=1 && detail.isActive}}" class="joinbtn" data-id="{{detail.newsId}}">已签到</view>
+  <view wx:if="{{detail.isEnd==1 || detail.isEnd}}" class="joinbtn hide" data-id="{{detail.newsId}}">已结束</view>
+  <view class="listOne">
+    <text>活动积分：</text>
+    <text class="redfont">{{detail.integral}}积分</text>  
+  </view>
+</view>
+<view class="activityContent">                           
+  <rich-text nodes="{{text}}" bindtap="chooseImg" />
+</view>
+<joinsuccess showModel="{{ showModel }}" bind:closeModel="closeModel" />
+<signModel showSign="{{showSign}}" bind:closeSign="closeSign" bind:checkin="checkin" />

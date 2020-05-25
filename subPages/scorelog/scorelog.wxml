@@ -1,0 +1,62 @@
+<!--subPages/scorelog/scorelog.wxml-->
+<wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
+
+<view class="change" wx:if="{{ablePerson!=null || market!=null}}">
+  <view class='{{current==0?"active":""}} doing' data-current="0" catchtap='changeSwiper'>活动积分</view>
+  <view class='{{current==1?"active":""}} doing' data-current="1" catchtap='changeSwiper'>兑换积分</view>
+</view>
+<view wx:if="{{current==0?true:false}}">
+  <view class="{{ablePerson==null && market==null?'style':'filtrate'}}">
+    <view class="allbox">
+      <image src="http://119.3.196.255:8094/file/icon/Component 13.png"></image>
+      <view class="filtrateItem">
+        <text class='{{isActive==0?"active2":""}}' data-isActive="0" catchtap='changeActive'>全部</text>
+        <text class='{{isActive==1?"active2":""}}' data-isActive="1" catchtap='changeActive'>获取</text>
+        <text class='{{isActive==2?"active2":""}}' data-isActive="2" catchtap='changeActive'>消费</text>
+      </view>
+      <!-- <view class="nothing">仅展示近三个月详情</view> -->
+    </view>
+  </view>
+  <view class="{{ablePerson==null && market==null?'styleItem':'item'}}">
+    <view class="itemOne" wx:for="{{allscore}}" wx:key="index">
+      <view class="itemtitle">
+        <text>{{item.title || item.goodsName}}</text>
+        <text wx:if="{{isActive==2}}" class="{{isActive==2?'jian':''}}">{{item.integral || item.goodsTotalIntegral}}分</text>
+        <text wx:if="{{isActive==1}}">+{{item.integral || item.goodsTotalIntegral}}分</text>
+        <text wx:if="{{isActive==0}}" class="{{item.integral<0?'jian':''}}">{{filter.add(item.integral)}}分</text>
+      </view>
+      <view class="itemtime">
+        <text>{{filter.timesub4(item.createDate)}}</text>
+        <text>{{item.leftIntegral}}分</text>
+        <!-- <text>152分</text> -->
+      </view>
+    </view>
+  </view>
+</view>
+<view wx:if="{{current==1?true:false && ablePerson!=null && market!=null}}" class="exchange">
+  <view class="filtrate">
+    <view class="allbox">
+      <image src="http://119.3.196.255:8094/file/icon/Component 13.png"></image>
+      <view class="filtrateItem">
+        <text class='{{isActive==0?"active2":""}}' data-isActive="0" catchtap='changeActive1'>全部</text>
+        <text class='{{isActive==1?"active2":""}}' data-isActive="1" catchtap='changeActive1'>获取</text>
+        <text class='{{isActive==2?"active2":""}}' data-isActive="2" catchtap='changeActive1'>消费</text>
+      </view>
+      <!-- <view class="nothing">仅展示近三个月详情</view> -->
+    </view>
+  </view>
+  <view class="item">
+    <view class="itemOne" wx:for="{{allscore}}" wx:key="index">
+      <view class="itemtitle">
+        <text>{{item.title || item.goodsName}}</text>
+        <text wx:if="{{isActive==2}}" class="{{isActive==2?'jian':''}}">{{item.integral || item.goodsTotalIntegral}}分</text>
+        <text wx:if="{{isActive==1}}">+{{item.integral || item.goodsTotalIntegral}}分</text>
+        <text wx:if="{{isActive==0}}" class="{{item.integral<0?'jian':''}}">{{filter.add(item.integral)}}分</text>
+      </view>
+      <view class="itemtime">
+        <text>{{filter.timesub4(item.createDate)}}</text>
+        <text>{{item.leftIntegral}}分</text>
+      </view>
+    </view>
+  </view>
+</view>

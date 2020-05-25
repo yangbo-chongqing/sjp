@@ -1,0 +1,41 @@
+<wxs src="../../../assets/filter/public.wxs" module="filter"></wxs>
+<view class="positioning">
+  <view class="posibox" wx:key="index">
+    <view class="oneorg">
+      <view class="toporg">
+        <iconfonts></iconfonts>
+        <text class="textolor">六步议事法介绍</text>
+      </view>
+      <view class="textporg">
+        <rich-text nodes="{{content}}" class="text"></rich-text>
+      </view>
+    </view>
+    <view class="onebox">
+      <view class="oneorg">
+        <view class="toporg topboder">
+          <iconfonts></iconfonts>
+          <text class="textolor">阵地风采</text>
+        </view>
+        <view class="report">
+          <view class="lis" wx:for="{{ allList }}" wx:key="index" data-id="{{item.newsId}}" bindtap="toPostion" data-title="{{item.titleter}}">
+            <view class="imagebox">
+              <image src="{{ item.coverPic }}" mode="widthFix"></image>
+            </view>
+            <view class="textbox">
+              <view class="text-view">
+                <text>{{ item.title }}</text>
+              </view>
+              <view class="text-vew">
+                <text>{{ item.introduction }}</text>
+              </view>
+              <view class="textsbox">
+                <text># {{ item.address }}</text>
+                <text>{{ filter.timesub2(item.createDate) }}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

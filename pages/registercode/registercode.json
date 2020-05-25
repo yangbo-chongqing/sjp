@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "top_nav": "/components/navTop/navTop"
+  },
+  "navigationStyle": "custom"
+ 
+}

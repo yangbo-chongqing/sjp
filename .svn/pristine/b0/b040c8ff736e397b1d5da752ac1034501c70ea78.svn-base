@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "volunteer": "/components/volunteeractivity/volunteeractivity",
+    "community":"/components/communityactivity/communityactivity",
+    "studynews":"/components/studynews/studynews"
+  },
+  "navigationBarTitleText": "我要积分",
+  "navigationBarTextStyle": "black"
+}

@@ -1,0 +1,27 @@
+<!--subPages/logdetails/logdetails.wxml-->
+<wxs  src="../../assets/filter/public.wxs" module="filter"></wxs> 
+<view class="log-details">
+  <view>
+    <text class="log-details-title">{{title}}</text>
+    <view class="log-details-msg">
+      <view class="place">
+        <!-- <view>
+          <text>走访地方：</text>
+          <text>{{place}}</text>
+        </view> -->
+        <view>{{detail.gridLogTypeDesc}}</view>
+      </view>
+      <view class="personnel">
+        <text>网格人员：</text>
+        <text>{{detail.createUserName}}</text>
+      </view>
+      <view class="time">
+        <text>走访时间：</text>
+        <text>{{filter.timesub7(detail.createDate)}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="content">
+    <rich-text nodes="{{detail.logInfo}}" bindtap="chooseImg" />
+  </view>
+</view>

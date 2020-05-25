@@ -1,0 +1,7 @@
+<!--subPages/serviceHall/Policy/Policy.wxml-->
+<view id="Policy">
+    <!--搜索框-->
+    <Search bind:bindinput="bindInput" />
+    <!--新闻列表-->
+    <List allList="{{allList}}" bind:toDetails="toDetails" />
+</view>

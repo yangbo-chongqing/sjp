@@ -1,0 +1,36 @@
+<!--subPages/changePhone/changePhone.wxml-->
+<!-- <top_nav mytop="{{mytop}}"></top_nav> -->
+<view class="topbox">
+  <view class="imgbox">
+  <!-- <image src="http://119.3.196.255:8094/file/icon/logosj.png" role="img"></image> -->
+  </view>
+</view>
+<form bindsubmit="formSubmit">
+  <view class="all">
+    <view class="logintitle">
+      <text>验证手机号</text>
+      <text>欢迎使用石井坡E党建</text>
+    </view>
+    <view class="formcontent">
+
+      <view class="formitem">
+        <text wx:if="{{one == 1}}">号码</text>
+        <input type="number" bindfocus="change" bindblur="inChange" bindinput="phone" name="userphone" maxlength="11"
+        data-show="1" placeholder="手机号" />
+      </view>
+      <view class="formitem bot">
+        <text  wx:if="{{two == 1}}">验证码</text>
+        <input type="text" bindfocus="change" bindinput="code" bindblur="inChange" name="usercode"
+        data-show="2" placeholder="验证码" />
+        <view wx:if="{{send}}" bindtap="sendcode">点击获取</view>
+        <view wx:else>{{second}}s后获取</view>
+
+      </view>
+
+
+      <button class="form" formType="submit" >确认修改</button>
+    </view>
+
+  </view>
+</form>
+

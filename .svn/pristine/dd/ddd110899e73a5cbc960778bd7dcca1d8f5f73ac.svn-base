@@ -1,0 +1,142 @@
+/* subPages/myactivity/myactivity.wxss */
+
+.change {
+  display: flex;
+  height: 88rpx;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 8px solid #f5f5f5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.doing {
+  font-size: 32rpx;
+  color: #454545;
+}
+
+.active {
+  color: #d33333;
+  position: relative;
+}
+
+.active:after {
+  content: "";
+  width: 94rpx;
+  height: 8rpx;
+  border-radius: 8rpx;
+  box-shadow: 0 2rpx 4rpx 0;
+  background: #d33333;
+  position: absolute;
+  bottom: -20rpx;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.topheight {
+  margin-top: 104rpx;
+}
+
+.acItem {
+  padding: 0 0 30rpx 0;
+  border-bottom: 24rpx solid #f5f5f5;
+}
+
+.acTitle {
+  font-size: 32rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
+  line-height: 80rpx;
+  margin-left: calc(100%/30);
+  border-bottom: 2rpx solid #f5f5f5;
+}
+
+.acContent {
+  padding: 30rpx;
+  display: flex;
+  justify-content: flex-start;
+  /* align-items: center; */
+}
+
+.acContent>image {
+  width: 220rpx;
+  height: 160rpx;
+  display: block;
+  margin-right: 20rpx;
+}
+
+.acright, .acright2 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.acright2>view {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  color: #454545;
+  font-size: 30rpx;
+  line-height: 40rpx;
+}
+
+.acright>view:first-child {
+  flex: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  color: #454545;
+  font-size: 30rpx;
+  line-height: 40rpx;
+}
+
+.acright>view:last-child {
+  display: flex;
+  justify-content: space-between;
+}
+
+.acright>view:last-child>view {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.acright>view:last-child>view>text {
+  color: #d33333;
+}
+
+.acTime {
+  display: flex;
+  padding: 0 30rpx;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.acTime>view {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.acTime>view:last-child {
+  width: 100rpx;
+  height: 48rpx;
+  background: #d33333;
+  color: #ffff;
+  text-align: center;
+  line-height: 48rpx;
+  border-radius: 24rpx;
+}
+
+.statuscolor {
+  background: #f90 !important;
+}
+
+.statuscolor2 {
+  background: #dadada !important;
+}

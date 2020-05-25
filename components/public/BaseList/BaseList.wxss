@@ -1,0 +1,57 @@
+/* components/public/BaseList/BaseList.wxss */
+.BaseList {
+    width: 100%;
+    box-sizing: border-box;
+}
+.BaseList > .BaseListItem {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 32rpx 30rpx 40rpx 30rpx;
+    border-bottom: 2rpx solid #f5f5f5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.BaseList > .BaseListItem > image {
+    width: 220rpx;
+    height: 160rpx;
+    border-radius: 10rpx;
+}
+
+.BaseList > .BaseListItem > view {
+    width: 446rpx;
+    height: 160rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.BaseList > .BaseListItem > view > .info {
+    width: 100%;
+    font-family: PingFang SC;
+    font-size: 36rpx;
+    line-height: 44rpx;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    color: #454545;
+
+}
+
+.BaseList > .BaseListItem > view > .other {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 20rpx;
+    line-height: 28rpx;
+}
+
+.BaseList > .BaseListItem > view > .other > .time {
+    color: #999;
+}
+
+.BaseList > .BaseListItem > view > .other .number {
+    color: #D33333;
+}

@@ -1,0 +1,43 @@
+<!--subPages/emotion/emotion.wxml-->
+<wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
+<view class="gridservice">
+  <view>
+    <view class="grid-banner" wx:for="{{list}}" wx:key="index" bindtap="godetails" data-url="{{item.bannerurl}}">
+      <view class="banner-organization banner">
+        <view>
+          <image src="{{item.imgSrc}}" lazy-load="true"></image>
+        </view>
+        <text>{{item.title}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="emotion">
+    <view class="emotion-lsit">
+      <view class="list-title competition-title">
+        <!-- <text class="iconfont icon-xingxing"></text> -->
+        <image class="iconfont" src="https://webservers.sjpdqfwzx.com/file/icon/Component 13.png"></image>
+        <text>随心贴</text>
+      </view>
+      <view class="list-main" wx:for="{{listContent}}" wx:key="index" bindtap="goDetails" data-item="{{ item }}" data-id="{{index}}">
+        <view class="list-main-title">{{item.messageTitle}}</view>
+        <view>
+          <text class="list-time">发布时间：{{filter.timesub2(item.createDate)}}</text>
+          <text class="list-per">发布人：{{item.userName}}</text>
+          <view class="list-browse">
+            <view>
+              <text class="iconfont icon-chakan red" wx:if="{{item.isOpen==0}}"></text>
+              <text class="iconfont icon-chakan" wx:else></text>
+              <text>{{item.readTime}}</text>
+            </view>
+            <view>
+              <text class="iconfont icon-xinxi"></text>
+              <text>{{item.discusses}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

@@ -1,0 +1,17 @@
+<!--组织人员列表-->
+<view class="FrameworkList">
+{{type}}
+    <view wx:for="{{ FrameworkList }}"
+          wx:key="{{index}}"
+          bindtap="handleToggleModal"
+          data-index="{{ index }}"
+          data-person = "{{ item }}"
+    >
+            <image src="{{item.mebImg}}" />
+            <view>
+                <view class="personName">{{ item.mebName}}</view>
+                <view>{{ item.mebPosition }}</view>
+            </view>
+    </view>
+</view>
+

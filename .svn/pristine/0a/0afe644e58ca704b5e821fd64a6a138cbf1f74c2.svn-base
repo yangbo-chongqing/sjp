@@ -1,0 +1,60 @@
+<!--subPages/politics/politics.wxml-->
+<wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
+<view class="politics">
+  <view class="politics-top">
+    <view class="title">
+      <!-- <text class="iconfont icon-xingxing"></text> -->
+      <image class="iconfont" src="http://119.3.196.255:8094/file/icon/Component 13.png"></image>
+      <text>联席会会员</text>
+    </view>
+    <view class="top-per">
+      <view class="per-list" wx:for="{{list}}" wx:key="index">
+        <image src="{{item.memberHeadUrl}}"></image>
+        <view>
+          <text>{{item.memberName}}</text>
+          <text>{{item.memberPost}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="clear"></view>
+  </view>
+
+  <view class="politics-middle politics-top">
+    <view class="title">
+      <!-- <text class="iconfont icon-xingxing"></text> -->
+      <image class="iconfont" src="http://119.3.196.255:8094/file/icon/Component 13.png"></image>
+      <text>联席会会议通知</text>
+    </view>
+    <view class="middle-text">
+      <view>
+        <view class="hui" wx:for="{{huiList}}" wx:key="index">
+          <view><text>共建标题：</text>{{item.title}}</view>
+          <view><text>会议时间：</text>{{filter.timesub4(item.startTime)}}</view>
+          <view><text>会议地点：</text>{{item.address}}</view>
+          <view><text>会议简介：</text>{{item.introduction}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="politics-bottom politics-top">
+    <view class="title">
+      <!-- <text class="iconfont icon-xingxing"></text> -->
+      <image class="iconfont" src="http://119.3.196.255:8094/file/icon/Component 13.png"></image>
+      <text>联席会成果展示</text>
+    </view>
+    <view class="bottom-list">
+      <view wx:for="{{zhanList}}" wx:key="index">
+        <view class="list-main">
+          <image src="{{item.coverPic}}"></image>
+          <view class="list-text" bindtap="goDetails" data-id="{{index}}" data-item="{{ item }}">
+            <text>{{item.title}}</text>
+            <view>{{item.introduction}}</view>
+            <text>{{filter.timesub2(item.startTime)}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+

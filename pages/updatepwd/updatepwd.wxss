@@ -1,0 +1,93 @@
+/* pages/updatepwd/updatepwd.wxss */
+.topbox {
+  width: 100%;
+  height: 440rpx;
+  /* background: url("https://www.mlxc365.com/images/zhongyixiang/zhihuidangjian.png") no-repeat; */
+  background-size: 100%;
+  position: relative;
+}
+
+.topbox>image {
+  width: 176rpx;
+  height: 176rpx;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.logintitle {
+  /* text-align: center; */
+  padding: 50rpx 0;
+}
+
+.logintitle>text:first-child {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.logintitle>text:last-child {
+  font-size: 24rpx;
+}
+
+.all {
+  width: 516rpx;
+  margin: 0 auto;
+}
+
+
+
+.formitem {
+  border: 2rpx solid #d33333;
+  height: 88rpx;
+  position: relative;
+  margin-bottom: 50rpx;
+}
+
+.bot {
+  margin-bottom: 40rpx;
+}
+
+.formitem>text {
+  position: absolute;
+  top: -22rpx;
+  left: 15rpx;
+  background: #fff;
+  display: block;
+  font-size: 28rpx;
+  padding: 0 10rpx;
+  text-align: center;
+}
+
+.formitem > input {
+  height: 100%;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+}
+
+.fontcolor {
+  font-size: 24rpx;
+  color: #454545;
+  margin-bottom: 100rpx;
+}
+
+.form {
+  /* width: 516px; */
+  height: 88rpx;
+  background: #d33333;
+  color: #fff;
+  font-size: 32rpx;
+  margin: 0 auto;
+  line-height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+button:not([size='mini']){
+  width:100%;
+}
+button{
+  font-size: 32rpx;
+  padding: 0;
+  border-radius: none;
+}

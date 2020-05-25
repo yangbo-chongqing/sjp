@@ -1,0 +1,32 @@
+<!--subPages/dangPhoto/dangPhoto.wxml-->
+<wxs  src="../../assets/filter/public.wxs" module="filter"></wxs> 
+<view class="section">
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" range-key="photoAlbumName">
+    <view class="picker">
+      {{array[index].photoAlbumName}}
+      <text class="iconfont icon-xia3"></text>
+    </view>
+  </picker>
+</view>
+<!-- <wxs src="../../../assets/filter/public.wxs" module="filter"></wxs> -->
+<view class="photo">
+  <view wx:for="{{list}}" wx:key="index" bindtap="godetail" data-item="{{ item }}" data-id="{{index}}">
+    <view class="photo-main">
+      <text class="photo-main-title">{{item.photoAlbumName}}</text>
+      <image src="{{item.photoAlbumCover}}" lazy-load="true"></image>
+      <view class="photo-main-details">
+        <!-- <view>
+          <image src="{{item.createUserHeadUrl}}" lazy-load="true"></image>
+          <view class="photo-details-name">
+            <view>{{item.createUserName}}</view>
+            <view>{{filter.timesub1(item.createTime)}}</view>
+          </view>
+        </view> -->
+        <!-- <view><text>{{item.readCount}}</text>浏览</view> -->
+        <view class="time">{{filter.timesub2(item.createTime)}}</view>
+        <view>共<text>{{item.photoNum}}</text>张照片</view>
+      </view>
+    </view>
+    <view class="lines"></view>
+  </view>
+</view>         

@@ -1,0 +1,99 @@
+/* subPages/gridservice/gridservice.wxss */
+/* banner头部 */
+.gridservice{
+  border-top: 1px solid #f5f5f5;
+}
+.grid-banner:not(:last-child){
+  border-right: 1px solid #f5f5f5;
+}
+.gridservice>view:first-child,
+.grid-banner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.grid-banner{
+  width: 248rpx;
+  height: 212rpx;
+}
+.grid-banner image{
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 5px;
+}
+.grid-banner .banner{
+  text-align: center;
+}
+.banner text{
+  font-size: 28rpx;
+  color: #444;
+}
+.lines{
+  height: 16rpx;
+  width: 100%;
+  background: #f5f5f5; 
+}
+
+/* 第二部分---列表 */
+.grid-title{
+  display: flex;
+  align-items: center;
+}
+.grid-title>view:first-child{
+  margin: 28rpx 0 14rpx 28rpx;
+}
+.grid-title>view>.iocnfont{
+  font-size: 36rpx;
+  vertical-align: middle;
+}
+.grid-title>view:first-child>.iconfont{
+  width: 36rpx;
+  height: 36rpx;
+  margin: 0rpx 10rpx;
+  vertical-align: sub;
+}
+.grid-title>view:first-child>text{
+  color: #d33333;
+  font-weight: 600;
+  font-size: 28rpx;
+}
+.grid-line{
+  height: 28rpx;
+  width: 4rpx;
+  background: #dadada;
+  margin: 18.5rpx 20rpx 0 18rpx;
+}
+.grid-title>text:nth-child(3){
+  font-size: 20rpx;
+  color: #bfbfbf;
+  margin-top: 18.5rpx;
+}
+.grid-main-list{
+  width: 688rpx;
+  height: 80rpx;
+  margin: 0 auto 20rpx auto;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8rpx;
+  font-size: 28rpx;
+}
+.grid-main-list>text{
+  width: 40%;
+}
+.grid-main-list>text:first-child{
+  margin-left: 20rpx;
+  color: #454545;
+}
+.grid-main-list>text:nth-child(2){
+  color: #d33333;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.grid-main-list>text:last-child{
+  margin-right: 20rpx;
+  color: #8a8a8a;
+  font-size: 24rpx;
+}

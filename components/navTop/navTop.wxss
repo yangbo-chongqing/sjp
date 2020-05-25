@@ -1,0 +1,53 @@
+/* components/navTop/navTop.wxss */
+@import "/assets/css/iconfont.wxss";
+
+.status-bar, .navigation-bar, .menu {
+  position: fixed;
+  z-index: 1000;
+}
+
+/* .status-bar {
+  background-color: #5170eb;
+} */
+
+.navigation-bar {
+  /* background-color: #52a90c; */
+  display: flex;
+  align-items: center;
+}
+
+/* .menu {
+  background-color: #f03552;
+} */
+
+.back {
+  /* height: 32rpx;
+  width: 32rpx;
+  border-left: 2px solid gray;
+  border-bottom: 2px solid gray;
+  position: absolute;
+  top:50%;
+  left:10px;
+  transform: rotate(45deg) translateY(-50%); */
+  position: absolute;
+  width: 10%;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+}
+
+.title1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+
+}
+
+.title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

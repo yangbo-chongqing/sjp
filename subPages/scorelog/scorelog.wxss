@@ -1,0 +1,150 @@
+/* subPages/scorelog/scorelog.wxss */
+.change{
+  display: flex;
+  height:88rpx;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom:12px solid #f5f5f5;
+  position: fixed;
+  width:100%;
+  top:0;
+  left:0;
+  background: #fff;
+  
+}
+.doing{
+ font-size: 32rpx;
+ color:#454545;
+  
+}
+.active{
+  color:#D33333;
+  position: relative;
+}
+.active:after{
+  content:"";
+  width:60rpx;
+  height:8rpx;
+  border-radius: 8rpx;
+  box-shadow: 0 2rpx 4rpx 0;
+  background:#D33333; 
+  position: absolute;
+  bottom:-20rpx;
+  left:50%;
+  transform: translate(-50%);
+}
+.filtrate{
+position: fixed;
+  top:112rpx;
+  left:0;
+  width:100%;
+   background: #fff;
+  
+
+}
+.allbox{
+  height:90rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: calc(30/10.8*1vh);
+  border-bottom:2rpx solid #f5f5f5;
+  box-sizing: border-box;
+  padding-right:30rpx;
+
+}
+.filtrateItem{
+  flex: 1;
+  font-size:32rpx;
+  color:#999;
+  
+
+
+}
+.filtrateItem>text:nth-of-type(2){
+  margin:0 30rpx;
+}
+.active2{
+  color:#D33333;
+  font-size:34rpx;
+}
+.filtrate>.allbox>image,
+.style>.allbox>image{
+  width:40rpx;
+  height:40rpx;
+  display: block;
+  margin-right:20rpx;
+  
+}
+.nothing{
+  font-size:28rpx;
+  color:#CDCDCD;
+}
+.item{
+  margin-top:202rpx;
+}
+.itemOne{
+  margin-left:calc(30/10.8*1vh);
+  height:140rpx;
+  box-sizing: border-box;
+  border-bottom: 2rpx solid #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding:0 30rpx 0 0;
+}
+.itemtitle{
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding:20rpx 0;
+
+}
+.itemtitle>text:first-child{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  color:#454545;
+  flex: 1;
+}
+.itemtitle>text{
+  font-size:32rpx;
+}
+.itemtitle>text:last-child{
+  width:20%;
+  text-align: right;
+  color:#D33333; 
+}
+.itemtime>text:last-child{
+  width:20%;
+  text-align: right;
+  color:#454545;
+}
+.itemtime{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.itemtime>text{
+  color:#999;
+}
+.itemtime>text:first-child{
+  font-size:24rpx;
+}
+/* .itemtime>text:last-child{
+  font-size:28rpx;
+
+} */
+.exchange{
+  margin-top:112rpx;
+}
+.jian{
+  color:#24D9E3!important;
+}
+.style{
+  position: initial;
+}
+.styleItem{
+  margin-top: 0rpx;
+}

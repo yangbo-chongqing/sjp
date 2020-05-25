@@ -1,0 +1,20 @@
+<!--subPages/judLaw/judLaw.wxml-->
+<wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
+<view id="judLaw">
+  <view wx:for="{{list}}" wx:key="index" bindtap="goDetails" data-item="{{ item }}" data-id="{{index}}">
+    <view class="train-list">
+      <view class="list-main">
+        <image src="{{item.lawPic}}" lazy-load="true"></image>
+        <view class="train-list-detail">
+          <view>{{item.lawTitle}}</view>
+          <!-- <text>{{item.text}}</text> -->
+          <view>
+            <view class="train-time">{{filter.timesub2(item.createDate)}}</view>
+            <view class="train-order"><text>{{item.readTime}}</text>浏览量</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="line"></view>
+  </view>
+</view>

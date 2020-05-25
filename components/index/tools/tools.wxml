@@ -1,0 +1,15 @@
+<!--components/index/tools/tools.wxml-->
+<view class="tools">
+    <div class="top">
+        <view wx:for="{{ toolsTop }}" wx:key="index" bindtap="handleGoSubPages" data-link="{{ item.link }}">
+            <image src="{{ item.img }}" />
+            <text>{{ item.title}}</text>
+        </view>
+    </div>
+    <div class="bottom">
+        <view wx:for="{{ toolsBottom }}" wx:key="index" bindtap="handleGoSubPages" data-link="{{ item.link }}">
+            <image src="{{ item.img }}" />
+            <text>{{ item.title}}</text>
+        </view>
+    </div>
+</view>

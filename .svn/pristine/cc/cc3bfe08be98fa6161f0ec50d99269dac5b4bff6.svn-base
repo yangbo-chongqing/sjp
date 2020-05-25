@@ -1,0 +1,18 @@
+<!--components/navTop/navTop.wxml-->
+<!-- 自定义顶部 -->
+<view style='color:{{mytop.color||color}}'>
+  <!-- status-bar -->
+  <view class="status-bar" style="{{ Top.statusBarStyle }};background:{{mytop.background}}" />
+  <!-- navigation-bar -->
+  <view class="navigation-bar" style="border-bottom:{{mytop.border}};{{ Top.navigationBarStyle }};background:{{mytop.background || background}}">
+    <slot></slot>
+    <view class="back" wx:if="{{mytop.showBack}}" bindtap="goback">
+      <view class="iconfont icon-zuo"></view>
+    </view>
+    <view wx:if="{{!mytop.showBack}}" class="title">{{mytop.title}}</view>
+    <view wx:else="{{!mytop.showBack}}" class="title1">{{mytop.title}}</view>
+    
+  </view>
+  <!-- menu -->
+  <view class="menu" style="{{ Top.menuStyle }};background:transparent" />
+</view>

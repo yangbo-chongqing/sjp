@@ -1,0 +1,21 @@
+<!--党支部模态框-->
+<wxs src="../../../assets/filter/public.wxs" module="filter"></wxs>
+<view class="partyModal {{ isshow ?'active':''}}">
+    <view>
+        <view class="top">
+            <image src="{{person.mebImg}}" />
+            <view>
+                <view class="personName">{{person.mebName}}</view>
+                <view>{{person.mebPosition}}</view>
+            </view>
+            <i class="iconfont icon-guanbi" bindtap="handleToggleModal" data-index="{{ 0 }}"></i>
+        </view>
+        <view class="bottom">
+            <view class="tel">
+                办公电话：<text>{{person.mebPhone}}</text>
+                <text class="iconfont icon-dianhua" bindtap="handlePhone" data-ph="{{person.mebPhone}}" />
+            </view>
+            <view>入党时间：<text>{{filter.timesub1(person.joinDate)}}</text></view>
+        </view>
+    </view>
+</view>

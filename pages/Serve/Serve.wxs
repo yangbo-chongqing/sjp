@@ -1,0 +1,10 @@
+var num = 0;
+
+function add(index,index1){
+  index == 0 && index1 == 0 ? num = 0 : ''
+  return ++num
+}
+
+module.exports = {
+  add: add,
+}

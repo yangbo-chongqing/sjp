@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "FrameworkList": "/components/serviceHall/FrameworkList/FrameworkList"
+  }
+}

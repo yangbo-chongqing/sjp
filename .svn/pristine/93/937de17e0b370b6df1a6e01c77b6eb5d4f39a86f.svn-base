@@ -1,0 +1,23 @@
+/* subPages/emotionHistory/emotionHistory.wxss */
+.history{
+  border-top: 2rpx solid #f5f5f5;
+}
+.history>view{
+  border-bottom: 2rpx solid #f5f5f5;
+}
+.history-list{
+  padding: 32rpx 30rpx 28rpx 30rpx
+}
+.history-list>text:first-child{
+  font-size: 32rpx;
+  color: #444;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.history-list>text:last-child{
+  font-size: 24rpx;
+  color: #8a8a8a;
+  float: right;
+}

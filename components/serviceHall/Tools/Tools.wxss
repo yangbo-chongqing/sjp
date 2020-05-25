@@ -1,0 +1,76 @@
+/* components/serviceHall/Tools/Tools.wxss */
+
+.serviceHallTools {
+  /* width: 100%; */
+  /* height: 369rpx; */
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  /* background: url("http://119.3.196.255:8094/file/icon/59f4233c52f14.png") no-repeat; */
+  background-size: cover;
+ 
+}
+
+.box {
+  padding: 28rpx;
+  border-top: 2rpx solid #f5f5f5;
+  box-sizing: border-box;
+}
+.serviceHallTools > view image{
+  width: 226rpx;
+  height: 120rpx;
+}
+
+/* .serviceHallTools > view {
+  width: calc(100% / 3);
+  height: 122rpx;
+  border-bottom: 8rpx solid #fff;
+  border-right: 8rpx solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 38rpx;
+  color: #fff;
+  background: transparent;
+  box-sizing: border-box;
+} */
+/* .serviceHallTools > view:nth-of-type(){
+    flex: 1;
+} */
+/* .serviceHallTools > view:nth-of-type(1){
+     background: url("http://119.3.196.255:8094/file/icon/Union.png") no-repeat;
+}
+.serviceHallTools > view:nth-of-type(2){
+    background: linear-gradient(270deg, #59AFD5 0%, #A3D5EE 100%);
+}
+.serviceHallTools > view:nth-of-type(3){
+    background: linear-gradient(270deg, #F18E90 0%, #F8BEBD 100%);
+}
+.serviceHallTools > view:nth-of-type(4){
+    background: linear-gradient(270deg, #47E2C2 0%, #9CDFCE 100%);
+}
+.serviceHallTools > view:nth-of-type(5){
+    background: linear-gradient(270deg, #A0E24C 0%, #B8DF9A 100%);
+}
+.serviceHallTools > view:nth-of-type(6){
+    background: linear-gradient(90deg, rgba(161, 191, 237, 0.8) 0%, rgba(144, 142, 241, 0.8) 100%);
+}
+.serviceHallTools > view:nth-of-type(7){
+    background: linear-gradient(270deg, rgba(149, 51, 46, 0.568) 0%, rgba(149, 51, 46, 0.392) 100%);
+}
+.serviceHallTools > view:nth-of-type(8){
+    background: linear-gradient(90.51deg, #F0B3D0 0.33%, rgba(225, 79, 193, 0.8) 99.86%);
+}
+.serviceHallTools > view:nth-of-type(9){
+    background: linear-gradient(90deg, rgba(221, 180, 245, 0.8) 0%, rgba(183, 128, 239, 0.8) 100%);
+} */
+
+.serviceHallTools > view:nth-of-type(3n) {
+  border-right:none;
+}
+.serviceHallTools > view:nth-of-type(n+7) {
+  border-bottom:none;
+}

@@ -1,0 +1,267 @@
+/* pages/Profile/Profile.wxss */
+
+page {
+  background: #f5f5f5;
+}
+
+.userPic {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10rpx 20rpx;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.userPic>image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  display: block;
+  margin-right: 30rpx;
+}
+
+.userinfo {
+  flex: 1;
+  justify-content: center;
+}
+
+.userinfo>text {
+  line-height: 60rpx;
+}
+
+.code {
+  font-size: 72rpx;
+  color: #999;
+}
+
+.right {
+  font-size: 40rpx;
+  color: #999;
+  margin-left: 20rpx;
+}
+
+.all {
+  background: #fff;
+  height: 204rpx;
+  padding: 20rpx 0;
+  margin-bottom: 20rpx;
+}
+
+.scoreBox {
+  width: 690rpx;
+  height: 164rpx;
+  margin: 0 auto;
+  background: linear-gradient(89.53deg, #f45849 -0.52%, #f68140 98.72%);
+  box-shadow: inset 0px -6px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 12px 12px 0px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: #fff;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+}
+.myscore{
+  display: flex;
+  align-items: center;
+}
+
+.myscore>view:first-child>text,
+.myscore>view:last-child>text {
+  font-size: 56rpx;
+}
+.myscore .hide{
+  display: none;
+}
+.myscore .show{
+  display: block;
+  margin-left: 120rpx;
+}
+
+.myscore>view:first-child {
+  margin-right: 30rpx;
+}
+
+.scorelog>text:first-child {
+  margin-right: 30rpx;
+}
+
+.itemOne {
+  background: #fff;
+  padding: 0 30rpx;
+  height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rpx;
+}
+
+.itemOne:nth-of-type(5) {
+  margin-bottom: 20rpx;
+}
+
+.title {
+  font-size: 28rpx;
+  color: #000;
+}
+
+.icon {
+  color: #999;
+}
+
+.logoutbtn {
+  width: 516rpx;
+  height: 88rpx;
+  margin: 80rpx auto 40rpx;
+  background: #d33333;
+  color: #fff;
+  font-size: 32rpx;
+  line-height: 88rpx;
+  text-align: center;
+}
+/* 弹窗 */
+.codes{
+  width:100%;
+  height:100%;
+  background: rgba(0, 0, 0, 0.15);
+  position: fixed;
+  top:0;
+  left:0;
+}
+.codecontent{
+  width:504rpx;
+  height:600rpx;
+  position: absolute;
+  top:45%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+
+}
+.codecontent>image{
+  width:504rpx;
+  height:504rpx;
+  display: block;
+}
+.det{
+  font-size:60rpx;
+
+  color:#fff;
+}
+.noticecontent{
+  width:624rpx;
+  height:628rpx;
+  background: #fff;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  border-radius: 28rpx;
+  box-sizing: border-box;
+  padding:40rpx 30rpx;
+}
+.noticecontent>view:nth-of-type(2n+1){
+  font-size:32rpx;
+  color:#d33333;
+  margin-bottom:30rpx;
+}
+.noticecontent>view:nth-of-type(2n){
+  font-size:28rpx;
+  color:#000;
+  line-height: 48rpx;
+  margin-bottom:30rpx;
+
+}
+.comfirebtn{
+  width:200rpx;
+  height:80rpx;
+  color:#fff!important;
+  line-height:80rpx;
+  text-align: center;
+  font-size:32rpx;
+  background: #d33333;
+  border-radius: 96rpx;
+  /* margin: 0 auto; */
+  position: absolute;
+  bottom:40rpx;
+  left:50%;
+  transform: translate(-50%);
+
+}
+.formcontent{
+  width:624rpx;
+  height:786rpx;
+  background: #fff;
+  border-radius: 28rpx;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  padding:40rpx 40rpx;
+  box-sizing: border-box;
+}
+.formitem{
+  border: 2rpx solid #D33333;
+  border-radius: 8rpx;
+  height:88rpx;
+  position: relative;
+  margin-bottom:80rpx;
+
+}
+.bot{
+  margin-bottom:40rpx;
+}
+.formtitle{
+  margin-bottom:100rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.formtitle text{
+  font-size:32rpx;
+  line-height: 48rpx;
+  color:#d33333;
+}
+.formitem>text{
+  position: absolute;
+  top:-22rpx;
+  left:15rpx;
+  background: #fff;
+  display: block;
+  /* width:150rpx; */
+  padding:0 10rpx;
+  text-align: center
+}
+ .formitem > input{
+    height: 100%;
+    padding:0 20rpx;
+    font-size: 32rpx;
+  }
+.fontcolor{
+  font-size:24rpx;
+  color:#454545;
+  margin-bottom:100rpx;
+}
+.form{
+  width:200rpx;
+  height:80rpx;
+  background: #d33333;
+  color:#fff;
+  font-size: 32rpx;
+  border-radius: 96rpx;
+  margin: 0 auto;
+  line-height: 80rpx;
+  text-align: center;
+}
+.formcontent>.iconfont{
+  color: #000;
+  font-size: 30rpx;
+  position: fixed;
+  right: 30rpx;
+  top: 20rpx;
+}

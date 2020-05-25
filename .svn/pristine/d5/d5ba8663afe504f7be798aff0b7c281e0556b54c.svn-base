@@ -1,0 +1,201 @@
+//获取应用实例
+const app = getApp()
+// subPages/briefIntroduction.js
+import { get } from "../../../assets/js/request";
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    isshow: false, // 模态框
+    screen: 0,//1为产业服务，2为便民服务
+    longitude: null,//中心经度
+    latitude: null,//中心纬度
+    markers: [],//标记点
+    popupMess: {},//弹框信息
+    distance: null//距离
+  },
+
+  // 切换图标
+  switchIcon(e) {
+    let type = e.currentTarget.dataset.type
+    console.log(type)
+    this.setData({
+      screen: type
+    })
+    this.getMarkers()
+  },
+  //关闭弹框
+  toggleModal(e) {
+    this.setData({
+      isshow: !this.data.isshow,
+    })
+  },
+
+  //地图定位和设置地图大小
+  getLocationInfo() {
+    wx.getLocation({
+      type: 'gcj02', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标
+      success: res => {
+        this.setData({
+          longitude: res.longitude,//中心经度
+          latitude: res.latitude//中心纬度
+        })
+        //获取标记点
+        this.getMarkers()
+      },
+      fail: function (res) {
+        console.log(res);
+      }
+    })
+  },
+  //获取标记点
+  getMarkers() {
+    let data = {};
+    if (!!this.data.screen) {
+      data['mapServiceType'] = this.data.screen
+    }
+    get({
+      link: '/map/getMapList',
+      data: data
+    }).then(res => {
+      if (res.code === 200) {
+        let list = res.data.list;
+        let markers = list.map((obj, index) => {
+          let i = {
+            id: obj.mapId,
+            latitude: obj.baiduLatitude,
+            longitude: obj.baiduLongitude,
+            title: obj.mapName,
+            iconPath: "../../../assets/img/map.png",
+            width: 50,
+            height: 50
+          }
+          return i
+        })
+        this.setData({
+          markers: markers
+        })
+      }
+    })
+  },
+  //点击标记点
+  onMarkerTap(e) {
+    let markerId = e.markerId || '';
+    if (!markerId) return;
+    let data = {
+      mapId: markerId
+    }
+    get({
+      link: '/map/getMapOne',
+      data: data
+    }).then(res => {
+      if (res.code === 200) {
+        this.setData({
+          popupMess: res.data
+        })
+        this.getDistance();
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none'
+        })
+      }
+    })
+  },
+  //获取距离
+  getDistance() {
+    let data = {
+      latitudeFrom: this.data.latitude,
+      longitudeFrom: this.data.longitude,
+      latitudeTo: this.data.popupMess.baiduLatitude,
+      longitudeTo: this.data.popupMess.baiduLongitude
+    }
+    get({
+      link: '/map/getDistence',
+      data: data
+    }).then(res => {
+      if (res.code === 200) {
+        console.log(res)
+        this.setData({
+          isshow: true,
+          distance: res.data.toFixed(2)
+        })
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none'
+        })
+      }
+    })
+  },
+  //导航
+  toNavigation() {
+    console.log(1111)
+    const latitude = Number(this.data.popupMess.baiduLatitude);
+    const longitude = Number(this.data.popupMess.baiduLongitude);
+    wx.openLocation({
+      latitude,
+      longitude,
+      scale: 18
+    })
+  },
+  // 每次显示当前页面都要重新请求一次
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    this.getLocationInfo()
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
+})

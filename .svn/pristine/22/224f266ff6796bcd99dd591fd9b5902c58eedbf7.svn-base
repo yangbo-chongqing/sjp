@@ -1,0 +1,95 @@
+<!--subPages/forum/comDetails/comDetails.wxml-->
+<wxs src="../../../assets/filter/public.wxs" module="filter"></wxs>
+<view class="comDetails">
+  <!-- 轮播图 -->
+  <view class="bannerbox">
+    <swiper autoplay="{{true}}">
+      <block wx:for="{{teamPic}}" wx:key="index">
+        <swiper-item>
+            <view>
+                <image src="{{item}}" alt="" />
+            </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 详情 -->
+  <view class="textbox">
+    <view class="textOne">
+      <text class="fonts">{{ teamTitle }}</text>
+      <view>
+        <text class="iconfont icon-location font-color"></text>
+        <text>{{ deptName }}</text>
+      </view>
+    </view>
+    <!-- 导航 -->
+    <view class="navigation">
+      <view class="nav-text {{nav==1?'actve':''}}" bindtap="changeNav" data-nav="1"><text>组织详情</text><view></view></view>
+      <view class="nav-text {{nav==2?'actve':''}}" bindtap="changeNav" data-nav="2"><text>活动风采</text><view></view></view>
+    </view>  
+  </view>
+  <!-- 组织详情 -->
+  <view class="organization" wx:if="{{nav == 1}}">
+      <view class="oneorg">
+        <view class="toporg">
+          <iconfonts></iconfonts>
+          <text>服务理念</text>
+        </view>
+        <view>
+          <text class="words">{{ teamSlogan }}</text>
+        </view>
+      </view>
+      <view class="twoorg">
+        <view class="toporg">
+          <iconfonts></iconfonts>
+          <text>简介</text>
+        </view>
+        <view>
+          <text class="words">{{ teamContent }}</text>
+        </view>
+      </view>
+      <!-- 队伍构成表格 -->
+      <view class="threorg words">
+        <view class="toporg">
+          <iconfonts></iconfonts>
+          <text>队伍构成</text>
+        </view>
+        <view class="table">
+          <view class="tr bg-w"> 
+            <view class="th">姓名</view>
+            <view class="th">职务</view>
+            <view class="th">联系电话</view>
+          </view>
+          <block wx:for="{{groupList}}" wx:key="index">
+            <view class="tr">
+              <view class="td">{{item.userName}}</view>
+              <view class="td">{{item.identity}}</view>
+              <view class="td">{{item.mobile}}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+  </view>
+  <!-- 活动风采 -->
+  <view class="report" wx:if="{{nav == 2}}">
+    <view class="lis" wx:for="{{ allList }}" wx:key="index" data-id="{{index}}"  bindtap="toThemes" data-id="{{item.newsId}}"
+    data-title="{{item.titletwo}}">
+       <view class="imagebox">
+        <image src="{{ item.coverPic }}" ></image>
+       </view>
+       <view class="textbox">
+        <view class="text-view">
+          <text>{{ item.title }}</text>
+        </view>
+        <view class="text-vew">
+          <text>{{ item.introduction}}</text>
+        </view>
+        <view class="textsbox">
+          <!-- <text># {{ item.address }}</text> -->
+          <text></text>
+          <text>{{ filter.timesub2(item.createDate) }}</text>
+        </view>
+       </view>
+    </view>
+  </view>
+</view>

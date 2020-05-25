@@ -1,0 +1,21 @@
+<!--subPages/moreVolunteerActivity/viewdetail/viewdetail.wxml-->
+<wxs src="../../../assets/filter/public.wxs" module="filter"></wxs>
+
+<view class="activityTitle">
+  {{detail.title}}
+</view>
+<view class="activitTop">
+  <!-- <image src="{{detail.createUserHeadUrl}}" role="img"></image> -->
+  <view class="createInfo">
+    <!-- <text class="createName">{{detail.createUserName}}</text> -->
+    <text class="createTime">{{filter.timesub6(detail.createDate)}}</text>
+  </view>
+  <view class="createtxt"><text>{{ detail.readCount }}</text>次浏览</view>
+  <!-- <view class="joinNum">
+    <text>21人</text>报名
+  </view> -->
+</view>
+<view class="content">
+  <rich-text nodes="{{content}}" class="info" bindtap="chooseImg" />
+
+</view>

@@ -1,0 +1,9 @@
+<!--服务大厅页面-->
+<view id="serviceHall">
+    <!--工具栏-->
+    <Tools ToolsList="{{ ToolsList }}" bind:goSubpage="goSubpage"/>
+    <!--分割线-->
+    <Line />
+    <!--详情-->
+    <News areaName="{{ areaName }}" deptAttributes="{{ deptAttributes }}" />
+</view>

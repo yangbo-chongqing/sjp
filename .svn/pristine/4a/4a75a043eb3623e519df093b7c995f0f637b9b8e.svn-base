@@ -1,0 +1,88 @@
+<!--subPages/psychological/psychological.wxml-->
+<wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
+<view class="psychological">
+  <view class="psy-nav">
+    <view class="nav-title {{nav==1?'actve':''}}" data-nav="1" bindtap="goNav">
+      <text>心理活动风采</text>
+      <view></view>
+    </view>
+    <view class="nav-title {{nav==2?'actve':''}}" data-nav="2" bindtap="goNav">
+      <text>心理咨询师介绍</text>
+      <view></view>
+    </view>
+  </view>
+  <!-- 心理活动风采 -->
+  <view class="psy-content" wx:if="{{nav==1}}">
+    <view class="lines"></view>
+    <view class="politics-middle politics-top">
+      <view class="title">
+        <!-- <text class="iconfont icon-xingxing"></text> -->
+        <image class="iconfont" src="http://119.3.196.255:8094/file/icon/Component 13.png"></image>
+        <text>活动预告</text>
+      </view>
+      <view class="middle-text">
+        <view>
+          <view class="hui">
+            <view>活动主题：{{title}}</view>
+            <view>活动时间：{{filter.timesub7(time)}}</view>
+            <view>活动地点：{{space}}</view>
+            <view>活动简介：{{jianjie}}</view>
+            <view class="points">
+              活动积分：
+              <image class="gold" src="http://119.3.196.255:8094/file/icon/Rectangle 205.png" role="img"></image>
+              <text>{{item.integral==null?'0':item.integral}}积分</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="lines"></view>
+    <view class="politics-bottom politics-top">
+      <view class="title">
+        <!-- <text class="iconfont icon-xingxing"></text> -->
+        <image class="iconfont" src="http://119.3.196.255:8094/file/icon/Component 13.png"></image>
+        <text>心理活动风采</text>
+      </view>
+      <view class="bottom-list">
+        <view wx:for="{{zhanList}}" wx:key="index" bindtap="goDetails" data-id="{{index}}" data-item="{{ item }}">
+          <view class="list-main">
+            <image src="{{item.coverPic}}"></image>
+            <view class="list-text" bindtap="goDetails">
+              <text wx:if="{{item.title==null?'':'暂无'}}">{{item.title}}</text>
+              <view wx:if="{{item.introduction==null?'':'暂无'}}">{{item.introduction}}</view>
+              <text>{{filter.timesub2(item.createDate)}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="addneed btnfixed" bindtap="goAdd" data-url="/subPages/psyAdd/psyAdd">
+      <text class="iconfont icon-jiahao"></text>
+      <text>发布需求</text>
+    </view>
+  </view>
+
+  <!-- 心理服务师介绍 -->
+  <view class="demeanor" wx:if="{{nav==2}}">
+    <view class="lines"></view>
+    <view wx:for="{{list}}" wx:key="index" data-id="{{index}}" data-item="{{ item }}">
+      <view>
+        <view class="demeanor-list">
+          <image src="{{item.psPic}}" lazy-load="true"></image>
+          <view class="demeanor-list-left">
+            <view class="demeanor-name">
+              <text>{{item.psName}}</text>
+            </view>
+            <view>{{item.psActor}}</view>
+            <view>{{item.psIntro}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="addneed btnfixed" bindtap="goAdd" data-url="/subPages/psyAdd/psyAdd">
+      <text class="iconfont icon-jiahao"></text>
+      <text>发布需求</text>
+    </view>
+  </view>
+
+</view>

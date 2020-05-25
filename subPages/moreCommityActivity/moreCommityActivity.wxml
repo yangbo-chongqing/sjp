@@ -1,0 +1,2 @@
+<!--subPages/moreCommityActivity/moreCommityActivity.wxml-->
+<community comList="{{ comList }}" bind:goOther="godetail" />

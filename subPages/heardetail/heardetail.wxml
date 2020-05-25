@@ -1,0 +1,23 @@
+<!--subPages/heardetail/heardetail.wxml-->
+<wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
+
+<view class="detailbox">
+  <view class="detailtitle">{{details.title}}</view>
+  <view class="detailitem">
+    {{details.loveTypeDesc}}对象：
+    <text class="dui">{{details.beLoveTarget}}</text>
+    <text class="status">{{details.loveTypeDesc}}</text>
+  </view>
+  <view class="detailitem">
+    {{details.loveTypeDesc}}资金：
+    <text>{{details.loveMoney}}元</text>
+  </view>
+  <view class="detailitem">
+    {{details.loveTypeDesc}}时间：
+    <text >{{filter.timesub6(details.createDate)}}</text>
+  </view>
+  
+  <view class="richcontent">
+     <rich-text nodes="{{details.content}}" class="text" bindtap="chooseImg" />
+  </view>
+</view>

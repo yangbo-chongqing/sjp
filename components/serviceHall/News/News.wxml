@@ -1,0 +1,14 @@
+<!--components/serviceHall/News/News.wxml-->
+<view class="serviceHallNews">
+    <view class="introduction">
+        <!-- <view class="square"></view>
+        <view class="square1"></view> -->
+        <!-- <text class="square iconfont icon-xingxing"></text> -->
+        <image class="square" src="http://119.3.196.255:8094/file/icon/Component 13.png"></image>
+        {{areaName}}
+    </view>
+    <!--简介富文本-->
+    <view class="info">
+      <rich-text nodes="{{deptAttributes}}"></rich-text>
+    </view>
+</view>

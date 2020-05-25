@@ -1,0 +1,25 @@
+<!--subPages/demeanor/demeanor.wxml-->
+<wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
+<view class="demeanor">
+  <view wx:for="{{list}}" wx:key="index">
+    <view bindtap="goNews" data-id="{{item.newsId}}" data-title="{{title }}">
+      <view class="demeanor-list">
+        <image src="{{item.coverPic}}" lazy-load="true"></image>
+        <view class="demeanor-list-left">
+          <view class="demeanor-name">
+            <text>{{item.title}}</text>
+            <view>
+              <!-- <text class="iconfont icon-you"></text> -->
+            </view>
+          </view>
+          <view>{{item.introduction}}</view>
+          <view class="demeanor-time">
+            <text class="time">{{filter.timesub2(item.createDate)}}</text>
+            <view><text>{{item.readCount}}</text>浏览</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="lines"></view>
+  </view>
+</view>

@@ -1,0 +1,26 @@
+<!--subPages/forum/elegantDetails/elegantDetails.wxml-->
+<wxs src="../../../assets/filter/public.wxs" module="filter"></wxs>
+<view class="elegantDetails">
+<view class="details">
+  <view class="details-top">
+    <text class="details-title">{{title}}</text>
+    <view class="details-user">
+      <view>
+        <!-- <image src="{{img}}"></image> -->
+          <!-- <view>{{name}}</view> -->
+          <view class="details-user-time">{{filter.timesub6(createDate)}}</view>
+      </view>
+      <view><text>{{stage}}</text>次浏览</view>
+    </view>
+  </view>
+  <view class="line"></view>
+
+  <!-- 详情 -->
+  <view class="details-main">
+    <view>
+      <rich-text nodes="{{text}}" class="text" bindtap="chooseImg" />
+      <image wx:for="{{photo}}" wx:key="index" src="{{item.photoUrl}}"></image>
+    </view>
+  </view>
+</view>
+</view>

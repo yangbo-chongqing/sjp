@@ -1,0 +1,19 @@
+<!--subPages/formula/formula.wxml-->
+<wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
+<view class="formula">
+  <view wx:for="{{list}}" wx:key="index" data-id="{{index}}" data-item="{{ item }}" bindtap="goDetails">
+    <view class="formula-list">
+      <view class="list-main">
+        <image src="{{item.coverPic}}" lazy-load="true"></image>
+        <view class="formula-list-detail">
+          <text>{{item.title}}</text>
+          <view>
+            <text class="formula-time">{{filter.timesub2(item.createDate)}}</text>
+            <view class="formula-order"><text>{{item.readCount}}</text>浏览</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="line"></view>
+  </view>
+</view>

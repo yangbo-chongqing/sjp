@@ -1,0 +1,154 @@
+/* subPages/scoreRank/scoreRank.wxss */
+page{
+  background: #f5f5f5;
+}
+.rankTop3 {
+  height: 470rpx;
+  width: 100%;
+  background: linear-gradient(180deg, #f38242 0%, #f26847 65.1%, rgba(241, 90, 73, 0.01) 100%);
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.userPic {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 32rpx 0 0 0;
+  box-sizing: border-box;
+}
+
+.userPic>image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  display: block;
+  margin-right: 30rpx;
+}
+
+.userinfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.userinfo>text, .score {
+  font-size: 28rpx;
+  color: #fff;
+}
+
+.userinfo>text:last-child {
+  font-weight: 600;
+}
+
+.score {
+  font-weight: bold;
+}
+
+.silver {
+
+  height: 264rpx;
+  left: 40rpx;
+
+}
+
+.bg {
+   position: absolute;
+  width: 220rpx;
+  bottom: 0rpx;
+  background: linear-gradient(180deg, #fff 0%, #fff 66.15%, rgba(255, 255, 255, 0.77) 86.46%, rgba(255, 255, 255, 0.48) 100%);
+  box-shadow: inset 0px -6px 4px rgba(160, 16, 16, 0.05);
+  border-radius: 12px 12px 0px 0px;
+}
+
+.gold {
+
+  height: 316rpx;
+  left: 266rpx;
+  
+}
+
+.copper {
+ 
+  height: 264rpx;
+  left: 492rpx;
+  
+  
+}
+.pai{
+  width:60rpx;
+  height:60rpx;
+  display: block;
+  margin: 0 auto;
+}
+.rankpic{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+
+}
+.size{
+ font-size: 28rpx;
+  font-weight: bold;
+  text-align: center;
+
+}
+.rankname{
+  color:#454545;
+  line-height: 50rpx;
+}
+.rankscore{
+  color:#d33333;
+}
+.ranklist{
+  width:100%;
+  background: #fff;
+}
+.listone{
+  margin-left:calc(30/10.8*1vh);
+  border-bottom:2rpx solid #e5e5ea;
+  height:182rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 30rpx 0 0;
+}
+.listone .imgbox{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 25rpx;
+
+}
+.margin{
+  margin: 0 30rpx;
+}
+.ranknum{
+  font-weight: bold;
+  font-size: 32rpx;
+}
+.listone>view{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.listone>view>text:first-child{
+  font-size:32rpx;
+  font-weight: bold;
+  color:#3A3A3C;
+}
+.listone>view>text:last-child{
+  font-size:28rpx;
+  color:#8E8E93;
+  margin-top:10rpx;
+}
+.lastscore{
+  font-size: 36rpx;
+  color:#d33333;
+  font-weight: bold;
+}

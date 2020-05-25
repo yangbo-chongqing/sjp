@@ -1,0 +1,19 @@
+<!--components/Policy/List/List.wxml-->
+<wxs src="../../../assets/filter/public.wxs" module="filter"></wxs>
+<view class="PolicyList">
+    <view class="item" wx:for="{{ allList }}" wx:key="index" bindtap="toDetails" data-id="{{item.newsId}}">
+        <image src="{{ item.coverPic }}"></image>
+        <view>
+            <!--文章标题-->
+            <text>{{ item.title }}</text>
+            <!--文章时间和浏览次数-->
+            <view>
+                <text class="time">{{ filter.timesub2(item.createDate) }}</text>
+                <text class="number">
+                    <text class="num">{{ item.readCount }}</text>
+                     <text>次浏览</text>
+                </text>
+            </view>
+        </view>
+    </view>
+</view>

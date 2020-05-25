@@ -1,0 +1,52 @@
+<!--subPages/social/social.wxml-->
+<view id="social">
+  <view class="social-title">
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{objectArray}}" range-key="{{'orgName'}}" data-id="{{objectArray[index].orgId}}">
+      <view class="picker">
+        {{objectArray[index].orgName}}
+        <text class="iconfont icon-xia3"></text>
+      </view>
+    </picker>
+  </view>
+
+  <!-- 介绍 -->
+  <view>
+    <view class="positioning">
+      <view class="posibox">
+          <view class="oneorg">
+            <view class="toporg">
+              <!-- <text class="iconfont icon-xingxing"></text> -->
+              <image class="iconfont" src="https://webservers.sjpdqfwzx.com/file/icon/Component 13.png"></image>
+              <text class="textolor">社工组织介绍</text>
+            </view>
+            <view class="textporg">
+              <rich-text class="words" nodes="{{content}}"></rich-text>
+            </view>
+          </view>
+          <view class="onebox">
+            <view class="oneorg">
+              <view class="toporg topboder">
+                <image class="iconfont" src="https://webservers.sjpdqfwzx.com/file/icon/Component 13.png"></image>
+                <text class="textolor">社工组服务项目</text>
+              </view>
+              <view class="report">
+              <view class="lis" wx:for="{{socList}}" wx:key="index" data-id="{{index}}" data-item="{{ item }}"  bindtap="goDetails">
+                <view class="imagebox">
+                  <image src="{{item.social_pro_pic}}"></image>
+                </view>
+                <view class="textbox">
+                  <view class="text-view">
+                    <text>{{item.social_pro_title}}</text>
+                  </view>
+                  <view class="text-vew" style="color: #8A8A8A;">
+                    <rich-text nodes="{{item.social_pro_describe}}"></rich-text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

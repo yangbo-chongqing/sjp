@@ -1,0 +1,142 @@
+/* subPages/gridorganization/gridorganization.wxss */
+.grid-organization{
+  border-top: 1px solid #f5f5f5;
+}
+.organization-title{
+  height: 80rpx;
+}
+.organization-title>.iconfont{
+  font-size: 36rpx;
+  vertical-align: middle;
+  margin-left: 24rpx;
+}
+.organization-title>image.iconfont{
+  width: 36rpx;
+  height: 36rpx;
+  margin: 0rpx 12rpx 0 24rpx;
+  vertical-align: sub;
+}
+.organization-title>text:last-child{
+  margin-top: 18rpx;
+  display: inline-block;
+  color: #d33333;
+  font-weight: 600;
+  font-size: 28rpx;
+}
+.list_name_box{
+  background: #fff;
+  border-bottom: 1px solid #f5f5f5;
+  display: flex;
+  height: 90rpx;
+  align-items: center;
+  padding: 0 25rpx;
+  font-size: 32rpx;
+}
+.list_item{
+  border-bottom: 1px solid #f5f5f5;
+}
+.list_item_name{
+  flex: 1;
+  color: #454545;
+  font-size: 32rpx;
+}
+.icon_down{
+  width: 35rpx;
+  height:35rpx;
+  transition:transform  0.3s;
+  margin-right: 30rpx;
+}
+.list_item_name_box{
+  background: #fff;
+  font-size: 30rpx;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 25rpx 0 50rpx;
+}
+.other{
+  display: flex;
+  height: 80rpx;
+  padding: 0 20rpx 0 50rpx;
+  align-items: center;
+  font-size: 30rpx;
+  color: #666;
+  border-top: 1px solid #f5f5f5;
+}
+.other1{
+  display: flex;
+  height: 80rpx;
+  padding: 0 20rpx 0 164rpx;
+  align-items: center;
+  font-size: 30rpx;
+  color: #666;
+  border-top: 1px solid #f5f5f5;
+}
+.icon_down_rotate{
+  transform:rotate(90deg);
+}
+
+
+.itemone{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 20rpx 0 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  line-height: 93rpx;
+}
+.itemname{
+  flex: 1;
+  text-align: left;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+.itemone>image{
+  width: 70rpx;
+  height: 70rpx;
+  display: block;
+  margin-right:20rpx;
+
+}
+.right{
+  font-size: 40rpx;
+  color: #DADADA;
+  transition: all .1s;
+}
+.rotate{
+  transform: rotate(90deg);
+}
+.item_one{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+  margin-left:30rpx;
+  padding:20rpx 20rpx 0 20rpx;
+  line-height: 40rpx;
+}
+.item_one>image{
+  width: 70rpx;
+  height: 70rpx;
+  display: block;
+  margin-right:40rpx;
+  border-radius: 50%;
+
+}
+.iteminfo{
+  flex: 1;
+}
+.iteminfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size:28rpx;
+}
+.bottompadd{
+  padding-bottom:50rpx;
+}

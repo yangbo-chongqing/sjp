@@ -1,0 +1,80 @@
+<!--subPages/project/project.wxml-->
+<view class="talentpool topdistance">
+  <view class="tablebox">
+    <view class="table">
+      <view class="tr">
+        <view class="th th1">
+          <view>序号</view>
+        </view>
+        <view class="th th2"></view>
+        <view class="th th3">
+          <view>服务项目</view>
+        </view>
+        <view class="th th4">
+          <view>市场参考价</view>
+        </view>
+        <view class="th th5">
+          <view>特岗能人价</view>
+        </view>
+        <view class="th th6">
+          <view>特岗能人积分标准</view>
+        </view>
+      </view>
+      <block wx:for="{{newdata}}" wx:for-index="index" wx:key="index">
+        <view class="tr">
+          <view class="th th1">
+            <view wx:for="{{item.data}}" wx:for-item="items" wx:for-index="index1" wx:key="index">
+              <!-- {{index + 1 + '.' + (index1 + 1)}} -->
+              {{order.add(index,index1)}}
+            </view>
+          </view>
+          <view class="th th2">
+            <view class="type">{{item.projectTypeDesc}}</view>
+          </view>
+          <view class="th th3">
+            <view wx:for="{{item.data}}" wx:for-item="items" wx:key="index">
+              {{items.projectName}}
+            </view>
+
+          </view>
+          <view class="th th4">
+            <view wx:for="{{item.data}}" wx:for-item="items" wx:key="index">
+              <block wx:if="{{items.marketPrice>0}}">
+                {{items.marketPrice}}元/次
+              </block>
+              <block wx:if="{{items.marketPrice<=0}}">
+                无
+              </block>
+            </view>
+
+          </view>
+          <view class="th th5">
+            <view wx:for="{{item.data}}" wx:for-item="items" wx:key="index">
+              <block wx:if="{{items.ablePersonPrice>0}}">
+                {{items.ablePersonPrice}}元/次
+              </block>
+              <block wx:if="{{items.ablePersonPrice<=0}}">
+                免费
+              </block>
+            </view>
+
+          </view>
+          <view class="th th6">
+            <view wx:for="{{item.data}}" wx:for-item="items" wx:key="index">
+              {{items.ablePersonIntegral}}分/次
+            </view>
+
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="addneed btnfixed" bindtap="goEach" data-url="/subPages/addneed/addneed">
+    <text class="iconfont icon-jiahao"></text>
+    <text>发布需求</text>
+  </view>
+  <view class="servelog btnfixed" bindtap="goEach" data-url="/subPages/servelog/servelog">
+    <text class="iconfont icon-detail-a"></text>
+    <text>服务日志</text>
+  </view>
+</view>

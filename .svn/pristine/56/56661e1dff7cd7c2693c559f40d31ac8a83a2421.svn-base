@@ -1,0 +1,71 @@
+/* components/Alarm/PhoneList/PhoneList.wxss */
+@import "/assets/css/iconfont.wxss";
+
+.PhoneList {
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 27rpx;
+}
+
+.PhoneList >.item {
+    height: 252rpx;
+    padding-top: 32rpx;
+    padding-bottom: 40rpx;
+    padding-right: 24rpx;
+    border-bottom: 2rpx solid #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.PhoneList >.item > image {
+    width: 180rpx;
+    height: 180rpx;
+    border-radius: 50%;
+    margin-right: 24rpx;
+}
+
+.PhoneList >.item > view {
+    flex: 1;
+    height: 180rpx;
+}
+.PhoneList >.item > view > .userName {
+    width: 100%;
+    height: calc(100% / 3);
+    font-family: Noto Sans CJK;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32rpx;
+    line-height: 32rpx;
+    color: #3A3A3C;
+}
+
+.PhoneList >.item > view > .userTel ,
+.PhoneList >.item > view > .Tel {
+    width: 100%;
+    height: calc(100% / 3);
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.PhoneList >.item > view > .userTel > text:first-of-type,
+.PhoneList >.item > view > .Tel > text:first-of-type {
+    font-family: PingFang SC;
+    font-size: 28rpx;
+    line-height: 28rpx;
+    color: #FF9900;
+}
+.PhoneList >.item > view > .Tel > text:first-of-type {
+    color: #D33333;
+}
+
+.PhoneList >.item > view > .userTel > .iconfont ,
+.PhoneList >.item > view > .Tel > .iconfont {
+    font-size: 52rpx;
+    color: #FABE00;
+}
+.PhoneList >.item > view > .Tel > .iconfont {
+    color: #D33333;
+}

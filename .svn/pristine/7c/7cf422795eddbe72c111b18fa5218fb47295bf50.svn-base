@@ -1,0 +1,102 @@
+<!--com/volunteeractivity/volunteeractivity.wxml-->
+<wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
+<view class="acItem" bindtap="godetails" data-id="{{ item.newsId }}" wx:for="{{acList}}" wx:key="index">
+  <view class="acTitle">{{item.title}}</view>
+  <view class="acContent">
+    <image src="{{item.coverPic}}" role="img"></image>
+    <view class="acright">
+      <view>{{item.introduction}}</view>
+      <view wx:if="{{item.isSign}}">
+        <view>剩余报名时间
+          <text>{{item.residueday}}</text>天</view>
+        <view>还需人数
+          <text>{{item.peopleNum-item.hasSignUpNum}}</text>人</view>
+      </view>
+      <view wx:else>
+        <view class="finish"></view>
+        <view>
+          <text>{{item.peopleNum-item.hasSignInNum}}人</text>未签到
+        </view>
+
+      </view>
+    </view>
+  </view>
+  <view class="acTime">
+    <view>活动时间：{{filter.timesub1(item.startTime)}}~{{filter.timesub1(item.endTime)}}</view>
+    <view wx:if="{{item.signInStatus==0 && item.signUpStatus==4 && item.isEnd!=1}}" class="color1">报名</view>
+    <view wx:if="{{item.signUpStatus==0}}" class="color2">审核中</view>
+    <view wx:if="{{item.signUpStatus==2}}" class="color1">拒绝</view>
+    <view wx:if="{{item.signInStatus==0 && item.signUpStatus==1}}" class="color3">活动签到</view>
+    <view wx:if="{{item.signInStatus==1 && item.signUpStatus==1 && filter.time1(item.endTime)}}" class="color2">签到审核中</view>
+    <view wx:if="{{item.signInStatus==3 && item.signUpStatus==1}}" class="color1">签到拒绝</view>
+    <view wx:if="{{item.signInStatus==2 && item.signUpStatus==1}}" class="color4">已签到</view>
+    <view wx:if="{{item.isEnd==1 || filter.time(item.endTime)}}" class="color4">已结束</view>
+  </view>
+</view>
+
+<!-- 进行中 -->
+<view class="acItem" bindtap="godetails" data-id="{{ item.newsId }}" wx:for="{{acListTwo}}" wx:key="index">
+  <view class="acTitle">{{item.title}}</view>
+  <view class="acContent">
+    <image src="{{item.coverPic}}" role="img"></image>
+    <view class="acright">
+      <view>{{item.introduction}}</view>
+      <view wx:if="{{item.isSign}}">
+        <view>剩余报名时间
+          <text>{{item.residueday}}</text>天</view>
+        <view>还需人数
+          <text>{{item.peopleNum-item.hasSignUpNum}}</text>人</view>
+      </view>
+      <view wx:else>
+        <view class="finish"></view>
+        <view>
+          <text>{{item.peopleNum-item.hasSignInNum}}人</text>未签到</view>
+
+      </view>
+    </view>
+  </view>
+  <view class="acTime">
+    <view>活动时间：{{filter.timesub1(item.startTime)}}~{{filter.timesub1(item.endTime)}}</view>
+    <view wx:if="{{item.signInStatus==='0' && item.signUpStatus==='4' && item.isEnd!=='1'}}" class="color1">报名</view>
+    <view wx:if="{{item.signUpStatus==0}}" class="color2">审核中</view>
+    <view wx:if="{{item.signUpStatus==2}}" class="color1">拒绝</view>
+    <view wx:if="{{item.signInStatus==0 && item.signUpStatus==1}}" class="color3">活动签到</view>
+    <view wx:if="{{item.signInStatus==1 && item.signUpStatus==1}}" class="color2">签到审核中</view>
+    <view wx:if="{{item.signInStatus==3 && item.signUpStatus==1}}" class="color1">签到拒绝</view>
+    <view wx:if="{{item.signInStatus==2 && item.signUpStatus==1}}" class="color4">已签到</view>
+    <view wx:if="{{item.isEnd==1 || filter.time(item.endTime)}}" class="color4">已结束</view>
+  </view>
+</view>
+
+<!-- 已结束 -->
+<view class="acItem" bindtap="godetails" data-id="{{ item.newsId }}" wx:for="{{acListThree}}" wx:key="index">
+  <view class="acTitle">{{item.title}}</view>
+  <view class="acContent">
+    <image src="{{item.coverPic}}" role="img"></image>
+    <view class="acright">
+      <view>{{item.introduction}}</view>
+      <view wx:if="{{item.isSign}}">
+        <view>剩余报名时间
+          <text>{{item.residueday}}</text>天</view>
+        <view>还需人数
+          <text>{{item.peopleNum-item.hasSignUpNum}}</text>人</view>
+      </view>
+      <view wx:else>
+        <view class="finish"></view>
+        <view>
+          <text>{{item.peopleNum-item.hasSignInNum}}人</text>未签到</view>
+      </view>
+    </view>
+  </view>
+  <view class="acTime">
+    <view>活动时间：{{filter.timesub1(item.startTime)}}~{{filter.timesub1(item.endTime)}}</view>
+    <view wx:if="{{item.signInStatus==='0' && item.signUpStatus==='4' && item.isEnd!=='1'}}" class="color1">报名</view>
+    <view wx:if="{{item.signUpStatus==0}}" class="color2">审核中</view>
+    <view wx:if="{{item.signUpStatus==2}}" class="color1">拒绝</view>
+    <view wx:if="{{item.signInStatus==0 && item.signUpStatus==1 && item.isEnd!=1 && filter.time1(item.endTime)}}" class="color3">活动签到</view>
+    <view wx:if="{{item.signInStatus==1 && item.signUpStatus==1 && item.isEnd!=1 && filter.time1(item.endTime)}}" class="color2">签到审核中</view>
+    <view wx:if="{{item.signInStatus==3 && item.signUpStatus==1 && item.isEnd!=1 && filter.time1(item.endTime)}}" class="color1">签到拒绝</view>
+    <view wx:if="{{item.signInStatus==2 && item.signUpStatus==1 && item.isEnd!=1 && filter.time1(item.endTime)}}" class="color4">已签到</view>
+    <view wx:if="{{item.isEnd==1 || filter.time(item.endTime)}}" class="color4">已结束</view>
+  </view>
+</view>

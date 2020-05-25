@@ -1,0 +1,10 @@
+<!--subPages/emotionHistory/emotionHistory.wxml-->
+<wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
+<view class="history">
+  <view wx:for="{{list}}" wx:key="index" bindtap="goDetails" data-item="{{ item }}" data-id="{{index}}">
+    <view class="history-list">
+      <text>{{item.hisTitle}}</text>
+      <text>{{filter.timesub2(item.createDate)}}</text>
+    </view>
+  </view>
+</view>

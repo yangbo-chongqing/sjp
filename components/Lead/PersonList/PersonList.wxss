@@ -1,0 +1,63 @@
+/* components/Lead/PersonList/PersonList.wxss */
+@import "/assets/css/iconfont.wxss";
+.PersonList {
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 28rpx;
+}
+
+.PersonList > .item {
+    width: 100%;
+    box-sizing: border-box;
+    height: 184rpx;
+    border-bottom: 2rpx solid #f5f5f5;
+    display: flex;
+    padding: 32rpx 30rpx 32rpx 0;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.PersonList > .item > view {
+    width: 80%;
+    height: 100%;
+    display: flex;
+}
+
+.PersonList > .item > view > image {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+    margin-right: 24rpx;
+}
+
+.PersonList > .item > view > view {
+    width: 74%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.PersonList > .item > view > view > .personName {
+    font-family: Noto Sans CJK;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32rpx;
+    line-height: 32rpx;
+    letter-spacing: 0.00636364em;
+    color: #3A3A3C;
+}
+
+.PersonList > .item > view > view > .position {
+    font-family: PingFang SC;
+    font-size: 28rpx;
+    line-height: 28rpx;
+    letter-spacing: 0.00636364em;
+    color: #8E8E93;
+}
+
+/*箭头*/
+.PersonList > .item > i {
+    font-size: 50rpx;
+    color:#999;
+}

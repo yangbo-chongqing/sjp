@@ -1,0 +1,17 @@
+<!--subPages/gridlog/gridlog.wxml-->
+<wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
+<view class="grid-log">
+  <view class="log-list" wx:for="{{list}}" wx:key="index" bindtap="goDetail" data-id="{{index}}" data-item="{{ item }}">
+    <image src="{{item.logPic}}" lazy-load="true"></image>
+    <view class="log-list-right">
+      <view>{{item.logInfo}}</view>
+      <view>{{item.gridLogTypeDesc}}</view>
+      <text>{{filter.timesub2(item.createDate)}}</text>
+    </view>
+  </view>
+
+  <!-- 添加 -->
+  <view class="log-add" bindtap="goAdd" data-url="/subPages/addlog/addlog">
+    <text class="iconfont icon-tianjia"></text>
+  </view>
+</view>

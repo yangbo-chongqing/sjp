@@ -1,0 +1,40 @@
+<!--subPages/gridorganizationdetails/gridorganizationdetails.wxml-->
+<view class="organization-details">
+  <view class="organization-msg">
+    <view class="msg-title">
+      <!-- <text class="iconfont icon-xingxing"></text> -->
+      <image class="iconfont" src="http://119.3.196.255:8094/file/icon/Component 13.png"></image>
+      <text>网格信息</text>
+    </view>
+    <view class="msg-main">
+      <view class="msg-main-list">
+        <view class="title">网格名称：{{title}}</view>
+        <view class="title">网格面积：{{space}}</view>
+        <view class="title">网格户数：{{households}}</view>
+        <view class="title">网格人数：{{number}}</view>
+        <view class="title">网格党员：{{party}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="organization-tel">
+    <view class="msg-title tel-title">
+      <!-- <text class="iconfont icon-xingxing"></text> -->
+      <image class="iconfont" src="http://119.3.196.255:8094/file/icon/Component 13.png"></image>
+      <text>网络通讯录</text>
+    </view>
+    <view class="tel-main">
+      <view class="tel-main-list" wx:for="{{telList}}" wx:key="index">
+        <view class="tel-main-list-left">
+          <view>
+            <text>{{item.name}}</text>
+            <text>{{item.mobile}}</text>
+          </view>
+          <view>{{organization}}</view>
+          <view>{{item.personPosition}}</view>
+        </view>
+        <!-- <text class="iconfont icon-dianhua"></text> -->
+        <image class="iconfont" src="http://119.3.196.255:8094/file/icon/Frame (3).png" bindtap="handlePhone" data-ph="{{item.mobile}}"></image>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,25 @@
+<!--subPages/voicedetail/voicedetail.wxml-->
+<wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
+
+<view class="detailbox">
+  <view class="detailtitle">{{detail.title}}</view>
+  <view class="detailitem itemfirst">
+     提交时间：
+    <text>{{filter.timesub6(detail.createDate)}}</text>
+    <text wx:if="{{detail.status==0}}" class="status color1 ">{{detail.statusDesc}}</text>
+    <text wx:if="{{detail.status==1}}" class="status color2 ">{{detail.statusDesc}}</text>
+    <text wx:if="{{detail.status==2}}" class="status color3 ">{{detail.statusDesc}}</text>
+  </view>
+  
+  <!-- <view class="detailitem">
+    详细地址：
+    <text>某某地阿福哥</text>
+  </view> -->
+  <!-- <view class="detailitem borderbot">
+    提交时间
+    <text>{{filter.timesub1(detail.createDate)}}</text>
+  </view> -->
+  <view class="richcontent">
+    <rich-text nodes="{{detail.details}}" bindtap="chooseImg" />
+  </view>
+</view>

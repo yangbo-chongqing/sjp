@@ -1,0 +1,63 @@
+/* subPages/dangPhoto/dangPhoto.wxss */
+.photo{
+  border-top: 1px solid #f5f5f5;
+}
+.photo-main-title{
+  display: block;
+  margin: 36rpx 46rpx 36rpx 30rpx;
+}
+.photo-main>image:nth-child(2){
+  width: 345px;
+  height: 178px;
+  display: block;
+  margin: auto;
+}
+.photo-main-details{
+  height: 126rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* .photo-main-details>view:first-child,
+.photo-main-details>view:last-child,
+.photo-details-name{
+  display: inline-block;
+} */
+/* .photo-main-details>view:first-child{
+  margin: 24rpx 0 22rpx 28rpx;
+} */
+.photo-main-details image{
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  margin-right: 32rpx;
+}
+.photo-main-details .photo-details-name>view:first-child{
+  font-size: 24rpx;
+  color: #454545;
+  margin-bottom: 16rpx;
+}
+.photo-main-details .photo-details-name>view:last-child{
+  font-size: 20rpx;
+  color: #999;
+}
+.time{
+  font-size: 20rpx;
+  color: #999;
+  margin-left: 30rpx;
+}
+.photo-main-details>view:last-child{
+  float: right;
+  color: #999;
+  font-size: 20rpx;
+  line-height: 126rpx;
+  margin-right: 30rpx;
+}
+.photo-main-details>view:last-child>text{
+  color: #d33333;
+}
+.lines{
+  height: 16rpx;
+  width: 100%;
+  background: #f5f5f5;
+}

@@ -1,0 +1,99 @@
+<!--subPages/voluntary/voluntary.wxml-->
+<view class="voluntary">
+  <view class="psy-nav">
+    <view class="nav-title {{nav==1?'actve':''}}" data-nav="1" bindtap="goNav">
+      <text>社区调解委员会</text>
+      <view></view>
+    </view>
+    <view class="nav-title {{nav==2?'actve':''}}" data-nav="2" bindtap="goNav">
+      <text>发布调节需求</text>
+      <view></view>
+    </view>
+    <view class="nav-title {{nav==3?'actve':''}}" data-nav="3" bindtap="goNav">
+      <text>调解案例展示</text>
+      <view></view>
+    </view>
+  </view>
+
+  <!-- 社区调解委员会 -->
+  <view class="voluntary-list" wx:if="{{nav==1}}">
+    <view class="voluntary-title">
+      <!-- <text class="iconfont icon-xingxing"></text> -->
+      <image class="iconfont" src="http://119.3.196.255:8094/file/icon/Component 13.png"></image>
+      <text>社区调解委员会架构</text>
+    </view>
+    <view class="voluntary-main">
+      <view wx:for="{{volList}}" wx:key="index">
+        <image src="{{item.memberHead}}"></image>
+        <view class="voluntary-text">
+          <text>{{item.memberName}}</text>
+          <text>{{item.memberDuty}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 发布需求调解 -->
+  <view wx:if="{{nav==2}}">
+    <form class="needbox" bindsubmit="formSubmit">
+      <view class="line">
+        <view class="needone bordertop">
+          <view>
+            <text>*</text>
+            <text>事件标题：</text>
+          </view>
+          <input type="text" class="inp" name="title" placeholder="请输入标题" />
+          <view class="iconfont icon-you"></view>
+        </view>
+        <view class="needone bordertop">
+          <view>
+            <text>*</text>
+            <text>事件类型：</text>
+          </view>
+          <picker bindchange="xlChange" mode="selector" range="{{list}}" range-key="dictItemName" class="picker">
+            <input placeholder="请选择" value="{{member_type.dictItemName}}" class="piciput"></input>
+          </picker>
+          <view class="iconfont icon-you"></view>
+        </view>
+        <!-- <view class="needone">
+          <view>
+            <text>*</text>
+            <text>所在区域：</text>
+          </view>
+          <picker bindchange="bindPickerChange" mode="selector" range="{{objectArray}}" range-key="areaName" class="picker">
+            <input placeholder="请选择" value="{{qu.areaName}}" class="piciput"></input>
+          </picker>
+          <view class="iconfont icon-you"></view>
+        </view> -->
+        <view class="textinfo">
+          <view class="texttitle">
+            <text>*</text>
+            <text>事件说明</text>
+          </view>
+          <textarea class="textcontent" name="details" placeholder="请输入详细说明">
+          </textarea>
+        </view>
+      </view>
+        <button formType="submit" class="subbtn">提交申请</button>
+    </form>
+  </view>
+
+  <!-- 调解案例展示 -->
+  <view class="voluntary-main3" wx:if="{{nav==3}}">
+    <view class="politics-bottom politics-top">
+      <view class="bottom-list">
+        <view wx:for="{{zhanList}}" wx:key="index" data-id="{{item.caseId}}" data-item="{{ item }}" bindtap="toDetails">
+          <view class="list-main">
+            <image src="{{item.caseTitleImg}}"></image>
+            <view class="list-text">
+              <text>{{item.caseTitle}}</text>
+              <view>
+                <rich-text nodes="{{item.caseImgContent}}"></rich-text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

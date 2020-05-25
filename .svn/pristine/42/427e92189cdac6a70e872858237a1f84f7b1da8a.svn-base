@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "FrameworkList":"/components/serviceHall/FrameworkList/FrameworkList",
+    "PartyList":"/components/serviceHall/PartyList/PartyList",
+    "partyModal":"/components/serviceHall/partyModal/partyModal",
+    "iconfonts": "/components/iconfonts/iconfonts"
+  },
+  "navigationBarTitleText": "组织架构"
+}

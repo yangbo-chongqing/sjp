@@ -1,0 +1,32 @@
+<!--subPages/judicial/judicial.wxml-->
+<view id="judicial">
+  <!--轮播图-->
+  <!-- <view class="page-section page-section-spacing swiper index_swiper">
+      <swiper indicator-dots="{{indicatorDots}}"
+              autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
+              indicator-active-color="#97EAEF"
+      >
+          <block wx:for="{{background}}" wx:key="*this">
+              <swiper-item>
+                  <view class="swiper-item {{item}}">
+                      <image src="../../assets/img/1.jpg" alt="" />>
+                  </view>
+              </swiper-item>
+          </block>
+      </swiper>
+  </view> -->
+  <view class="bg">
+    <image src="{{img}}"></image>
+  </view>
+
+  <!-- nav -->
+  <view class="judicial-nav">
+    <view wx:for="{{navList}}" wx:key="index" bindtap="goNav" data-url="{{item.navUrl}}">
+      <image src="{{item.img}}"></image>
+      <view class="nav-text">
+        <text>{{item.navTitle}}</text>
+        <text>{{item.smallTitle}}</text>
+      </view>
+    </view> 
+  </view>
+</view>

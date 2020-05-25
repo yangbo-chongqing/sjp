@@ -1,0 +1,50 @@
+/* pages/studynews/studynews.wxss */
+
+.studyItem {
+  margin-left: calc(100%/30);
+  padding: 30rpx 20rpx 30rpx 0;
+  border-bottom: 2rpx solid #f5f5f5;
+  display: flex;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+
+.studyItem>image {
+  width: 220rpx;
+  height: 160rpx;
+  display: block;
+  margin-right: 20rpx;
+}
+
+.studyright {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 450rpx;
+}
+
+.studytitle {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.studycontent {
+  flex: 1;
+  font-size: 28rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  color: #454545;
+  line-height: 40rpx;
+}
+
+.studytime {
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: #999;
+}

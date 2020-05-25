@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "OrgNavBar": "/components/serviceHall/OrgNavBar/OrgNavBar",
+    "iconfonts": "/components/iconfonts/iconfonts"
+  },
+  "navigationBarTitleText": "社区简介"
+}

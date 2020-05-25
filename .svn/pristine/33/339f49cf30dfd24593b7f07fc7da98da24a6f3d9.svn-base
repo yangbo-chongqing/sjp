@@ -1,0 +1,13 @@
+<!--subPages/judTemplate/judTemplate.wxml-->
+<view id="judTem">
+  <view wx:for="{{temList}}" wx:key="index">
+    <view class="template-list">
+      <image src="{{item.modelPic}}" />
+      <view class="template-text">
+        <text>{{item.modelTitle}}</text>
+        <view bindtap="load" data-url="{{item.modelSrc}}"><text class="iconfont icon-xiazai"></text>下载</view>
+      </view>
+      <view class="clear"></view>
+    </view>
+  </view>
+</view>

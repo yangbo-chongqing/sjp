@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "PersonList": "/components/Lead/PersonList/PersonList",
+    "Modal": "/components/Lead/Modal/Modal"
+  },
+  "navigationBarTitleText": "领导班子"
+}

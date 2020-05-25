@@ -1,0 +1,66 @@
+<!--subPages/integralgoods/integralgoods.wxml-->
+<wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
+
+<view class="line"></view>
+<block wx:if="{{mylist.length!=0}}">
+  <view class="itembox" wx:for="{{mylist}}" wx:key="index">
+    <view class="item">
+      <view class="itemtitle">
+        <view class="shopname">
+          {{item.marketName}}
+          <text class="iconfont icon-you right"></text>
+        </view>
+        <view class="exchange" wx:if="{{item.status==0}}">待兑换</view>
+        <view class="exchange" wx:if="{{item.status==1&&item.score===null}}">待评价</view>
+        <view class="exchange" wx:if="{{item.status==1&&item.score!==null}}">已完成</view>
+
+        <view class="exchange" wx:if="{{item.status==2}}">已取消</view>
+        <view class="exchange" wx:if="{{item.status==3}}">已过期</view>
+      </view>
+      <view class="itemcontent">
+        <image class="pic" src="{{filter.picsub(item.goodsPic,0)}}" role="img"></image>
+        <view class="contentright">
+          <view class="contentintro">{{item.goodsName}}</view>
+          <view class="rightbot">
+            <image class="gold" src="http://119.3.196.255:8094/file/icon/Rectangle 205.png" role="img"></image>
+            <text class="score">{{item.goodsUnitIntegral}}积分</text>
+            <text class="goodsnum">x{{item.goodsNum}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="bottominfo">
+        <view class="shopname">
+          总计：
+          <image class="gold" src="http://119.3.196.255:8094/file/icon/Rectangle 205.png" role="img"></image>
+          {{item.goodsTotalIntegral}}积分
+        </view>
+        <view class="cancle boxsize" wx:if="{{item.status==0}}" bindtap="cancle" data-id="{{item.orderId}}">取消订单</view>
+        <view class="look boxsize" bindtap="lookcode" wx:if="{{item.status==0}}" data-code="{{item.exchangeCode}}">查看兑换码</view>
+        <view class="cancle boxsize" wx:if="{{item.status==2}}" style="margin-right:0rpx;">已取消</view>
+        <view class="evaluate boxsize" bindtap="evaluates" wx:if="{{item.status==1&&item.score===null}}" data-id="{{item.orderId}}">评价</view>
+        <view class="look boxsize" wx:if="{{item.status==1&&item.score!==null}}">已完成</view>
+
+      </view>
+    </view>
+  </view>
+</block>
+<block wx:else>
+  <view class="empty">暂无数据</view>
+</block>
+<view class="lookcode" wx:if="{{showLook}}">
+  <view class="lookcontent">
+    <view class="looktitle">积分兑换码</view>
+    <view class="looknum">{{code}}</view>
+    <view class="lookcomfire" bindtap="closelook" data-type="justcomfire">确定</view>
+  </view>
+</view>
+<view class="lookcode" wx:if="{{showStart}}">
+  <view class="lookcontent">
+    <view class="looktitle">评价</view>
+    <view class="lookstart">
+      <text class="iconfont {{num>index?'icon-star':'icon-star1'}}  active" bindtap="every" data-num="{{index}}" wx:for="{{5}}" wx:key="index"></text>
+      <text>{{num}}</text> 分
+    </view>
+    <view class="lookcomfire" bindtap="closelook" data-type="submit">确定</view>
+  </view>
+</view>

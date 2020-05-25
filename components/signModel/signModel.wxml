@@ -1,0 +1,21 @@
+<!--components/signModel/signModel.wxml-->
+<view class="model" wx:if="{{showSign}}">
+  <view class="modelContent">
+   
+      <view class="takepicture">拍照签到</view>
+
+      <view class="img">
+        <view wx:if="{{src}}">
+          <image src="{{src}}"></image>
+          <view class="iconfont icon-delatesearch del" bindtap="del"></view>
+        </view>
+        <image wx:else class="add" bindtap="add" src="/assets/img/public/upImg.png" role="img"></image>
+
+      </view>
+      <view class="signbtn" bindtap="sign">签到</view>
+   
+
+  </view>
+
+
+</view>

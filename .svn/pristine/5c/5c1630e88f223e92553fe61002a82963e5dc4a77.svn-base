@@ -1,0 +1,24 @@
+<!--subPages/forum/partyDay/partyDay.wxml-->
+<view class="partyDay">
+  <view class="eleganbox">
+    <view class="elegantext">
+      <text>{{titles}}</text>
+    </view>
+    <view class="elenganPortrait">
+      <view class="portext">
+          <view class="firstText">
+            <text>{{createUserName}}</text>
+            
+          </view>
+          <view class="lastText">
+            <!-- <text>{{createDate}}</text> -->
+            <text class="mintext">浏览量<text>{{readCount}}</text>次</text>
+          </view>
+      </view>
+    </view>
+  </view>
+  <!-- 新闻详情 -->
+  <view class="detailContent">
+    <rich-text nodes="{{content}}" bindtap="chooseImg" />
+  </view>
+</view>

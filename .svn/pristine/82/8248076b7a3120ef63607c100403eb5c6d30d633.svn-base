@@ -1,0 +1,21 @@
+<!--subPages/train/train.wxml-->
+<wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
+<view class="train">
+  <view wx:for="{{list}}" wx:key="index" bindtap="goDetails" data-id="{{index}}" data-item="{{ item }}">
+    <view class="train-list">
+      <view class="list-main">
+        <image src="{{item.coverPic}}" lazy-load="true"></image>
+        <view class="train-list-detail">
+          <view>{{item.title}}</view>
+          <text>{{item.introduction}}</text>
+          <view class="read">
+            <!-- <view class="train-order">浏览量<text>{{item.readCount}}</text></view> -->
+            <view class="train-order">{{item.dictType}}</view>
+            <view class="train-time">{{filter.timesub2(item.createDate)}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="line"></view>
+  </view>
+</view>

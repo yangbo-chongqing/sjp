@@ -1,0 +1,68 @@
+/* components/signModel/signModel.wxss */
+@import "/assets/css/iconfont.wxss";
+.model{
+  width:100%;
+  height:100%;
+  position: fixed;
+  top:0;
+  left:0;
+  background: rgba(31, 31, 31, 0.42);
+
+}
+.modelContent{
+  width:624rpx;
+  height:628rpx;
+  background: #fff;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  border-radius: 28rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+ padding:30rpx 0;
+  box-sizing: border-box;
+  
+}
+.takepicture{
+  color:#D33333;
+  font-size: 32rpx;
+}
+.img{
+  width:420rpx;
+  height:320rpx;
+}
+.img>view{
+  position: relative;
+}
+.img>image{
+ width:420rpx;
+  height:288rpx;
+  display: block
+}
+.img>view>image{
+ width:420rpx;
+  height:288rpx;
+  display: block
+}
+.del{
+  position: absolute;
+ top: -20rpx;
+right: -19rpx;
+
+  font-size:40rpx;
+  
+}
+.signbtn{
+  width:420rpx;
+  height:80rpx;
+  background: #D33333;
+  color:#fff;
+  border-radius: 14rpx;
+  font-size: 32rpx;
+  line-height: 80rpx;
+  text-align: center;
+
+}

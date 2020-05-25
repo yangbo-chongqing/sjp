@@ -1,0 +1,219 @@
+/* subPages/serviceHall/Order/Order.wxss */
+page{
+  background: #f5f5f5;
+}
+#Order {
+    width: 100%;
+}
+
+#Order > .lineItem {
+    width: 100%;
+    height: 90rpx;
+    box-sizing: border-box;
+    display: flex;
+    padding: 0 30rpx;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding-right: 45rpx;
+    border-bottom: 2rpx solid #f5f5f5;
+    background: #ffffff;
+}
+.icon-you{
+  font-size: 48rpx;
+  color: #BEBEBE;
+}
+#Order > .lineItem > view {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-right: 16rpx;
+}
+
+#Order > .lineItem > view > .lab {
+    color: #D33333;
+}
+
+#Order > .lineItem > view > .title {
+    font-family: PingFang SC;
+    font-size: 14px;
+    line-height: 14px;
+    color: #999;
+}
+
+#Order > .lineItem > .icon-you {
+    position: absolute;
+    top:55%;
+    transform: translateY(-50%);
+    right: 10rpx;
+    font-size: 48rpx;
+}
+
+#Order > .lineItem > input {
+    flex: 1;
+    text-align: right;
+    box-sizing: border-box;
+    padding-right: 30rpx;
+}
+
+#Order > .msg {
+    border-bottom: 0;
+}
+
+#Order > textarea {
+    width: 100%;
+    height: 321rpx;
+    box-sizing: border-box;
+    padding: 30rpx;
+    font-family: PingFang SC;
+    font-size: 28rpx;
+    line-height: 28rpx;
+    color: #999999;
+    background: #ffffff;
+}
+
+/* #Order > .imgList {
+    width: 100%;
+    height: 176rpx;
+    background-color: #fff;
+    box-sizing: border-box;
+    padding: 21rpx 30rpx;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 150rpx;
+}
+
+#Order > .imgList > image {
+    width: 132rpx;
+    height: 132rpx;
+    margin-right: 45rpx;
+}
+#Order > .imgList > .imgone {
+  width: 132rpx;
+  height: 132rpx;
+  margin-right: 30rpx; 
+  display: flex;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  position: relative;
+}
+#Order > .imgList > .imgone >image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+#Order > .imgList > .imgone > .del {
+  position: absolute;
+  top: -15rpx;
+  right: -15rpx;
+  font-size: 30rpx;
+} */
+.textinfo{
+  border-top:20rpx solid #f5f5f5;
+  border-bottom:20rpx solid #f5f5f5;
+  background: #ffffff;
+  padding:0 30rpx 30rpx;
+}
+.texttitle{
+  padding:20rpx 0;
+  font-size: 28rpx;
+  color:#999;
+}
+.texttitle>text:first-child{
+  color:#d33333;
+}
+.textcontent{
+  width:95%;
+  height:200rpx;
+  margin: 0 auto;
+  /* border:1px solid #f5f5f5; */
+  font-size: 28rpx;
+  /* padding:20rpx; */
+  box-sizing: border-box;
+}
+.top0{
+  border-top:0;
+}
+.imgall{
+  /* padding:20rpx; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  
+}
+.imgall>.imgone{
+  width:200rpx;
+  height:150rpx;
+   /* margin: 30rpx 10rpx; */
+   display: flex;
+   justify-content: flex-start;
+   box-sizing: border-box;
+   margin-right:30rpx;
+  
+}
+.imgall>view>image{
+  display: block;
+  width:100%;
+  height:100%;
+  /* margin-right:20rpx; */
+
+}
+.imgall>.imgone:last-child{
+  margin-right:0;
+
+}
+.add{
+  width:200rpx;
+  height:150rpx;
+  border: 1px dotted #666;
+  color:#666;
+  font-size:80rpx;
+  text-align: center;
+  line-height: 150rpx;
+
+
+}
+.add>view{
+  font-size:40rpx;
+}
+
+.imgone{
+  position: relative;
+}
+.del{
+  position: absolute;
+  top:-15rpx;
+  right:-15rpx;
+  font-size:30rpx;
+}
+#Order > button {
+    width: 516rpx;
+    height: 88rpx;
+    background-color: #D33333;
+    margin: 0 auto;
+    margin-top: 80rpx;
+    font-weight: 900;
+    font-size: 32rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+}
+
+.lineItem > .picker > input {
+    width: 500rpx;
+    text-align: right;
+    font-size: 28rpx;
+    line-height: 28rpx;
+    color: #48484A;
+}
+.piciput{
+   width: 500rpx;
+    text-align: right;
+    font-size: 28rpx;
+    line-height: 28rpx;
+    color: #48484A;
+    margin-right: 16rpx;
+}

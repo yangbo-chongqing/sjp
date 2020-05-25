@@ -1,0 +1,98 @@
+<!--subPages/threelist/threelist.wxml-->
+<wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
+
+<view class="change">
+  <view class='{{current==0?"active":""}} doing' data-current="0" catchtap='changeSwiper'>资源清单</view>
+  <view class='{{current==1?"active":""}} doing' data-current="1" catchtap='changeSwiper'>需求提交</view>
+  <view class='{{current==2?"active":""}} doing' data-current="2" catchtap='changeSwiper'>项目清单</view>
+</view>
+<view class="listall">
+  <view class="resourcelist" wx:if="{{current==0}}">
+    <view class="resourceitem" wx:for="{{resourcelist}}" wx:key="index">
+      <view class="itemtitle">{{item.reIntro}}</view>
+      <view class="imgbox">
+        <image wx:if="{{filter.picsub(item.rePic,0)}}" src="{{filter.picsub(item.rePic,0)}}"/>
+            <image wx:if="{{filter.picsub(item.rePic,1)}}" src="{{filter.picsub(item.rePic,1)}}"/>
+            <image wx:if="{{filter.picsub(item.rePic,2)}}" src="{{filter.picsub(item.rePic,2)}}"/>
+      </view>
+      <view class="itembot">
+        <text>提供方：{{item.reAfford}}</text>
+        <text>{{filter.timesub1(item.createDate)}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="resourcelist" wx:if="{{current==1}}">
+    <!--subPages/addneed/addneed.wxml-->
+    <form class="needbox" bindsubmit="formSubmit">
+      <view class="line">
+        <view class="needone bordertop">
+          <view>
+            <text>*</text>
+            <text>事件标题：</text>
+          </view>
+          <input type="text" name="needTitle" value="{{title}}" class="inp" placeholder="请输入标题" />
+          <view class="iconfont icon-you"></view>
+
+        </view>
+        <!-- <view class="needone bordertop">
+          <view>
+            <text>*</text>
+            <text>提交区域：</text>
+          </view>
+          <picker bindchange="xlChange" value="{{index}}" range="{{placelist}}" range-key="areaName">
+            <view class="picker" wx:if="{{index}}">
+              {{placelist[index].areaName}}
+            </view>
+            <view class="nothing" wx:else>
+              请选择
+            </view>
+          </picker>
+          <view class="iconfont icon-you"></view>
+
+        </view>
+        <view class="needone">
+          <view>
+            <text>*</text>
+            <text>详细地址：</text>
+          </view>
+          <input type="text" name="needAddress" value="{{address}}" class="inp" placeholder="请输入标题" />
+          <view class="iconfont icon-you"></view>
+        </view> -->
+
+        <view class="textinfo">
+          <view class="texttitle">
+            <text>*</text>
+            <text>事件说明</text>
+          </view>
+          <textarea class="textcontent" name="needIntro" value="{{introduction}}" placeholder="请输入详细说明">
+          </textarea>
+        </view>
+
+      </view>
+      <button formType="submit" class="subbtn">提交申请</button>
+
+    </form>
+
+
+  </view>
+  <view class="resourcelist" wx:if="{{current==2}}">
+    <view class="projectlist" wx:for="{{prolist}}" wx:key="index" bindtap="gopro" data-url="/subPages/projectdetail/projectdetail?id={{item.needId}}" >
+      <view class="propic">
+        <image src="{{item.createPic}}" role="img"></image>
+        <text>{{item.createName}}</text>
+      </view>
+      <view class="prointro">
+        <view>{{item.needTitle}}</view>
+        <view class="introbot">
+          <view>解决方：
+            <text wx:if="{{item.affordName!==null}}">{{item.affordName}}</text>
+          </view>
+          <view>{{filter.timesub2(item.createDate)}}</view>
+        </view>
+      </view>
+      <image class="status" wx:if="{{item.needStatus=='0'}}" src="http://119.3.196.255:8094/file/icon/weiwancheng.png" role="img"></image>
+      <image class="status" wx:if="{{item.needStatus=='1'}}" src="http://119.3.196.255:8094/file/icon/yiwancheng.png" role="img"></image>
+      <!-- <image class="status" wx:if="{{item.needStatus=='2'}}" src="http://119.3.196.255:8094/file/icon/yijuejue.png" role="img"></image> -->
+    </view>
+  </view>
+</view>

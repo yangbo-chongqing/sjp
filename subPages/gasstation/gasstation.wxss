@@ -1,0 +1,137 @@
+/* subPages/gasstation/gasstation.wxss */
+
+page {
+  background: #f5f5f5;
+}
+
+.change {
+  display: flex;
+  height: 88rpx;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 6rpx solid #f5f5f5;
+  background: #fff;
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+}
+
+.doing {
+  font-size: 28rpx;
+  color: #454545;
+}
+
+.active {
+  font-weight: 600;
+  color: #d33333;
+  position: relative;
+}
+
+.active:after {
+  content: "";
+  width: 60rpx;
+  height: 8rpx;
+  border-radius: 8rpx;
+  box-shadow: 0 2rpx 4rpx 0;
+  background: #d33333;
+  position: absolute;
+  bottom: -20rpx;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+/* 志愿帮样式 */
+
+.currentonebox {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10rpx 30rpx 50rpx;
+  background: #fff;
+  flex-wrap: wrap;
+  margin-top:102rpx;
+
+
+}
+/* .currentonebox>.currentoneitem:first-child{
+  margin-top:102rpx;
+} */
+.currentoneitem {
+  flex: 1;
+  margin-bottom: 20rpx;
+}
+
+.currentoneitem>view {
+  width: 340rpx;
+  line-height: 74rpx;
+  text-align: center;
+  background: #f7f7fa;
+  font-size: 28rpx;
+}
+
+.currentoneitem>image {
+  width: 340rpx;
+  height: 230rpx;
+  display: block;
+}
+
+/* 四无项专题展示样式 */
+
+.currenttwobox {
+  background: #fff;
+  margin-bottom:50rpx;
+  margin-top:102rpx;
+
+}
+
+.currenttwoitem {
+  margin-left: calc(30/10.8*1vh);
+  padding: 30rpx 30rpx 30rpx 0;
+  border-bottom: 2rpx solid #f5f5f5;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.currenttwoitem>image {
+  width: 220rpx;
+  height: 160rpx;
+  border-radius: 4rpx;
+  display: block;
+  margin-right: 20rpx;
+}
+
+.tworight {
+  flex: 1;
+  display: flex;
+  height: 160rpx;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.tworight>view:nth-of-type(1) {
+  font-size: 36rpx;
+  color: #444;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.tworight>view:nth-of-type(2){
+  font-size: 24rpx;
+  color:#8a8a8a;
+  display: flex;
+  justify-content: flex-start;
+}
+.tworight>view:nth-of-type(2)>text:first-child{
+  flex: 1;
+}
+/* .tworight>view:nth-of-type(2)>text:last-child{
+  color:#d33333;
+} */
+.placetitle{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* 三治广场样式 */

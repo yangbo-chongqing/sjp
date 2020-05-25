@@ -1,0 +1,22 @@
+<!--subPages/gridposition/gridposition.wxml-->
+<view class="maps">
+    <map
+        id="myMap"
+        style="width: 100%; height: 100%;"
+        latitude="{{latitude}}"
+        longitude="{{longitude}}"
+        markers="{{markers}}"
+        show-location
+        data-id="{{markers}}"
+        bindmarkertap="open"
+        scale="{{6}}"
+    ></map>
+</view>
+<!-- 信息 -->
+<view class="msg" hidden="{{!collection.id}}" bind:tap="goMsg" data-id="{{collection.id}}">
+    <view class="title">
+        <text>{{collection.name}}</text>
+        <text>{{collection.instructions}}</text>
+    </view>
+    <image src="{{collection.img}}" class="logo" catch:tap="goToMap" data-lat="{{collection.latitude}}" data-lon="{{collection.longitude}}" />
+</view>

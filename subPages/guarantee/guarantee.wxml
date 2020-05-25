@@ -1,0 +1,59 @@
+<!--subPages/guarantee/guarantee.wxml-->
+<view class="talentpool topdistance">
+  <view class="location">
+    <view>
+      <view class="locationleft {{id==1?'border':''}}" bindtap="getAndshow" data-id="{{1}}">
+        <text>所属社区</text>
+        <text class="iconfont icon-xia xia"></text> </view>
+    </view>
+    <view>
+      <view class="locationright  {{id==2?'border':''}}" bindtap="getAndshow" data-id="{{2}}">
+        <text>保障类型</text>
+        <text class="iconfont icon-xia xia"></text> </view>
+    </view>
+  </view>
+
+  <view class="personbox">
+    <view class="personitem" hidden="{{prioritylist.length<=0}}" wx:for="{{prioritylist}}" wx:key="index">
+      <view>
+        <view>姓名：
+          <text>{{item.protect_username}}</text>
+        </view>
+        <view>年龄：
+          <text>{{item.protect_age}}</text>
+        </view>
+        <view>社区：
+          <text>{{item.area_name}}</text>
+        </view>
+      </view>
+      <text class="persontype">{{item.dict_item_name}}</text>
+    </view>
+    <view hidden="{{prioritylist.length>0}}" class="personitem center">暂无数据</view>
+  </view>
+
+  <view class="locationModel" wx:if="{{showLocation}}">
+    <view class="box" wx:if="{{id==1}}">
+      <view class="itembox">
+        <view class="smallitem bgcolor {{local==item.deptId?'sign':''}}" wx:for="{{typelist}}" bindtap="choose" data-local="{{item.deptId}}" wx:key="index">{{item.areaName}}</view>
+      </view>
+      <view class="third">
+        <view bindtap="cancle">取消</view>
+        <view bindtap="affirm">确认</view>
+      </view>
+    </view>
+    <view class="box" wx:if="{{id==2}}">
+      <view class="itembox">
+        <view class="smallitem bgcolor {{type==item.dictItemCode?'sign':''}}" wx:for="{{typelist}}" bindtap="choose" data-type="{{item.dictItemCode}}" wx:key="index">{{item.dictItemName}}</view>
+      </view>
+
+
+      <view class="third">
+        <view bindtap="cancle">取消</view>
+        <view bindtap="affirm">确认</view>
+      </view>
+    </view>
+
+  </view>
+
+
+</view>

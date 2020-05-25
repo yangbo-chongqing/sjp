@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "PhoneList": "/components/Alarm/PhoneList/PhoneList"
+  },
+  "navigationBarTitleText": "报警电话"
+}

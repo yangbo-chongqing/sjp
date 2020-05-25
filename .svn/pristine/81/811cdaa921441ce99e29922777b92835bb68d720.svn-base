@@ -1,0 +1,41 @@
+<!--pages/login/login.wxml-->
+<top_nav mytop="{{mytop}}"></top_nav>
+<view class="topbox">
+<view class="imgbox">
+  <image src="http://119.3.196.255:8094/file/icon/logosj.png" role="img"></image>
+  </view>
+</view>
+
+<form bindsubmit="formSubmit">
+  <view class="all">
+    <view class="logintitle">
+      <text>登录</text>
+      <text>欢迎使用石井坡E党建</text>
+    </view>
+    <view class="formcontent">
+
+      <view class="formitem">
+        <text wx:if="{{one == 1}}">账号/号码</text>
+        <input type="text" bindfocus="change" bindblur="inChange" name="username" value="{{username}}"
+        data-show="1" placeholder="账号/手机号" />
+      </view>
+      <view class="formitem bot">
+        <text  wx:if="{{two == 1}}">密码</text>
+        <input type="password" bindfocus="change" bindblur="inChange" name="password" value="{{password}}"
+        data-show="2"  placeholder="密码" />
+      </view>
+      <view class="member">
+        <text bindtap="toggle" class="iconfont circle {{ismenber?'icon-jizhumima_yixuan':'icon-jizhumima_weixuan'}}"></text> 记住密码
+        
+      </view>
+
+      <button formType="submit" class="form">登录</button>
+    </view>
+
+  </view>
+</form>
+<view class="bottombtn">
+  <view bindtap="goeach" data-url="/pages/registercode/registercode?type=find">找回密码</view>
+  <view class="centerline"></view>
+  <view bindtap="goeach" data-url="/pages/registercode/registercode?type=register">注册账号</view>
+</view>

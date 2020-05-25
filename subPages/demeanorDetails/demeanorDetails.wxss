@@ -1,0 +1,46 @@
+/* subPages/demeanorDetails/demeanorDetails.wxss */
+.deme-details{
+  border-top: 1px solid #f5f5f5;
+}
+/* .deme-details>view:first-child{
+  display: flex;
+  align-items: center;
+} */
+.deme-details>view:first-child>image{
+  width: 302rpx;
+  height: 330rpx;
+  /* margin: 74rpx 32rpx 60rpx 30rpx; */
+  margin: 20rpx auto 10rpx auto;
+  display: block;
+}
+.deme-details-left{
+  text-align: center;
+}
+.deme-details-left>text{
+  font-size: 28rpx;
+  color: #8a8a8a;
+  display: block;
+}
+/* .deme-details-left .name{
+  margin-top: 88rpx;
+} */
+.deme-details-left>text:not(:last-child){
+  margin-bottom: 36rpx;
+}
+.details-title{
+  font-size: 28rpx;
+  color: #8a8a8a;
+  padding-left: 30rpx;
+}
+.introduction-brief,
+.detail1{
+  display: block;
+  padding: 0 30rpx;
+  margin-top: 22rpx;
+  font-size: 32rpx;
+  color: #444;
+  overflow: hidden;
+}
+.img{
+  width:100%;
+}

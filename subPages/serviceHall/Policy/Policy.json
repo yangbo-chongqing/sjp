@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "Search": "/components/Policy/Search/Search",
+    "List": "/components/Policy/List/List"
+  },
+  "navigationBarTitleText": "政策法规"
+}

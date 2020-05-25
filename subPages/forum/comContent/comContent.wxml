@@ -1,0 +1,27 @@
+<!--subPages/forum/comContent/comContent.wxml-->
+<view class="newsDetails">
+  <view class="eleganbox">
+    <view class="elegantext">
+      <text>区委常委、政法委书记杨邦维率队调研井口镇、石井坡街道基层社会治理工作</text>
+    </view>
+    <view class="elenganPortrait">
+      <view class="portext">
+          <view class="firstText">
+            <text>重庆日报</text>
+            <text class="mintext">浏览量<text>12</text>次</text>
+          </view>
+          <view class="lastText">
+            <text>2019/12/21 11:10</text>
+          </view>
+      </view>
+    </view>
+  </view>
+  <!-- 新闻详情 -->
+  <view class="detailContent">
+    <view class="textde">2月14日，区委常委、政法委书记杨邦维到井口镇、石井坡街道就 深化“枫桥经验”，探索基层社会治理创新，开展专题调研。区委组织部、区委宣传部、区民政局、区司法局、区卫健委等部门参加调研。</view>
+    <view class="dataimges">
+      <image src="https://www.mlxc365.com/images/zhongyixiang/zhihuidangjian.png" mode="widthFix"></image>
+    </view>
+    <view class="textdes">杨邦维一行首先来到井口镇宏城名都社区，了解了宏城名都社区相关情况。据介绍，宏城名都社区坚决将矛盾化解在萌芽状态，提炼出“三联三心”工作法（即党建联抓强核心、治理联议显齐心、服务联动促贴心），积极引导居民参与社会治理，有效提升社会治理能力，维护辖区社会安定。 随后，杨邦维一行来到井口镇经济桥社区。据介绍，经济桥社区打造“家在社区·五桥连心”创文示范项目，架起了社区与居民群众之间的五座“连心桥”，让枫桥经验在社区落地生根。</view>
+  </view>
+</view>

@@ -1,0 +1,12 @@
+<!--components/index/Options/Options.wxml-->
+<view class="indexOptions">
+    <view class="button {{flag === index?'active':''}}"
+          wx:for="{{ OptionsList }}"
+          wx:key="index"
+          bindtap="handleGetMsg"
+          data-index="{{ index }}"
+    >
+        {{ item }}
+        <text class="line" />
+    </view>
+</view>

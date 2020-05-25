@@ -1,0 +1,5 @@
+/* subPages/serviceHall/serviceHall.wxss */
+#serviceHall {
+    width: 100%;
+    box-sizing: border-box;
+}

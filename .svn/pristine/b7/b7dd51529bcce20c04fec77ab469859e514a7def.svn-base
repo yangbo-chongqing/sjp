@@ -1,0 +1,118 @@
+
+/* subPages/serviceHall/townMap/townMap.wxss */
+.townMap{
+  width: 100%;
+}
+.mapbox{
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+/* 弹框 */
+.partyModal {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 100%;
+    left: 0;
+    transition: all .2s linear;
+}
+.partyModal.active{
+    top: 0;
+}
+.partyModal > .modelbox {
+    width: 100%;
+    height: 286rpx;
+    background-color: #fff;
+    border-radius: 20rpx 20rpx 0 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.partyModal > view > .top {
+    width: 100%;
+    height: 112rpx;
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    padding: 40rpx 30rpx 40rpx 40rpx;
+}
+.partyModal > view > .top > i {
+    position: absolute;
+    right: 30rpx;
+    top: 26rpx;
+    font-size: 48rpx;
+    color: #DADADA;
+}
+.partyModal > view > .top > view {
+    width: 80%; 
+}
+.partyModal > view > .top > view > .personName {
+    color: #8A8A8A;
+    font-weight:500;
+    font-size: 32rpx;
+
+}
+.partyModal > view > .bottom {
+    width: 100%;
+    height: 174rpx;
+    border-top: 2rpx solid #f5f5f5;
+    padding: 38rpx 30rpx 40rpx 40rpx;
+    display: flex;
+    justify-content: space-between;
+}
+.partyModal > view > .bottom > .botone {
+    width: 80%;
+    box-sizing: border-box;
+    font-family: Noto Sans CJK;
+    font-size: 32rpx;
+    line-height: 28rpx;
+    color: #8E8E93;
+    margin-bottom: 32rpx;
+}
+.partyModal > view > .bottom > .botone > .one{
+  font-size: 32rpx;
+  color: #444444;
+  margin-bottom: 32rpx
+}
+.partyModal > view > .bottom > .botone > .two{
+  font-size: 32rpx;
+  color: #D33333;
+}
+.partyModal > view > .bottom > .bottwo{
+  width: 20%;
+}
+.partyModal > view > .bottom > .bottwo > view{
+  width: 80rpx;
+  height: 80rpx;
+}
+.partyModal > view > .bottom > .bottwo > view > image{
+  width: 100%;
+  height: 100%;
+}
+/* 地图 */
+.boximg .industry{
+top: 224rpx;
+position: absolute;
+right: 40rpx;
+width: 96rpx;
+height: 96rpx;
+}
+.boximg .industry cover-image{
+width: 100%;
+height: 100%;
+}
+.boximg .people{
+top: 366rpx;
+position: absolute;
+right: 40rpx;
+width: 96rpx;
+height: 96rpx;
+}
+.boximg .people cover-image{
+width: 100%;
+height: 100%;
+}
+

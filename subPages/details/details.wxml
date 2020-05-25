@@ -1,0 +1,27 @@
+<!--subPages/yaowen/details/details.wxml-->
+<wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
+<view class="details">
+  <view class="details-top">
+    <text class="details-title">{{title}}</text>
+    <view class="details-user">
+      <!-- <view>
+        <image src="{{img}}"></image>
+        <view class="details-user-name">
+          <view>{{name}}</view>
+          <view class="details-user-time">{{filter.timesub2(time)}}</view>
+        </view>
+      </view> -->
+      <view class="details-user-time">{{filter.timesub6(time)}}</view>
+      <view><text>{{stage}}</text>次浏览</view>
+    </view>
+  </view>
+  <view class="line"></view>
+
+  <!-- 详情 -->
+  <view class="details-main">
+    <view>
+      <rich-text nodes="{{text}}" class="text" bindtap="chooseImg" />
+      <image wx:for="{{photo}}" src="item.photoUrl"></image>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,41 @@
+/* subPages/serviceHall/Framework/Framework.wxss */
+#Framework {
+    width: 100%;
+}
+#Framework > .title > .tit{
+    display: flex;
+    align-items: center;
+}
+#Framework > .title {
+    width: 100%;
+    height: 80rpx;
+    box-sizing: border-box;
+    padding: 16rpx 30rpx 8rpx;
+    font-family: Noto Sans CJK;
+    font-weight: 600;
+    font-size: 28rpx;
+    line-height: 48rpx;
+    color: #D33333;
+    border-bottom: 2rpx solid #f5f5f5;
+    border-top: 2rpx solid #f5f5f5;
+}
+
+#Framework > .title.small {
+    border-bottom: 0;
+    border-top: 0;
+}
+#Framework > .title > view {
+    display: inline-block;
+    height: 100%;
+    position: relative;
+    overflow-y: hidden;
+}
+#Framework > .title > view > i {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 8rpx;
+    background:linear-gradient(to bottom,#D33333 , #fff);
+    border-radius: 8rpx;
+}

@@ -1,0 +1,160 @@
+<!--pages/hongyan/hongyan.wxml-->
+<view>
+<!-- header -->
+  <view class="container">
+    <view class="container-header">
+      <navigator>
+        <view class="header-news">
+          <view>
+            <image src="/pages/img/news.png" lazy-load="true"></image>
+          </view>
+          <text>党建要闻</text>
+        </view>
+      </navigator>
+    </view>
+
+    <view class="container-header">
+      <navigator>
+        <view class="header-photo">
+          <view>
+            <image src="/pages/img/photo.png" lazy-load="true"></image>
+          </view>
+          <text>党建相册</text>
+        </view>
+      </navigator>
+    </view>
+
+    <view class="container-header">
+      <navigator>
+        <view class="header-equa">
+          <view>
+            <image src="/pages/img/equa.png" lazy-load="true"></image>
+          </view>
+          <text>党内公示</text>
+        </view>
+      </navigator>
+    </view>
+
+    <view class="container-header">
+      <navigator>
+        <view class="header-user">
+          <view>
+            <image src="/pages/img/user.png" lazy-load="true"></image>
+          </view>
+          <text>党建风采</text>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <!-- end -->
+
+  <!-- 第二部分 -->
+  <view class="member">
+    <view class="member-top">
+      <image src="/pages/img/stage.png"></image>
+      <text>我是党员</text>
+    </view>
+    <view class="line"></view>
+    <view class="member-bottom">
+      <view class="member-bottom-left">
+        <view>
+          <text>基础分数:</text>
+          <view class="member-stage">
+            <image src="/pages/img/stage.png" lazy-load="true"></image>
+            <text>70分</text>
+          </view>
+        </view>
+        <view>
+          <text>当前积分:</text>
+          <view class="member-stage">
+            <image src="/pages/img/stage.png" lazy-load="true"></image>
+            <text>20分</text>
+          </view>
+        </view>
+      </view>
+      <view class="len-line"></view>
+      <view class="member-bottom-right">
+        <text>红绿灯：</text>
+        <view class="yuan">
+          <view class="red"></view>
+          <view class="green"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- end -->
+
+  <!-- 第三部分 -->
+  <view class="scale">
+    <view>
+      <view>
+        <view class="scale-top">
+          <view>
+            <image src="/pages/img/stage.png"></image>
+            <text>党员评分标准</text>
+          </view>
+          <view class="scale-line"></view>
+          <text>党内学习生活</text>
+        </view>
+        <view class="line"></view>
+      </view>
+      <view>
+        <view class="scale-main">
+          <view>
+            <view class="scale-main-text">“破格提拔”还是正常<text>晋升</text>？干部选拔热点的背后是否隐藏</view>
+            <view class="scale-main-stage">
+              <image src="/pages/img/stage.png"></image>
+              <text>20分/次</text>
+            </view>
+          </view>
+          <view class="line"></view>
+        </view>
+        <view class="scale-main">
+          <view>
+            <view class="scale-main-text">“破格提拔”还是正常<text>晋升</text>？干部选拔热点的背后是否隐藏</view>
+            <view class="scale-main-stage">
+              <image src="/pages/img/stage.png"></image>
+              <text>20分/次</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view>
+      <view>
+        <view class="scale-top">
+          <view>
+            <image src="/pages/img/stage.png"></image>
+            <text>党员评分标准</text>
+          </view>
+          <view class="scale-line"></view>
+          <text>先锋作用发挥</text>
+        </view>
+        <view class="line"></view>
+      </view>
+      <view>
+        <view class="scale-main">
+          <view>
+            <view class="scale-main-text">“破格提拔”还是正常<text>晋升</text>？干部选拔热点的背后是否隐藏</view>
+            <view class="scale-main-stage">
+              <image src="/pages/img/stage.png"></image>
+              <text>20分/次</text>
+            </view>
+          </view>
+          <view class="line"></view>
+        </view>
+        <view class="scale-main">
+          <view>
+            <view class="scale-main-text">“破格提拔”还是正常<text>晋升</text>？干部选拔热点的背后是否隐藏</view>
+            <view class="scale-main-stage">
+              <image src="/pages/img/stage.png"></image>
+              <text>20分/次</text>
+            </view>
+          </view>
+          <view class="line"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

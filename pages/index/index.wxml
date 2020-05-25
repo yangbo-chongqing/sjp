@@ -1,0 +1,28 @@
+<!--index.wxml-->
+
+<view id="index">
+  <!--轮播图-->
+  <view class="page-section page-section-spacing swiper index_swiper">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-active-color="#97EAEF">
+      <block wx:for="{{background}}" wx:key="index">
+        <swiper-item>
+          <view class="swiper-item {{item}}">
+            <image src="{{item.coverPic}}" alt="" style="width:100%;height:300rpx;"/>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!--工具栏-->
+  <Tools toolsTop="{{ toolsTop }}" toolsBottom="{{ toolsBottom }}" bind:goSubPages="goSubPages" />
+  <!--分割线-->
+  <Line />
+  <!--新闻选项-->
+  <Options OptionsList="{{ OptionsList }}" flag="{{ flag }}" bind:getMsg="getMsg" />
+  <!--首页列表-->
+  <view class="indexList">
+    <BaseList BaseNewsList="{{ BaseNewsList }}" bind:goNews="goNews" wx:if="{{ flag === 0 }}" />
+    <Active BaseNewsList="{{ BaseNewsList }}" bind:goNews="goNews" wx:if="{{ flag === 1 }}" />
+    <Heart BaseNewsList="{{ BaseNewsList }}" bind:goNews="goNews" wx:if="{{ flag === 2 }}" />
+  </view>
+</view>
