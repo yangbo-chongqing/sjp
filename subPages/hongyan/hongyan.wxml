@@ -138,6 +138,7 @@
 				<!-- <text class="iconfont icon-xingxing"></text> -->
 				<image class="iconfont" src="https://webservers.sjpdqfwzx.com/file/icon/Component 13.png"></image>
 				<text>党员个人图片</text>
+				<text style="float:right; padding-right:15rpx" bindtap="gotoPage1">更多</text>
 			</view>
 		</view>
 		<view class="demeanor">

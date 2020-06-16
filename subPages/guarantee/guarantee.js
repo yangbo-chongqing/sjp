@@ -22,6 +22,7 @@ Page({
     arr: [], //点击确认后的数组
     pageSize: 6,
     pageNum: 1,
+    numm:1,
     tablelist: [],
     newdata: [], //项目管家库处理后的表格数据
     value: "", //能人筛选单选点击
@@ -41,7 +42,8 @@ Page({
       protectType: '',
       deptId: ''
     },
-    prioritylist: []
+    prioritylist: [],
+    tell:1
 
   },
   changeSwiper(e) {
@@ -356,17 +358,18 @@ Page({
     this.setData({
       'priority.protectType': this.data.type,
       'priority.deptId':this.data.local,
-      
+      prioritylist:[],
+      numm:1
     })
     this.cancle()
-    this.getprioritylist(this.data.priority)
+    this.getprioritylist(this.data.numm,this.data.priority)
 
   },
   //优先保障库列表
-  getprioritylist(priority) {
+  getprioritylist(key,priority) {
     let data = {
       pageSize: this.data.pageSize,
-      pageNum: this.data.pageNum
+      pageNum: key
     }
     let newdata = {
       ...data,
@@ -378,7 +381,8 @@ Page({
     }).then( res => {
       console.log(res)
       this.setData({
-        prioritylist: res.data.list
+        prioritylist:this.data.prioritylist.concat(res.data.list), 
+        tell:res.data.total
       })
     })
   },
@@ -405,7 +409,7 @@ Page({
     this.getlist(this.data.argument)
     this.getprolist()
     this.getlocation()
-    this.getprioritylist(this.data.priority)
+    this.getprioritylist(this.data.numm,this.data.priority)
   },
 
   /**
@@ -433,7 +437,11 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-
+    if(this.data.tell>this.data.numm*6){
+      this.data.numm+=1
+      this.getprioritylist(this.data.numm,this.data.priority)
+      wx.startPullDownRefresh()
+   }
   },
 
   /**

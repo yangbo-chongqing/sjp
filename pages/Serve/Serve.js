@@ -1,4 +1,4 @@
-// pages/Serve/Serve.js
+// subPages/special/special.js
 import {
   get
 } from "../../assets/js/request"
@@ -40,11 +40,14 @@ Page({
       protectType: '',
       deptId: ''
     },
-    prioritylist: []
-
+    prioritylist: [],
+    num:1,
+    tall:1,
+    numm:1,
+    tell:1
   },
   changeSwiper(e) {
-    // console.log(e, 111)
+    console.log(e, 111)
     let current = e.currentTarget.dataset.current
     this.setData({
       current: e.currentTarget.dataset.current,
@@ -77,7 +80,7 @@ Page({
       showFiltrate: false,
       showLocation: false,
       id: '',
-
+   
 
     })
   },
@@ -85,17 +88,17 @@ Page({
   confirm() {
     let newarr = []
     let servelist = this.data.servelist
-    console.log(servelist)
     let locationlist = this.data.locationlist
-    console.log(locationlist)
     for (var a = 0; a < locationlist.length; a++) {
       if (locationlist[a].dept_id == this.data.deptid) {
         let obj = {}
         obj.dictItemName = locationlist[a].areaName
         obj.dictItemCode = locationlist[a].dept_id
         obj.parent_id = locationlist[a].parent_id
+
         newarr.push(obj)
-      } 
+
+      }
     }
     for (var i = 0; i < servelist.length; i++) {
       if (servelist[i].children) {
@@ -105,12 +108,15 @@ Page({
           }
         }
       }
+
     }
     this.setData({
-      arr: newarr
+      arr: newarr,
+      num:1,
+      manlist:[]
     })
     this.cancle()
-    this.getlist(this.data.argument)
+    this.getlist(this.data.num,this.data.argument)
     console.log(newarr)
 
   },
@@ -138,13 +144,30 @@ Page({
 
       })
     }
-
-    this.getlist()
+    this.setData({
+      num:1,
+      argument: { //能人筛选参数
+        deptId: '',
+        skillType: "",
+        skill: ''
+      },
+      manlist:[]
+    })
+    this.getlist(this.data.num)
 
   },
   // 点击全部
-  recovery() {
-    this.getlist()
+  recovery(){
+    this.setData({
+      manlist:[],
+      num:1,
+      argument: { //能人筛选参数
+        deptId: '',
+        skillType: "",
+        skill: ''
+      }
+    })
+    this.getlist(this.data.num)
   },
   //筛选
   place(e) {
@@ -228,24 +251,24 @@ Page({
     })
   },
   //获取能人列表
-  getlist(argument) {
+  getlist(key,argument) {
     let data = {
       pageSize: this.data.pageSize,
-      pageNum: this.data.pageNum
+      pageNum: key
     }
-    let newdata = {
-      ...data,
+    let newdata = { ...data,
       ...argument
     }
 
     get({
       link: "/ablePerson/list",
       data: newdata
-    }).then(res => {
-      if (res.code == 200) {
-        console.log(res.data.list)
+    }).then(msg => {
+      if (msg.code == 200) {
+        console.log(msg.data.list)
         this.setData({
-          manlist: res.data.list
+          manlist:this.data.manlist.concat(msg.data.list),//拼接显示
+          tall:msg.data.total
         })
 
       }
@@ -311,7 +334,6 @@ Page({
         deptId: 35
       }
       this.gettype(link, data)
-      // this.setData({})
     } else if (id == 2) { //类型选择
       let link = '/baseDict/get'
       let data = {
@@ -349,24 +371,25 @@ Page({
       type: argu.type || this.data.type,
       local: argu.local || this.data.local,
     })
-    console.log(this.data.type, this.data.local)
+    console.log(this.data.type,this.data.local)
   },
   //优先保障库确认筛选
   affirm() {
     this.setData({
       'priority.protectType': this.data.type,
-      'priority.deptId': this.data.local,
-
+      'priority.deptId':this.data.local,
+      prioritylist:[],
+      numm:1
     })
     this.cancle()
-    this.getprioritylist(this.data.priority)
+    this.getprioritylist(this.data.numm,this.data.priority)
 
   },
   //优先保障库列表
-  getprioritylist(priority) {
+  getprioritylist(key,priority) {
     let data = {
       pageSize: this.data.pageSize,
-      pageNum: this.data.pageNum
+      pageNum: key
     }
     let newdata = {
       ...data,
@@ -375,71 +398,82 @@ Page({
     get({
       link: "/protectLibrary/getProtectList",
       data: newdata
-    }).then(res => {
+    }).then( res => {
       console.log(res)
       this.setData({
-        prioritylist: res.data.list
+        prioritylist:this.data.prioritylist.concat(res.data.list), 
+        tell:res.data.total
       })
     })
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
 
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
     this.getmantype()
-    this.getlist(this.data.argument)
+    this.getlist(this.data.num)
     this.getprolist()
     this.getlocation()
-    this.getprioritylist(this.data.priority)
+    this.getprioritylist(this.data.numm,this.data.priority)
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-
+  onReachBottom: function() {
+    if(this.data.current==0&&this.data.tall>this.data.num*6){
+      console.log(this.data.tall)
+      this.data.num+=1
+      this.getlist(this.data.num,this.data.argument)
+      wx.startPullDownRefresh()
+   }
+   if(this.data.current==2&&this.data.tell>this.data.numm*6){
+     console.log(this.data.tell)
+    this.data.numm+=1
+    this.getprioritylist(this.data.numm,this.data.priority)
+    wx.startPullDownRefresh()
+ }
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

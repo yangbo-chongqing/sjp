@@ -29,7 +29,12 @@ Page({
       url: e.currentTarget.dataset.url,
     })
   },
-
+  //跳转详情页
+  gotoPage1(){
+    wx.navigateTo({
+      url: '/subPages/demeanor/demeanor',
+       })
+  },
   // 获取列表
   getList() {
     const that = this;

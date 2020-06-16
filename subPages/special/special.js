@@ -40,11 +40,12 @@ Page({
       protectType: '',
       deptId: ''
     },
-    prioritylist: []
-
+    prioritylist: [],
+    num:1,
+    tall:1
   },
   changeSwiper(e) {
-    // console.log(e, 111)
+    console.log(e, 111)
     let current = e.currentTarget.dataset.current
     this.setData({
       current: e.currentTarget.dataset.current,
@@ -108,10 +109,12 @@ Page({
 
     }
     this.setData({
-      arr: newarr
+      arr: newarr,
+      num:1,
+      manlist:[]
     })
     this.cancle()
-    this.getlist(this.data.argument)
+    this.getlist(this.data.num,this.data.argument)
     console.log(newarr)
 
   },
@@ -139,13 +142,19 @@ Page({
 
       })
     }
-
-    this.getlist()
+    this.setData({
+      num:1
+    })
+    this.getlist(this.data.num)
 
   },
   // 点击全部
   recovery(){
-    this.getlist()
+    this.setData({
+      manlist:[],
+      num:1
+    })
+    this.getlist(this.data.num)
   },
   //筛选
   place(e) {
@@ -229,10 +238,10 @@ Page({
     })
   },
   //获取能人列表
-  getlist(argument) {
+  getlist(key,argument) {
     let data = {
       pageSize: this.data.pageSize,
-      pageNum: this.data.pageNum
+      pageNum: key
     }
     let newdata = { ...data,
       ...argument
@@ -241,11 +250,12 @@ Page({
     get({
       link: "/ablePerson/list",
       data: newdata
-    }).then(res => {
-      if (res.code == 200) {
-        console.log(res.data.list)
+    }).then(msg => {
+      if (msg.code == 200) {
+        console.log(msg.data.list)
         this.setData({
-          manlist: res.data.list
+          manlist:this.data.manlist.concat(msg.data.list),//拼接显示
+          tall:msg.data.total
         })
 
       }
@@ -401,7 +411,7 @@ Page({
    */
   onShow: function() {
     this.getmantype()
-    this.getlist(this.data.argument)
+    this.getlist(this.data.num)
     this.getprolist()
     this.getlocation()
     this.getprioritylist(this.data.priority)
@@ -432,7 +442,13 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-
+    if(this.data.tall>this.data.num*6){
+      console.log(this.data.num)
+      this.data.num+=1
+      this.getlist(this.data.num,this.data.argument)
+      console.log(this.data.tall)
+      wx.startPullDownRefresh()
+   }
   },
 
   /**

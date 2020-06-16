@@ -1,4 +1,4 @@
-/* subPages/eachshop/eachshop.wxss
+/* subPages/eachshop/eachshop.wxss */
 page{
   background: #f5f5f5;
   padding-bottom:50rpx;
@@ -74,7 +74,7 @@ page{
   height:160rpx;
 }
 .righttitle{
-  /* height:80rpx; 
+  /* height:80rpx; */
   letter-spacing: 1rpx;
 }
 .rightbot{
@@ -151,9 +151,9 @@ page{
   font-size:36rpx;
   padding:20rpx 30rpx 10rpx 0;
 }
-.exchangestar{
+/* .exchangestar{
 
-}
+} */
 .evaluate{
   line-height: 88rpx;
 
@@ -192,9 +192,9 @@ display: block;
 text-align: center;
 line-height: 88rpx;
 }
-.minus{
+/* .minus{
 
-}
+} */
 .bottombtn{
   width:690rpx;
   height:80rpx;
@@ -205,8 +205,8 @@ line-height: 88rpx;
   text-align: center;
   border-radius: 10rpx;
   margin-top:50rpx;
-} */
-.map_container {
+}
+/* .map_container {
   height: 260px;
   width: 100%;
 }
@@ -236,4 +236,4 @@ line-height: 88rpx;
   vertical-align: middle;
   line-height: 90rpx;
   font-size: 35rpx;
-}
+} */
