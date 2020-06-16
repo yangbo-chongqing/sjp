@@ -89,7 +89,6 @@ Page({
           studyList: list
         })
       }
-
     }).catch(error => {
       console.log(error)
     })

@@ -77,7 +77,7 @@ Page({
       showFiltrate: false,
       showLocation: false,
       id: '',
-   
+
 
     })
   },
@@ -85,17 +85,17 @@ Page({
   confirm() {
     let newarr = []
     let servelist = this.data.servelist
+    console.log(servelist)
     let locationlist = this.data.locationlist
+    console.log(locationlist)
     for (var a = 0; a < locationlist.length; a++) {
       if (locationlist[a].dept_id == this.data.deptid) {
         let obj = {}
         obj.dictItemName = locationlist[a].areaName
         obj.dictItemCode = locationlist[a].dept_id
         obj.parent_id = locationlist[a].parent_id
-
         newarr.push(obj)
-
-      }
+      } 
     }
     for (var i = 0; i < servelist.length; i++) {
       if (servelist[i].children) {
@@ -105,7 +105,6 @@ Page({
           }
         }
       }
-
     }
     this.setData({
       arr: newarr
@@ -144,7 +143,7 @@ Page({
 
   },
   // 点击全部
-  recovery(){
+  recovery() {
     this.getlist()
   },
   //筛选
@@ -234,7 +233,8 @@ Page({
       pageSize: this.data.pageSize,
       pageNum: this.data.pageNum
     }
-    let newdata = { ...data,
+    let newdata = {
+      ...data,
       ...argument
     }
 
@@ -311,6 +311,7 @@ Page({
         deptId: 35
       }
       this.gettype(link, data)
+      // this.setData({})
     } else if (id == 2) { //类型选择
       let link = '/baseDict/get'
       let data = {
@@ -348,14 +349,14 @@ Page({
       type: argu.type || this.data.type,
       local: argu.local || this.data.local,
     })
-    console.log(this.data.type,this.data.local)
+    console.log(this.data.type, this.data.local)
   },
   //优先保障库确认筛选
   affirm() {
     this.setData({
       'priority.protectType': this.data.type,
-      'priority.deptId':this.data.local,
-      
+      'priority.deptId': this.data.local,
+
     })
     this.cancle()
     this.getprioritylist(this.data.priority)
@@ -374,7 +375,7 @@ Page({
     get({
       link: "/protectLibrary/getProtectList",
       data: newdata
-    }).then( res => {
+    }).then(res => {
       console.log(res)
       this.setData({
         prioritylist: res.data.list
@@ -385,21 +386,21 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
 
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
     this.getmantype()
     this.getlist(this.data.argument)
     this.getprolist()
@@ -410,35 +411,35 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   }
 })

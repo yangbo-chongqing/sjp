@@ -68,7 +68,6 @@ page {
 }
 
 .scroll {
-  border-left: 5rpx solid #999;
   width: 615rpx;
   height: 50rpx;
   padding: 0 20rpx;
@@ -95,8 +94,8 @@ text-align: center;
 
 }
 
-.scrollitem>view {
-}
+/* .scrollitem>view {
+} */
 
 .scrollitem:last-child {
   margin-right: 0;
@@ -353,11 +352,11 @@ text-align: center;
   font-weight: bold;
 }
 
-.smallbox {
+/* .smallbox {
   /* display: flex;
   justify-content: flex-start;
-  flex-wrap: wrap; *//* align-items: center; */
-}
+  flex-wrap: wrap; *//* align-items: center; 
+} */
 
 .smallitem {
   display: inline-block;

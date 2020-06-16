@@ -1,9 +1,9 @@
 <!--subPages/dangPhoto/dangPhoto.wxml-->
 <wxs  src="../../assets/filter/public.wxs" module="filter"></wxs> 
 <view class="section">
-  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" range-key="photoAlbumName">
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" range-key="areaName">
     <view class="picker">
-      {{array[index].photoAlbumName}}
+      {{array[index].areaName}}
       <text class="iconfont icon-xia3"></text>
     </view>
   </picker>

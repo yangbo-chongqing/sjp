@@ -14,12 +14,14 @@ Page({
       { img: "https://webservers.sjpdqfwzx.com/file/icon/Group 195.png", title: "党建要闻", bannerUrl:"/subPages/yaowen/yaowen"},
       { img: "https://webservers.sjpdqfwzx.com/file/icon/Group 196.png", title: "党建相册", bannerUrl: "/subPages/dangPhoto/dangPhoto" },
       { img: "https://webservers.sjpdqfwzx.com/file/icon/Group 197.png", title: "党内公示", bannerUrl: "/subPages/formula/formula" },
-      { img: "https://webservers.sjpdqfwzx.com/file/icon/Group 198.png", title: "党员风采", bannerUrl: "/subPages/demeanor/demeanor" }
+      { img: "https://webservers.sjpdqfwzx.com/file/icon/Group 198.png", title: "党员个人图片", bannerUrl: "/subPages/demeanor/demeanor" }
     ],
     list:[],
     listXian:[],
     num:"",
-    list2:[]   //不是党员
+    list2:[],   //不是党员
+    kpis:[],
+    baifen:[100,22,33,44,55,66]
   },
 
   goDetails(e) {
@@ -48,7 +50,23 @@ Page({
       console.log(error)
     })
   },
-
+  //获取党员考核合格率
+  getKpi() {
+    const that=this
+    let data = {
+    }
+    get({
+      link: '/funCodeIntegral/finishRatio',
+      data: data
+    }).then(msg => {
+      console.log(msg)
+      if (msg.code == 200) {
+        that.setData({
+          kpis: msg.data
+        })
+        }
+      }
+    )},
   // 获取列表
   getListXian() {
     const that = this;
@@ -162,6 +180,7 @@ Page({
     this.getGrade()
     this.getListXian()
     this.getList2()
+    this.getKpi()
   },
 
   /**

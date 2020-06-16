@@ -1,5 +1,5 @@
 {
-  "usingComponents": {},
+  "usingComponents": {"i-progress": "../../dist/progress/index"},
   "navigationBarTitleText": "红岩先锋",
   "navigationBarTextStyle": "black"
 }

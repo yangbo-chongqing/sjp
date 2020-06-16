@@ -3,7 +3,7 @@
 <view class="studio">
   <view class="navigation">
     <view class="nav-text {{nav==1?'actve':''}}" bindtap="changeNav" data-nav="1"><text>工作室简介</text><view></view></view>
-    <view class="nav-text {{nav==2?'actve':''}}" bindtap="changeNav" data-nav="2"><text>工作室风采</text><view></view></view>
+    <view class="nav-text {{nav==2?'actve':''}}" bindtap="changeNav" data-nav="2"><text>代表风采</text><view></view></view>
     <view class="nav-text {{nav==3?'actve':''}}" bindtap="changeNav" data-nav="3"><text>媒体报道</text><view></view></view>
   </view>
   <!-- 工作室简介 -->

@@ -16,15 +16,39 @@ Page({
     placelist: [], //提交区域列表
     index: '', //区域下标
     needDeptId: '', //选中区域deptid
+    needOut:[],//需求清单，
+    submitShow:1,//是否显示提交界面
+    num:1,// 需求的当前页面
+    total:1,
+  },
+  //获取需求清单
+  getneedOut(key) {
 
+    let data = {
+      pageNum:key,
+      pageSize:5
+    }
+    get({
+      link: '/need/info/list',
+      data: data
+    }).then(msg => {
+      console.log(msg)
+      if (msg.code == 200) {
+        this.setData({
+          // needInt:msg.data.list
+          needOut:this.data.needOut.concat(msg.data.list),//拼接显示
+          total:msg.data.total
+        })
+      }
+    }).catch(error => {
+      console.log(error)
+    })
   },
   changeSwiper(e) {
     console.log(e, 111)
     this.setData({
       current: e.currentTarget.dataset.current,
     });
-
-
   },
   gopro(e) {
     wx.navigateTo({
@@ -103,6 +127,11 @@ Page({
       needDeptId: this.data.placelist[e.detail.value].dept_id
     })
   },
+  out(){
+    this.setData({
+      submitShow:0
+    })
+  },
   //需求提交
   formSubmit(e) {
     console.log(e)
@@ -163,7 +192,8 @@ Page({
             index: '',
             title: '',
             address: '',
-            introduction: ''
+            introduction: '',
+            submitShow:1
           })
         },2000)
       }
@@ -178,6 +208,7 @@ Page({
     this.getsorce()
     this.getpro()
     this.getplace()
+    this.getneedOut(this.data.num)
   },
 
   /**
@@ -205,7 +236,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function() {
-
+    this.data.submitShow=1
   },
 
   /**
@@ -219,7 +250,11 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-
+    if(this.data.current==1&&this.data.total>this.data.num*5){
+      this.data.num+=1
+      this.getneedOut(this.data.num)
+      wx.startPullDownRefresh()
+   }
   },
 
   /**

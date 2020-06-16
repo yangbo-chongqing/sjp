@@ -1,4 +1,4 @@
-/* subPages/eachshop/eachshop.wxss */
+/* subPages/eachshop/eachshop.wxss
 page{
   background: #f5f5f5;
   padding-bottom:50rpx;
@@ -74,7 +74,7 @@ page{
   height:160rpx;
 }
 .righttitle{
-  /* height:80rpx; */
+  /* height:80rpx; 
   letter-spacing: 1rpx;
 }
 .rightbot{
@@ -205,4 +205,35 @@ line-height: 88rpx;
   text-align: center;
   border-radius: 10rpx;
   margin-top:50rpx;
+} */
+.map_container {
+  height: 260px;
+  width: 100%;
+}
+ 
+.map {
+  height: 100%;
+  width: 100%;
+}
+ 
+ 
+ 
+ 
+.list-guide{
+  display: flex;  
+  flex-direction: row; 
+  justify-content:space-around;
+  border-top: 1px solid #ededed;
+  height: 80rpx;
+}
+.list-guide-imgae{
+  height: 70rpx;
+  width: 70rpx;
+  margin-right: 20px;
+  vertical-align: middle;
+}
+.list-guide-text{
+  vertical-align: middle;
+  line-height: 90rpx;
+  font-size: 35rpx;
 }

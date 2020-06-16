@@ -85,7 +85,7 @@ Page({
     //修改页面标题
     // const { title } = options;
     wx.setNavigationBarTitle({
-      title: "党员风采",
+      title: "党员个人图片",
     })
     this.getDetails()
   },

@@ -2,225 +2,224 @@
 <wxs src="./Serve.wxs" module="order"></wxs>
 <wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
 <view class="change">
-  <view class='{{current==0?"active":""}} doing' data-current="0" catchtap='changeSwiper'>特钢能人库</view>
-  <view class='{{current==1?"active":""}} doing' data-current="1" catchtap='changeSwiper'>管家项目库</view>
-  <view class='{{current==2?"active":""}} doing' data-current="2" catchtap='changeSwiper'>优先保障库</view>
+	<view class='{{current==0?"active":""}} doing' data-current="0" catchtap='changeSwiper'>特钢能人库</view>
+	<view class='{{current==1?"active":""}} doing' data-current="1" catchtap='changeSwiper'>管家项目库</view>
+	<view class='{{current==2?"active":""}} doing' data-current="2" catchtap='changeSwiper'>优先保障库</view>
 </view>
 <view wx:if="{{current==0}}" class="talentpool topdistance">
-  <view class="choose">
-    <view class="iconfont icon-ziyuan xuan" bindtap="showFiltrate"></view>
-    <scroll-view class="scroll" scroll-x="{{true}}">
-      <view class="scrollitem" wx:if="{{arr.length!=0}}" wx:for-index="idx" wx:for="{{arr}}" wx:key="idx">
-        {{item.dictItemName}}
-        <text class="delate" bindtap="delate" data-idx="{{idx}}">X</text>
-      </view>
-      <view wx:if="{{arr.length==0}}" class="scrollitem" bindtap="recovery">全部</view>
-    </scroll-view>
-  </view>
-
-  <view class="manitem {{index==0?'topl':''}}" wx:for="{{manlist}}" wx:key="index">
-    <view class="manleft">
-      <image src="{{item.picId}}" role="img"></image>
-      <view></view>
-      <!-- {{item.name}} -->
-    </view>
-    <view class="manright">
-      <view class="maninfo">
-        <view class="manname">能人姓名：
-          <text>{{item.name}}</text>
-        </view>
-        <view class="star">
-          <text class="iconfont {{item.score>1||item.score==0?'icon-Starlarge':'icon-star1'}} starcolor"></text>
-        <text class="iconfont {{item.score>=2?'icon-Starlarge':'icon-star1'}} starcolor"></text>
-        <text class="iconfont {{item.score>=3?'icon-Starlarge':'icon-star1'}} starcolor"></text>
-        <text class="iconfont {{item.score>=4?'icon-Starlarge':'icon-star1'}} starcolor"></text>
-        <text class="iconfont {{item.score>=5?'icon-Starlarge':'icon-star1'}} starcolor"></text>
-        <text class="starcolor" wx:if="{{!!item.score}}">{{item.score==null?0:item.score | Int}}分</text> 
-        </view>
-      </view>
-      <view class="manname">能人技能：
-        <text>{{item.skillTypeDesc}}</text>
-      </view>
-
-
-    </view>
-
-
-  </view>
-  <view class="checkmodel" wx:if="{{showFiltrate}}">
-    <view class="checkcontent">
-      <scroll-view class="everyitem" scroll-y="{{true}}">
-        <view class="bigbox">
-          <view class="bigtitle">区域选择</view>
-          <view class="smallbox">
-            <view wx:for="{{locationlist}}" class="smallitem {{deptid==item.deptId?'sign':''}}" catchtap="place" data-value="{{item.deptId}}"  wx:key="index">
-              {{item.areaName}}
-            </view>
-          </view>
-        </view>
-        <view class="bigbox" wx:for="{{servelist}}" wx:for-index="indexs" wx:key="indexs">
-          <view class="bigtitle">{{item.dictItemName}}</view>
-          <view class="smallbox">
-            <view wx:for="{{item.children}}" class="smallitem {{value==children.dictItemCode?'sign':''}}" catchtap="pitch" data-parentindex="{{indexs}}" data-value="{{children.dictItemCode}}" wx:for-item="children" wx:key="index">
-              {{children.dictItemName}}
-            </view>
-          </view>
-        </view>
-
+	<view class="choose">
+		<scroll-view class="scroll" scroll-x="{{true}}">
+			<view class="scrollitem" wx:if="{{manlist.length!=0}}" wx:for-index="idx" wx:for="{{arr}}" wx:key="idx">
+				{{manlist[0].deptName}}
+				<text class="delate" bindtap="delate" data-idx="{{idx}}">X</text>
+			</view>
+			<view class="scrollitem" wx:if="{{arr.length!=0}}" wx:for-index="idx" wx:for="{{arr}}" wx:key="idx">
+				{{item.dictItemName}}
+				<text class="delate" bindtap="delate" data-idx="{{idx}}">X</text>
+			</view>
+			<view wx:if="{{arr.length==0}}" class="scrollitem" bindtap="recovery">全部</view>
+		</scroll-view>
+		<view class="iconfont icon-ziyuan xuan" bindtap="showFiltrate"></view>
+	</view>
+	<view class="manitem {{index==0?'topl':''}}" wx:for="{{manlist}}" wx:key="index">
+		<view class="manleft">
+			<image src="{{item.picId}}" role="img"></image>
+			<view></view>
+			<!-- {{item.name}} -->
+		</view>
+		<view class="manright">
+			<view class="maninfo">
+				<view class="manname">能人姓名：
+					<text>{{item.name}}</text>
+				</view>
+				<view class="star">
+					<text class="iconfont {{item.score>1||item.score==0?'icon-Starlarge':'icon-star1'}} starcolor"></text>
+					<text class="iconfont {{item.score>=2?'icon-Starlarge':'icon-star1'}} starcolor"></text>
+					<text class="iconfont {{item.score>=3?'icon-Starlarge':'icon-star1'}} starcolor"></text>
+					<text class="iconfont {{item.score>=4?'icon-Starlarge':'icon-star1'}} starcolor"></text>
+					<text class="iconfont {{item.score>=5?'icon-Starlarge':'icon-star1'}} starcolor"></text>
+					<text class="starcolor" wx:if="{{!!item.score}}">{{item.score==null?0:item.score | Int}}分</text>
+				</view>
+			</view>
+			<view class="manname">能人技能：
+				<text>{{item.skillTypeDesc}}</text>
+			</view>
+		</view>
+	</view>
+	<view class="checkmodel" wx:if="{{showFiltrate}}">
+		<view class="checkcontent">
+			<scroll-view class="everyitem" scroll-y="{{true}}">
+				<view class="bigbox">
+					<view class="bigtitle">区域选择</view>
+					<view class="smallbox">
+						<view wx:for="{{locationlist}}" class="smallitem {{deptid==item.deptId?'sign':''}}" catchtap="place" data-value="{{item.deptId}}" wx:key="index">
+							{{item.areaName}}
+						</view>
+					</view>
+				</view>
+				<view class="bigbox" wx:for="{{servelist}}" wx:for-index="indexs" wx:key="indexs">
+					<view class="bigtitle">{{item.dictItemName}}</view>
+					<view class="smallbox">
+						<view wx:for="{{item.children}}" class="smallitem {{value==children.dictItemCode?'sign':''}}" catchtap="pitch" data-parentindex="{{indexs}}" data-value="{{children.dictItemCode}}" wx:for-item="children" wx:key="index">
+							{{children.dictItemName}}
+						</view>
+					</view>
+				</view>
 
 
-      </scroll-view>
 
-      <view class="bottombtn">
-        <view bindtap="cancle">取消</view>
-        <view bindtap="confirm">确认</view>
-      </view>
-    </view>
+			</scroll-view>
+
+			<view class="bottombtn">
+				<view bindtap="cancle">取消</view>
+				<view bindtap="confirm">确认</view>
+			</view>
+		</view>
 
 
-  </view>
+	</view>
 
 
 </view>
 <view wx:if="{{current==1}}" class="talentpool topdistance">
-  <view class="tablebox">
-    <view class="table">
-      <view class="tr">
-        <view class="th th1">
-          <view>序号</view>
-        </view>
-        <view class="th th2"></view>
-        <view class="th th3">
-          <view>服务项目</view>
-        </view>
-        <view class="th th4">
-          <view>市场参考价</view>
-        </view>
-        <view class="th th5">
-          <view>特岗能人价</view>
-        </view>
-        <view class="th th6">
-          <view>特岗能人积分标准</view>
-        </view>
-      </view>
-      <block wx:for="{{newdata}}" wx:for-index="index" wx:key="index">
-        <view class="tr">
-          <view class="th th1">
-            <view wx:for="{{item.data}}" wx:for-item="items" wx:for-index="index1" wx:key="index">
-              <!-- {{index + 1 + '.' + (index1 + 1)}} -->
-              {{order.add(index,index1)}}
-            </view>
-          </view>
-          <view class="th th2">
-            <view class="type">{{item.projectTypeDesc}}</view>
-          </view>
-          <view class="th th3">
-            <view wx:for="{{item.data}}" wx:for-item="items" wx:key="index">
-              {{items.projectName}}
-            </view>
+	<view class="tablebox">
+		<view class="table">
+			<view class="tr">
+				<view class="th th1">
+					<view>序号</view>
+				</view>
+				<view class="th th2"></view>
+				<view class="th th3">
+					<view>服务项目</view>
+				</view>
+				<view class="th th4">
+					<view>市场参考价</view>
+				</view>
+				<view class="th th5">
+					<view>特岗能人价</view>
+				</view>
+				<view class="th th6">
+					<view>特岗能人积分标准</view>
+				</view>
+			</view>
+			<block wx:for="{{newdata}}" wx:for-index="index" wx:key="index">
+				<view class="tr">
+					<view class="th th1">
+						<view wx:for="{{item.data}}" wx:for-item="items" wx:for-index="index1" wx:key="index">
+							<!-- {{index + 1 + '.' + (index1 + 1)}} -->
+							{{order.add(index,index1)}}
+						</view>
+					</view>
+					<view class="th th2">
+						<view class="type">{{item.projectTypeDesc}}</view>
+					</view>
+					<view class="th th3">
+						<view wx:for="{{item.data}}" wx:for-item="items" wx:key="index">
+							{{items.projectName}}
+						</view>
 
-          </view>
-          <view class="th th4">
-            <view wx:for="{{item.data}}" wx:for-item="items" wx:key="index">
-              <block wx:if="{{items.marketPrice>0}}">
-                {{items.marketPrice}}元/次
-              </block>
-              <block wx:if="{{items.marketPrice<=0}}">
-                无
-              </block>
-            </view>
+					</view>
+					<view class="th th4">
+						<view wx:for="{{item.data}}" wx:for-item="items" wx:key="index">
+							<block wx:if="{{items.marketPrice>0}}">
+								{{items.marketPrice}}元/次
+							</block>
+							<block wx:if="{{items.marketPrice<=0}}">
+								无
+							</block>
+						</view>
 
-          </view>
-          <view class="th th5">
-            <view wx:for="{{item.data}}" wx:for-item="items" wx:key="index">
-              <block wx:if="{{items.ablePersonPrice>0}}">
-                {{items.ablePersonPrice}}元/次
-              </block>
-              <block wx:if="{{items.ablePersonPrice<=0}}">
-                免费
-              </block>
-            </view>
+					</view>
+					<view class="th th5">
+						<view wx:for="{{item.data}}" wx:for-item="items" wx:key="index">
+							<block wx:if="{{items.ablePersonPrice>0}}">
+								{{items.ablePersonPrice}}元/次
+							</block>
+							<block wx:if="{{items.ablePersonPrice<=0}}">
+								免费
+							</block>
+						</view>
 
-          </view>
-          <view class="th th6">
-            <view wx:for="{{item.data}}" wx:for-item="items" wx:key="index">
-              {{items.ablePersonIntegral}}分/次
-            </view>
+					</view>
+					<view class="th th6">
+						<view wx:for="{{item.data}}" wx:for-item="items" wx:key="index">
+							{{items.ablePersonIntegral}}分/次
+						</view>
 
-          </view>
-        </view>
-      </block>
+					</view>
+				</view>
+			</block>
 
 
-    </view>
+		</view>
 
-  </view>
+	</view>
 
-  <view class="addneed btnfixed" bindtap="goEach" data-url="/subPages/addneed/addneed">
-    <text class="iconfont icon-jiahao"></text>
-    <text>发布需求</text>
-  </view>
-  <view class="servelog btnfixed" bindtap="goEach" data-url="/subPages/servelog/servelog">
-    <text class="iconfont icon-detail-a"></text>
-    <text>服务日志</text>
-  </view>
+	<view class="addneed btnfixed" bindtap="goEach" data-url="/subPages/addneed/addneed">
+		<text class="iconfont icon-jiahao"></text>
+		<text>发布需求</text>
+	</view>
+	<view class="servelog btnfixed" bindtap="goEach" data-url="/subPages/servelog/servelog">
+		<text class="iconfont icon-detail-a"></text>
+		<text>服务日志</text>
+	</view>
 
 </view>
 <view wx:if="{{current==2}}" class="talentpool topdistance">
-  <view class="location">
-    <view>
-      <view class="locationleft {{id==1?'border':''}}" bindtap="getAndshow" data-id="{{1}}">
-        <text>所属社区</text>
-        <text class="iconfont icon-xia xia"></text> </view>
-    </view>
-    <view>
-      <view class="locationright  {{id==2?'border':''}}" bindtap="getAndshow" data-id="{{2}}">
-        <text>保障类型</text>
-        <text class="iconfont icon-xia xia"></text> </view>
-    </view>
-  </view>
+	<view class="location">
+		<view>
+			<view class="locationleft {{id==1?'border':''}}" bindtap="getAndshow" data-id="{{1}}">
+				<text>所属社区</text>
+				<text class="iconfont icon-xia xia"></text> </view>
+		</view>
+		<view>
+			<view class="locationright  {{id==2?'border':''}}" bindtap="getAndshow" data-id="{{2}}">
+				<text>保障类型</text>
+				<text class="iconfont icon-xia xia"></text> </view>
+		</view>
+	</view>
 
-  <view class="personbox">
-    <view class="personitem" hidden="{{prioritylist.length<=0}}" wx:for="{{prioritylist}}" wx:key="index">
-      <view>
-        <view>姓名：
-          <text>{{item.protect_username}}</text>
-        </view>
-        <view>年龄：
-          <text>{{item.protect_age}}</text>
-        </view>
-        <view>社区：
-          <text>{{item.area_name}}</text>
-        </view>
-      </view>
-      <text class="persontype">{{item.dict_item_name}}</text>
-    </view>
-    <view hidden="{{prioritylist.length>0}}" class="personitem center">暂无数据</view>
-  </view>
+	<view class="personbox">
+		<view class="personitem" hidden="{{prioritylist.length<=0}}" wx:for="{{prioritylist}}" wx:key="index">
+			<view>
+				<view>姓名：
+					<text>{{item.protect_username}}</text>
+				</view>
+				<view>年龄：
+					<text>{{item.protect_age}}</text>
+				</view>
+				<view>社区：
+					<text>{{item.area_name}}</text>
+				</view>
+			</view>
+			<text class="persontype">{{item.dict_item_name}}</text>
+		</view>
+		<view hidden="{{prioritylist.length>0}}" class="personitem center">暂无数据</view>
+	</view>
 
-  <view class="locationModel" wx:if="{{showLocation}}">
-    <view class="box" wx:if="{{id==1}}">
-      <view class="itembox">
-        <view class="smallitem bgcolor {{local==item.deptId?'sign':''}}" wx:for="{{typelist}}" bindtap="choose" data-local="{{item.deptId}}" wx:key="index">{{item.areaName}}</view>
-      </view>
-      <view class="third">
-        <view bindtap="cancle">取消</view>
-        <view bindtap="affirm">确认</view>
-      </view>
-    </view>
-    <view class="box" wx:if="{{id==2}}">
-      <view class="itembox">
-        <view class="smallitem bgcolor {{type==item.dictItemCode?'sign':''}}" wx:for="{{typelist}}" bindtap="choose" data-type="{{item.dictItemCode}}" wx:key="index">{{item.dictItemName}}</view>
-      </view>
+	<view class="locationModel" wx:if="{{showLocation}}">
+		<view class="box" wx:if="{{id==1}}">
+			<view class="itembox">
+				<view class="smallitem bgcolor {{local==item.deptId?'sign':''}}" wx:for="{{typelist}}" bindtap="choose" data-local="{{item.deptId}}" wx:key="index">{{item.areaName}}</view>
+			</view>
+			<view class="third">
+				<view bindtap="cancle">取消</view>
+				<view bindtap="affirm">确认</view>
+			</view>
+		</view>
+		<view class="box" wx:if="{{id==2}}">
+			<view class="itembox">
+				<view class="smallitem bgcolor {{type==item.dictItemCode?'sign':''}}" wx:for="{{typelist}}" bindtap="choose" data-type="{{item.dictItemCode}}" wx:key="index">{{item.dictItemName}}</view>
+			</view>
 
 
-      <view class="third">
-        <view bindtap="cancle">取消</view>
-        <view bindtap="affirm">确认</view>
-      </view>
-    </view>
+			<view class="third">
+				<view bindtap="cancle">取消</view>
+				<view bindtap="affirm">确认</view>
+			</view>
+		</view>
 
-  </view>
+	</view>
 
 
 </view>

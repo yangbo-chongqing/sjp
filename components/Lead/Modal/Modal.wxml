@@ -16,8 +16,8 @@
         <!--电话 + 职责-->
         <view class="position">
             <view class="phone">
-                <view class="tel"><view style="width:200rpx">办公电话：</view><view>{{ person.leadTel }}</view></view>
-                <text class="iconfont icon-dianhua" bindtap="handlePhone" data-ph="{{person.leadTel}}" />
+                <!-- <view class="tel"><view style="width:200rpx">办公电话：</view><view>{{ person.leadTel }}</view></view> -->
+                <!-- <text class="iconfont icon-dianhua" bindtap="handlePhone" data-ph="{{person.leadTel}}" /> -->
             </view>
             <view class="tel"><view>工作职责：</view><view>{{ person.leadDuty }}</view> </view>
         </view>

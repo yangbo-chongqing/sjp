@@ -28,12 +28,18 @@ App({
   },
   globalData: {
     userInfo: wx.getStorageSync("userInfo") ? wx.getStorageSync("userInfo") : '',
-      //  baseUrl: "http://119.3.196.255:8094",
+       baseUrl: "http://119.3.196.255:8094",
       //  baseUrl: "http://219.153.116.18:8081",
     // baseUrl: "http://192.168.168.9:8080",
     //aseUrl: 'https://www.sjpdqfwzx.com',
-     baseUrl:'https://webservers.sjpdqfwzx.com',
+    //  baseUrl:'https://webservers.sjpdqfwzx.com',
     ThisSystem: {},
     userCookie: wx.getStorageSync("userCookie") ? wx.getStorageSync("userCookie") : '',
+  },
+  
+"permission":{
+  "scope.userLocation": {
+  "desc": "获取位置" 
+  }
   }
 })

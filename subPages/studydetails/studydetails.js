@@ -1,6 +1,6 @@
 // subPages/studydetails/studydetails.js
 import {
-  get,post
+  get, post
 } from "../../assets/js/request";
 Page({
 
@@ -8,17 +8,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    detail:{},
-    time:20,//阅读倒计时
-    timer:'',//定时器
-    id:'',
-    imgs:null
+    detail: {},
+    time: 20,//阅读倒计时
+    timer: '',//定时器
+    id: '',
+    imgs: null
   },
   //学习初心不改单条
   getdetail(id) {
     var t = this
     let data = {
-      newsId:id
+      newsId: id
 
     }
     get({
@@ -37,7 +37,7 @@ Page({
             return '';
           });
           //清除图片后正则匹配清除所有p标签
-          nodes = nodes.replace(/<p(([\s\S])*?)<\/p>/g, function (match, capture){
+          nodes = nodes.replace(/<p(([\s\S])*?)<\/p>/g, function (match, capture) {
             return '';
           });
         }
@@ -53,49 +53,55 @@ Page({
       console.log(error)
     })
   },
-  getscore(id){
+  getscore(id) {
     post({
-      link:"/informationIntegral/save",
-      data:{
-        newsId:id
+      link: "/informationMemberIntegral/save",
+      data: {
+        newsId: id
       }
-    }).then(res=>{
+    }).then(res => {
       console.log(res)
-      if(res.code==1){
+      if (res.code == 1) {
         wx.showToast({
           title: res.msg,
-          icon:"none"
+          icon: "none"
         })
-      }else{
+      } else if (res.code == 403) {
+        wx.showToast({
+          title: res.msg,
+          icon: "none"
+        })
+      }
+      else {
         wx.showToast({
           title: '积分领取成功！',
-          icon:"success"
+          icon: "success"
         })
       }
     })
   },
-  timedown(num){
-    let t=this
-    let times=t.data.time
-    let timer=setInterval(() => {
+  timedown(num) {
+    let t = this
+    let times = t.data.time
+    let timer = setInterval(() => {
       if (t.data.time < 0) {
         console.log("zzzz")
         t.clearTimeInterval()
         //30s结束后获取积分
         this.getscore(this.data.id)
-      }else{
+      } else {
 
       }
-      times=times-1
+      times = times - 1
       t.setData({
-        time:times
+        time: times
       })
     }, 1000)
     t.setData({
-      timer:timer
+      timer: timer
     })
   },
-  clearTimeInterval(){
+  clearTimeInterval() {
     var timer = this.data.timer;
     clearInterval(timer)
   },
@@ -115,11 +121,11 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      id:options.id
+      id: options.id
     })
     this.getdetail(options.id)
     this.timedown(this.data.time)
-   
+
   },
 
   /**
@@ -133,7 +139,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
 
   },
 
@@ -150,7 +156,7 @@ Page({
   onUnload: function () {
     this.clearTimeInterval()
     this.setData({
-      time:30
+      time: 30
     })
     // console.log(this.data.time)
   },

@@ -5,6 +5,7 @@ page {
 }
 
 .change {
+  z-index: 999;
   display: flex;
   height: 88rpx;
   align-items: center;
@@ -206,7 +207,7 @@ form {
 
 .projectlist {
   display: flex;
-  height: 240rpx;
+  height: 350rpx;
   justify-content: flex-start;
   align-items: center;
   padding: 0 30rpx;
@@ -248,7 +249,7 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 180rpx;
+  height: 240rpx;
 }
 
 .prointro>view:first-child {
@@ -281,3 +282,26 @@ form {
 .introbot>view:first-child{
   margin-left: 46rpx;
 }
+/*悬浮按钮*/
+.round-click{
+  height: 120rpx;
+  width: 120rpx;
+  background-color: #d92a2a;
+  border-radius: 100%;
+  position: fixed;
+  bottom: 150rpx;
+  right: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9;
+  }
+  .round-click text{
+    font-size: 32rpx;
+    max-width: 80rpx; 
+    color: #fff;
+    text-align: center;
+}
+.play{
+  display: none;
+}  

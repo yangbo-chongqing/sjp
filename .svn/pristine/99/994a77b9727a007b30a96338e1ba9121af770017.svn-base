@@ -17,8 +17,7 @@ Page({
       title: "登录",
       color: "#333",
       background: "transparent",
-      showBack: true,
-      ver: ''
+      showBack: true
     },
     Top: app.globalData.Top,
     one: 0,
@@ -74,19 +73,9 @@ Page({
 
     }
   },
-  setversion(ver){
-    return ver.split('.').join('')
-  },
   //登录
   formSubmit(e) {
     console.log(e)
-    if(this.data.ver.split('.').join('') < 704){
-      wx.showToast({
-        title: '微信版本过低，请升级微信版本后使用',
-        icon: "none"
-      })
-      return
-    }
     let {
       username,
       password
@@ -112,7 +101,7 @@ Page({
     }
     wx.request({
       url: app.globalData.baseUrl + '/login',
-      header: {
+      header:{
         "clientOrigin": 2
       },
       data: {
@@ -122,47 +111,36 @@ Page({
       success: (res) => {
         console.log(res)
         if (res.data.code == 0) {
-          let cookies = ''
-           if (res.cookies && res.cookies[0].indexOf("JSESSIONID") >= 0) {
-            console.log('111')
-            cookies = res.cookies[0]
-            wx.setStorageSync('userCookie', cookies);
-          }else if(res.cookies && res.cookies[1].indexOf("JSESSIONID") >= 0){
-            cookies = res.cookies[1]
-            wx.setStorageSync('userCookie', cookies);
+          if (res.cookies[0].indexOf("JSESSIONID")>=0){
+            wx.setStorageSync('userCookie', res.cookies[0]);
+          }else{
+            wx.setStorageSync('userCookie', res.cookies[1]);
           }
-          else {
-            cookies = res.header['Set-Cookie'].split(';')[0]
-            wx.setStorageSync('userCookie', cookies)
-          } 
           // wx.setStorageSync('userCookie', res.header['Set-Cookie']);
           console.log(wx.getStorageSync('userCookie'))
           wx.setStorageSync('userInfo', res.data.data);
           wx.setStorageSync('password', hexMD5(password));
           wx.setStorageSync('username', username);
           //app.globalData.userInfo = JSON.stringify(res.data.data) 
-          // this.save() //登录成功后如果点击记住密码了（ismenber为true）储存用户账号密码
-          // console.log(app.globalData.userInfo)
+          this.save() //登录成功后如果点击记住密码了（ismenber为true）储存用户账号密码
+         // console.log(app.globalData.userInfo)
           // wx.showToast({
           //   title: '登陆成功', 
           //   icon: 'success'
           // })
-          setTimeout(() => {
+          setTimeout(()=> {
             wx.showToast({
-              title: '登陆成功',
+              title: '登陆成功', 
               icon: 'success',
               mask: false,
-              duration: 2000,
-              success: () => {
-                setTimeout(() => {
-                  wx.switchTab({
-                    url: '/pages/index/index',
-                  })
-                }, 2000)
-              }
+              duration: 2000
             })
           }, 300)
-
+          setTimeout(() => {
+            wx.switchTab({
+              url: '/pages/index/index',
+            })
+          }, 2000)
         } else {
           wx.showToast({
             title: res.data.msg,
@@ -194,11 +172,11 @@ Page({
       this.setData({
         ismenber: true,
       })
-      console.log(this.data.ismenber, wx.getStorageSync('accountpassword'))
-
+      console.log(this.data.ismenber,wx.getStorageSync('accountpassword'))
+      
     }
   },
-  goeach(e) {
+  goeach(e){
     wx.navigateTo({
       url: e.currentTarget.dataset.url,
     })
@@ -206,69 +184,62 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    if (wx.getStorageSync('accountpassword')) {
+  onLoad: function(options) {
+    if (wx.getStorageSync('accountpassword')){
       this.setData({
-        ismenber: true,
-        username: wx.getStorageSync('accountpassword').username,
-        password: wx.getStorageSync('accountpassword').password
+        ismenber:true,
+        username:wx.getStorageSync('accountpassword').username,
+        password:wx.getStorageSync('accountpassword').password
       })
     }
-    var that =this
-    wx.getSystemInfo({
-      success(res) {
-        that.setData({
-          ver: res.version
-        })
-      }
-    })
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-    
+  onShow: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

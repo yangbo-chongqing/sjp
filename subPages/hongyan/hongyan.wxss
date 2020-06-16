@@ -178,7 +178,17 @@
   vertical-align: middle;
   margin-left: 10px;
 }
-
+/*添加部分*/
+.progress{
+  width: 90%;
+  margin-top: 10rpx;
+  margin-left: 10%;
+}
+.wit{
+  width: 68%;
+  display: inline-block;
+  margin-left: 20rpx;
+}
 /* 第三部分 */
 .scale{
   margin-top: 15px;

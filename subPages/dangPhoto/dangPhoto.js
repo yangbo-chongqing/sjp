@@ -13,8 +13,10 @@ Page({
   data: {
     list:[],
     array:[],
+    ceshi:[],
     id:0,
     index:0,
+    deptId:36,
   },
   //党建相册详情
   godetail(e) {
@@ -30,31 +32,39 @@ Page({
   bindPickerChange(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      index: e.detail.value
+      index: e.detail.value,
+      deptId:this.data.array[e.detail.value].deptId,
+    })
+    console.log(this.data.index)
+    console.log(this.data.deptId)
+    console.log(this.data.ceshi)
+    this.getList(this.data.deptId)
+  },
+  // 获取党建相册筛选列表
+  getphotolist(e){
+    get({
+      link:'/system/sysDept/getByParentId',
+      data:{deptId:35}
+    }).then(msg=>{
+      if (msg.code == 200) {
+        this.setData({
+          array: msg.data,      
+        })}
+        console.log(this.data.array)
     })
   },
-
   // 获取党建相册列表
-  getList(e){
+  getList(id){
     const that=this;
-    let data={
-      
-    }
+    console.log(id)
     get({
       link: '/photoalbum/list',
-      data: data
+      data: {deptId:id}
     }).then(msg => {
       console.log(msg)
       if (msg.code == 200) {
         that.setData({
           list: msg.data.list,      
-          array: msg.data.list
-        })
-        var newArray = array.map(item => {　　　　// 此方法名称区分到一个新数组中
-          return { photoAlbumName: item.photoAlbumName };
-        });
-        that.setData({
-          list:newArray
         })
       }
     }).catch(error => {
@@ -71,7 +81,8 @@ Page({
     wx.setNavigationBarTitle({
       title: '党建相册',
     })
-    this.getList()
+    this.getList(this.data.deptId),
+    this.getphotolist()
   },
 
   /**

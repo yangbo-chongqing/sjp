@@ -32,7 +32,6 @@ Page({
     let data = {
       newsType:7,
       pageNum: 1,
-      pageSize: 3,
     }
     get({
       link: '/information/list',
@@ -61,7 +60,7 @@ Page({
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({
-      title: '党员风采',
+      title: '党员个人图片',
     })
     console.log(app.globalData)
     this.getList()
