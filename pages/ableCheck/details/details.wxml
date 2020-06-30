@@ -1,0 +1,28 @@
+<!--pages/ableCheck/details/details.wxml-->
+<view class="topall">
+	<view class="all">
+		<view class="tit">{{idlist.projectName}}</view>
+		<view class="picfont">
+			<view>
+				<view>
+					<image src="{{idlist.createUserHeadUrl}}"></image>
+				</view>
+				<view>{{idlist.createUserName}}</view>
+			</view>
+			<view wx:if="{{idlist.orderStatusDesc!='确认中'}}" class="btnok">{{idlist.statusDesc}}</view>
+      <view wx:if="{{idlist.orderStatusDesc=='确认中'}}" class="btnok">待能人确认</view>
+		</view>
+		<view class="smallfont">
+			<text>{{idlist.createDate}}</text> <text></text>
+		</view>
+		<view>
+		<rich-text nodes="{{idlist.needInfo}}"></rich-text>
+    <view><image src="{{idlist.needPic}}"></image></view>
+		</view>
+	</view>
+	<view wx:if="{{idlist.statusDesc=='未分配'&&idlist.orderStatusDesc=='未分配'||idlist.orderStatusDesc=='已拒绝'}}" class="bottom">
+		<view class="down" bindtap="goExamDown">取消需求</view>
+		<view class="pass" data-id="{{idlist.needId}}"  bindtap="goExamPass">点击分配</view>
+	</view>
+</view>
+

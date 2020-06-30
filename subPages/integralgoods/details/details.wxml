@@ -1,0 +1,30 @@
+<view class="topall">
+	<view class="all">
+		<view class="tit">{{newsList.title}}</view>
+		<view class="intro">
+			<rich-text nodes="{{newsList.content}}"></rich-text>
+		</view>
+		<view class="picfont">
+			<view>
+				<view>
+					<image src="{{idlist.createUserHeadUrl}}"></image>
+				</view>
+				<view>{{idlist.createUserName}}</view>
+			</view>
+			<view wx:if="{{idlist.signExam==1}}">签到成功</view>
+			<view wx:elif="{{idlist.signExam==0}}">待签到</view>
+			<view wx:elif="{{idlist.status==1}}">报名成功</view>
+			<view wx:else style="padding:0"></view>
+		</view>
+		<view class="smallfont">
+			<text>{{idlist.createDate}}</text> <text>上传图片</text>
+		</view>
+		<view>
+			<image src="{{idlist.signPic}}"></image>
+		</view>
+	</view>
+	<view wx:if="{{idlist.signExam==0||idlist.status==0}}" class="bottom">
+		<view class="down" bindtap="goExamDown">审核拒绝</view>
+		<view class="pass" bindtap="goExamPass">审核通过</view>
+	</view>
+</view>

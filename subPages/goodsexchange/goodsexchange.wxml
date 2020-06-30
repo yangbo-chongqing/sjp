@@ -1,72 +1,39 @@
-<!--subPages/goodsexchange/goodsexchange.wxml-->
-<!--subPages/manexchange/manexchange.wxml-->
-<!-- <view class="line"></view> -->
-<view class="search">
-    <view>
-        <text class="iconfont icon-search" bindtap="search"></text>
-        <input type="text" placeholder="请输入兑换码" bindinput="bindInput"/>
-    </view>
-</view>
-<block wx:if="{{list.length!=0}}">
-<view class="servicebox {{index==0?'tops':''}}" wx:for="{{list}}" wx:key="index">
-  <view class="serviceitem">
-    <!-- <view class="servicetitle">
-      <text>订单号：{{item.orderCode}}</text> -->
-      <!-- <text class="statuscolor1" wx:if="{{item.status==0}}">待兑换</text>
-      <text class="statuscolor1" wx:if="{{item.status==1}}">已完成</text>
-      <text class="statuscolor1" wx:if="{{item.status==2}}">已取消</text> -->
-
-    <!-- </view> -->
-  </view>
-  <view class="servecontent">
-    <image class="userpic" src="{{item.createUserHeadUrl}}" role="img"></image>
-    <view class="servecenter">
-      <view class="username">
-        <view>
-          <view>{{item.createUserName}}</view>
-          <view class="serveright">
-            <image class="gold" src="http://119.3.196.255:8094/file/icon/Rectangle 205.png" role="img"></image>
-            <text>{{item.goodsTotalIntegral}}积分</text>
-          </view>
-        </view>
-      </view>
-      <view class="place">
-        <text>{{item.createUserMobile}}</text>
-        <text class="iconfont icon-dianhua" bindtap="handlePhone" data-ph="{{item.createUserMobile}}" />
-      </view>
-    </view>
-  </view>
-  <view class="servebottom">
-    <view class="bottomleft">
-      <view>兑换商品：
-        <text>{{item.goodsName}} X{{item.goodsNum}}</text>
-      </view>
-    </view>
-    <view class="bottomright color2" wx:if="{{item.status == 0}}" data-id="{{index}}" data-item="{{item}}" bindtap="lookcode">
-      点击兑换
-    </view>
-    <view class="bottomright color1" wx:if="{{item.status == 1}}">
-      兑换成功
-    </view>
-    <view class="bottomright color1" wx:if="{{item.status == 2}}">
-      已取消
-    </view>
-    <!-- <view class="bottomright color1" wx:if="{{item.status == 3}}">
-      已过期
-    </view> -->
-  </view>
-</view>
-</block>
-<block wx:else>
-  <view class="{{index==0?'tops':''}} empty">暂无数据</view>
-</block>
-<view class="lookcode" wx:if="{{showLook}}">
-  <view class="lookcontent">
-    <view class="looktitle">积分兑换码</view>
-    <input type="text" placeholder="请输入兑换码" bindinput="bindCode"/>
-    <view class="btn">
-      <view class="lookcomfire" bindtap="exchange">确定</view>
-      <view class="lookcomfire" bindtap="closelook">取消</view>
-    </view>
-  </view>
+<view class="all">
+	<view class="lines"></view>
+	<view class="top">
+		<!--头部分-->
+		<view>
+			<image class="iconfont" src="https://webservers.sjpdqfwzx.com/file/icon/Component 13.png"></image>
+			<text>活动审批处理</text>
+		</view>
+		<view>
+			<text bindtap='selectBtn2' data-num="1" class="{{select2==1?'selectfont':''}}">全部</text>
+			<text bindtap='selectBtn2' data-num="2" class="{{select2==2?'selectfont':''}}">待处理</text>
+			<text bindtap='selectBtn2' data-num="3" class="{{select2==3?'selectfont':''}}">已处理</text>
+		</view>
+	</view>
+	<view  wx:for="{{resList}}" wx:key="index">
+		<!--列表部分-->
+		<view class="lines">
+		</view>
+		<view class="list"  bindtap="godetails" data-newsId="{{item.newsId}}" data-id="{{item.id}}">
+			<view>
+				<image src="{{item.createUserHeadUrl}}"></image>
+			</view>
+			<view class="content">
+				<view>
+					<text>{{item.createUserName}}</text>
+					<view> <text></text>
+						<image data-id="{{item.id}}" catchtap="del" src="/assets/img/trash.png"></image>
+					</view>
+				</view>
+				<view>活动标题：{{item.title}}</view>
+				<view>
+					<view>{{item.createDate}}</view>
+					<view class="btnok" wx:if="{{item.statusDesc=='已完成'}}">{{item.statusDesc}}</view>
+					<view wx:else class="btn">{{item.statusDesc}}</view>
+				</view>
+			</view>
+		</view>
+	</view>
 </view>

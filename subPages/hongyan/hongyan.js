@@ -35,6 +35,11 @@ Page({
       url: '/subPages/demeanor/demeanor',
        })
   },
+  goExchange(){
+    wx.navigateTo({
+      url: '/pages/changed/changed',
+    })
+  },
   // 获取列表
   getList() {
     const that = this;

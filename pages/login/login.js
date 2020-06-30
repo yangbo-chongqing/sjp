@@ -111,7 +111,7 @@ Page({
       return
     }
     wx.request({
-      url: app.globalData.baseUrl + '/login',
+      url: app.globalData.baseUrl + '/loginByApplet',
       header: {
         "clientOrigin": 2
       },

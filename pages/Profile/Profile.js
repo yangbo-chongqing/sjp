@@ -17,6 +17,11 @@ Page({
       url: "/subPages/scoreRank/scoreRank"
     },
     {
+      name: "党员积分",
+      id: 9,
+      url: "/pages/scoreList/scoreList"
+    },
+    {
       name: "我的活动",
       id: 1,
       url: "/subPages/myactivity/myactivity"
@@ -26,11 +31,21 @@ Page({
       id: 2,
       url: ""
     },
-    {
-      name: "积分商品",
-      id: 3,
-      url: "/subPages/integralgoods/integralgoods"
-    },
+    // {
+    //   name: "活动审批",
+    //   id: 3,
+    //   url: "/subPages/integralgoods/integralgoods"
+    // },
+    // {
+    //   name: "居民心声",
+    //   id: 6,
+    //   url: "/subPages/goodsexchange/goodsexchange"
+    // },
+    // {
+    //   name:"能人分配",
+    //   id:10,
+    //   url:"/pages/ableCheck/ableCheck"
+    // },
     {
       name: "能人服务",
       id: 4,
@@ -41,11 +56,7 @@ Page({
       id: 5,
       url: "/subPages/manexchange/manexchange"
     },
-    {
-      name: "商品核销",
-      id: 6,
-      url: "/subPages/goodsexchange/goodsexchange"
-    },
+   
     {
       name: "修改密码",
       id: 7,
@@ -67,14 +78,17 @@ Page({
     name: app.globalData.userInfo.partyMember ? app.globalData.userInfo.partyMember.mebName : '', //党员绑定姓名
     idcard: app.globalData.userInfo.partyMember ? app.globalData.userInfo.partyMember.mebCard : '', //党员绑定证件号码
     myscore: '',
-    supermarketScore:'',      //超市消费积分
+    supermarketScore: '',      //超市消费积分
     ablePersonScore: '',      //能人消费积分
     islogin: '',
     userinfo: wx.getStorageSync("userInfo"),
-    showAbleperson:false,  //能人弹窗
-    ablepersonMsg:null,      //能人提示
-    showMarket:false,     //商家弹窗
-    marketMsg:null,     //商家信息
+    isVolunteerActivityMenuIdExam:'',
+    isHeartVoiceExam:'',
+    isAbleNeedExam:'',
+    showAbleperson: false,  //能人弹窗
+    ablepersonMsg: null,      //能人提示
+    showMarket: false,     //商家弹窗
+    marketMsg: null,     //商家信息
   },
   //点击跳转事件判断登录和当前登录人员角色信息
   goEach(e) {
@@ -92,7 +106,7 @@ Page({
       } else {
         this.checknotice()
       }
-    } else if (id == 0 || id == 1 || id == 3 || id == 4 || id == 7) {
+    } else if (id == 0 || id == 1 || id == 3 || id == 4 || id == 7||id==10||id == 6) {
       check.land(url)
       // if (this.data.islogin) {
       //   wx.navigateTo({
@@ -101,7 +115,7 @@ Page({
       // } else {
       //   this.checknotice()
       // }
-    } else if (id == 5 || id == 6) {
+    } else if (id == 5) {
       if (this.data.islogin) {
         let userinfo = wx.getStorageSync("userInfo")
         //console.log(userinfo)
@@ -123,12 +137,12 @@ Page({
             //   icon: "none"
             // })
             this.setData({
-              showAbleperson:true,
+              showAbleperson: true,
             })
           } else {
             this.getMarket()
             this.setData({
-              showMarket:true
+              showMarket: true
             })
             // wx.showToast({
             //   title: '暂无商家信息',
@@ -143,7 +157,17 @@ Page({
       }
 
 
-    } else if(id==8){
+    } else if (id == 9) {
+      if (this.data.isparty) {
+        check.land(url)
+      } else {
+        wx.showToast({
+          title: '对不起，您不是党员',
+          icon: "none"
+        })
+      }
+    }
+    else if (id == 8) {
       if (this.data.islogin) {
         this.cancellation()
       } else {
@@ -163,9 +187,32 @@ Page({
     //   url: e.currentTarget.dataset.url,
     // })
   },
-
+  //打开二维码
+  pay() {
+    let that = this
+    if (!this.data.islogin) {
+      console.log(1111)
+      this.checknotice()
+    } else {
+      wx.navigateTo({
+        url: '/pages/pay/pay',
+      })
+    }
+  },
+  //打开个人积分
+  score() {
+    let that = this
+    if (!this.data.islogin) {
+      console.log(1111)
+      this.checknotice()
+    } else {
+      wx.navigateTo({
+        url: '/pages/scorecard/scorecard',
+      })
+    }
+  },
   // 账号注销
-  cancellation(){
+  cancellation() {
     let t = this
     wx.showModal({
       title: '温馨提示',
@@ -328,8 +375,8 @@ Page({
   closecode() {
     this.setData({
       showCode: false,
-      showAbleperson:false,
-      showMarket:false
+      showAbleperson: false,
+      showMarket: false
     })
   },
   //点击积分说明弹出提示框
@@ -410,10 +457,11 @@ Page({
                 icon: "success"
               })
               t.setData({
-                islogin: false
+                islogin: false,
+                userinfo:''
               })
               t.cleardata()
-            }else if(res.code==403){
+            } else if (res.code == 403) {
               wx.showModal({
                 title: '登录提醒',
                 content: '登录状态失效，请登录！',
@@ -483,29 +531,29 @@ Page({
   // },
 
   //能人消费积分
-  getAblePerson() {
-    get({
-      link: "/ablePerson/getMeIntegral"
-    }).then(res => {
-      if (res.code == 200) {
-        this.setData({
-          ablePersonScore: res.data
-        })
-      }
-    })
-  },
+  // getAblePerson() {
+  //   get({
+  //     link: "/ablePerson/getMeIntegral"
+  //   }).then(res => {
+  //     if (res.code == 200) {
+  //       this.setData({
+  //         ablePersonScore: res.data
+  //       })
+  //     }
+  //   })
+  // },
   //超市消费积分
-  getSupermarketScore() {
-    get({
-      link: "/integralSupermarket/getMeIntegral"
-    }).then(res => {
-      if (res.code == 200) {
-        this.setData({
-          supermarketScore: res.data
-        })
-      }
-    })
-  },
+  // getSupermarketScore() {
+  //   get({
+  //     link: "/integralSupermarket/getMeIntegral"
+  //   }).then(res => {
+  //     if (res.code == 200) {
+  //       this.setData({
+  //         supermarketScore: res.data
+  //       })
+  //     }
+  //   })
+  // },
   toLogin() {
     wx.navigateTo({
       url: '/pages/login/login',
@@ -513,11 +561,11 @@ Page({
   },
 
   //能人消息
-  getAble(){
+  getAble() {
     get({
       link: "/information/list",
-      data:{
-        newsType:24
+      data: {
+        newsType: 24
       }
     }).then(res => {
       console.log(res)
@@ -528,24 +576,24 @@ Page({
         })
       }
     })
-  }, 
+  },
 
   //商家消息
-  getMarket(){
+  getMarket() {
     get({
       link: "/information/list",
-      data:{
-        newsType:25
+      data: {
+        newsType: 25
       }
     }).then(res => {
       console.log(res)
       if (res.code == 200) {
-        this.setData({ 
+        this.setData({
           marketMsg: res.data.list[0]
         })
       }
     })
-  }, 
+  },
 
 
   /**
@@ -567,11 +615,16 @@ Page({
   onShow: function () {
     let password = wx.getStorageSync("password")
     let username = wx.getStorageSync("username")
-    console.log(password,username)
-   
+    console.log(password, username)
+    let user = wx.getStorageSync("userInfo")
+    if(!user.qrImg){
+      post({
+        link: "/sys/user/updateQR",
+      }).then(res=>{console.log(res)})
+    }
     wx.request({
-      url: app.globalData.baseUrl + '/login',
-      header:{
+      url: app.globalData.baseUrl + '/loginByApplet',
+      header: {
         "clientOrigin": 2
       },
       data: {
@@ -592,17 +645,21 @@ Page({
     console.log(userInfo)
     if (userInfo) {
       this.getmyscore()
-      this.getAblePerson()
-      this.getSupermarketScore()
+      // this.getAblePerson()
+      // this.getSupermarketScore()
       this.getAble()
       this.getMarket()
       this.setData({
-        ablePerson:userInfo.ablePerson,    //能人 
+        ablePerson: userInfo.ablePerson,    //能人 
         market: userInfo.market,    //超市
         names: userInfo.name || "游客",
+        isparty:userInfo.partyMember,//是否党员
         phone: userInfo.mobile ? userInfo.mobile : userInfo.username,
         pic: userInfo.picId || "/assets/img/headpic.png",
-        islogin: true
+        islogin: true,
+        isVolunteerActivityMenuIdExam:userInfo.isVolunteerActivityMenuIdExam,
+        isHeartVoiceExam:userInfo.isHeartVoiceExam,
+        isAbleNeedExam:userInfo.isAbleNeedExam
       })
       if (userInfo.partyMember !== null) {
         let navlist = this.data.navlist;
@@ -617,18 +674,19 @@ Page({
           isparty: true,
           orgname: userInfo.partyMember.orgName,
           mebname: userInfo.partyMember.mebName,
-          ablePerson:userInfo.ablePerson,    //能人 
+          ablePerson: userInfo.ablePerson,    //能人 
           market: userInfo.market,    //超市
           names: userInfo.name || "游客",
           phone: userInfo.mobile ? userInfo.mobile : userInfo.username,
-          pic: userInfo.picId.replace(/^http/ig,"https") || "/assets/img/headpic.png"
+          pic: userInfo.picId.replace(/^http/ig, "https") || "/assets/img/headpic.png"
         })
-      } else {}
+      } else { }
     } else {
       this.setData({
         islogin: false
       })
     }
+    console.log(this.data.userinfo)
   },
 
   onHide: function () {
@@ -638,7 +696,7 @@ Page({
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {},
+  onUnload: function () { },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作

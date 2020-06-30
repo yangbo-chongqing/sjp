@@ -41,6 +41,9 @@
 						<text>{{num}}分</text>
 					</view>
 				</view>
+				<view class="exchange">
+				 <button bindtap="goExchange" style=" width: 96rpx;height: 66rpx;">兑换</button>
+				</view>
 			</view>
 			<view class="len-line"></view>
 			<view class="member-bottom-right">
@@ -58,21 +61,7 @@
 	</view>
 	<!-- end -->
 	<view class="lines scale-lines"></view>
-	<!-- 添加部分  党员考核合格率kpi-->
-	<view class="member" wx:if="{{partyMember!=null}}">
-		<view class="member-top">
-			<!-- <text class="iconfont icon-xingxing"></text> -->
-			<image class="iconfont" src="https://webservers.sjpdqfwzx.com/file/icon/Component 13.png"></image>
-			<text>党员考核合格率</text>
-		</view>
-		<view class="line"></view>
-		<view class="progress" wx:for="{{kpis}}" wx:key="index">
-			<text>{{item.deptName}}{{ }}</text>
-			<view class="wit">
-				<i-progress percent="{{item.finishRatio}}" status="mycolor" stroke-width='10'></i-progress>
-			</view>
-		</view>
-	</view>
+
 	<!-- 第三部分 -->
 	<view class="scale" wx:if="{{partyMember!=null}}">
 		<view>

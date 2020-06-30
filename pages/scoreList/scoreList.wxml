@@ -1,0 +1,27 @@
+<!--pages/scoreList/scoreList.wxml-->
+<view class="rankTop3">
+	<view class="section ">
+		<picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" range-key="areaName">
+			<view class="picker">
+				{{array[index].areaName}}
+				<text class="iconfont icon-xia3"></text>
+			</view>
+		</picker>
+	</view>
+	<view class="me">
+		<image src="{{mepic}}"></image>
+		<text>{{mename}}</text>
+		<text> {{mescore}}分</text>
+	</view>
+</view>
+<view class="ranklist">
+	<view class="listone" wx:for="{{list}}" wx:key="index">
+		<image src="http://119.3.196.255:8094/file/icon/Component 13.png" class="imgbox" />
+		<image class="rankpic margin" src="{{item.mebImg}}" role="img"></image>
+		<view>
+			<text style="margin-left:20rpx">{{item.mebName}}</text>
+			<!-- <text>职位</text> -->
+		</view>
+		<text class="lastscore">{{item.mebIntegral}}</text>
+	</view>
+</view>

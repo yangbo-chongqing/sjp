@@ -1,0 +1,25 @@
+<!--pages/pay/payDetail/payDetail.wxml-->
+<view class="all">
+	<view>
+		<view class="topfont">
+			<image src="{{picId}}"></image>
+			<view>
+					<view>付款人</view>
+					<view>{{userName}}</view>
+			</view>
+		</view>
+		<view class="center">
+			<view>
+				<image src="/assets/img/money.png"></image>
+        <input placeholder-class="hodler"	 maxlength="8" bindinput="bindKeyInput" value="{{value}}" placeholder="请输入消费积分" type="number"></input>
+			</view>
+			<view class="jifen">
+				<textarea bindblur="getValue" placeholder-class="holder"	class="fontcolor"  placeholder='添加备注' auto-height="true"></textarea>
+      </view>
+			<view>
+        <button bindtap="myconfirm" class="outto {{value?'outtoed':' '}}">确认收款</button>
+      </view>
+			<signModel showSign="{{showSign}}" bind:closeSign="closeSign" bind:checkin="checkin" />
+		</view>
+	</view>
+</view>

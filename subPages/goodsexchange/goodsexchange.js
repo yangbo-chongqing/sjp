@@ -1,163 +1,95 @@
 // subPages/goodsexchange/goodsexchange.js
-import { get } from "../../assets/js/request"
-import { post } from "../../assets/js/request"
-import { getDataValue } from "../../assets/js/public";
+import { get, post } from "../../assets/js/request"
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    pageNum: 0,
-    pageSize: 10,
-    total: 0,
-    isBottom: false,
-    list: [],
-    keyName: '',
-    showLook: false,
-    code: null,
-    exchangeCode:null,
-    orderId:""
+    select2: 1,//审核状态
+    pageNum: 1,//起始页码
+    resList: [],//审核列表
+    total: '',//列表总条数
   },
-  //获取数据
-  getData(data) {
-    if (!!this.data.isBottom) return false;
-    data['pageNum'] = this.data.pageNum + 1;
-    data['pageSize'] = this.data.pageSize;
-    if (!!this.data.keyName) data['exchangeCode'] = this.data.keyName;
-    get({
-      link: "/integralOrder/listByMarket",
-      data: data
-    }).then(res => {
-      if (res.code == 200) {
-        let newArr = [...this.data.list, ...res.data.list]
-        this.setData({
-          list: newArr,
-          total: res.data.total
-        })
-        if (this.data.list.length >= this.data.total) {
-          this.setData({
-            isBottom: true
+  godetails(e) {
+    let id = JSON.stringify({
+      newsId: e.currentTarget.dataset.newsid,
+      id:e.currentTarget.dataset.id
+    })
+    wx.navigateTo({
+      url: '/subPages/goodsexchange/details/details?id=' + id,
+    })
+  },
+  del(e) {
+    let id = e.currentTarget.dataset.id
+    let that=this
+    wx.showModal({
+      title: '提示',
+      content: '是否删除心声',
+      success(res) {
+        if (res.confirm) {
+          post({
+            link:'/heartvoice/delete',
+            data:{
+              ids:id
+            }
+          }).then(res=>{
+            if(res.code==200){
+              that.setData({
+                resList:[]
+              })
+              that.getListAll(that.data.pageNum, that.data.select2 - 2)
+            }
           })
+        } else if (res.cancel) {
+          console.log(id)
         }
       }
     })
   },
-  //获取搜索框输入内容
-  bindInput(e) {
+  selectBtn2(e) {//选择展示全部还是获取或消费
     this.setData({
-      keyName: e.detail.value
+      select2: e.currentTarget.dataset.num,
+      pageNum: 1,
+      resList: []
     })
-    this.search()
+    this.getListAll(this.data.pageNum,this.data.select2-2)
   },
-  //搜索
-  search() {
-    this.setData({
-      pageNum: 0,
-      total: 0,
-      isBottom: false,
-      list: [],
-    })
-    this.getData({ getByMarketMe: 1 })
-  },
-  //获取搜索框的积分
-  bindCode(e) {
-    this.setData({
-      code: e.detail.value
-    })
-  },
-  //查看兑换码
-  exchange(e) {
-    post({
-      link: "/integralOrder/codeOrderCheck",
-      data: {
-        exchangeCode: this.data.code,
-        orderId:this.data.orderId
-      }
+  getListAll(num, type = '', ) {
+    get({
+      link: "/heartvoice/list",
+      data: { pageNum: num, pageSize: 5, statusByApplet: type }
     }).then(res => {
-      if (res.code == 0) {
-        wx.showToast({
-          title: '兑换成功！',
-        })
-        post({
-          link: "/integralOrder/finish",
-          data: {
-            orderId:this.data.orderId
-          }
-        }).then(res => {
-          if (res.code == 200) {
-            wx.showToast({
-              title: '兑换成功！',
-            })
-            //刷新数据
-            this.setData({
-              keyName: '',
-              pageNum: 0,
-              total: 0,
-              isBottom: false,
-              list: [],
-            })
-            this.getData({ getByMarketMe: 1 })
-          }
-        })
-        //刷新数据
+      if (res.code == 200) {
         this.setData({
-          showLook: false,
-        })
-      }else{
-        wx.showToast({
-          title: '兑换码错误！',
-          icon: 'none',
+          total: res.data.total,
+          resList: this.data.resList.concat(res.data.list),
         })
       }
+    }).catch(err => {
+      console.log(err)
     })
   },
-
-  //打开
-  lookcode(e) {
-    this.setData({
-      showLook: true,
-      orderId:getDataValue(e).item.orderId
-      // exchangeCode:getDataValue(e).item.exchangeCode
-    })
-    // this.exchange()
-  },
-
-  //关闭查看
-  closelook() {
-    this.setData({
-      showLook: false
-    })
-  },
-
-
-  handlePhone(e){
-    console.log(e)
-    var phone = e.currentTarget.dataset.ph;
-    //调打手机
-    wx.makePhoneCall({
-      phoneNumber: phone //仅为示例，并非真实的电话号码
-    })
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getData({ getByMarketMe: 1 })
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.getListAll(this.data.pageNum)
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
 
   },
 
@@ -186,7 +118,12 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    this.getData({ getByMarketMe: 1 })
+    if (this.data.total > 5 * this.data.pageNum) {
+      this.setData({
+        pageNum: this.data.pageNum + 1
+      })
+      this.getListAll(this.data.pageNum, this.data.select2 - 2)
+    }
   },
 
   /**

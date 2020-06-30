@@ -17,16 +17,16 @@
     <view class="personitem" hidden="{{prioritylist.length<=0}}" wx:for="{{prioritylist}}" wx:key="index">
       <view>
         <view>姓名：
-          <text>{{item.protect_username}}</text>
+          <text>{{item.protectName}}</text>
         </view>
         <view>年龄：
-          <text>{{item.protect_age}}</text>
+          <text>{{item.protectAge}}</text>
         </view>
         <view>社区：
-          <text>{{item.area_name}}</text>
+          <text>{{item.deptName}}</text>
         </view>
       </view>
-      <text class="persontype">{{item.dict_item_name}}</text>
+      <text class="persontype">{{item.protectTypeName}}</text>
     </view>
     <view hidden="{{prioritylist.length>0}}" class="personitem center">暂无数据</view>
   </view>

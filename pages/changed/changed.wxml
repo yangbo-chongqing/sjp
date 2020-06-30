@@ -1,0 +1,18 @@
+<!--pages/changed/changed.wxml-->
+<view class="all">
+	<view>
+		<view class="topfont">兑换</view>
+		<view class="center">
+			<view>
+				<image src="/assets/img/money.png"></image>
+        <input placeholder-class="hodler"	 maxlength="8" bindinput="bindKeyInput" value="{{value}}" placeholder="请输入兑换积分" type="number"></input>
+			</view>
+			<view class="jifen">
+        当前可用积分<text >{{jifen}}</text>,<text bindtap="allout">全部兑换</text>
+      </view>
+			<view>
+        <button bindtap="myconfirm" class="outto {{value?'outtoed':' '}}">确认兑换</button>
+      </view>
+		</view>
+	</view>
+</view>

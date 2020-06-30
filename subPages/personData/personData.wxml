@@ -25,7 +25,6 @@
     </view>
   </view>
   <view class="all">
-
     <view class="itemOther">
       <view class="username">归属网格</view>
       <picker mode="multiSelector" range="{{multiArray}}" bindcolumnchange="columnchange" value="{{multiIndex}}" bindchange='pickchange'>
@@ -37,9 +36,17 @@
         </view>
       </picker>
       <view class="iconfont icon-you right"></view>
-
-
-
+    </view>
+  </view>
+  <view class="all">
+    <view class="itemOther">
+      <view class="username">出生日期</view>
+     <picker mode="date" value="{{date}}"   bindchange="bindDateChange">
+    <view class="picker">
+      {{date}}
+    </view>
+  </picker>
+      <view class="iconfont icon-you right"></view>
     </view>
   </view>
   <view class="all">

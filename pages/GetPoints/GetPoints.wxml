@@ -17,11 +17,11 @@
     </view>
   </view>
   <community comList="{{comList}}" bind:gocom="gocomdetail" />
-  <view class="line"></view>
+  <!-- <view class="line"></view>
   <view class="itemTitle">
     <image src="https://webservers.sjpdqfwzx.com/file/icon/Component 13.png" />
     <text>学习初心不改</text>
   </view>
-  <studynews studyList="{{studyList}}" bind:gostudy="gostudydetail"/>
+  <studynews studyList="{{studyList}}" bind:gostudy="gostudydetail"/> -->
 
 </view>

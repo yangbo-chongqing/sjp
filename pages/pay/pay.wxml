@@ -1,0 +1,9 @@
+<!--pages/pay/pay.wxml-->
+<view >
+  <image class="head" src="/assets/img/welcome.png"></image>
+</view>
+<view class="centerall">
+  <image class="center" src="{{picid}}"></image>
+  <view>打开扫一扫,扫码支付</view>
+  <button wx:if="{{isshop||isable}}" bindtap="photo">扫码收款</button>
+</view>

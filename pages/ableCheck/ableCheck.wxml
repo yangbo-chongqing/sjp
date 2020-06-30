@@ -1,0 +1,46 @@
+<!--pages/ableCheck/ableCheck.wxml-->
+<view class="all">
+	<view class="lines"></view>
+	<view class="top">
+		<!--头部分-->
+		<view>
+			<image class="iconfont" src="https://webservers.sjpdqfwzx.com/file/icon/Component 13.png"></image>
+			<text>活动审批处理</text>
+		</view>
+		<view>
+			<text bindtap='selectBtn2' data-num="3" class="{{select2==3?'selectfont':''}}">全部</text>
+			<text bindtap='selectBtn2' data-num="0" class="{{select2==0?'selectfont':''}}">待处理</text>
+			<text bindtap='selectBtn2' data-num="1" class="{{select2==1?'selectfont':''}}">已处理</text>
+		</view>
+	</view>
+	<view wx:for="{{resList}}" wx:key="index">
+		<!--列表部分-->
+		<view class="lines">
+		</view>
+		<view class="list" bindtap="godetails" data-newsId="{{item.needId}}">
+			<view>
+				<image src="{{item.createUserHeadUrl}}"></image>
+			</view>
+			<view class="content">
+				<view>
+					<view>{{item.createUserName}}
+						<text></text>
+						<image wx:if="{{item.isPrior==1}}" style="margin-left:10rpx" src="/assets/img/priority.png"></image>
+					</view>
+					<view> <text></text>
+						<image catchtap="del" data-id="{{item.needId}}" src="/assets/img/trash.png"></image>
+					</view>
+				</view>
+				<view>{{item.projectName}}
+					<view class="fuwu">服务内容：{{item.needInfo}}</view>
+				</view>
+				<view>
+					<view>{{item.createDate}}</view>
+					<view class="btnok" wx:if="{{item.statusDesc=='已完成'||item.statusDesc=='进行中'}}">{{item.statusDesc}}</view>
+					<view class="btnoff" wx:elif="{{item.statusDesc=='已取消'}}"> {{item.statusDesc}}</view>
+					<view wx:else class="btn">{{item.statusDesc}}</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

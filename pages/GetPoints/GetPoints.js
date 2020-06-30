@@ -118,13 +118,13 @@ Page({
     })
   },
   //初心不改详情跳转
-  gostudydetail(e){
-    console.log(e)
-    let newsId=e.detail
-    wx.navigateTo({
-      url: '/subPages/studydetails/studydetails?id='+newsId,
-    })
-  },
+  // gostudydetail(e){
+  //   console.log(e)
+  //   let newsId=e.detail
+  //   wx.navigateTo({
+  //     url: '/subPages/studydetails/studydetails?id='+newsId,
+  //   })
+  // },
 
   /**
    * 生命周期函数--监听页面加载

@@ -1,0 +1,28 @@
+<!--subPages/goodsexchange/details/details.wxml-->
+<view class="topall">
+	<view class="all">
+		<view class="tit">{{idlist.title}}</view>
+		<view class="picfont">
+			<view>
+				<view>
+					<image src="{{idlist.createUserHeadUrl}}"></image>
+				</view>
+				<view>{{idlist.createUserName}}</view>
+			</view>
+			<view class="btnok">{{idlist.statusDesc}}</view>
+		</view>
+		<view class="smallfont">
+			<text>{{idlist.createDate}}</text> <text></text>
+		</view>
+		<view>
+		<rich-text nodes="{{idlist.details}}"></rich-text>
+		</view>
+	</view>
+	<view wx:if="{{idlist.statusDesc=='已认领'}}" class="bottom">
+		<view class="down" bindtap="goExamDown">取消认领</view>
+		<view class="pass" bindtap="goExamPass">点击完成</view>
+	</view>
+	<view wx:if="{{idlist.statusDesc=='未认领'}}" class="bottom">
+		<view bindtap="claim"  class="pass">点击认领</view>
+	</view>
+</view>

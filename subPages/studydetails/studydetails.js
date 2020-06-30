@@ -9,8 +9,8 @@ Page({
    */
   data: {
     detail: {},
-    time: 20,//阅读倒计时
-    timer: '',//定时器
+    // time: 20,//阅读倒计时
+    // timer: '',//定时器
     id: '',
     imgs: null
   },
@@ -53,58 +53,58 @@ Page({
       console.log(error)
     })
   },
-  getscore(id) {
-    post({
-      link: "/informationMemberIntegral/save",
-      data: {
-        newsId: id
-      }
-    }).then(res => {
-      console.log(res)
-      if (res.code == 1) {
-        wx.showToast({
-          title: res.msg,
-          icon: "none"
-        })
-      } else if (res.code == 403) {
-        wx.showToast({
-          title: res.msg,
-          icon: "none"
-        })
-      }
-      else {
-        wx.showToast({
-          title: '积分领取成功！',
-          icon: "success"
-        })
-      }
-    })
-  },
-  timedown(num) {
-    let t = this
-    let times = t.data.time
-    let timer = setInterval(() => {
-      if (t.data.time < 0) {
-        console.log("zzzz")
-        t.clearTimeInterval()
-        //30s结束后获取积分
-        this.getscore(this.data.id)
-      } else {
+  // getscore(id) {
+  //   post({
+  //     link: "/informationMemberIntegral/save",
+  //     data: {
+  //       newsId: id
+  //     }
+  //   }).then(res => {
+  //     console.log(res)
+  //     if (res.code == 1) {
+  //       wx.showToast({
+  //         title: res.msg,
+  //         icon: "none"
+  //       })
+  //     } else if (res.code == 403) {
+  //       wx.showToast({
+  //         title: res.msg,
+  //         icon: "none"
+  //       })
+  //     }
+  //     else {
+  //       wx.showToast({
+  //         title: '积分领取成功！',
+  //         icon: "success"
+  //       })
+  //     }
+  //   })
+  // },
+  // timedown(num) {
+  //   let t = this
+  //   let times = t.data.time
+  //   let timer = setInterval(() => {
+  //     if (t.data.time < 0) {
+  //       console.log("zzzz")
+  //       t.clearTimeInterval()
+  //       //30s结束后获取积分
+  //       this.getscore(this.data.id)
+  //     } else {
 
-      }
-      times = times - 1
-      t.setData({
-        time: times
-      })
-    }, 1000)
-    t.setData({
-      timer: timer
-    })
-  },
-  clearTimeInterval() {
-    var timer = this.data.timer;
-    clearInterval(timer)
-  },
+  //     }
+  //     times = times - 1
+  //     t.setData({
+  //       time: times
+  //     })
+  //   }, 1000)
+  //   t.setData({
+  //     timer: timer
+  //   })
+  // },
+  // clearTimeInterval() {
+  //   var timer = this.data.timer;
+  //   clearInterval(timer)
+  // },
   chooseImg: function (e) {   //预览
     console.log(e)
     var src = e.currentTarget.dataset.src;
@@ -124,7 +124,7 @@ Page({
       id: options.id
     })
     this.getdetail(options.id)
-    this.timedown(this.data.time)
+    // this.timedown(this.data.time)
 
   },
 
@@ -154,10 +154,10 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    this.clearTimeInterval()
-    this.setData({
-      time: 30
-    })
+    // this.clearTimeInterval()
+    // this.setData({
+    //   time: 30
+    // })
     // console.log(this.data.time)
   },
 

@@ -1,0 +1,73 @@
+/* pages/changed/changed.wxss */
+.all {
+  background: #E8E8E8;
+  height: 100vh;
+}
+
+.all>view:first-child {
+  padding: 48rpx 30rpx 0 30rpx;
+}
+
+.topfont {
+  background: rgba(229, 63, 54, 0.13);
+  text-align: center;
+  font-size: 16px;
+  color: #D33333;
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-family: Source Han Sans CN;
+  font-style: normal;
+  font-weight: 500;
+}
+.center{
+  padding:48rpx 36rpx;
+  background:#fff;
+}
+.center>view{
+  padding:30rpx 0;
+}
+.center>view:first-child{
+  border-bottom: 2rpx solid #F5F5F5;
+  display: flex;
+}
+.center>view>image{
+  width: 60rpx;
+  height: 55rpx;
+  display: inline-block;
+}
+.center>view>input{/*输入框*/
+  margin-left: 32rpx;
+  display: inline-block;
+  color: #D33333;
+  font-size:30px;
+  height:50rpx;
+  box-sizing:border-box;
+}
+.hodler{
+  color: #8A8A8A;
+  font-size: 14px;
+}
+.jifen{
+  margin-top:10rpx;
+  color: #8A8A8A;
+  font-size: 14px;
+}
+.jifen>text{
+  color: #D33333;
+}
+.jifen>text:first-child{
+  font-size: 22px;
+  padding: 0 8rpx;
+}
+.outto{/*确认框*/
+  background: #E5E5EA;
+  color: #FFFFFF;
+  font-size: 16px;
+  margin-top: 50rpx;
+  width:440rpx !important;
+}
+.outtoed{
+  background: #D33333;
+  color: #FFFFFF;
+}

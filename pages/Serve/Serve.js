@@ -410,6 +410,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    this.getmantype()
+    this.getlist(this.data.num)
+    this.getprolist()
+    this.getlocation()
+    this.getprioritylist(this.data.numm,this.data.priority)
 
   },
 
@@ -424,11 +429,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    this.getmantype()
-    this.getlist(this.data.num)
-    this.getprolist()
-    this.getlocation()
-    this.getprioritylist(this.data.numm,this.data.priority)
+    
   },
 
   /**

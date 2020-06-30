@@ -2,119 +2,124 @@
 <view class="line"></view>
 
 <view class="servicebox" wx:for="{{manlist}}" wx:key="index">
-  <view class="serviceitem">
-    <view class="servicetitle">
-      <text></text>
-      <text class="statuscolor1">{{item.statusDesc}}</text>
-    
-      <!-- <text class="statuscolor2" wx:if="{{item.status==2}}">已完成</text> -->
+	<view class="serviceitem">
+		<view class="servicetitle">
+			<text></text>
+			<text class="statuscolor1">{{item.statusDesc}}</text>
+
+			<!-- <text class="statuscolor2" wx:if="{{item.status==2}}">已完成</text> -->
 
 
 
-    </view>
-  </view>
-  <view class="servecontent">
-    <image class="userpic" src="{{item.createUserHeadUrl}}" role="img"></image>
-    <view class="servecenter">
-      <view class="username">
-        <view>
-          <view>{{item.createUserName}}</view>
-          <view class="serveright">
-            <image class="gold" src="http://119.3.196.255:8094/file/icon/Rectangle 205.png" role="img"></image>
-            <text>{{item.integral==null?'0':item.integral}}积分</text>
-          </view>
-        </view>
-        <view>
-          <text>{{item.ableMobile}}</text>
-          <text class="iconfont icon-dianhua" bindtap="handlePhone" data-ph="{{item.ableMobile}}" />
+		</view>
+	</view>
+	<view class="servecontent">
+		<image class="userpic" src="{{item.createUserHeadUrl}}" role="img"></image>
+		<view class="servecenter">
+			<view class="username">
+				<view>
+					<view>{{item.createUserName}}
+						<text></text>
+						<image wx:if="{{item.isPrior==1}}" style="margin-left:10rpx;width:32rpx;height:32rpx" src="/assets/img/priority.png"></image>
+					</view>
+					<view class="serveright">
+						<image class="gold" src="http://119.3.196.255:8094/file/icon/Rectangle 205.png" role="img"></image>
+						<text>{{item.integral==null?'0':item.integral}}积分</text>
+					</view>
+				</view>
+				<view>
+					<text>{{item.createUserMobile}}</text>
+					<text class="iconfont icon-dianhua" bindtap="handlePhone" data-ph="{{item.ableMobile}}" />
         </view>
       </view>
       <!-- <view class="place">
         <text class="iconfont icon-dingweiweizhi"></text>
-        <text>{{item.ableAddress}}</text>
-      </view> -->
-    </view>
-    
-  </view>
-  <view class="servebottom">
-    <view class="bottomleft">
-      <view>服务项目：
-        <text>{{item.projectName}}</text>
-      </view>
+					<text>{{item.ableAddress}}</text>
+				</view> -->
+			</view>
 
-    </view>
-    <!-- <view class="bottomright color1" wx:if="{{item.status==0}}" data-id="{{item.needAbleId}}" bindtap="refuse">
+		</view>
+		<view class="servebottom">
+			<view class="bottomleft">
+				<view>服务项目：
+					<text>{{item.projectName}}</text>
+				</view>
+
+			</view>
+			<!-- <view class="bottomright color1" wx:if="{{item.status==0}}" data-id="{{item.needAbleId}}" bindtap="refuse">
       拒绝
     </view> -->
-    <view class="bottomright color2" wx:if="{{item.status==0 && ~~(item.orderStatus)<=1}}" data-id="{{item.needAbleId}}" bindtap="accept">
-      确认
-    </view>
-    <view wx:if="{{item.status==0 && ~~(item.orderStatus)<=1}}" class="bottomright color2" bindtap="show" data-id="{{item.needId}}">更多</view>
-    <view class="pick-container {{openPicker?'slidown':'slidup'}}">
-      <view class="bottomright color1" wx:if="{{item.status==0 && ~~(item.orderStatus)<=1}}" data-id="{{item.needId}}" bindtap="refuse" style="margin-bottom:10rpx;">
-        拒绝
-      </view>
-      <view class="bottomright color1" wx:if="{{item.status==0 && ~~(item.orderStatus)<=1}}" data-id="{{item.needId}}" bindtap="look">
-        详情
-      </view>
-    </view>
-    <view class="bottomright color3" catchtap="write" data-id="{{item.needAbleId}}" wx:if="{{item.orderStatus==1 && item.status==1}}">
-      签字确认
-    </view>
-    <view class="bottomright color1" wx:if="{{item.status!=0 && item.orderStatus!=1}}">
-      {{item.orderStatusDesc}}
-    </view>
-    <view class="bottomright color1" wx:if="{{item.status==0 && item.orderStatus==2}}">
-      {{item.orderStatusDesc}}
-    </view>
-    <view class="bottomright color1" wx:if="{{item.status==2 && item.orderStatus==1}}">
-      已完成
-    </view>
-  </view>
-</view>
+			<view class="bottomright color2" wx:if="{{item.status==0 && ~~(item.orderStatus)<=1}}" data-id="{{item.needAbleId}}" bindtap="accept">
+				确认
+			</view>
+			<view wx:if="{{item.status==0 && ~~(item.orderStatus)<=1}}" class="bottomright color2" bindtap="show" data-id="{{item.needId}}">更多</view>
+			<view class="pick-container {{openPicker?'slidown':'slidup'}}">
+				<view class="bottomright color1" wx:if="{{item.status==0 && ~~(item.orderStatus)<=1}}" data-id="{{item.needId}}" bindtap="refuse" style="margin-bottom:10rpx;">
+					拒绝
+				</view>
+				<view class="bottomright color1" wx:if="{{item.status==0 && ~~(item.orderStatus)<=1}}" data-id="{{item.needId}}" bindtap="look">
+					详情
+				</view>
+			</view>
+			<view class="bottomright color3" catchtap="write" data-id="{{item.needAbleId}}" wx:if="{{item.orderStatus==1 && item.status==1}}">
+				签字确认
+			</view>
+			<view class="bottomright color1" wx:if="{{item.status!=0 && item.orderStatus!=1}}">
+				{{item.orderStatusDesc}}
+			</view>
+			<view class="bottomright color1" wx:if="{{item.status==0 && item.orderStatus==2}}">
+				{{item.orderStatusDesc}}
+			</view>
+			<view class="bottomright color1" wx:if="{{item.status==2 && item.orderStatus==1}}">
+				已完成
+			</view>
+		</view>
+	</view>
 
 
 
 
 
 
-<view class="handwrite" wx:if="{{showWrite}}">
-  <view class="handcontent">
-    <view class="handtitle">消费者确认签字</view>
-    <canvas class="handWriting" id="canvas" canvas-id="canvas" disable-scroll="{{bool}}" bindtouchstart="canvasStart" bindtouchmove="canvasMove" bindtouchend="canvasEnd" binderror="canvasIdErrorCallback"></canvas>
-    <view class="btnbox">
-      <view class="writecomfire blank" bindtap="cleardraw">清除</view>
-      <view class="writecomfire" bindtap="getimg">确认</view>
-    </view>
-  </view>
+	<view class="handwrite" wx:if="{{showWrite}}">
+		<view class="handcontent">
+			<view class="handtitle">消费者确认签字</view>
+			<canvas class="handWriting" id="canvas" canvas-id="canvas" disable-scroll="{{bool}}" bindtouchstart="canvasStart" bindtouchmove="canvasMove" bindtouchend="canvasEnd" binderror="canvasIdErrorCallback"></canvas>
+			<view class="btnbox">
+				<view class="writecomfire blank" bindtap="cleardraw">清除</view>
+				<view class="writecomfire" bindtap="getimg">确认</view>
+			</view>
+		</view>
 
 
-</view>
+	</view>
 
-<!-- 订单详情弹出框 -->
-<view class="handwrite" wx:if="{{show}}" style="z-index: 1000;">
-  <view class="handcontent news">
-    <view class="handtitle">需求详情</view>
-    <view>
-      <view>服务项目：{{list.projectName}}</view>
-      <view>需求详情：<view>{{list.needInfo}}</view></view>
-      <view style="width:100%;margin:0 auto;"><image src="{{list.needPic}}" style="width:100%;"></image></view>
-    </view>
-    <view class="btnbox">
-      <view class="writecomfire" bindtap="getShow">确认</view>
-    </view>
-  </view>
-</view>
+	<!-- 订单详情弹出框 -->
+	<view class="handwrite" wx:if="{{show}}" style="z-index: 1000;">
+		<view class="handcontent news">
+			<view class="handtitle">需求详情</view>
+			<view>
+				<view>服务项目：{{list.projectName}}</view>
+				<view>需求详情：<view>{{list.needInfo}}</view>
+				</view>
+				<view style="width:100%;margin:0 auto;">
+					<image src="{{list.needPic}}" style="width:100%;"></image>
+				</view>
+			</view>
+			<view class="btnbox">
+				<view class="writecomfire" bindtap="getShow">确认</view>
+			</view>
+		</view>
+	</view>
 
-<!-- 订单拒绝弹框 -->
-<view class="lookcode" wx:if="{{showLook}}" style="z-index: 1000;">
-  <view class="lookcontent" style="height:auto;">
-    <view class="looktitle" style="margin-bottom: 40rpx;">拒绝理由</view>
-    <textarea type="text" placeholder="请输入拒绝理由" bindinput="bindValue" style="height:400rpx;"></textarea>
-    <view class="btn">
-      <view class="lookcomfire" bindtap="exchange" data-id="{{list.needAbleId}}">确定</view>
-      <view class="lookcomfire" bindtap="closelook">取消</view>
-    </view>
-  </view>
-</view>
-
+	<!-- 订单拒绝弹框 -->
+	<view class="lookcode" wx:if="{{showLook}}" style="z-index: 1000;">
+		<view class="lookcontent" style="height:auto;">
+			<view class="looktitle" style="margin-bottom: 40rpx;">拒绝理由</view>
+			<textarea type="text" placeholder="请输入拒绝理由" bindinput="bindValue" style="height:400rpx;"></textarea>
+			<view class="btn">
+				<view class="lookcomfire" bindtap="exchange" data-id="{{list.needAbleId}}">确定</view>
+				<view class="lookcomfire" bindtap="closelook">取消</view>
+			</view>
+		</view>
+	</view>

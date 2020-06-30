@@ -1,0 +1,5 @@
+{
+  "usingComponents": {"signModel": "/components/model/model"},
+  "navigationBarTitleText": "收款",
+  "navigationBarTextStyle": "black"
+}

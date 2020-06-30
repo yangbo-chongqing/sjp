@@ -18,7 +18,8 @@ Page({
     showCode:false,
     userinfo:'',
     changeback:false,
-    gridid:''
+    gridid:'',
+    date: '',//默认日期
   },
   //地区选择
   getplace() {
@@ -46,6 +47,13 @@ Page({
           this.getgrid(defaultCode)  // 获取网格数据
         }
       }
+    })
+  },
+  bindDateChange: function(e) {//选中日期
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      date: e.detail.value,
+      changeback:true
     })
   },
   getgrid(code){
@@ -219,7 +227,8 @@ Page({
         picId: this.data.src1 || this.data.src,
         name: name,
         // mobile: mobile,
-        gridId: this.data.gridid
+        gridId: this.data.gridid,
+        birth:this.data.date
       }
       console.log(data)
       
@@ -256,7 +265,17 @@ Page({
   onLoad: function (options) {
     this.setData({
       userinfo:wx.getStorageSync("userInfo"),
+      date:this.data.userinfo.birth
     })
+    if(this.data.userinfo.birth){
+      this.setData({
+        date:this.data.userinfo.birth
+      })
+    }else{
+      this.setData({
+        date:'1970-1-1'
+      })
+    }
     this.getplace()
     console.log(wx.getStorageSync("userInfo").picId)
   },

@@ -1,0 +1,22 @@
+/* pages/pay/pay.wxss */
+.head{
+  width: 100%;
+  height:350rpx;
+}
+.center{
+  width: 600rpx;
+  height: 600rpx;
+  margin-left: 75rpx;
+}
+.centerall > view{
+  text-align: center;
+  color: #444444;
+  font-family: Source Han Sans CN;
+  font-style: normal;
+} 
+.centerall > button:nth-last-child(1){
+  background: linear-gradient(354.75deg, #F94564 15.06%, #FE9F88 84.57%);
+  color: #FFFFFF;
+  margin-top: 50rpx;
+  width: 500rpx;
+}

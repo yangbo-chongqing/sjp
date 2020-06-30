@@ -1,6 +1,6 @@
 // subPages/integralgoods/integralgoods.js
 
-import { get,post } from "../../assets/js/request"
+import { get, post } from "../../assets/js/request"
 
 Page({
 
@@ -8,148 +8,89 @@ Page({
    * 页面的初始数据
    */
   data: {
-    showLook:false,
-    showStart:false,//打分模态框
-    num: 1,
-    mylist:[],
-    code:'',
-    id:''
+    select2: 1,//审核状态
+    pageNum: 1,//起始页码
+    resList: [],//审核列表
+    total: '',//列表总条数
   },
-  //查看兑换码
-  lookcode(e){
-    console.log(e)
-    this.setData({
-      showLook:true,
-      code:e.currentTarget.dataset.code
-    })
-  },
-  closelook(e){
-    console.log(e)
-    this.setData({
-      showLook: false,
-    })
-    if(e.currentTarget.dataset.type==="submit"){
-      this.addscore(this.data.id)
-    }else{
-
-    }
-  },
-  //点击每颗星星
-
-  every(e){
-    console.log(e)
-    this.setData({
-      num: e.currentTarget.dataset.num+1
-    })
-    console.log(this.data.num)
-  },
-  //获取我的商品
-  getmy(){
-    get({
-      link:"/integralOrder/list",
-      data:{
-        getByMe: 1
-      }
-    }).then(res=>{
-      console.log(res)
-      if(res.code==200){
-        this.setData({
-          mylist:res.data.list
-        })
-      }
-    })
-  },
-  //取消订单
-  cancle(e){
-    let id=e.currentTarget.dataset.id
-    const _this=this
+  del(e) {
+    let id = e.currentTarget.dataset.id
+    let that=this
     wx.showModal({
       title: '提示',
-      content: "确定取消订单吗？",
+      content: '是否删除活动',
       success(res) {
         if (res.confirm) {
           post({
-            link: "/integralOrder/cancel",
-            data: {
-              orderId: id
+            link:'/information/delete',
+            data:{
+              newsIds:id
             }
-          }).then(res => {
-            console.log(res)
-            if (res.code == 0) {
-                wx.showToast({
-                  title: '订单取消成功',
-                  icon:"success",
-                })
-                _this.getmy()
-            }else{
-              wx.showToast({
-                title:res.msg,
-                icon: "none",
+          }).then(res=>{
+            if(res.code==200){
+              that.setData({
+                resList:[]
               })
+              that.getListAll(that.data.pageNum, that.data.select2 - 2)
             }
           })
         } else if (res.cancel) {
-          console.log('用户点击取消')
+          console.log(id)
         }
       }
     })
-    
   },
-//兑换商品成功后后评价
-  evaluates(e){
-
+  godetails(e) {//跳转详情
+    let id = JSON.stringify({
+      newsId: e.currentTarget.dataset.newsid,
+      id: e.currentTarget.dataset.id
+    })
+    wx.navigateTo({
+      url: '/subPages/integralgoods/details/details?id=' + id,
+    })
+  },
+  selectBtn2(e) {//选择展示全部还是获取或消费
     this.setData({
-      showStart:true,
-      id:e.currentTarget.dataset.id
+      select2: e.currentTarget.dataset.num,
+      pageNum: 1,
+      resList: []
     })
-    
-    
+    this.getListAll(this.data.pageNum, this.data.select2 - 2)
   },
-  //评价
-  addscore(id){
-    post({
-      link: '/integralOrder/score',
-      data: {
-        orderId: id,
-        score: this.data.num
-      }
+  getListAll(num, type = '', ) {
+    get({
+      link: "/activity_sign/listByApplet",
+      data: { pageNum: num, pageSize: 5, isHandle: type }
     }).then(res => {
-      console.log(res)
-      if(res.code==200){
-        this.getmy()
-        wx.showToast({
-          title: "评价成功！",
-          icon:"success",
-          duration:1500
+      if (res.code == 200) {
+        this.setData({
+          total: res.data.total,
+          resList: this.data.resList.concat(res.data.list),
         })
-        setTimeout(()=>{
-          this.setData({
-            showStart: false,
-          })
-        },1500)
       }
+    }).catch(err => {
+      console.log(err)
     })
   },
-  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getmy()
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.getListAll(this.data.pageNum)
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+
 
   },
 
@@ -178,7 +119,12 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    if (this.data.total > 5 * this.data.pageNum) {
+      this.setData({
+        pageNum: this.data.pageNum + 1
+      })
+      this.getListAll(this.data.pageNum, this.data.select2 - 2)
+    }
   },
 
   /**

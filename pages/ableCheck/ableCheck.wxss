@@ -1,0 +1,159 @@
+/* pages/ableCheck/ableCheck.wxss */
+
+.iconfont {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.all {
+  background: #fff;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  color: #444444;
+}
+
+.top>view {
+  margin-left: 10rpx;
+  padding: 18rpx 10rpx;
+}
+
+.top>view:first-child>text {
+  font-size: 16px;
+  font-family: Source Han Sans CN;
+  font-style: normal;
+  font-weight: 550;
+  margin-left: 10rpx;
+}
+
+.top>view:last-child>text {
+  color: #8A8A8A;
+  font-size: 14px;
+  font-family: Source Han Sans CN;
+  font-style: normal;
+  font-weight: normal;
+  margin-right: 18rpx;
+}
+
+.top>view:last-child>.selectfont {
+  color: #D33333;
+  font-size: 16px;
+  font-weight: 550;
+}
+
+.lines {
+  width: 100%;
+  height: 19rpx;
+  background: #f5f5f5;
+  box-sizing: border-box;
+}
+
+.list {
+  display: flex;
+  height: 330rpx;
+}
+
+.list image:first-child {
+  width: 100rpx !important;
+  height: 100rpx !important;
+  border-radius: 50%;
+  margin: 40rpx;
+}
+.content{
+  width: 100%;
+  position: relative;
+}
+.content>view:first-child {
+  display: flex;
+  justify-content: space-between;
+  padding: 30rpx 0;
+}
+
+.content>view:first-child>text {
+  font-family: Source Han Sans CN;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.content>view:first-child>view>text {
+  color: #D33333;
+  font-family: Source Han Sans CN;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  padding-right: 20rpx;
+}
+
+.content image {
+  width: 36rpx;
+  height: 36rpx;
+  padding-right: 10rpx;
+}
+
+.content>view:nth-child(2) {
+  font-family: Source Han Sans CN;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: #8A8A8A;
+}
+
+.content>view:last-child {
+  color: #8A8A8A;
+  font-family: Source Han Sans CN;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  bottom: 20rpx;
+  position: absolute;
+}
+.content>view:last-child>view:first-child {
+  margin-top: 10rpx;
+}
+.btn{
+  width: 150rpx;
+  height: 60rpx;
+  background:#D33333;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  line-height: 60rpx;
+  margin-left: 116rpx;
+  border-radius: 2px;
+}
+.btnok{
+  color: #D33333;
+  font-size: 14px;
+  text-align: center;
+  line-height: 60rpx;
+  margin-left: 116rpx;
+  width: 150rpx;
+  height: 60rpx;
+  border: 1px solid #BFBFBF;
+  border-radius: 2px;
+}
+.fuwu{
+  padding-top: 10rpx;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:1;/*设置 需要显示的行数*/
+}
+.btnoff{
+  color: #BFBFBF;
+  font-size: 14px;
+  text-align: center;
+  line-height: 60rpx;
+  margin-left: 116rpx;
+  width: 150rpx;
+  height: 60rpx;
+  border: 1px solid #BFBFBF;
+  border-radius: 2px;
+}

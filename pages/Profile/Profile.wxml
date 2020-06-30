@@ -1,113 +1,107 @@
 <!--pages/Profile/Profile.wxml-->
-<block wx:if="{{islogin}}">
-  <view class="userPic" bindtap="goEach" data-url="/subPages/personData/personData">
-    <image src="{{pic}}" role="img"></image>
-
-    <view class="userinfo">
-      <text>{{names}}</text>
-      <text>{{phone}}</text>
-    </view>
-
-    <text class="iconfont icon-qr_code code" catchtap="showCode"></text>
-    <text class="iconfont icon-you right"></text>
-  </view>
-</block>
-<block wx:else>
-  <view class="userPic">
-    <image src="/assets/img/headpic.png" role="img"></image>
-    <view class="userinfo">
-      <text catchtap="toLogin">登录/注册</text>
-    </view>
-    <text class="iconfont icon-you right"></text>
-  </view>
-</block>
-<view class="all">
-  <view class="scoreBox">
-    <view class="myscore">
-      <view>
-        活动积分
-        <text>{{islogin?myscore:0}}</text> 
-      </view>
-      <view wx:if="{{ablePerson==null && market==null}}" class="hide">
-        兑换积分
-        <text>{{islogin?myusedscore:0}}</text>
-      </view>
-      <view wx:if="{{ablePerson!=null && market!=null}}" class="show">
-        兑换积分
-        <text>{{islogin?supermarketScore+ablePersonScore:0}}</text>
-      </view>
-      <view wx:if="{{ablePerson!=null && market==null}}" class="show">
-        兑换积分
-        <text>{{islogin?ablePersonScore:0}}</text>
-      </view>
-      <view wx:if="{{ablePerson==null && market!=null}}" class="show">
-        兑换积分
-        <text>{{islogin?supermarketScore:0}}</text>
-      </view>
-    </view>
-    <view class="scorelog">
-      <text bindtap="goEach" data-url="/subPages/scorelog/scorelog">积分日志</text>
-      <text bindtap="showNotice">积分说明</text>
-    </view>
-  </view>
+<view class="top">
+	<block wx:if="{{islogin}}">
+		<view class="userPic" bindtap="goEach" data-url="/subPages/personData/personData">
+			<image src="{{pic}}"></image>
+			<view class="userinfo">
+				<text>{{names}}</text>
+				<view></view>
+				<text>{{phone}}</text>
+			</view>
+			<text class="iconfont icon-qr_code code" catchtap="showCode"></text>
+			<text class="iconfont icon-you right"></text>
+		</view>
+	</block>
+	<block wx:else>
+		<view class="userPic">
+			<image src="/assets/img/headpic.png" role="img"></image>
+			<view class="userinfo">
+				<text catchtap="toLogin">登录/注册</text>
+			</view>
+			<text class="iconfont icon-you right"></text>
+		</view>
+	</block>
+	<view class="all">
+		<view bindtap="pay">
+			<image src="/assets/img/twoCode.png"></image>
+			<text class="picorfont">收款码</text>
+		</view>
+		<view bindtap="score">
+			<image src="/assets/img/indiv.png"></image>
+			<text class="picorfont">个人积分</text>
+		</view>
+	</view>
+</view>
+<view wx:if="{{isVolunteerActivityMenuIdExam==1}}" class="itemOne" bindtap="goEach" data-url="/subPages/integralgoods/integralgoods" data-id="3" bindtap="goEach">
+	<text class="title">活动审批</text>
+	<text class="iconfont icon-you icon"></text>
+</view>
+<view wx:if="{{isHeartVoiceExam==1}}" class="itemOne" bindtap="goEach" data-url="/subPages/goodsexchange/goodsexchange" data-id="6" bindtap="goEach">
+	<text class="title">居民心声</text>
+	<text class="iconfont icon-you icon"></text>
+</view>
+<view wx:if="{{isAbleNeedExam==1}}" class="itemOne" bindtap="goEach" data-url="/pages/ableCheck/ableCheck" data-id="10" bindtap="goEach">
+	<text class="title">能人分配</text>
+	<text class="iconfont icon-you icon"></text>
 </view>
 <view class="itemOne" wx:for="{{navlist}}" data-url="{{item.url}}" data-id="{{item.id}}" bindtap="goEach" wx:key="index">
-  <text class="title">{{item.name}}</text>
-  <text class="iconfont icon-you icon"></text>
+	<text class="title">{{item.name}}</text>
+	<text class="iconfont icon-you icon"></text>
 </view>
+
 <view class="logoutbtn" wx:if="{{islogin}}" bindtap="logout">
-  账号退出
+	账号退出
 </view>
 <view class="codes" wx:if="{{showCode}}">
-  <view class="codecontent">
-    <image src="{{userinfo.qrCode}}" role="img"></image>
-    <text class="iconfont icon-guanbi det" bindtap="closecode"></text>
-  </view>
+	<view class="codecontent">
+		<image src="{{userinfo.qrImg}}" role="img"></image>
+		<text class="iconfont icon-guanbi det" bindtap="closecode"></text>
+	</view>
 </view>
 <view class="codes" wx:if="{{showNotice}}">
-  <view class="noticecontent">
-    <!-- <view>获得积分</view>
+	<view class="noticecontent">
+		<!-- <view>获得积分</view>
     <view>获得积分获得积分获得积分获得积分获得积分获得积分获得积分获得积分获得积分</view>
     <view>获得积分</view>
     <view>获得积分获得积分获得积分获得积分获得积分获得积分获得积分获得积分获得积分获得积分获得积分获得积分获得积</view> -->
-    <rich-text nodes="{{scoreintro.content}}"></rich-text>
-    <view class="comfirebtn" bindtap="closenotice">确定</view>
-  </view>
+		<rich-text nodes="{{scoreintro.content}}"></rich-text>
+		<view class="comfirebtn" bindtap="closenotice">确定</view>
+	</view>
 </view>
 
 <!-- 弹窗 -->
 <view class="codes" wx:if="{{showForm}}">
-  <view class="formcontent">
-    <view class="formtitle">
-    <text>党员绑定</text>
-    <i class="iconfont icon-guanbi" bindtap="handelForm" data-index="{{ 0 }}"></i>
-    </view>
-    <view class="formitem">
-      <text>姓名</text>
-      <input type="text" bindinput="name" value="{{name}}" />
-    </view>
-    <view class="formitem bot">
-      <text>证件号码</text>
-      <input type="text" bindinput="idcard" value="{{idcard}}" />
-    </view>
-    <view class="fontcolor" wx:if="{{isparty}}">当前绑定的党员信息为{{orgname}}党员{{mebname}}</view>
-    <view class="fontcolor" wx:else>请输入正确的党员信息绑定</view>
-    <view class="form" catchtap="joinparty">{{isparty?'解绑':'绑定'}}</view>
-  </view>
+	<view class="formcontent">
+		<view class="formtitle">
+			<text>党员绑定</text>
+			<i class="iconfont icon-guanbi" bindtap="handelForm" data-index="{{ 0 }}"></i>
+		</view>
+		<view class="formitem">
+			<text>姓名</text>
+			<input type="text" bindinput="name" value="{{name}}" />
+		</view>
+		<view class="formitem bot">
+			<text>证件号码</text>
+			<input type="text" bindinput="idcard" value="{{idcard}}" />
+		</view>
+		<view class="fontcolor" wx:if="{{isparty}}">当前绑定的党员信息为{{orgname}}党员{{mebname}}</view>
+		<view class="fontcolor" wx:else>请输入正确的党员信息绑定</view>
+		<view class="form" catchtap="joinparty">{{isparty?'解绑':'绑定'}}</view>
+	</view>
 </view>
 
 <!-- 能人信息弹窗 -->
 <view class="codes" wx:if="{{showAbleperson}}">
-  <view class="formcontent">
-    <text class="iconfont icon-guanbi det" bindtap="closecode"></text>
-    <rich-text nodes="{{ablepersonMsg.content}}" class="text" ></rich-text>
-  </view>
+	<view class="formcontent">
+		<text class="iconfont icon-guanbi det" bindtap="closecode"></text>
+		<rich-text nodes="{{ablepersonMsg.content}}" class="text"></rich-text>
+	</view>
 </view>
 
 <!-- 商家信息弹窗 -->
 <view class="codes" wx:if="{{showMarket}}">
-  <view class="formcontent">
-    <text class="iconfont icon-guanbi det" bindtap="closecode"></text>
-    <rich-text nodes="{{marketMsg.content}}" class="text" ></rich-text>
-  </view>
+	<view class="formcontent">
+		<text class="iconfont icon-guanbi det" bindtap="closecode"></text>
+		<rich-text nodes="{{marketMsg.content}}" class="text"></rich-text>
+	</view>
 </view>

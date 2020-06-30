@@ -1,0 +1,57 @@
+/* pages/ableCheck/ableList/ableList.wxss */
+.all {
+  border-top: 4px solid #f5f5f5;
+  background: #BFBFBF
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  justify-content: space-between;
+  padding: 32rpx;
+  height: 184rpx;
+  background: #fff;
+}
+
+.pic {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+
+.lines {
+  width: 100%;
+  height: 2rpx;
+  background: #f5f5f5;
+  box-sizing: border-box;
+}
+.details>view:first-child{
+  display: flex;
+  align-items: center;
+}
+.fontstyle {
+  color: #444444;
+  font-family: Source Han Sans CN;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  margin-left: 24rpx;
+
+}
+.fontstyle>view:last-child{
+  font-size: 14px;
+  color: #8A8A8A;
+  padding-top: 24rpx;
+}
+.btnok{
+  color: #FFFFFF;
+  font-size: 14px;
+  text-align: center;
+  line-height: 60rpx;
+  width: 150rpx;
+  height: 60rpx;
+  border: 1px solid #BFBFBF;
+  background: #D33333;
+  border-radius: 2px;
+}

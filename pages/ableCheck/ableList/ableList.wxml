@@ -1,0 +1,16 @@
+<!--pages/ableCheck/ableList/ableList.wxml-->
+<view class="all">
+	<view  wx:for="{{ableList}}" wx:key="index">
+		<view class="details">
+			<view>
+				<image class="pic" src="{{item.picId}}"></image>
+				<view class="fontstyle">
+					<view>{{item.name}}</view>
+					<view>{{item.mobile}}</view>
+				</view>
+			</view>
+			<view bindtap="task" data-needId="{{item.ableId}}" class="btnok">分配</view>
+		</view>
+		<view class="lines"></view>
+	</view>
+</view>

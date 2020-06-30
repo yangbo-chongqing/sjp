@@ -1,0 +1,63 @@
+<!--pages/scorecard/scorecard.wxml-->
+<wxs module="m1">
+var abs = function(array) {
+  return Math.abs(array)
+}
+module.exports.abs = abs;
+</wxs><!--过滤器 -->
+<view class="headall">
+	<image class="headpic" src="/assets/img/starhead.png"></image>
+	<view wx:if="{{select1==1}}" class="onScore"><text>{{meScore}}</text>
+		<!--中央当前积分-->
+	</view>
+	<view wx:if="{{select1==2}}" class="onScore"><text>{{consumeScore}}</text>
+	</view>
+	<view wx:if="{{select1==1}}" class="headinc">当前积分</view>
+	<view wx:if="{{select1==2}}" class="headinc">消费积分</view>
+
+	<view class="headfont">
+		<!--顶部积分类型选择-->
+		<view bindtap='selectBtn1' data-num="1">活动积分<view class="{{select1==1?'line':''}}"></view>
+		</view>|<view bindtap='selectBtn1' data-num="2">消费积分 <view class="{{select1==2?'line':''}}"></view>
+		</view>
+	</view>
+	<view bindtap="showNotice" class="iconf">
+		<image class="iconfont" src="/assets/img/help.png"></image>
+	</view>
+	<view>
+		<!--中部积分处理选择-->
+		<!-- <text class="{{select==1?'Oactive':''}}" bindtap='selectBtn' data-num="1" >志愿者积分</text>
+		<text class="righttext {{select==2?'Oactive':''}}" bindtap='selectBtn' data-num="2">兑换积分</text> -->
+	</view>
+</view>
+<view class="center">
+	<view class="centertop">
+		<view>
+			<!--底部列表类型展示-->
+			<image class="iconfont" src="https://webservers.sjpdqfwzx.com/file/icon/Component 13.png"></image>
+			<text bindtap='selectBtn2' data-num="1" class="{{select2==1?'selectfont':''}}">全部</text>
+			<text bindtap='selectBtn2' data-num="2" class="{{select2==2?'selectfont':''}}">获取</text>
+			<text bindtap='selectBtn2' data-num="3" class="{{select2==3?'selectfont':''}}">消费</text>
+		</view>
+		<view>
+			<text>仅展示近3个月详情</text>
+		</view>
+	</view>
+	<view class="foot" wx:for="{{scoreList}}">
+		<!--列表内容-->
+		<view class="footall">
+			<view class="foottop">
+				<text>{{item.title}}</text> <text class="{{item.integral<0?'greenfont':''}}">{{item.integral}}</text>
+			</view>
+			<view class="footft">
+				<text>{{item.createDate}}</text><text>{{m1.abs(item.integral)}}</text>
+			</view>
+		</view>
+	</view>
+</view>
+<view class="codes" wx:if="{{showNotice}}">
+	<view class="noticecontent">
+		<rich-text nodes="{{scoreintro.content}}"></rich-text>
+		<view class="comfirebtn" bindtap="closenotice">确定</view>
+	</view>
+</view>

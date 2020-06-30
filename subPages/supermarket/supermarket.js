@@ -101,6 +101,7 @@ Page({
   },
   //点击进入每个店铺
   goshop(e){
+    console.log(e)
     wx.navigateTo({
       url: e.currentTarget.dataset.url,
     })

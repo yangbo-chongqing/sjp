@@ -3,14 +3,16 @@
 page {
   background: #f5f5f5;
 }
-
+.top{
+  background: linear-gradient(180deg, #F94664 0%, #FD9E87 100%);
+}
 .userPic {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   padding: 10rpx 20rpx;
   box-sizing: border-box;
-  background: #fff;
+  height: 180rpx;
 }
 
 .userPic>image {
@@ -24,6 +26,7 @@ page {
 .userinfo {
   flex: 1;
   justify-content: center;
+  color: #fff;
 }
 
 .userinfo>text {
@@ -32,33 +35,44 @@ page {
 
 .code {
   font-size: 72rpx;
-  color: #999;
+  color: #FFFFFF;
 }
 
 .right {
   font-size: 40rpx;
-  color: #999;
+  color: #FFFFFF;
   margin-left: 20rpx;
 }
 
 .all {
   background: #fff;
-  height: 204rpx;
+  height: 180rpx;
   padding: 20rpx 0;
   margin-bottom: 20rpx;
+  border-radius: 12px 12px 0px 0px;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
 }
-
+.all>view{
+  margin-top:15rpx;
+}
+.picorfont{
+  display:block
+}
+.all>view>image{
+  width: 100rpx;
+  height:100rpx;
+}
 .scoreBox {
-  width: 690rpx;
+  width: 100%;
   height: 164rpx;
   margin: 0 auto;
-  background: linear-gradient(89.53deg, #f45849 -0.52%, #f68140 98.72%);
-  box-shadow: inset 0px -6px 4px rgba(0, 0, 0, 0.15);
-  border-radius: 12px 12px 0px 0px;
+  background: #fff;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  color: #fff;
+  color: #444;
   padding: 0 30rpx;
   box-sizing: border-box;
   font-size: 28rpx;
@@ -115,7 +129,7 @@ page {
   width: 516rpx;
   height: 88rpx;
   margin: 80rpx auto 40rpx;
-  background: #d33333;
+  background: #d33333!important;
   color: #fff;
   font-size: 32rpx;
   line-height: 88rpx;
