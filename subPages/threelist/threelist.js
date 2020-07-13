@@ -25,8 +25,8 @@ Page({
   getneedOut(key) {
 
     let data = {
-      pageNum:key,
-      pageSize:5
+      // pageNum:key,
+      // pageSize:5
     }
     get({
       link: '/need/info/list',

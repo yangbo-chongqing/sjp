@@ -201,7 +201,9 @@ Page({
     var t = this
     let data = {
       pageNum: 1,
-      newsType: 22
+      newsType: 22,
+      getType:1,
+      sort:'start_time'
     }
     get({
       link: '/information/list',

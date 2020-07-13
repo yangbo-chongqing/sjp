@@ -96,7 +96,7 @@
 }
 .member-bottom-left{
   display: inline-block;
-  width: 51%;
+  width: 49%;
   box-sizing:border-box;
   position: relative;
 }
@@ -124,17 +124,17 @@
   width: 130px;
   height: 22px;
   text-align: start;
-  /* margin: auto; */
-  padding-top:25rpx;
+  margin: auto;
+  padding-top:30rpx;
+  padding-bottom:20rpx;
   padding-left:4rpx
 }
 .member-bottom-left>view:nth-of-type(2){
-  width: 140px;
+  width: 130px;
   height: 22px;
   text-align: start;
-  padding-top:25rpx;
+  margin: auto;
   padding-bottom:15rpx;
-  padding-left:4rpx
 }
 .member-bottom-left>view:last-child{
   padding: 0 0 27px;
@@ -147,7 +147,7 @@
   display: inline-block;
 }
 .member-bottom-right{
-  width: 47%;
+  width: 49%;
   display: inline-block;
 }
 .member-bottom-right text{

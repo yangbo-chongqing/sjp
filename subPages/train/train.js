@@ -26,9 +26,7 @@ Page({
   getList() {
     const that = this;
     let data = {
-      newsType: 12,
-      pageNum: 1,
-      pageSize: 3,
+      newsType: 12
     }
     get({
       link: '/information/list',

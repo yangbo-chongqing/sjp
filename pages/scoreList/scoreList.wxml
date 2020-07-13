@@ -10,8 +10,9 @@
 	</view>
 	<view class="me">
 		<image src="{{mepic}}"></image>
-		<text>{{mename}}</text>
-		<text> {{mescore}}分</text>
+		<view ><view>{{mename}}</view><view>{{zhiwu}}</view></view>
+		<view>{{inyear}}年</view>
+		<view> {{mescore}}分</view>
 	</view>
 </view>
 <view class="ranklist">
@@ -20,7 +21,13 @@
 		<image class="rankpic margin" src="{{item.mebImg}}" role="img"></image>
 		<view>
 			<text style="margin-left:20rpx">{{item.mebName}}</text>
-			<!-- <text>职位</text> -->
+			<text style="margin-left:20rpx">{{item.mebPosition}}</text>
+		</view>
+		<view wx:if="{{item.partyAge||item.partyAge==0}}" class="yearfont">
+			{{item.partyAge}}年
+		</view>
+		<view wx:else class="yearfont">
+			无
 		</view>
 		<text class="lastscore">{{item.mebIntegral}}</text>
 	</view>

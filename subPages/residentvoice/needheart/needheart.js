@@ -24,7 +24,8 @@ Page({
     //   longitude: "0"
     // }
     // ],
-    // idx: '',
+    idx: '',
+    list:[],
     src: [], //本地预览的照片路径
     src1: [], //服务器返的照片路径
     add: true, //控制三张图片后不显示上传按钮
@@ -36,14 +37,25 @@ Page({
       idx: e.detail.value,
 
     })
-    console.log(this.data.deptId)
-
-
+  },
+  go(){
+    get({
+      link:"/baseDict/get",
+      data:{
+        dictType:'heart_voice_type'
+      }
+    }).then(res=>{
+      console.log(res)
+      this.setData({
+        list:res.data
+      })
+    })
   },
   formSubmit(e){
     console.log(e)
     let title = e.detail.value.title
     let details = e.detail.value.details
+    let staus=this.data.list[this.data.idx].dictItemCode
     if(!title){
       wx.showToast({
         title: '请输入标题',
@@ -70,6 +82,7 @@ Page({
       data:{
         title: title,
         details: details,
+        heartVoiceType:staus,
         pic:this.data.src1.join(",")
       }
     }).then(res=>{
@@ -185,6 +198,7 @@ Page({
   onLoad: function (options) {
     // console.log(options)
     // this.getloction()
+    this.go()
 
   },
 

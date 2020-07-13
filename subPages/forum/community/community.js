@@ -39,8 +39,8 @@ Page({
   //小组列表
   groupList(){
       let data = {
-        pageNum: this.data.pageNum + 1,
-        pageSize: this.data.pageSize
+        // pageNum: this.data.pageNum + 1,
+        // pageSize: this.data.pageSize
       }
     if (this.data.isBottom){
       wx.showToast({

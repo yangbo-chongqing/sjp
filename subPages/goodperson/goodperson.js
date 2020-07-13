@@ -33,7 +33,7 @@ Page({
     selectTime: `${date.getFullYear()}年${date.getMonth()+1}月`,
     isShow: false,//时间选择模态框开关 false 隐藏 true显示
     pageNum: 0,//每页数量
-    pageSize: 10, //每页大小
+    pageSize: 20, //每页大小
   },
 
   //显示时间选择模态框

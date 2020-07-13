@@ -11,14 +11,14 @@
       <view class="iconfont icon-you"></view>
 
     </view>
-    <!-- <view class="needone bordertop">
+    <view class="needone bordertop">
       <view>
         <text>*</text>
-        <text>提交区域：</text>
+        <text>提交类型：</text>
       </view>
-      <picker bindchange="xlChange" value="{{idx}}" range="{{list}}" range-key="areaName">
+      <picker bindchange="xlChange" data-value="{{list[idx].dictItemCode}}" value="{{idx}}" range="{{list}}" range-key="dictItemName">
         <view class="picker" wx:if="{{idx}}">
-          {{list[idx].areaName}}
+          {{list[idx].dictItemName}}
         </view>
         <view class="nothing" wx:else>
           请选择
@@ -26,7 +26,7 @@
       </picker>
       <view class="iconfont icon-you"></view>
 
-    </view> -->
+    </view>
     <!-- <view class="needone">
       <view>
         <text>*</text>

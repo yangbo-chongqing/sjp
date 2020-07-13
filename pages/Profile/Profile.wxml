@@ -24,7 +24,7 @@
 	<view class="all">
 		<view bindtap="pay">
 			<image src="/assets/img/twoCode.png"></image>
-			<text class="picorfont">收款码</text>
+			<text class="picorfont">收付款码</text>
 		</view>
 		<view bindtap="score">
 			<image src="/assets/img/indiv.png"></image>

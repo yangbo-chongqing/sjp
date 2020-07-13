@@ -5,7 +5,7 @@
 		<!--头部分-->
 		<view>
 			<image class="iconfont" src="https://webservers.sjpdqfwzx.com/file/icon/Component 13.png"></image>
-			<text>活动审批处理</text>
+			<text>能人需求审批处理</text>
 		</view>
 		<view>
 			<text bindtap='selectBtn2' data-num="3" class="{{select2==3?'selectfont':''}}">全部</text>

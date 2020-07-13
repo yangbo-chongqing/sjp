@@ -2,7 +2,7 @@
 <view class="model" wx:if="{{showSign}}">
   <view class="modelContent">
    
-      <view class="takepicture">人脸确认</view>
+      <view class="takepicture">扫码拍照</view>
 
       <view class="img">
         <view wx:if="{{src}}">

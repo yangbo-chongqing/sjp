@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    pageSize:5,
+    pageSize:10,
     pageNum:1,
     voicelist:[]
   },

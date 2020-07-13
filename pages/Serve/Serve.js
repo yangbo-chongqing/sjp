@@ -12,6 +12,7 @@ Page({
     current: 0,
     showFiltrate: false, //特岗能人筛选切换
     manlist: [],
+    meIndex:'',
     servelist: [],
     showLocation: false, //有限保障库筛选切换
     id: '',
@@ -44,7 +45,9 @@ Page({
     num:1,
     tall:1,
     numm:1,
-    tell:1
+    tell:1,
+    leixing:'保障类型',
+    shequ:'所属社区',
   },
   changeSwiper(e) {
     console.log(e, 111)
@@ -80,9 +83,15 @@ Page({
       showFiltrate: false,
       showLocation: false,
       id: '',
-   
-
+      leixing:'保障类型',
+      shequ:"所属社区",
+      priority: { //优先保障筛选参数
+        protectType: '',
+        deptId: ''
+      }
     })
+    this.getprioritylist(this.data.numm,this.data.priority)
+
   },
   //确认筛选
   confirm() {
@@ -113,9 +122,12 @@ Page({
     this.setData({
       arr: newarr,
       num:1,
-      manlist:[]
+      manlist:[],
+      id:'',
+      showFiltrate: false,
+      showLocation: false,
     })
-    this.cancle()
+    // this.cancle()
     this.getlist(this.data.num,this.data.argument)
     console.log(newarr)
 
@@ -368,10 +380,13 @@ Page({
     console.log(e)
     let argu = e.currentTarget.dataset
     this.setData({
+      shequ:argu.shequ||this.data.shequ,
+      leixing:argu.name||this.data.leixing,
       type: argu.type || this.data.type,
       local: argu.local || this.data.local,
     })
     console.log(this.data.type,this.data.local)
+
   },
   //优先保障库确认筛选
   affirm() {
@@ -379,9 +394,12 @@ Page({
       'priority.protectType': this.data.type,
       'priority.deptId':this.data.local,
       prioritylist:[],
-      numm:1
+      numm:1,
+      id:'',
+      showFiltrate: false,
+      showLocation: false,
     })
-    this.cancle()
+    // this.cancle()
     this.getprioritylist(this.data.numm,this.data.priority)
 
   },

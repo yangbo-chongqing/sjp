@@ -15,13 +15,21 @@ page {
 }
 
 .voicetitle {
+ 
+  display: flex;
+  justify-content:space-between;
+}
+.voicetitle>text:first-child{
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   font-size: 32rpx;
   font-weight: bold;
 }
-
+.voicetitle>text:last-child{
+  color:#d33333;
+  font-size:28rpx ;
+}
 .intro {
   display: -webkit-box;
   -webkit-box-orient: vertical;

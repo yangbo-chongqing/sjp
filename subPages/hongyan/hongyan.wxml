@@ -41,9 +41,9 @@
 						<text>{{num}}分</text>
 					</view>
 				</view>
-				<view class="exchange">
+				<!-- <view class="exchange">
 				 <button bindtap="goExchange" style=" width: 96rpx;height: 66rpx;">兑换</button>
-				</view>
+				</view> -->
 			</view>
 			<view class="len-line"></view>
 			<view class="member-bottom-right">
@@ -64,13 +64,13 @@
 
 	<!-- 第三部分 -->
 	<view class="scale" wx:if="{{partyMember!=null}}">
-		<view>
+		<view wx:for="{{listTit}}" wx:key="id" wx:for-index="id">
 			<view>
 				<view class="scale-top">
 					<view>
 						<!-- <text class="iconfont icon-xingxing"></text> -->
 						<image class="iconfont" src="https://webservers.sjpdqfwzx.com/file/icon/Component 13.png"></image>
-						<text>党内学习生活</text>
+						<text>{{item.dictItemName}}</text>
 					</view>
 					<view class="scale-line"></view>
 					<text>党员评分标准</text>
@@ -78,7 +78,7 @@
 				<view class="line"></view>
 			</view>
 			<view>
-				<view class="scale-main" wx:for="{{list}}" wx:key="index">
+				<view class="scale-main" wx:for="{{listDetails[id].list}}" wx:key="index">
 					<view>
 						<view class="scale-main-text">{{item.ruleName}}</view>
 						<view class="scale-main-stage">
@@ -91,33 +91,7 @@
 				</view>
 			</view>
 		</view>
-		<view>
-			<view>
-				<view class="scale-top">
-					<view>
-						<!-- <text class="iconfont icon-xingxing"></text> -->
-						<image class="iconfont" src="https://webservers.sjpdqfwzx.com/file/icon/Component 13.png"></image>
-						<text>先锋作用发挥</text>
-					</view>
-					<view class="scale-line"></view>
-					<text>党员评分标准</text>
-				</view>
-				<view class="line"></view>
-			</view>
-			<view wx:for="{{listXian}}" wx:key="index">
-				<view class="scale-main">
-					<view>
-						<view class="scale-main-text">{{item.ruleName}}</view>
-						<view class="scale-main-stage">
-							<!-- <text class="iconfont icon-yingbi"></text> -->
-							<image class="iconfont" src="https://webservers.sjpdqfwzx.com/file/icon/Rectangle 205.png"></image>
-							<text>{{item.integral}}</text> /次
-						</view>
-					</view>
-					<view class="line"></view>
-				</view>
-			</view>
-		</view>
+		
 	</view>
 
 	<!-- 不是党员展示数据 -->

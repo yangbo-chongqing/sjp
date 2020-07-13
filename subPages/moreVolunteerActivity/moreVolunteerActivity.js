@@ -9,7 +9,7 @@ Page({
    */
   data: {
     current: 0,
-    pageSize:5,
+    pageSize:10,
     pageNum:1,
     viewlist:[],//志愿风采列表
   },

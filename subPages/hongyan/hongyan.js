@@ -21,7 +21,9 @@ Page({
     num:"",
     list2:[],   //不是党员
     kpis:[],
-    baifen:[100,22,33,44,55,66]
+    baifen:[100,22,33,44,55,66],
+    listTit:[],
+    listDetails:[]
   },
 
   goDetails(e) {
@@ -179,18 +181,48 @@ Page({
       url: "/subPages/demeanorDetails/demeanorDetails?title=" + title + "&id=" + id,
     })
   },
+  getType(){//获取积分的大类型
+    let t=this
+    get({
+      link:'/baseDict/get',
+      data:{
+        dictType:'member_integral_type'
+      }
+    }).then(res=>{
+      if(res.code==200){
+        t.setData({
+          listTit:res.data
+        })
+      }
+      for(var i=0;i<res.data.length;i++){
+        get({
+          link:'/partyMemberIntegralRule/list',
+          data:{
+            memberIntegralType:t.data.listTit[i].dictItemCode
+          }
+        }).then(res=>{
+          if(res.code==200){
+          t.setData({
+            listDetails:t.data.listDetails.concat(res.data)
+          })
+          }
+        })
+      }
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     console.log(app.globalData)
-    this.getList()
+    // this.getList()
     this.getNum()
     this.getGrade()
     this.getListXian()
     this.getList2()
     this.getKpi()
+    this.getType()
   },
 
   /**

@@ -3,7 +3,7 @@
 
 <view class="change">
 	<view class='{{current==0?"active":""}} doing' data-current="0" catchtap='changeSwiper'>资源清单</view>
-	<view class='{{current==1?"active":""}} doing' data-current="1" catchtap='changeSwiper'>需求提交</view>
+	<view class='{{current==1?"active":""}} doing' data-current="1" catchtap='changeSwiper'>需求清单</view>
 	<view class='{{current==2?"active":""}} doing' data-current="2" catchtap='changeSwiper'>项目清单</view>
 </view>
 <view class="listall">

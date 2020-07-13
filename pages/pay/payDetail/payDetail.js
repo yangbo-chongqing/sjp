@@ -88,7 +88,7 @@ Page({
         wx.showModal({
           showCancel: false,
           title: '交易失败！',
-          content: "当前账户积分不足，请核对积分后再试",
+          content: msg.msg,
           confirmText: '退出',
           confirmColor: '#DC143C'
         })

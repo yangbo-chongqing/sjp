@@ -13,6 +13,8 @@ Page({
     mename:'',
     mepic:'',
     list:[],
+    zhiwu:'',//职务
+    inyear:''//入党年限
   },
   //获取筛选列表
   bindPickerChange(e) {
@@ -66,7 +68,9 @@ Page({
     this.setData({
       mescore:userInfo.mebIntegral,
       mename:userInfo.mebName,
-      mepic:userInfo.mebImg
+      mepic:userInfo.mebImg,
+      zhiwu:userInfo.mebPosition,
+      inyear:userInfo.partyAge
     })
     this.getList(36)
   },

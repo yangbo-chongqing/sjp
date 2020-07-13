@@ -1,29 +1,37 @@
 <!--pages/scorecard/scorecard.wxml-->
 <wxs module="m1">
-var abs = function(array) {
-  return Math.abs(array)
-}
-module.exports.abs = abs;
-</wxs><!--过滤器 -->
+	var abs = function(array) {
+		return Math.abs(array)
+	}
+	module.exports.abs = abs;
+</wxs>
+<!--过滤器 -->
 <view class="headall">
 	<image class="headpic" src="/assets/img/starhead.png"></image>
 	<view wx:if="{{select1==1}}" class="onScore"><text>{{meScore}}</text>
 		<!--中央当前积分-->
 	</view>
-	<view wx:if="{{select1==2}}" class="onScore"><text>{{consumeScore}}</text>
+	<view wx:if="{{select1==2}}" class="onScore"><text>{{mebIntegral}}</text>
 	</view>
-	<view wx:if="{{select1==1}}" class="headinc">当前积分</view>
-	<view wx:if="{{select1==2}}" class="headinc">消费积分</view>
-
+	<view wx:if="{{select1==1}}" class="headout">
+	可提现积分：{{exchangeMoneyIntegral||'0'}}<view bindtap="showNotice" style="display:inline-block;margin-left:16rpx;">
+		<image class="iconfont" src="/assets/img/help.png"></image>
+	</view>
+	</view>
+	<view wx:if="{{select1==2}}" class="headinc">党员积分</view>
+	<view wx:if="{{select1==2}}" class="changefont">超过70积分可兑换成个人积分购买商品</view>
+	<view wx:if="{{select1==2}}" class="exchange">
+		<button bindtap="goExchange" style=" width: 96rpx;height: 60rpx;">点击兑换</button>
+	</view>
 	<view class="headfont">
 		<!--顶部积分类型选择-->
 		<view bindtap='selectBtn1' data-num="1">活动积分<view class="{{select1==1?'line':''}}"></view>
-		</view>|<view bindtap='selectBtn1' data-num="2">消费积分 <view class="{{select1==2?'line':''}}"></view>
+		</view>|<view wx:if="{{inter}}" bindtap='selectBtn1' data-num="2">党员积分 <view class="{{select1==2?'line':''}}"></view>
 		</view>
 	</view>
-	<view bindtap="showNotice" class="iconf">
+	<!-- <view bindtap="showNotice" class="iconf">
 		<image class="iconfont" src="/assets/img/help.png"></image>
-	</view>
+	</view> -->
 	<view>
 		<!--中部积分处理选择-->
 		<!-- <text class="{{select==1?'Oactive':''}}" bindtap='selectBtn' data-num="1" >志愿者积分</text>
@@ -43,21 +51,30 @@ module.exports.abs = abs;
 			<text>仅展示近3个月详情</text>
 		</view>
 	</view>
-	<view class="foot" wx:for="{{scoreList}}">
+	<view class="foot" wx:for="{{scoreList}}" wx:key="index">
 		<!--列表内容-->
 		<view class="footall">
 			<view class="foottop">
-				<text>{{item.title}}</text> <text class="{{item.integral<0?'greenfont':''}}">{{item.integral}}</text>
+				<text>{{item.title||item.integralInfo}}<text wx:if="{{item.integralType==1}}" style="font-size:14px">(不可提现)</text><text wx:if="{{item.integralType==2}}" style="font-size:14px">(可提现)</text></text> <text class="{{item.integral<0?'greenfont':'green'}}">{{item.integral}}</text>
 			</view>
 			<view class="footft">
-				<text>{{item.createDate}}</text><text>{{m1.abs(item.integral)}}</text>
+				<text>{{item.createDate}}</text><!--<text>{{m1.abs(item.integral)}}</text>-->
 			</view>
 		</view>
 	</view>
 </view>
 <view class="codes" wx:if="{{showNotice}}">
 	<view class="noticecontent">
+		<view class="codeTit">
+			<text >积分使用规则</text>
+			<image bindtap="closenotice" src="/assets/img/close.png"></image>
+		</view>
 		<rich-text nodes="{{scoreintro.content}}"></rich-text>
-		<view class="comfirebtn" bindtap="closenotice">确定</view>
+		<view class="comfirebtn" wx:if="{{dealStatus==0}}">
+			<checkbox-group bindchange="red">
+				<checkbox value="red">我已阅读</checkbox>
+			</checkbox-group>
+		</view>
+		<view class=" bottomright" bindtap="affirm" wx:if="{{dealStatus==0}}">确定</view>
 	</view>
 </view>

@@ -10,7 +10,7 @@ Page({
    */
   data: {
     x: 0,
-    id: '' || 36,
+    id: 36 ||'' ,
     navlist: []
   },
   switchTap(e) { //更换地区
@@ -71,7 +71,7 @@ Page({
           navlist: res.data,
           id: res.data[0].deptId
         })
-        this.getlist(id);
+        this.getlist(this.data.id);
       }
     })
   },
@@ -113,7 +113,7 @@ Page({
     this.getlist(this.data.id)
   },
 
-  /**
+  /** 
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {

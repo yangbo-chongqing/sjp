@@ -2,7 +2,9 @@
 <wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
 
 <view bindtap="godetail" wx:for="{{voicelist}}" wx:key="index" data-id="{{item.id}}" data-url="/subPages/voicedetail/voicedetail" class="voiceitem"> 
-  <view class="voicetitle">{{item.title}}</view>
+  <view class="voicetitle"><text>{{item.title}}</text>
+  <text>{{item.heartVoiceTypeDesc}}</text>
+  </view>
   <view class="intro">{{filter.htmlstr(item.details)}}</view>
   <view class="voicetime">
     <text>{{filter.timesub2(item.createDate)}}</text>

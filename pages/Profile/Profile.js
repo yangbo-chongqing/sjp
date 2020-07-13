@@ -12,7 +12,7 @@ Page({
    */
   data: {
     navlist: [{
-      name: "积分排名",
+      name: "活动积分排名",
       id: 0,
       url: "/subPages/scoreRank/scoreRank"
     },
