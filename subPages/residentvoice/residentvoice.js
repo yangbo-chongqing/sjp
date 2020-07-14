@@ -1,33 +1,73 @@
 // subPages/residentvoice/residentvoice.js
-import {get} from "../../assets/js/request"
+import { get } from "../../assets/js/request"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    pageSize:10,
-    pageNum:1,
-    voicelist:[]
+    pageSize: 10,
+    current: 0,
+    pageNum: 1,
+    title:'',
+    voicelist: [],
+    Newslist:[]//立法调研或立法宣传
   },
-  godetail(e){
+  godetail(e) {
     wx.navigateTo({
-      url: e.currentTarget.dataset.url+"?id="+e.currentTarget.dataset.id,
+      url: e.currentTarget.dataset.url + "?id=" + e.currentTarget.dataset.id,
     })
   },
-  getvoicelist(){
-    let data={
+  golist(e){
+    wx.navigateTo({
+      url: "/pages/newNews/News?id="+e.currentTarget.dataset.id+"&title="+this.data.title,
+    })
+  },
+  getNews(type){
+    get({
+      link:'/information/list',
+      data:{newsType:type}
+    }).then(res=>{
+      if(res.code==200){
+        this.setData({
+          Newslist:res.data.list
+        })
+      }
+    })
+  },
+  changeSwiper(e) {
+    if (this.data.current == e.currentTarget.dataset.current) {
+      return
+    } else {
+      this.setData({
+        current: e.currentTarget.dataset.current,
+      });
+    }
+    if(this.data.current==1){
+      this.setData({
+        title:'立法调研'
+      })
+      this.getNews(26)
+    }else if(this.data.current==2){
+      this.setData({
+        title:'立法宣传'
+      })
+      this.getNews(27)
+    }
+  },
+  getvoicelist() {
+    let data = {
       pageSize: this.data.pageSize,
       pageNum: this.data.pageNum
     }
     get({
-      link:'/heartvoice/list',
-      data:data
-    }).then(res=>{
+      link: '/heartvoice/list',
+      data: data
+    }).then(res => {
       console.log(res)
-      if(res.code==200){
+      if (res.code == 200) {
         this.setData({
-          voicelist:res.data.list,
+          voicelist: res.data.list,
         })
       }
       console.log(res.data.list)

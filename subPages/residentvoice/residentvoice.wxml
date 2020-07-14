@@ -1,20 +1,29 @@
 <!--subPages/residentvoice/residentvoice.wxml-->
 <wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
-
-<view bindtap="godetail" wx:for="{{voicelist}}" wx:key="index" data-id="{{item.id}}" data-url="/subPages/voicedetail/voicedetail" class="voiceitem"> 
-  <view class="voicetitle"><text>{{item.title}}</text>
-  <text>{{item.heartVoiceTypeDesc}}</text>
-  </view>
-  <view class="intro">{{filter.htmlstr(item.details)}}</view>
-  <view class="voicetime">
-    <text>{{filter.timesub2(item.createDate)}}</text>
-    <text wx:if="{{item.status==0}}" class="voicestatus color1 ">待认领</text>
-    <text wx:if="{{item.status==1}}" class="voicestatus color2 ">已认领</text>
-    <text wx:if="{{item.status==2}}" class="voicestatus color3 ">已完成</text>
-
-  </view>
+<view class="change">
+	<view class='{{current==0?"active":""}} doing' data-current="0" catchtap='changeSwiper'>居民心声</view>
+	<view class='{{current==1?"active":""}} doing' data-current="1" catchtap='changeSwiper'>立法调研</view>
+	<view class='{{current==2?"active":""}} doing' data-current="2" catchtap='changeSwiper'>立法宣传</view>
 </view>
-
-<navigator url="/subPages/residentvoice/needheart/needheart"  class="addvoice">
-  <text class="iconfont icon-jiahao"></text>
+<view wx:if="{{current==0}}" style="margin-top:100rpx">
+	<view bindtap="godetail" wx:for="{{voicelist}}" wx:key="index" data-id="{{item.id}}" data-url="/subPages/voicedetail/voicedetail" class="voiceitem">
+		<view class="voicetitle"><text>{{item.title}}</text>
+			<text>{{item.heartVoiceTypeDesc}}</text>
+		</view>
+		<view class="intro">{{filter.htmlstr(item.details)}}</view>
+		<view class="voicetime">
+			<text>{{filter.timesub2(item.createDate)}}</text>
+			<text wx:if="{{item.status==0}}" class="voicestatus color1 ">待认领</text>
+			<text wx:if="{{item.status==1}}" class="voicestatus color2 ">已认领</text>
+			<text wx:if="{{item.status==2}}" class="voicestatus color3 ">已完成</text>
+		</view>
+	</view>
+</view>
+<view wx:else style="margin-top:100rpx">
+	<view bindtap="golist" wx:for="{{Newslist}}" wx:key="index" data-id="{{item.newsId}}"  class="newslist">
+		<image class="ifont" src="https://webservers.sjpdqfwzx.com/file/icon/Component 13.png"></image><text>{{item.title}}</text>
+	</view>
+</view>
+<navigator wx:if="{{current==0}}" url="/subPages/residentvoice/needheart/needheart" class="addvoice">
+	<text class="iconfont icon-jiahao"></text>
 </navigator>

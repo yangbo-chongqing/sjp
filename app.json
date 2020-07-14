@@ -9,6 +9,7 @@
     "components/index/Options/Options",
     "components/public/BaseList/BaseList",
     "pages/News/News",
+    "pages/newNews/News",
     "pages/ableCheck/ableCheck",
     "pages/ableCheck/ableList/ableList",
     "pages/ableCheck/details/details",

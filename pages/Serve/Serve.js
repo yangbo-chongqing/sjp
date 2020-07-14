@@ -88,7 +88,8 @@ Page({
       priority: { //优先保障筛选参数
         protectType: '',
         deptId: ''
-      }
+      },
+      prioritylist:[]
     })
     this.getprioritylist(this.data.numm,this.data.priority)
 

@@ -13,7 +13,12 @@ page {
   flex-direction: column;
   justify-content: space-between;
 }
-
+.ifont{
+  width: 18rpx;
+  height: 18rpx;
+  margin-right: 8rpx;
+  margin-top: 12rpx;
+}
 .voicetitle {
  
   display: flex;
@@ -25,6 +30,13 @@ page {
   white-space: nowrap;
   font-size: 32rpx;
   font-weight: bold;
+}
+.newslist{
+  display: flex;
+  font-size: 32rpx;
+  background:  #fff;
+  padding: 30rpx 20rpx;
+  margin-top:10rpx
 }
 .voicetitle>text:last-child{
   color:#d33333;
@@ -38,6 +50,39 @@ page {
   font-size: 28rpx;
   color: #8a8a8a;
   height: 80rpx;
+}
+.change {
+  z-index: 999;
+  display: flex;
+  height: 88rpx;
+  align-items: center;
+  justify-content: space-around;
+  /* margin-bottom:15rpx; */
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 15rpx solid #f5f5f5;
+}
+
+.active {
+  font-weight: 600;
+  color: #d33333;
+  position: relative;
+}
+
+.active:after {
+  content: "";
+  width: 60rpx;
+  height: 8rpx;
+  border-radius: 8rpx;
+  box-shadow: 0 2rpx 4rpx 0;
+  background: #d33333;
+  position: absolute;
+  bottom: -20rpx;
+  left: 50%;
+  transform: translate(-50%);
 }
 
 .voicetime {

@@ -62,7 +62,7 @@ Page({
   getListAll(num, type = '', ) {
     get({
       link: "/housekeeperProjectNeed/list",
-      data: { pageNum: num, pageSize: 5, statusByApplet: type }
+      data: { pageNum: num, pageSize: 5, statusByApplet: type ,isBack:1}
     }).then(res => {
       if (res.code == 200) {
         this.setData({
