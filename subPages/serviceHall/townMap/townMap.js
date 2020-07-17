@@ -69,8 +69,19 @@ Page({
             longitude: obj.baiduLongitude,
             title: obj.mapName,
             iconPath: "../../../assets/img/map.png",
-            width: 50,
-            height: 50
+            width: 30,
+            // callout:{content:obj.mapName},
+            height: 30,
+            label: {
+              content: obj.mapName,
+              color: '#22ac38',
+              fontSize: 14,
+              bgColor: "#fff",
+              borderRadius: 30,
+              borderColor: "#22ac38",
+              borderWidth: 1,
+              padding: 3
+            },
           }
           return i
         })

@@ -53,6 +53,8 @@ page{
   padding: 36rpx 30rpx 40rpx 30rpx;
   display: flex;
   justify-content: left;
+  box-sizing: border-box;
+
   border-bottom: 2rpx solid #f5f5f5;
 }
 .report .lis .imagebox{

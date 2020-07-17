@@ -44,7 +44,7 @@ Page({
           });
         }
         const text = list.content.replace(/\<img/gi, '<img style="width:100%;height:100%;display:block;margin-top:30rpx;margin-bottom:30rpx;" ');
-        t.setData({
+        t.setData({ 
           detail: list,
           text: text
         })

@@ -9,14 +9,14 @@
 <view class="listall">
 	<view class="resourcelist" wx:if="{{current==0}}">
 		<view class="resourceitem" wx:for="{{resourcelist}}" wx:key="index">
+			<view class="titlefont">提供方：{{item.reAfford}}</view>
 			<view class="itemtitle">{{item.reIntro}}</view>
-			<view class="imgbox">
-				<image wx:if="{{filter.picsub(item.rePic,0)}}" src="{{filter.picsub(item.rePic,0)}}" />
-				<image wx:if="{{filter.picsub(item.rePic,1)}}" src="{{filter.picsub(item.rePic,1)}}" />
-				<image wx:if="{{filter.picsub(item.rePic,2)}}" src="{{filter.picsub(item.rePic,2)}}" />
-			</view>
 			<view class="itembot">
-				<text>提供方：{{item.reAfford}}</text>
+				<view class="imgbox">
+					<image wx:if="{{filter.picsub(item.rePic,0)}}" src="{{filter.picsub(item.rePic,0)}}" />
+					<image wx:if="{{filter.picsub(item.rePic,1)}}" src="{{filter.picsub(item.rePic,1)}}" />
+					<image wx:if="{{filter.picsub(item.rePic,2)}}" src="{{filter.picsub(item.rePic,2)}}" />
+				</view>
 				<text>{{filter.timesub1(item.createDate)}}</text>
 			</view>
 		</view>
@@ -86,8 +86,9 @@
 					<view>需求内容：
 						<text >{{item.needIntro}}</text>
 					</view>
-					<view>{{filter.timesub2(item.createDate)}}</view>
 				</view>
+				<view class="endf">{{filter.timesub2(item.createDate)}}</view>
+
 			</view>
 		</view>
 

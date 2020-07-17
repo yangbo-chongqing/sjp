@@ -55,14 +55,18 @@ Page({
             return '';
           });
         }
-        const text = msg.data.content.replace(/\<img/gi, '<img style="width:100%;height:100%;display:block;" ');
+        // console.log(msg.data.content)
+        const text = msg.data.content
+        let str = text.replace(/<img[^>]*>/gi, function (match, capture) {
+          return match.replace(/style\s*?=\s*?([‘"])[\s\S]*?\1/ig, 'style="max-width:100%;height:auto;"') // 替换style
+       })
         that.setData({
           img: msg.data.contentPic,
           title: msg.data.title,
           name: msg.data.createUserName,
           time: msg.data.createDate,
           stage: msg.data.readCount,
-          text
+          text:str
         })
       }
     }).catch(error => {
@@ -85,6 +89,7 @@ Page({
    */
   onLoad: function (options) {
     console.log(app.globalData)
+    console.log(options)
     //接收id
     this.setData({
       id: options.id,

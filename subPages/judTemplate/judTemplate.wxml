@@ -1,5 +1,6 @@
 <!--subPages/judTemplate/judTemplate.wxml-->
-<view id="judTem">
+<view  id="judTem">
+<view wx:if="{{pingt=='ios'}}" style="padding:12rpx 0">IOS需知：如需下载，请在点击下载跳转预览页面后点击右上角转发到文件传输助手 </view>
   <view wx:for="{{temList}}" wx:key="index">
     <view class="template-list">
       <image src="{{item.modelPic}}" />
@@ -10,4 +11,5 @@
       <view class="clear"></view>
     </view>
   </view>
+  
 </view>

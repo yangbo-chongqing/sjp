@@ -6,6 +6,15 @@
 	<view class='{{current==2?"active":""}} doing' data-current="2" catchtap='changeSwiper'>立法宣传</view>
 </view>
 <view wx:if="{{current==0}}" style="margin-top:100rpx">
+<view class="section">
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" range-key="name">
+    <view class="picker">
+      {{array[index].name}}
+      <text class="iconfont icon-xia3"></text>
+    </view>
+  </picker>
+</view>
+	<view class="line"></view>
 	<view bindtap="godetail" wx:for="{{voicelist}}" wx:key="index" data-id="{{item.id}}" data-url="/subPages/voicedetail/voicedetail" class="voiceitem">
 		<view class="voicetitle"><text>{{item.title}}</text>
 			<text>{{item.heartVoiceTypeDesc}}</text>
@@ -21,7 +30,7 @@
 </view>
 <view wx:else style="margin-top:100rpx">
 	<view bindtap="golist" wx:for="{{Newslist}}" wx:key="index" data-id="{{item.newsId}}"  class="newslist">
-		<image class="ifont" src="https://webservers.sjpdqfwzx.com/file/icon/Component 13.png"></image><text>{{item.title}}</text>
+		<image class="ifont" src="https://webservers.sjpdqfwzx.com/file/icon/Component 13.png"></image><text class="titlefont">{{item.title}}</text>
 	</view>
 </view>
 <navigator wx:if="{{current==0}}" url="/subPages/residentvoice/needheart/needheart" class="addvoice">

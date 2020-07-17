@@ -1,5 +1,6 @@
 // subPages/judTemplate/judTemplate.js
-import {  get,post } from "../../assets/js/request"
+import { get, post } from "../../assets/js/request"
+// import { workerData } from "worker_threads";
 //获取应用实例
 const app = getApp()
 
@@ -9,7 +10,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    temList:[],
+    temList: [],
+    fil:'',
+    pingt:''
   },
 
   // 获取列表
@@ -39,10 +42,11 @@ Page({
 
   // 模板下载
   load(e) {
-    const that=this;
+    const that = this;
     console.log(e);
     // let type = e.currentTarget.dataset.type;
     let url = e.currentTarget.dataset.url;
+    url = url.slice(0, 4) + 's' + url.slice(4)
     console.log(url)
     // switch (type) {
     //   case "pdf":
@@ -63,30 +67,52 @@ Page({
       success: function (res) {
         var filePath = res.tempFilePath;
         console.log(filePath);
+        that.setData({
+          fil:filePath
+        })
         wx.showToast({
           title: '下载成功',
           icon: '',
           mask: true,
           duration: 1500
         })
-        wx.openDocument({
-          filePath: filePath,
-          success: function (res) {
-            console.log('打开文档成功')
-          },
-          fail: function (res) {
-            console.log(res);
-          },
-          complete: function (res) {
-            console.log(res);
-          }
-        })
+        setTimeout(() => {
+          wx.openDocument({
+            filePath: filePath,
+            fileType:'doc',
+            showMenu:true,
+            success: function (res) {
+              console.log('打开文档成功')
+            },
+            fail: function (res) {
+              console.log(res);
+            },
+            complete: function (res) {
+              console.log(res);
+            }
+          })
+        }, 2000);
+
       },
       fail: function (res) {
         console.log('文件下载失败');
       },
       complete: function (res) { },
     })
+    // wx.openDocument({
+    //   filePath: this.data.fil,
+    //   fileType:'doc',
+    //   showMenu:true,
+    //   success: function (res) {
+    //     console.log('打开文档成功')
+    //   },
+    //   fail: function (res) {
+    //     console.log(res);
+    //   },
+    //   complete: function (res) {
+    //     console.log(res);
+    //   }
+    // })
   },
 
 
@@ -99,6 +125,24 @@ Page({
     })
     console.log(app.globalData)
     this.getList()
+    const that = this;
+ wx.getSystemInfo({
+    success(res) {
+      if (res.platform == "ios") {
+        //ios平台
+        that.setData({
+          pingt:"ios"
+        })
+      } else if (res.platform == "android") {
+        that.setData({
+          pingt:"android"
+        })
+        //android平台
+      } else if (res.platform == "devtools") {
+        //开发工具
+      }
+    }
+ })
   },
 
   /**

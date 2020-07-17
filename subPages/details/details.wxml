@@ -19,7 +19,7 @@
 
   <!-- 详情 -->
   <view class="details-main">
-    <view>
+    <view  >
       <rich-text nodes="{{text}}" class="text" bindtap="chooseImg" />
       <image wx:for="{{photo}}" src="item.photoUrl"></image>
     </view>

@@ -6,10 +6,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-    pageSize: 10,
+    pageSize: 20,
     current: 0,
     pageNum: 1,
+    total:'',
     title:'',
+    status:'',
+    index:0,
+    array:[//筛选列表
+      {name:'展示所有',status:''},
+      {name:'待认领',status:0},
+      {name:'已认领',status:1},
+      {name:'已完成',status:2},
+    ],
     voicelist: [],
     Newslist:[]//立法调研或立法宣传
   },
@@ -17,6 +26,17 @@ Page({
     wx.navigateTo({
       url: e.currentTarget.dataset.url + "?id=" + e.currentTarget.dataset.id,
     })
+  },
+   //获取筛选列表
+   bindPickerChange(e) {
+    console.log('picker发送选择改变，携带值为', e)
+    this.setData({
+      index: e.detail.value,
+      status:this.data.array[e.detail.value].status,
+      voicelist:[],
+      pageNum:1
+    })
+    this.getvoicelist()
   },
   golist(e){
     wx.navigateTo({
@@ -58,7 +78,8 @@ Page({
   getvoicelist() {
     let data = {
       pageSize: this.data.pageSize,
-      pageNum: this.data.pageNum
+      pageNum: this.data.pageNum,
+      status:this.data.status
     }
     get({
       link: '/heartvoice/list',
@@ -67,7 +88,8 @@ Page({
       console.log(res)
       if (res.code == 200) {
         this.setData({
-          voicelist: res.data.list,
+          voicelist:this.data.voicelist.concat(res.data.list) ,
+          total:res.data.total
         })
       }
       console.log(res.data.list)
@@ -120,7 +142,12 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    if(this.data.pageNum*20<this.data.total&&this.data.current==0){
+      this.setData({
+        pageNum:this.data.pageNum+1
+      })
+      this.getvoicelist()
+    }
   },
 
   /**

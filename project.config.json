@@ -86,6 +86,13 @@
 					"pathName": "subPages/serviceHall/Mailbox/Mailbox",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "subPages/details/details",
+					"pathName": "subPages/details/details",
+					"query": "id=3308&title=\"dasdsadasd\"",
+					"scene": null
 				}
 			]
 		}

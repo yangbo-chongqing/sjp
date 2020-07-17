@@ -2,10 +2,10 @@
 <view class="townMap">
   <map class="mapbox" 
     markers="{{markers}}" 
-    longitude="{{longitude}}"
-    latitude="{{latitude}}"
+    longitude="106.44816"
+    latitude="29.602747"
     bindmarkertap="onMarkerTap"
-    scale="10"
+    scale="16"
   >
     <view class="boximg">
       <view class="industry" bindtap="switchIcon" data-type="1">

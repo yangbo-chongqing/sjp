@@ -158,7 +158,7 @@ Page({
       title: "网格组织",
     })
     this.getList()     
-    this.getGirdlist()
+    // this.getGirdlist()
     // this.getGirdperosn()
   },
 
