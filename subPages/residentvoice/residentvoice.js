@@ -1,4 +1,5 @@
 // subPages/residentvoice/residentvoice.js
+
 import { get } from "../../assets/js/request"
 Page({
 
@@ -11,6 +12,8 @@ Page({
     pageNum: 1,
     total:'',
     title:'',
+    showNotice:false,//说明按钮
+    scoreintro:{},//说明内容
     status:'',
     index:0,
     array:[//筛选列表
@@ -53,6 +56,28 @@ Page({
           Newslist:res.data.list
         })
       }
+    })
+  },
+  godeal() {
+    this.setData({//展示说明
+      showNotice: true
+    })
+  },
+  getnews() {
+    get({
+      link: "/information/list",
+      data: {
+        newsType: 32
+      }
+    }).then(res => {
+      this.setData({
+        scoreintro: res.data.list[0]
+      })
+    })
+  },
+  closenotice() {
+    this.setData({//不展示说明
+      showNotice: false
     })
   },
   changeSwiper(e) {
@@ -101,6 +126,7 @@ Page({
    */
   onLoad: function (options) {
     this.getvoicelist()
+    this.getnews()
   },
 
   /**

@@ -9,18 +9,24 @@ Page({
    */
   data: {
     showLocation:false,
-    pageSize:8,
-    pageNum:1,
+    // pageSize:8,
+    // pageNum:1,
+    showNotice:false,//说明按钮
+    scoreintro:{},//说明内容
+    area:'选择区域',//显示区域
+    typeName:'选择类型',//显示类型
     list:[],//店铺列表
     locationlist: [],//区域数据和类型数据
     id:'',//头部三大类型id
     deptid:'',//每一项区域选项id
     typeid: '',//每一项类型选项id
-
+    total:'',//总条数
     shopname:'',//搜索的店铺名称
     // num: 4,//评分数
     argument:{//筛选需要用到的参数
       deptId: '',
+      pageNum:1,
+      pageSize:20,
       marketType: '',
       marketName: ''
     },
@@ -46,6 +52,7 @@ Page({
 
     }
   },
+  move(){return},
   clearinput(){
     console.log(111)
     this.setData({
@@ -60,10 +67,51 @@ Page({
       id: '',
       itemsid:'',
       deptid:"",
-      typeid:''
+      typeid:'',
+      typeName:'选择类型',
+      area:'选择类型',
+      argument:{//筛选需要用到的参数
+        deptId: '',
+        pageNum:1,
+        pageSize:20,
+        marketType: '',
+        marketName: ''
+      },
+      list:[]
+    })
+    this.getgoodslist(this.data.argument)
 
+  },
+  
+  godeal() {
+    this.setData({//展示说明
+      showNotice: true
     })
   },
+  getnews() {
+    get({
+      link: "/information/list",
+      data: {
+        newsType: 36
+      }
+    }).then(res => {
+      this.setData({
+        scoreintro: res.data.list[0]
+      })
+    })
+  },
+  closenotice() {
+    this.setData({//不展示说明
+      showNotice: false
+    })
+  },
+  cancles() {
+    wx.showTabBar()
+    this.setData({
+      showLocation: false,
+      id: '',
+      itemsid:'',  })
+    },
   //点击确定
   affirm(e){
     console.log(e)
@@ -71,25 +119,28 @@ Page({
       this.setData({
         'argument.deptId':this.data.deptid,
         'argument.marketType': this.data.typeid,
-        'argument.marketName': this.data.shopname
+        'argument.marketName': this.data.shopname,
+        list:[],
       })
     
     console.log(this.data.argument)
     this.getgoodslist(this.data.argument)
-    this.cancle()
+    this.cancles()
   },
   //点击区域选项每一项
   chooseeara(e){
     console.log(e)
     this.setData({
-      deptid: e.currentTarget.dataset.deptid
+      deptid: e.currentTarget.dataset.deptid,
+      area:e.currentTarget.dataset.local
     })
   },
   //点击类型选项每一项
   choosetype(e) {
     console.log(e)
     this.setData({
-      typeid: e.currentTarget.dataset.typeid
+      typeid: e.currentTarget.dataset.typeid,
+      typeName:e.currentTarget.dataset.name
     })
   },
   //获取输入店铺名称
@@ -122,7 +173,8 @@ Page({
       if (msg.code == 200) {
         let list = msg.data.list
         t.setData({
-          list: list
+          total:msg.data.total,
+          list:this.data.list.concat(list)
         })
       }
 
@@ -143,7 +195,6 @@ Page({
           locationlist:msg.data
         })
       }
-
     }).catch(error => {
       console.log(error)
     })
@@ -152,7 +203,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+  this.getnews()
   },
 
   /**
@@ -206,7 +257,12 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    if(this.data.total>this.data.argument.pageSize*this.data.argument.pageNum){
+      this.setData({
+        'argument.pageNum':this.data.argument.pageNum+1
+      })
+      this.getgoodslist(this.data.argument)
+    }
   },
 
   /**

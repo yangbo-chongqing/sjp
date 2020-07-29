@@ -12,6 +12,8 @@ Page({
    */
   data: {
     list:[],
+    showNotice:false,//说明按钮
+    scoreintro:{},//说明内容
     // bannerList: [
     //   { 
     //     imgSrc: "https://webservers.sjpdqfwzx.com/file/icon/Group 195.png",
@@ -30,6 +32,28 @@ Page({
     //   }
     // ]
     gridPersonList:null
+  },
+  godeal() {
+    this.setData({//展示说明
+      showNotice: true
+    })
+  },
+  getnews() {
+    get({
+      link: "/information/list",
+      data: {
+        newsType: 31
+      }
+    }).then(res => {
+      this.setData({
+        scoreintro: res.data.list[0]
+      })
+    })
+  },
+  closenotice() {
+    this.setData({//不展示说明
+      showNotice: false
+    })
   },
   // 网格组织
   wgzu: function() {
@@ -98,6 +122,7 @@ Page({
    */
   onLoad: function (options) {
     this.getList()
+    this.getnews()
   },
 
   /**

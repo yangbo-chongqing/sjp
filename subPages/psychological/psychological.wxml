@@ -27,11 +27,11 @@
             <view>活动时间：{{filter.timesub7(time)}}</view>
             <view>活动地点：{{space}}</view>
             <view>活动简介：{{jianjie}}</view>
-            <view class="points">
+            <!-- <view class="points">
               活动积分：
               <image class="gold" src="https://webservers.sjpdqfwzx.com/file/icon/Rectangle 205.png" role="img"></image>
               <text>{{item.integral==null?'0':item.integral}}积分</text>
-            </view>
+            </view> -->
           </view>
         </view>
       </view>

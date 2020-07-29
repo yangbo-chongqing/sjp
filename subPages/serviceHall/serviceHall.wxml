@@ -1,9 +1,19 @@
 <!--服务大厅页面-->
 <view id="serviceHall">
-    <!--工具栏-->
-    <Tools ToolsList="{{ ToolsList }}" bind:goSubpage="goSubpage"/>
-    <!--分割线-->
-    <Line />
-    <!--详情-->
-    <News areaName="{{ areaName }}" deptAttributes="{{ deptAttributes }}" />
+	<!--工具栏-->
+	<Tools ToolsList="{{ ToolsList }}" bind:goSubpage="goSubpage" />
+	<!--分割线-->
+	<Line />
+	<!--详情-->
+	<News areaName="{{ areaName }}" deptAttributes="{{ deptAttributes }}" />
+	<image wx:if="{{scoreintro.content}}" bindtap="godeal" class="img" src="../../assets/img/shuoming.png"></image>
+	<view class="codes" wx:if="{{showNotice}}">
+		<view class="noticecontent">
+			<view class="codeTit">
+				<text >服务大厅说明</text>
+				<image bindtap="closenotice" src="/assets/img/close.png"></image>
+			</view>
+			<rich-text nodes="{{scoreintro.content}}"></rich-text>
+		</view>
+	</view>
 </view>

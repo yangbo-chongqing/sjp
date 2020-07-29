@@ -36,3 +36,13 @@
 <navigator wx:if="{{current==0}}" url="/subPages/residentvoice/needheart/needheart" class="addvoice">
 	<text class="iconfont icon-jiahao"></text>
 </navigator>
+<image wx:if="{{scoreintro.content}}" bindtap="godeal" class="img" src="../../assets/img/shuoming.png"></image>
+	<view class="codes" wx:if="{{showNotice}}">
+		<view class="noticecontent">
+			<view class="codeTit">
+				<text >民情民意说明</text>
+				<image bindtap="closenotice" src="/assets/img/close.png"></image>
+			</view>
+			<rich-text nodes="{{scoreintro.content}}"></rich-text>
+		</view>
+	</view>

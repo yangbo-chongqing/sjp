@@ -2,12 +2,12 @@
 <view class="location">
   <view>
     <view class="locationleft {{id==1?'border':''}}" bindtap="getAndshow" data-id="{{1}}">
-      <text>选择区域</text>
+      <text>{{area}}</text>
       <text class="iconfont icon-xia xia"></text> </view>
   </view>
   <view>
     <view class="locationright  {{id==2?'border':''}}" bindtap="getAndshow" data-id="{{2}}">
-      <text>选择类型</text>
+      <text>{{typeName}}</text>
       <text class="iconfont icon-xia xia"></text> </view>
   </view>
   <view>
@@ -37,7 +37,7 @@
 <view class="locationModel" wx:if="{{showLocation}}">
   <view class="{{showLocation?'animate':'box'}}" wx:if="{{id==1}}">
     <view class="itembox">
-      <view class="smallitem bgcolor {{deptid==item.deptId?'active':''}}" bindtap="chooseeara" data-deptid="{{item.deptId}}" wx:for="{{locationlist}}" wx:key="index">{{item.areaName}}</view>
+      <view class="smallitem bgcolor {{deptid==item.deptId?'active':''}}" bindtap="chooseeara" data-local="{{item.areaName}}" data-deptid="{{item.deptId}}" wx:for="{{locationlist}}" wx:key="index">{{item.areaName}}</view>
     </view>
     <view class="third">
       <view bindtap="cancle">取消</view>
@@ -46,7 +46,7 @@
   </view>
   <view class="{{showLocation?'animate':'box'}}" wx:elif="{{id==2}}">
     <view class="itembox">
-      <view class="smallitem bgcolor {{typeid==item.dictItemCode?'active':''}}" bindtap="choosetype" data-typeid="{{item.dictItemCode}}" wx:for="{{locationlist}}" wx:key="index">{{item.dictItemName}}</view>
+      <view class="smallitem bgcolor {{typeid==item.dictItemCode?'active':''}}" bindtap="choosetype" data-name="{{item.dictItemName}}" data-typeid="{{item.dictItemCode}}" wx:for="{{locationlist}}" wx:key="index">{{item.dictItemName}}</view>
     </view>
     <view class="third">
       <view bindtap="cancle">取消</view>
@@ -64,3 +64,14 @@
     </view>
   </view>
 </view>
+<image wx:if="{{scoreintro.content}}" bindtap="godeal" class="img" src="../../assets/img/shuoming.png"></image>
+	<view catchtouchmove="move"  class="codes" wx:if="{{showNotice}}">
+		<view class="noticecontent">
+			<view class="codeTit">
+				<text >积分超市说明</text>
+				<image bindtap="closenotice" src="/assets/img/close.png"></image>
+			</view>
+			<rich-text  nodes="{{scoreintro.content}}"></rich-text>
+		</view>
+   
+	</view>

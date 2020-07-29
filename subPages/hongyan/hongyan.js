@@ -19,13 +19,17 @@ Page({
     list:[],
     listXian:[],
     num:"",
+    showNotice:false,//说明按钮
+    scoreintro:{},//说明内容
     list2:[],   //不是党员
     kpis:[],
     baifen:[100,22,33,44,55,66],
     listTit:[],
     listDetails:[]
   },
-
+  move(){
+    return
+  },
   goDetails(e) {
     wx.navigateTo({
       url: e.currentTarget.dataset.url,
@@ -41,6 +45,9 @@ Page({
     wx.navigateTo({
       url: '/pages/changed/changed',
     })
+  },
+  stopMove(){
+    return 
   },
   // 获取列表
   getList() {
@@ -181,6 +188,28 @@ Page({
       url: "/subPages/demeanorDetails/demeanorDetails?title=" + title + "&id=" + id,
     })
   },
+  godeal() {
+    this.setData({//展示说明
+      showNotice: true
+    })
+  },
+  getnews() {
+    get({
+      link: "/information/list",
+      data: {
+        newsType: 30
+      }
+    }).then(res => {
+      this.setData({
+        scoreintro: res.data.list[0]
+      })
+    })
+  },
+  closenotice() {
+    this.setData({//不展示说明
+      showNotice: false
+    })
+  },
   getType(){//获取积分的大类型
     let t=this
     get({
@@ -217,6 +246,8 @@ Page({
   onLoad: function (options) {
     console.log(app.globalData)
     // this.getList()
+    this.getnews()
+
     this.getNum()
     this.getGrade()
     this.getListXian()

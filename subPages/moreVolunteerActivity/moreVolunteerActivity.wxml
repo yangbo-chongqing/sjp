@@ -2,29 +2,38 @@
 <wxs src="../../assets/filter/public.wxs" module="filter"></wxs>
 
 <view class="change">
-  <view class='{{current==0?"active":""}} doing' data-current="0" catchtap='changeSwiper'>活动预告</view>
-  <view class='{{current==1?"active":""}} doing' data-current="1" catchtap='changeSwiper'>志愿风采</view>
+	<view class='{{current==0?"active":""}} doing' data-current="0" catchtap='changeSwiper'>活动预告</view>
+	<view class='{{current==1?"active":""}} doing' data-current="1" catchtap='changeSwiper'>志愿风采</view>
 </view>
 <view wx:if="{{current==0?true:false}}">
 
-  <volunteer acList="{{ acList }}" acListTwo="{{acListTwo}}" acListThree="{{acListThree}}" bind:godetail="godetail" />
+	<volunteer acList="{{ acList }}" acListTwo="{{acListTwo}}" acListThree="{{acListThree}}" bind:godetail="godetail" />
 
 </view>
 <view wx:if="{{current==1?true:false}}">
-  <view class="studyItem" wx:for="{{viewlist}}" data-id="{{item.newsId}}" bindtap="goview" wx:key="index">
-    <image src="{{filter.picsub(item.coverPic,0)}}" role="img"></image>
-    <view class="studyright">
-      <view class="studytitle">{{item.title}}</view>
-      <view class="studycontent">{{item.introduction}}</view>
-      <view class="studytime">
-        <view>浏览量
-          <text class="color">{{item.readCount}}</text> </view>
-        <text>{{filter.timesub2(item.createDate)}}</text>
-      </view>
+	<view class="studyItem" wx:for="{{viewlist}}" data-id="{{item.newsId}}" bindtap="goview" wx:key="index">
+		<image src="{{filter.picsub(item.coverPic,0)}}" role="img"></image>
+		<view class="studyright">
+			<view class="studytitle">{{item.title}}</view>
+			<view class="studycontent">{{item.introduction}}</view>
+			<view class="studytime">
+				<view>浏览量
+					<text class="color">{{item.readCount}}</text> </view>
+				<text>{{filter.timesub2(item.createDate)}}</text>
+			</view>
 
 
 
-    </view>
-  </view>
-
+		</view>
+	</view>
 </view>
+	<image wx:if="{{scoreintro.content}}" bindtap="godeal" class="img" src="../../assets/img/shuoming.png"></image>
+	<view class="codes" wx:if="{{showNotice}}">
+		<view class="noticecontent">
+			<view class="codeTit">
+				<text >志愿活动说明</text>
+				<image bindtap="closenotice" src="/assets/img/close.png"></image>
+			</view>
+			<rich-text nodes="{{scoreintro.content}}"></rich-text>
+		</view>
+	</view>

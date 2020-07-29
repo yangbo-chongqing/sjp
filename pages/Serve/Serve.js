@@ -83,6 +83,7 @@ Page({
       showFiltrate: false,
       showLocation: false,
       id: '',
+      numm:1,
       leixing:'保障类型',
       shequ:"所属社区",
       priority: { //优先保障筛选参数

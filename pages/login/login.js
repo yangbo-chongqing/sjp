@@ -141,7 +141,7 @@ Page({
           wx.setStorageSync('password', hexMD5(password));
           wx.setStorageSync('username', username);
           //app.globalData.userInfo = JSON.stringify(res.data.data) 
-          // this.save() //登录成功后如果点击记住密码了（ismenber为true）储存用户账号密码
+          this.save() //登录成功后如果点击记住密码了（ismenber为true）储存用户账号密码
           // console.log(app.globalData.userInfo)
           // wx.showToast({
           //   title: '登陆成功', 
@@ -180,7 +180,6 @@ Page({
     })
     if (!this.data.ismenber) {
       wx.removeStorageSync('accountpassword')
-
     }
   },
   //存密码方法

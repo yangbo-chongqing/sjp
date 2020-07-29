@@ -71,3 +71,12 @@
     <text bindtap="godeal">用户服务协议</text>》
   </view>
 </view>
+<view class="codes" wx:if="{{showNotice}}">
+	<view class="noticecontent">
+		<view class="codeTit">
+			<text >用户服务协议</text>
+			<image bindtap="closenotice" src="/assets/img/close.png"></image>
+		</view>
+		<rich-text nodes="{{scoreintro.content}}"></rich-text>
+	</view>
+</view>

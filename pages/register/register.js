@@ -22,6 +22,7 @@ Page({
         Top: app.globalData.Top,
         one: 0,
         two: 0,
+        showNotice:false,
         three: 0,
         four: 0,
         multiArray: [],  // 二维数组数据
@@ -31,7 +32,8 @@ Page({
         mobile:'',
         src: [], //本地预览的照片路径
         src1: [], //服务器返的照片路径
-        add:true
+        add:true,
+        scoreintro:{}
       },
       change(val) {
         let num = val.detail.value
@@ -194,6 +196,16 @@ Page({
     })
     
   },
+  godeal(){
+    this.setData({
+      showNotice:true
+    })
+  },
+  closenotice(){
+    this.setData({
+      showNotice:false
+    })
+  },
   //上传图片  
   subPic(e) {
     let that = this;
@@ -243,7 +255,18 @@ Page({
       }
     })
   },
-
+  getxieyi(){
+    get({
+      link:"/information/get",
+      data:{
+        newsId:3357
+      }
+    }).then(res=>{
+      this.setData({
+        scoreintro:res.data
+      })
+  })
+},
   formSubmit(e){
     console.log(e)
     let { userphone, password, newpassword}= e.detail.value
@@ -340,6 +363,7 @@ Page({
    */
   onLoad: function(options) {
     this.getplace()
+    this.getxieyi()
     this.setData({
       mobile:options.phone
     })

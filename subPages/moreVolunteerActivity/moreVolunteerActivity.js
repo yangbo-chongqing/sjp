@@ -10,6 +10,8 @@ Page({
   data: {
     current: 0,
     pageSize:10,
+    showNotice:false,//说明按钮
+    scoreintro:{},//说明内容
     pageNum:1,
     viewlist:[],//志愿风采列表
   },
@@ -18,6 +20,28 @@ Page({
       current: e.currentTarget.dataset.current,
     });
 
+  },
+  godeal() {
+    this.setData({//展示说明
+      showNotice: true
+    })
+  },
+  getnews() {
+    get({
+      link: "/information/list",
+      data: {
+        newsType: 34
+      }
+    }).then(res => {
+      this.setData({
+        scoreintro: res.data.list[0]
+      })
+    })
+  },
+  closenotice() {
+    this.setData({//不展示说明
+      showNotice: false
+    })
   },
   //获取活动预告--未开始
   getaclist() {
@@ -174,7 +198,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getnews()
   },
 
   /**

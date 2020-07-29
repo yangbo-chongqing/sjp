@@ -91,7 +91,7 @@
 				</view>
 			</view>
 		</view>
-		
+
 	</view>
 
 	<!-- 不是党员展示数据 -->
@@ -127,5 +127,19 @@
 				<view class="lines"></view>
 			</view>
 		</view>
+	</view>
+	<!-- 说明 -->
+	<image wx:if="{{scoreintro.content}}" bindtap="godeal" class="img" src="../../assets/img/shuoming.png"></image>
+	<view catchtouchmove="move" class="codes" wx:if="{{showNotice}}">
+			<view class="noticecontent">
+				<view class="codeTit">
+					<text >红岩先锋说明</text>
+					<image bindtap="closenotice" src="/assets/img/close.png"></image>
+				</view>
+				<scroll-view scroll-y class='filterDataView'>
+					<rich-text nodes="{{scoreintro.content}}"></rich-text>
+				</scroll-view>
+
+			</view>
 	</view>
 </view>

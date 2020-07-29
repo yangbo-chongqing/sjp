@@ -78,7 +78,7 @@ Page({
         })
         setTimeout(() => {
           wx.openDocument({
-            filePath: filePath,
+            filePath: that.data.fil,
             fileType:'doc',
             showMenu:true,
             success: function (res) {

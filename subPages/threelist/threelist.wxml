@@ -114,3 +114,13 @@
 		</view>
 	</view>
 </view>
+<image wx:if="{{scoreintro.content}}" bindtap="godeal" class="img" src="../../assets/img/shuoming.png"></image>
+	<view class="codes" wx:if="{{showNotice}}">
+		<view class="noticecontent">
+			<view class="codeTit">
+				<text >三张清单说明</text>
+				<image bindtap="closenotice" src="/assets/img/close.png"></image>
+			</view>
+			<rich-text nodes="{{scoreintro.content}}"></rich-text>
+		</view>
+	</view>

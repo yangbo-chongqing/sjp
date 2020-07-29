@@ -118,14 +118,25 @@ Page({
       }).then(msg => {
         let list = []
         console.log(msg);
-        msg.data.list.forEach(val => {
+        msg.data.forEach(val => {
           list.push({
             id: val.gridId,
             latitude: val.latitude,
             longitude: val.longitude,
             name: val.gridName,
+            // title:val.positionName,
             // instructions: val.areaName,
-            img: val.gridImg
+            img: val.gridImg,
+            label: {
+              content: val.positionName,
+              color: '#22ac38',
+              fontSize: 14,
+              bgColor: "#fff",
+              borderRadius: 30,
+              borderColor: "#22ac38",
+              borderWidth: 1,
+              padding: 3
+            },
           })
         })
         console.log(list);

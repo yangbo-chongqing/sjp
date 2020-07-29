@@ -26,6 +26,9 @@
 .icon-detail-a:before {
   content: "\e64d";
 }
+.icon-shuoming:before {
+  content: "\e6ad";
+}
 
 .icon-star1:before {
   content: "\e6a8";

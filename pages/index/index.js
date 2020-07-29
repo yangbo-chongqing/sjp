@@ -34,7 +34,7 @@ Page({
       },
       {
         img: "https://webservers.sjpdqfwzx.com/file/icon/Rectangle 187-3.png",
-        title: "居民心声",
+        title: "民情民意",
         link: "/subPages/residentvoice/residentvoice"
       },
     ],

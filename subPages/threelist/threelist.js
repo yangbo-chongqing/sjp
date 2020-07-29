@@ -11,6 +11,8 @@ Page({
    */
   data: {
     current: 0,
+    showNotice:false,//说明按钮
+    scoreintro:{},//说明内容
     resourcelist: [], //资源清单列表
     prolist: [], //资源清单列表
     placelist: [], //提交区域列表
@@ -53,6 +55,28 @@ Page({
   gopro(e) {
     wx.navigateTo({
       url: e.currentTarget.dataset.url,
+    })
+  },
+  godeal() {
+    this.setData({//展示说明
+      showNotice: true
+    })
+  },
+  getnews() {
+    get({
+      link: "/information/list",
+      data: {
+        newsType: 35
+      }
+    }).then(res => {
+      this.setData({
+        scoreintro: res.data.list[0]
+      })
+    })
+  },
+  closenotice() {
+    this.setData({//不展示说明
+      showNotice: false
     })
   },
   //获取资源清单
@@ -205,6 +229,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    this.getnews()
     this.getsorce()
     this.getpro()
     this.getplace()
